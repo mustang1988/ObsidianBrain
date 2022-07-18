@@ -4,10 +4,10 @@
     "type": "split",
     "children": [
       {
-        "id": "6eac65239bd25677",
+        "id": "c4f90efa78db51cf",
         "type": "leaf",
         "state": {
-          "type": "graph",
+          "type": "empty",
           "state": {}
         }
       }
@@ -36,7 +36,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#Lodash",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -118,19 +118,20 @@
       }
     ],
     "direction": "horizontal",
-    "width": 100
+    "width": 436.5,
+    "collapsed": true
   },
-  "active": "6eac65239bd25677",
+  "active": "c4f90efa78db51cf",
   "lastOpenFiles": [
+    "图片/工具/VSCode/Cover.png",
+    "软件开发/数据库/数据库.md",
+    "软件开发/数据库/MySQL/MySQL.md",
     "软件开发/数据库/Redis/Redis.md",
-    "软件开发/编程语言/Java/Java.md",
-    "软件开发/数据库/Redis/Redis常用命令/HGET.md",
+    "软件开发/数据库/Redis/Redis常用业务场景/Redis分布式锁.md",
+    "软件开发/数据库/MongoDB/MongoDB.md",
     "软件开发/框架&库/框架&库.md",
-    "软件开发/框架&库/Mocha/Mocha.md",
-    "软件开发/编程语言/ECMAScript/ECMAScript.md",
-    "软件开发/编程语言/C++/C++.md",
-    "软件开发/框架&库/Mocha/未命名.md",
-    "软件开发/框架&库/WebRTC/WebRTC.md",
-    "软件开发/框架&库/SpringFramework/SpringFramework.md"
+    "软件开发/框架&库/Django/Django.md",
+    "软件开发/框架&库/EggJS/EggJS.md",
+    "软件开发/工具/工具.md"
   ]
 }

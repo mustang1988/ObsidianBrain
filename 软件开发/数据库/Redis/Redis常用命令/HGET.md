@@ -25,4 +25,4 @@ redis:6379> HGET myhash field2
 (nil)
 ```
 
-#数据库 #数据库/非关系型数据库 #数据库/非关系型数据库/Redis #数据库/非关系型数据库/Redis/常用命令 #数据库/非关系型数据库/Redis/常用命令/Hash
+#Redis #Redis/常用命令/Hash

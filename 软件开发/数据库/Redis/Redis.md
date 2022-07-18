@@ -5,7 +5,7 @@
 ```dataviewjs
 dv.table(
 	["命令","说明"],
-	dv.pages('#数据库/非关系型数据库/Redis/常用命令/通用 and "软件开发/数据库/Redis/Redis常用命令"')
+	dv.pages('#Redis/常用命令/通用')
 	.sort(page => page.file.name, 'asc')
 	.map(page => [page.file.link, page.Comment])
 );
@@ -15,7 +15,7 @@ dv.table(
 ```dataviewjs
 dv.table(
 	["命令","说明"],
-	dv.pages('#数据库/非关系型数据库/Redis/常用命令/List and "软件开发/数据库/Redis/Redis常用命令"')
+	dv.pages('#Redis/常用命令/List')
 	.sort(page => page.file.name, 'asc')
 	.map(page => [page.file.link, page.Comment])
 );
@@ -25,7 +25,7 @@ dv.table(
 ```dataviewjs
 dv.table(
 	["命令","说明"],
-	dv.pages('#数据库/非关系型数据库/Redis/常用命令/Hash and "软件开发/数据库/Redis/Redis常用命令"')
+	dv.pages('#Redis/常用命令/Hash')
 	.sort(page => page.file.name, 'asc')
 	.map(page => [page.file.link, page.Comment])
 );
@@ -35,7 +35,7 @@ dv.table(
 ```dataviewjs
 dv.table(
 	["命令","说明"],
-	dv.pages('#数据库/非关系型数据库/Redis/常用命令/Set and "软件开发/数据库/Redis/Redis常用命令"')
+	dv.pages('#Redis/常用命令/Set')
 	.sort(page => page.file.name, 'asc')
 	.map(page => [page.file.link, page.Comment])
 );
@@ -45,7 +45,7 @@ dv.table(
 ```dataviewjs
 dv.table(
 	["命令","说明"],
-	dv.pages('#数据库/非关系型数据库/Redis/常用命令/SortedSet and "软件开发/数据库/Redis/Redis常用命令"')
+	dv.pages('#Redis/常用命令/SortedSet')
 	.sort(page => page.file.name, 'asc')
 	.map(page => [page.file.link, page.Comment])
 );
@@ -55,7 +55,7 @@ dv.table(
 ```dataviewjs
 dv.table(
 	["命令","说明"],
-	dv.pages('#数据库/非关系型数据库/Redis/常用命令/String and "软件开发/数据库/Redis/Redis常用命令"')
+	dv.pages('#Redis/常用命令/String')
 	.sort(page => page.file.name, 'asc')
 	.map(page => [page.file.link, page.Comment])
 );
@@ -64,7 +64,7 @@ dv.table(
 ### Redis常用业务场景
 ```dataviewjs
 dv.list(
-	dv.pages('#数据库/非关系型数据库/Redis/常用业务场景')
+	dv.pages('#Redis/常用业务场景')
 	.sort(page => page.file.name, 'asc')
 	.map(page => page.file.link)
 );

@@ -76,4 +76,4 @@ launch.json配置文件默认内容:
 调试过程中左侧面板会显示当前调用的堆栈列表和变量当前值
 ![[在VSCode中单步调试TypeScript和JavaScript_4.png]]
 
-#工具/VSCode #Debug #ECMAScript #VSCode
+#Debug #ECMAScript #VSCode

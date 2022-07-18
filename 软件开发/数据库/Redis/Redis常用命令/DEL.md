@@ -24,4 +24,4 @@ redis:6379> DEL key1 key2 key3
 (integer) 2
 ```
 
-#数据库 #数据库/非关系型数据库 #数据库/非关系型数据库/Redis #数据库/非关系型数据库/Redis/常用命令 #数据库/非关系型数据库/Redis/常用命令/通用
+#Redis #Redis/常用命令/通用

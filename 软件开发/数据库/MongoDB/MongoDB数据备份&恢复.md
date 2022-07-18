@@ -31,4 +31,4 @@ mongorestore --host <host>:port -u <username> -p <password> <dir>
 |password|密码|
 |dir|mongodump导出的数据目录|
 
-#数据库 #数据库/非关系型数据库 #数据库/非关系型数据库/MongoDB 
+#MongoDB
