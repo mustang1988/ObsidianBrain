@@ -20,4 +20,4 @@ _.delay(function(text) {
 }, 1000, 'later');
 ```
 
-#库 #Lodash #Lodash/Function
+#Lodash #Lodash/Function

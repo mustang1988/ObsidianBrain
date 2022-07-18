@@ -1,48 +1,12 @@
 {
-  "collapse-filter": true,
+  "collapse-filter": false,
   "search": "",
   "showTags": true,
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
-  "colorGroups": [
-    {
-      "query": "path:软件开发/编程语言/ECMAScript",
-      "color": {
-        "a": 1,
-        "rgb": 16776960
-      }
-    },
-    {
-      "query": "tag:#工具",
-      "color": {
-        "a": 1,
-        "rgb": 255
-      }
-    },
-    {
-      "query": "tag:数据库",
-      "color": {
-        "a": 1,
-        "rgb": 16711935
-      }
-    },
-    {
-      "query": "tag:#框架",
-      "color": {
-        "a": 1,
-        "rgb": 5431378
-      }
-    },
-    {
-      "query": "tag:#库",
-      "color": {
-        "a": 1,
-        "rgb": 5431473
-      }
-    }
-  ],
+  "collapse-color-groups": false,
+  "colorGroups": [],
   "collapse-display": true,
   "showArrow": false,
   "textFadeMultiplier": 0,
@@ -53,6 +17,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.3628873693012154,
-  "close": false
+  "scale": 0.2588386562181662,
+  "close": true
 }

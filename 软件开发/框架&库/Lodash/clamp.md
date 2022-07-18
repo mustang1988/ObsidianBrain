@@ -23,4 +23,4 @@ _.clamp(10, -5, 5); // => 5, 10大于上限边界5, 返回上限边界值
 _.clamp(0, -5, 5); // => 0, 0在区间[-5, 5]内, 返回其本身
 ```
 
-#库 #Lodash #Lodash/Number
+#Lodash #Lodash/Number

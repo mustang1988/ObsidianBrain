@@ -1,15 +1,15 @@
-## VSCode
-
-![[Cover.png]]
+---
+Language: "[[ECMAScript]]"
+---
+## Prisma
 
 ```dataviewjs
-console.log(dv.current())
 dv.list(
-	dv.pages('#VSCode')
+	dv.pages('#Prisma')
 	.filter(page => page.file.path != dv.current().file.path)
 	.sort(page => page.file.name, 'asc')
 	.map(page => page.file.link)
 );
 ```
 
-#工具 #工具/VSCode 
+#库 #库/Prisma #ECMAScript #数据库 #ORM

@@ -1,5 +1,8 @@
-## Loadsh
+---
+Language: "[[ECMAScript]]"
+---
 
+## Lodash
 ### Array
 ```dataviewjs
 dv.table(

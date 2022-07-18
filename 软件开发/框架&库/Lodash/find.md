@@ -29,4 +29,4 @@ const _ = require('lodash');
 
 ```
 
-#库 #Lodash #Lodash/Collection
+#Lodash #Lodash/Collection

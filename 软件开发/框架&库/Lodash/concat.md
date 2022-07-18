@@ -22,4 +22,4 @@ console.log(array);
 // => [1]
 ```
 
-#库 #Lodash #Lodash/Array
+#Lodash #Lodash/Array

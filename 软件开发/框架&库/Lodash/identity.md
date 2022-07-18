@@ -18,4 +18,4 @@ console.log(_.identity(object) === object);
 // => true
 ```
 
-#库 #Lodash #Lodash/Util
+#Lodash #Lodash/Util

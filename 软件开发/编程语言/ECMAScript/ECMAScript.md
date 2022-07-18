@@ -9,13 +9,31 @@ dv.list(
 	.map(page => page.file.link)
 );
 ```
-### 相关文章
+### 库
 ```dataviewjs
 dv.list(
-	dv.pages('#ECMAScript and -"软件开发/编程语言/ECMAScript"')
+	dv.pages('#ECMAScript and -"软件开发/编程语言/ECMAScript" and #库')
 	.sort(page => page.file.name, 'asc')
 	.map(page => page.file.link)
 );
 ```
 
-#ECMAScript
+### 框架
+```dataviewjs
+dv.list(
+	dv.pages('#ECMAScript and -"软件开发/编程语言/ECMAScript" and #框架')
+	.sort(page => page.file.name, 'asc')
+	.map(page => page.file.link)
+);
+```
+
+### 相关文章
+```dataviewjs
+dv.list(
+	dv.pages('#ECMAScript and -"软件开发/编程语言/ECMAScript" and -#库 and -#框架')
+	.sort(page => page.file.name, 'asc')
+	.map(page => page.file.link)
+);
+```
+
+#ECMAScript #编程语言/ECMAScript 

@@ -1,4 +1,4 @@
-## 在VSCode中单步调试TypeScript和JavaScript
+## 在[[VSCode]]中单步调试TypeScript和JavaScript
 
 ## 创建调试用入口文件
 在项目中新建一个调试用的调用入口文件, 编写代码调用需要进行单步调试的代码
@@ -76,4 +76,4 @@ launch.json配置文件默认内容:
 调试过程中左侧面板会显示当前调用的堆栈列表和变量当前值
 ![[在VSCode中单步调试TypeScript和JavaScript_4.png]]
 
-#工具/VSCode #Debug #ECMAScript 
+#工具/VSCode #Debug #ECMAScript #VSCode

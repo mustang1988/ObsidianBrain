@@ -17,4 +17,4 @@ const _ = require('lodash');
 _.add(6, 4); // => 10
 ```
 
-#库 #Lodash #Lodash/Math 
+#Lodash #Lodash/Math 

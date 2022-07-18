@@ -23,4 +23,4 @@ _.get(object, ['a', '0', 'b', 'c']); // => 3
 _.get(object, 'a.b.c', 'default'); // => 'default'
 ```
 
-#库 #Lodash #Lodash/Object
+#Lodash #Lodash/Object
