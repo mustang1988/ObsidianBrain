@@ -20,6 +20,27 @@
         "a": 1,
         "rgb": 255
       }
+    },
+    {
+      "query": "tag:数据库",
+      "color": {
+        "a": 1,
+        "rgb": 16711935
+      }
+    },
+    {
+      "query": "tag:#框架",
+      "color": {
+        "a": 1,
+        "rgb": 5431378
+      }
+    },
+    {
+      "query": "tag:#库",
+      "color": {
+        "a": 1,
+        "rgb": 5431473
+      }
     }
   ],
   "collapse-display": true,
@@ -32,6 +53,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.7132754626224473,
-  "close": true
+  "scale": 0.3628873693012154,
+  "close": false
 }
