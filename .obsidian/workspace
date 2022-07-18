@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "软件开发/编程语言/JavaScript.md",
+            "file": "软件开发/编程语言/JavaScript&TypeScript/ChileProcess模块/ChildProcess.md",
             "mode": "source",
             "source": false
           }
@@ -40,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#TypeScript/ChildProcess模块/ChildProcess",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "软件开发/编程语言/JavaScript.md",
+                "file": "软件开发/编程语言/JavaScript&TypeScript/ChileProcess模块/ChildProcess.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "软件开发/编程语言/JavaScript.md",
+                "file": "软件开发/编程语言/JavaScript&TypeScript/ChileProcess模块/ChildProcess.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,24 +117,28 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "软件开发/编程语言/JavaScript.md"
+                "file": "软件开发/编程语言/JavaScript&TypeScript/ChileProcess模块/ChildProcess.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "active": "05007724218dd3fa",
   "lastOpenFiles": [
-    "软件开发/理论/理论.md",
-    "软件开发/框架/框架.md",
-    "软件开发/库/库.md",
-    "软件开发/工具/工具.md",
-    "软件开发/编程语言/编程语言.md",
-    "软件开发/数据库/非关系型数据库/Redis/命令/通用/DEL.md"
+    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess模块/exec.md",
+    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess模块/ChildProcess.md",
+    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess模块/spawnSync.md",
+    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess模块/spawn.md",
+    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess模块/fork.md",
+    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess模块/execSync.md",
+    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess模块/execFileSync.md",
+    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess模块/execFile.md",
+    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess模块/API/ChildProcessAPI.md",
+    "[.md"
   ]
 }
