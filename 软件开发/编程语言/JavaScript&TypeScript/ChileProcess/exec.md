@@ -10,7 +10,7 @@
 |options|Object|N|提交给exec函数的可选参数|[[exec#option可选参数]]|
 |callback|Function|N|执行结束后的回调函数|[[exec#callback回调函数]]|
 
-> 注意, 因为exec函数会先创建Shell, 然后将命令交由Shell执行, 因此命令及其参数中的Shell关键字, 输出重定向等操作均会执行, 在调用exec前请务必对输出的命令参数进行严格的检查, 以防止出现恶意参数或脚本被注入和执行
+> 注意, 因为exec函数会先创建Shell, 然后将命令交由Shell执行, 因此命令及其参数中的诸如Shell通配符, I/O重定向等操作均会执行, 在调用exec前请务必对输出的命令参数进行严格的检查, 以防止出现恶意参数或脚本被注入和执行
 
 #### option可选参数
 |参数名|参数类型|参数说明|默认值|
@@ -36,7 +36,7 @@
 |stderror|Stream \| null|命令执行时的异常输出|
 
 ### 返回值
-创建的子进程的ChildProcess对象
+创建的子进程的 [[ChildProcess模块#ChildProcess对象]]
 
 ### 示例
 ```javascript
@@ -55,4 +55,4 @@ const cp:ChildProcess = exec(command, (error, stdout, stderr) => {
 });
 ```
 
-#JavaScript/ChileProcess模块/exec #TypeScript/ChildProcess模块/exec #多进程 
+#JavaScript/ChileProcess模块 #TypeScript/ChildProcess模块 #多进程 #创建子进程
