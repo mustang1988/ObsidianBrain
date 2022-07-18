@@ -1,7 +1,7 @@
 {
   "promptDelete": false,
   "alwaysUpdateLinks": true,
-  "showUnsupportedFiles": true,
+  "showUnsupportedFiles": false,
   "strictLineBreaks": true,
   "showLineNumber": true,
   "spellcheck": true,

@@ -4,15 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "b838d7b34d0ec19f",
+        "id": "014b5c8b66f16545",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "软件开发/编程语言/JavaScript&TypeScript/ChileProcess/ChildProcess模块.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -40,7 +36,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#TypeScript/ChildProcess模块/ChildProcess",
+                "query": "tag:#ECMAScript/ChildProcess模块",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -61,7 +57,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 365.5
   },
   "right": {
     "id": "0cec90c71c16d73c",
@@ -77,7 +73,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "软件开发/编程语言/JavaScript&TypeScript/ChileProcess/ChildProcess模块.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +89,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "软件开发/编程语言/JavaScript&TypeScript/ChileProcess/ChildProcess模块.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -116,9 +110,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "软件开发/编程语言/JavaScript&TypeScript/ChileProcess/ChildProcess模块.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -126,19 +118,20 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
-  "active": "b838d7b34d0ec19f",
+  "active": "014b5c8b66f16545",
   "lastOpenFiles": [
-    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess/channel.ref().md",
-    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess/exec.md",
-    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess/ChildProcess模块.md",
-    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess/channel.md",
-    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess/close.md",
-    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess模块/ChildProcessEvent.md",
-    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess模块/ChildProcessAPI.md",
-    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess/execFile.md",
-    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess/execFileSync.md",
-    "软件开发/编程语言/JavaScript&TypeScript/ChileProcess/execSync.md"
+    "模板/函数参数模板(Function arguments table).md",
+    "软件开发/编程语言/ECMAScript/ChileProcess/ChildProcess模块.md",
+    "软件开发/编程语言/ECMAScript/ECMAScript.md",
+    "软件开发/编程语言/ECMAScript/ChileProcess/Properties/killed.md",
+    "软件开发/编程语言/ECMAScript/ChileProcess/Properties/exitCode.md",
+    "软件开发/编程语言/ECMAScript/ChileProcess/Properties/connected.md",
+    "软件开发/编程语言/ECMAScript/ChileProcess/Properties/channel.md",
+    "软件开发/编程语言/ECMAScript/ChileProcess/Methods/send().md",
+    "软件开发/编程语言/ECMAScript/ChileProcess/Methods/ref().md",
+    "软件开发/编程语言/ECMAScript/ChileProcess/Methods/kill().md"
   ]
 }

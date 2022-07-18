@@ -11,4 +11,4 @@
 ### 示例
 
 
-#JavaScript/ChileProcess模块/ChildProcess/Properties #TypeScript/ChildProcess模块/ChildProcess/Properties  
+#ECMAScript/ChildProcess模块/ChildProcess #Property
