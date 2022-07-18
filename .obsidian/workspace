@@ -4,10 +4,10 @@
     "type": "split",
     "children": [
       {
-        "id": "c4f90efa78db51cf",
+        "id": "ded2c12f7682226c",
         "type": "leaf",
         "state": {
-          "type": "empty",
+          "type": "graph",
           "state": {}
         }
       }
@@ -79,7 +79,7 @@
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               }
             }
           },
@@ -113,25 +113,24 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
     "width": 436.5,
     "collapsed": true
   },
-  "active": "c4f90efa78db51cf",
+  "active": "ded2c12f7682226c",
   "lastOpenFiles": [
-    "图片/工具/VSCode/Cover.png",
-    "软件开发/数据库/数据库.md",
-    "软件开发/数据库/MySQL/MySQL.md",
-    "软件开发/数据库/Redis/Redis.md",
-    "软件开发/数据库/Redis/Redis常用业务场景/Redis分布式锁.md",
-    "软件开发/数据库/MongoDB/MongoDB.md",
-    "软件开发/框架&库/框架&库.md",
-    "软件开发/框架&库/Django/Django.md",
-    "软件开发/框架&库/EggJS/EggJS.md",
-    "软件开发/工具/工具.md"
+    "repository/Tools/FFmpeg/docs/VideoStream/Common/-r.md",
+    "软件开发/工具/FFmpeg/命令/屏幕录制.md",
+    "软件开发/工具/FFmpeg/NTSC制式帧率转换.md",
+    "软件开发/编程思想与理论/编程思想与理论.md",
+    "软件开发/编程思想与理论/OOP/设计模式.md",
+    "软件开发/编程思想与理论/OOP/设计模式/多例模式.md",
+    "软件开发/编程思想与理论/OOP/设计模式/策略模式 Strategy.md",
+    "软件开发/编程思想与理论/OOP/设计模式/代理模式 Proxy.md",
+    "模板/DesignPattern-设计模式模板.md",
+    "软件开发/编程思想与理论/OOP/设计模式/单例模式 Singleton.md"
   ]
 }

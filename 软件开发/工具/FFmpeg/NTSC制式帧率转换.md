@@ -21,6 +21,6 @@ ffmpeg -i test.mp4 -c:v libx264 -c:a aac -r 29.97 -f mp4 -y output.mp4
 ffmpeg -i test.mp4 -c:v libx264 -c:a aac -r 30000/1001 -f mp4 -y output.mp4
 ```
 
-> 为了规避此类问题, 建议在使用FFmpeg转码时, 如果需要使用 [-r](/repository/Tools/FFmpeg/docs/VideoStream/Common/-r.md) 参数指定输出的帧率, 其参数值一律使用比值, 不使用数值
+> 为了规避此类问题, 建议在使用FFmpeg转码时, 如果需要使用(-r TODO)参数指定输出的帧率, 其参数值一律使用比值, 不使用数值
 
 #FFmpeg #NTSC
