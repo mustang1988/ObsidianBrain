@@ -1,6 +1,6 @@
 ## ChildProcess模块
 
-NodeJS的ChildProcess模块提供了"多进程"的支持, 使得我们可以通过新开进程来处理计算密集或IO密集型的长耗时任务, 这样可以充分利用CPU的计算资源
+NodeJS的 [[ChildProcess模块]] 提供了"多进程"的支持, 使得我们可以通过新开进程来处理计算密集或IO密集型的长耗时任务, 这样可以充分利用CPU的计算资源
 
 ChildProcess模块提供了以下API用来创建子进程
 ```dataview

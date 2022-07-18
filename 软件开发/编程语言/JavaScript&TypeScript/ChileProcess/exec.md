@@ -1,14 +1,13 @@
 ## exec(command\[, options\]\[, callback\])
-
 ### 作用
 开启一个Shell子进程, 然后在该Shell中执行命令, 传递给exec函数的命令字符串由Shell直接处理
 
 ### 参数说明
 |参数名|参数类型|必填?|参数说明|备注|
 |:-|:-|:-|:-|:-|
-|command|String|Y|需要执行的命令|命令参数与提交给命令之间用空格隔开|
-|options|Object|N|提交给exec函数的可选参数|[[exec#option可选参数]]|
-|callback|Function|N|执行结束后的回调函数|[[exec#callback回调函数]]|
+|command|String|true|需要执行的命令|命令参数与提交给命令之间用空格隔开|
+|options|Object|false|提交给exec函数的可选参数|[[exec#option可选参数]]|
+|callback|Function|false|执行结束后的回调函数|[[exec#callback回调函数]]|
 
 > 注意, 因为exec函数会先创建Shell, 然后将命令交由Shell执行, 因此命令及其参数中的诸如Shell通配符, I/O重定向等操作均会执行, 在调用exec前请务必对输出的命令参数进行严格的检查, 以防止出现恶意参数或脚本被注入和执行
 
@@ -46,13 +45,5 @@ exec(command, (error, stdout, stderr) => {
   console.log('Child Process exec(): ', { error, stdout: stdout.toString(), stderr: stderr.toString() });
 });
 ```
-
-```typescript
-import { exec, ChildProcess } from 'child_process';
-const command = ['ls', '-al', '/'].join(' ');
-const cp:ChildProcess = exec(command, (error, stdout, stderr) => {
-  console.log('Child Process exec(): ', { error, stdout: stdout.toString(), stderr: stderr.toString() });
-});
-```
-
+---
 #JavaScript/ChileProcess模块 #TypeScript/ChildProcess模块 #多进程 #创建子进程
