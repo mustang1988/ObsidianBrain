@@ -5,5 +5,7 @@
   "strictLineBreaks": true,
   "showLineNumber": true,
   "spellcheck": true,
-  "readableLineLength": false
+  "readableLineLength": false,
+  "attachmentFolderPath": "图片",
+  "fileSortOrder": "alphabetical"
 }

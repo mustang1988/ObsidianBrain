@@ -1,17 +1,24 @@
 {
   "collapse-filter": true,
   "search": "",
-  "showTags": false,
+  "showTags": true,
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
   "collapse-color-groups": true,
   "colorGroups": [
     {
-      "query": "tag:#ECMAScript",
+      "query": "path:软件开发/编程语言/ECMAScript",
       "color": {
         "a": 1,
         "rgb": 16776960
+      }
+    },
+    {
+      "query": "tag:#工具",
+      "color": {
+        "a": 1,
+        "rgb": 255
       }
     }
   ],
@@ -25,6 +32,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.7132754626224452,
+  "scale": 0.7132754626224473,
   "close": true
 }
