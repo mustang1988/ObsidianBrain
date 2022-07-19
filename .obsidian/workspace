@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "软件开发/编程语言/ECMAScript/ChileProcess/Classes/ChildProcess.md",
+            "file": "软件开发/编程语言/ECMAScript/ChileProcess/Events/stdio.error.md",
             "mode": "source",
             "source": false
           }
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "软件开发/编程语言/ECMAScript/ChileProcess/Classes/ChildProcess.md",
+                "file": "软件开发/编程语言/ECMAScript/ChileProcess/Events/stdio.error.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "软件开发/编程语言/ECMAScript/ChileProcess/Classes/ChildProcess.md",
+                "file": "软件开发/编程语言/ECMAScript/ChileProcess/Events/stdio.error.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "软件开发/编程语言/ECMAScript/ChileProcess/Classes/ChildProcess.md"
+                "file": "软件开发/编程语言/ECMAScript/ChileProcess/Events/stdio.error.md"
               }
             }
           }
@@ -131,15 +131,15 @@
   },
   "active": "e6075c222b7ddfe4",
   "lastOpenFiles": [
-    "软件开发/编程语言/ECMAScript/ChileProcess/ChildProcess模块.md",
-    "软件开发/编程语言/ECMAScript/ChileProcess/Methods/unref().md",
-    "软件开发/编程语言/ECMAScript/ChileProcess/Methods/ref().md",
-    "软件开发/编程语言/ECMAScript/ChileProcess/Methods/disconnect().md",
-    "软件开发/编程语言/ECMAScript/ChileProcess/Methods/kill().md",
-    "软件开发/编程语言/ECMAScript/ChileProcess/Methods/channel.unref().md",
-    "软件开发/编程语言/ECMAScript/ChileProcess/Methods/channel.ref().md",
-    "软件开发/编程语言/ECMAScript/ChileProcess/Methods/send().md",
-    "软件开发/编程语言/ECMAScript/ChileProcess/Properties/stdout.md",
-    "软件开发/编程语言/ECMAScript/ChileProcess/Properties/stdio.md"
+    "软件开发/编程语言/ECMAScript/ChileProcess/Events/stdio.end.md",
+    "软件开发/编程语言/ECMAScript/ChileProcess/Events/stdio.data.md",
+    "软件开发/编程语言/ECMAScript/ChileProcess/Events/stdio.close.md",
+    "软件开发/编程语言/ECMAScript/ChileProcess/Events/spawn.md",
+    "软件开发/编程语言/ECMAScript/ChileProcess/Events/message.md",
+    "软件开发/编程语言/ECMAScript/ChileProcess/Events/exit.md",
+    "软件开发/编程语言/ECMAScript/ChileProcess/Events/error.md",
+    "软件开发/编程语言/ECMAScript/ChileProcess/Events/disconnect.md",
+    "软件开发/编程语言/ECMAScript/ChileProcess/Events/close.md",
+    "软件开发/工具/FFmpeg/参数/-ss.md"
   ]
 }

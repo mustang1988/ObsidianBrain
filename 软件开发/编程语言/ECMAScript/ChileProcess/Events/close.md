@@ -18,7 +18,7 @@ title: code 与 signal 参数是互斥的, 总是有一个参数的值为null
 
 ```ad-warning
 title: 注意
-content: 需要区别 close 事件和 [[exit]] 事件, 当 [[exit]] 事件触发时, stdio流可能并未关闭, 此时并不会触发 close 事件, 只有stdio流关闭后才会触发 close 事件, 即 [[exit]] 和 close 事件的触发可能并不是同时的, 但 close 事件的触发总是会在 [[exit]] 事件触发之后
+需要区别 close 事件和 [[exit]] 事件, 当 [[exit]] 事件触发时, stdio流可能并未关闭, 此时并不会触发 close 事件, 只有stdio流关闭后才会触发 close 事件, 即 [[exit]] 和 close 事件的触发可能并不是同时的, 但 close 事件的触发总是会在 [[exit]] 事件触发之后
 ```
 
 ```ad-note
