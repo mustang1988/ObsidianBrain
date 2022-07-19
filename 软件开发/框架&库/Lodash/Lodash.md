@@ -12,7 +12,6 @@ aliases: ["_"]
 dv.table(
 	["函数名","作用"],
 	dv.pages('#Lodash/Array')
-	.filter(page => page.file.path != dv.current().file.path)
 	.sort(page => page.file.name, 'asc')
 	.map(page => [page.file.link, page.Comment])
 );
