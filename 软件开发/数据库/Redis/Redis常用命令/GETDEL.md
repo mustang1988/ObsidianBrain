@@ -40,4 +40,4 @@ redis:6379> GETDEL nostringkey
 (error) WRONGTYPE Operation against a key holding the wrong kind of value
 ```
 
-#Redis #Redis/常用命令/通用
+#Redis #Redis/常用命令/String 
