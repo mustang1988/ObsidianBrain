@@ -1,7 +1,7 @@
 ## SISMEMBER key member
 
 ### 用途
-(Comment:: "判断指定的值是否是指定键对应Set的成员")
+(Comment:: "判断指定的值是否是 [[Redis]] 库中指定键对应Set的成员")
 
 #### 时间复杂度
 O(1)

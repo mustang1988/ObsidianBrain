@@ -1,7 +1,7 @@
 ## ZCARD key
 
 ### 用途
-(Comment:: "获取指定键对应Sorted Set的长度")
+(Comment:: "获取 [[Redis]] 库中指定键对应Sorted Set的长度")
 
 #### 时间复杂度
 O(1)

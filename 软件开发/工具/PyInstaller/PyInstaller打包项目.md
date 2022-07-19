@@ -1,3 +1,3 @@
-## PyInstaller打包项目
+## [[PyInstaller]]打包项目
 
 #PyInstaller #Python

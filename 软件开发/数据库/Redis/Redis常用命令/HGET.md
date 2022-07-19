@@ -1,7 +1,7 @@
 ## HGET key field
 
 ### 用途
-(Comment:: "获取指定键对应Hash值中指定字段的值")
+(Comment:: "从 [[Redis]] 库中获取指定键对应Hash值中指定字段的值")
 
 #### 时间复杂度
 O(1)

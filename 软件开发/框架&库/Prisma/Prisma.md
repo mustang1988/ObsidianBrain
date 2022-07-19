@@ -3,7 +3,7 @@ Language: "[[ECMAScript]]"
 Abstract: "下一代数据库ORM"
 ---
 ## Prisma
-
+Build data-driven [[ECMAScript]] apps in less time
 ```dataviewjs
 dv.list(
 	dv.pages('#Prisma')
