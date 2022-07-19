@@ -1,4 +1,4 @@
-## MongoDB数据备份&恢复
+## [[MongoDB]]数据备份&恢复
 
 ### MongoDB数据备份
 #### 使用mongodump导出数据库

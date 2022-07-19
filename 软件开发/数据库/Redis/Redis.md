@@ -7,7 +7,7 @@ Redis是一个使用ANSI C编写的开源, 支持网络, 基于内存, 分布式
 ```dataviewjs
 dv.table(
 	["命令","说明"],
-	dv.pages('#Redis/常用命令/通用')
+	dv.pages('#Redis/常用命令/通用 and -"模板"')
 	.sort(page => page.file.name, 'asc')
 	.map(page => [page.file.link, page.Comment])
 );

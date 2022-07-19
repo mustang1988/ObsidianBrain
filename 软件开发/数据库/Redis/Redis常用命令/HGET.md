@@ -13,9 +13,13 @@ O(1)
 |field|String|需要获取值的字段名||
 
 ### 返回值
-大部分为String类型返回值, 值为指定键对应Hash中指定字段的值, 当指定的键不存在或指定的字段名在Hash中不存在时, 返回"nil"
+多数情况下返回String类型值, 为指定键对应Hash中指定字段的值
+
+当指定的键不存在或指定的字段名在Hash中不存在时, 返回 nil
 
 ### 示例
+```ad-info
+title: 正常
 ```bash
 redis:6379> HSET myhash field1 "foo"
 (integer) 1

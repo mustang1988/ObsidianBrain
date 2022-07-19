@@ -15,6 +15,8 @@ O(1)
 Int类型返回值, 值为指定键对应Sorted Set的长度
 
 ### 示例
+```ad-info
+title: 正常
 ```bash
 redis:6379> ZADD myzset 1 "one"
 (integer) 1

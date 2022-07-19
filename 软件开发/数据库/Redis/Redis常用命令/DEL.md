@@ -15,6 +15,8 @@ O(n), n为被删除的键的数量, 单个键被删除的时间复杂度为: O(1
 Int类型返回值, 值为实际被删除的键的数量
 
 ### 示例
+```ad-info
+title: 正常
 ```bash
 redis:6379> SET key1 "Hello"
 "OK"

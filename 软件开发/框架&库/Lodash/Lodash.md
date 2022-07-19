@@ -5,7 +5,7 @@ aliases: ["_"]
 ---
 
 ## Lodash
-一致性, 模块化, 高性能的 [[ECMAScript]] 实用工具 [[框架&库]]
+一致性, 模块化, 高性能的 [[ECMAScript|JavaScript]]  / [[ECMAScript|TypeScript]] 实用工具 [[框架&库|库]]
 
 ### Array
 ```dataviewjs

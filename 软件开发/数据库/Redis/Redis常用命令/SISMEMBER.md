@@ -18,6 +18,8 @@ Int类型返回值
 - 1, 表示指定的值是指定键对应Set中的成员
 
 ### 示例
+```ad-info
+title: 正常
 ```bash
 redis:6379> SADD myset "one"
 (integer) 1
