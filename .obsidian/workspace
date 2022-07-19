@@ -7,12 +7,8 @@
         "id": "e6075c222b7ddfe4",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "软件开发/工具/FFmpeg/FFprobe.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "graph",
+          "state": {}
         }
       }
     ],
@@ -77,7 +73,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "软件开发/工具/FFmpeg/FFprobe.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +89,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "软件开发/工具/FFmpeg/FFprobe.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -116,9 +110,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "软件开发/工具/FFmpeg/FFprobe.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -131,15 +123,15 @@
   },
   "active": "e6075c222b7ddfe4",
   "lastOpenFiles": [
-    "软件开发/工具/FFmpeg/FFmpeg.md",
-    "软件开发/工具/FFmpeg/参数/-v.md",
-    "软件开发/工具/FFmpeg/参数/-intra.md",
-    "软件开发/工具/FFmpeg/参数/-g.md",
-    "软件开发/工具/FFmpeg/FFprobe.md",
-    "软件开发/工具/FFmpeg/NTSC制式帧率转换.md",
-    "软件开发/工具/FFmpeg/参数/-c_a.md",
-    "软件开发/工具/FFmpeg/参数/-y.md",
-    "软件开发/工具/FFmpeg/参数/-vn.md",
-    "软件开发/工具/FFmpeg/参数/-to.md"
+    "软件开发/工具/PyInstaller/PyInstaller打包项目.md",
+    "软件开发/工具/FFmpeg/命令/屏幕录制.md",
+    "软件开发/数据库/Redis/Redis.md",
+    "软件开发/数据库/Redis/Redis常用业务场景/Redis分布式锁.md",
+    "软件开发/数据库/Redis/Redis常用命令/ZCARD.md",
+    "软件开发/数据库/Redis/Redis常用命令/STRLEN.md",
+    "软件开发/数据库/Redis/Redis常用命令/SISMEMBER.md",
+    "软件开发/数据库/Redis/Redis常用命令/LLEN.md",
+    "软件开发/数据库/Redis/Redis常用命令/HGET.md",
+    "软件开发/数据库/Redis/Redis常用命令/DEL.md"
   ]
 }

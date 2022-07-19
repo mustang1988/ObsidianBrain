@@ -1,9 +1,12 @@
 ---
 Language: "[[ECMAScript]]"
 Abstract: "一致性, 模块化, 高性能的实用工具库"
+aliases: ["_"]
 ---
 
 ## Lodash
+一致性, 模块化, 高性能的 [[ECMAScript]] 实用工具 [[框架&库]]
+
 ### Array
 ```dataviewjs
 dv.table(
