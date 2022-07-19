@@ -7,12 +7,8 @@
         "id": "e6075c222b7ddfe4",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "软件开发/数据库/数据库.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "graph",
+          "state": {}
         }
       }
     ],
@@ -77,14 +73,13 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "软件开发/数据库/数据库.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": false
+                "backlinkCollapsed": true,
+                "unlinkedCollapsed": true
               }
             }
           },
@@ -94,9 +89,8 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "软件开发/数据库/数据库.md",
                 "linksCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               }
             }
           },
@@ -116,29 +110,28 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "软件开发/数据库/数据库.md"
-              }
+              "state": {}
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 173.5
+    "width": 911.5,
+    "collapsed": true
   },
   "active": "e6075c222b7ddfe4",
   "lastOpenFiles": [
-    "软件开发/数据库/MySQL/MySQL.md",
-    "软件开发/数据库/数据库.md",
-    "软件开发/框架&库/框架&库.md",
-    "软件开发/框架&库/Prisma/Prisma.md",
-    "软件开发/框架&库/Prisma/Prisma使用入门.md",
-    "软件开发/框架&库/NestJS/NestJS.md",
-    "软件开发/框架&库/Mocha/Mocha.md",
-    "软件开发/框架&库/Lodash/Lodash.md",
-    "软件开发/框架&库/EggJS/EggJS.md",
-    "软件开发/框架&库/WebRTC/WebRTC.md"
+    "软件开发/编程语言/ECMAScript/ChileProcess/Classes/ChildProcess.md",
+    "软件开发/编程语言/ECMAScript/ECMAScript.md",
+    "软件开发/编程语言/ECMAScript/ChileProcess/ChildProcess模块.md",
+    "软件开发/工具/Docker/Docker.md",
+    "软件开发/工具/Docsify/Docsify.md",
+    "软件开发/工具/工具.md",
+    "软件开发/工具/PyInstaller/PyInstaller.md",
+    "软件开发/工具/FFmpeg/NTSC制式帧率转换.md",
+    "软件开发/工具/FFmpeg/FFmpeg.md",
+    "软件开发/工具/Docker/Dockerfile与镜像构建.md"
   ]
 }

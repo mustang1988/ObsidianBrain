@@ -1,11 +1,11 @@
 {
   "collapse-filter": false,
   "search": "",
-  "showTags": true,
+  "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
+  "collapse-color-groups": false,
   "colorGroups": [
     {
       "query": "path:软件开发/编程语言",
@@ -53,6 +53,6 @@
   "repelStrength": 6.79775280898876,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.2588386562181683,
+  "scale": 0.5087618855792703,
   "close": true
 }
