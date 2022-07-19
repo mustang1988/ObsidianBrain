@@ -5,12 +5,12 @@ Category: "剪辑"
 ## -t duration
 
 ### 作用
-(Comment:: "设置剪辑时长")
+(Comment:: "设置 [[FFmpeg]] 的剪辑时长")
 
 ### 参数说明
-|参数名|参数类型|
-|:-|:-|
-|duration|剪辑时长, 单位: 秒|
+|参数名|参数类型|参数说明|取值范围|默认值|
+|:-|:-|:-|:-|:-|
+|duration|Number|剪辑时长, 单位: 秒|||
 
 ```ad-warning
 title: 注意

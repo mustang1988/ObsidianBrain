@@ -1,0 +1,26 @@
+---
+Category: "视频流处理"
+---
+
+## -deadline deadline
+
+### 作用
+(Comment:: "设置 [[FFmpeg]] 使用VP8/VP9编码器编码时的编码时长")
+
+```ad-info
+title: -deadline 参数仅在 VP8, VP9 编码器下生效
+```
+
+### 参数说明
+|参数名|参数类型|参数说明|取值范围|默认值|
+|:-|:-|:-|:-|:-|
+|deadline|String|编码时长枚举值|Deadline枚举[^Deadline枚举]|"good"|
+
+### 示例
+```bash
+ffmpeg -deadline realtime
+```
+
+#FFmpeg #FFmpeg/参数
+
+[^Deadline枚举]: 可选值: "best", "good", "realtime"

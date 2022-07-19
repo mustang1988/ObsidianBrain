@@ -5,12 +5,12 @@ Category: "剪辑"
 ## -to time_stop
 
 ### 作用
-(Comment:: "设置剪辑结束点")
+(Comment:: "设置 [[FFmpeg]] 剪辑时的结束点")
 
 ### 参数说明
-|参数名|参数类型|
-|:-|:-|
-|time_stop|剪辑结束点, 单位: 秒|
+|参数名|参数类型|参数说明|取值范围|默认值|
+|:-|:-|:-|:-|:-|
+|time_stop|Number|剪辑结束点, 单位: 秒|||
 
 ```ad-warning
 title: 注意

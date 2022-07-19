@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "软件开发/编程语言/ECMAScript/ChileProcess/Events/stdio.error.md",
+            "file": "软件开发/工具/FFmpeg/FFprobe.md",
             "mode": "source",
             "source": false
           }
@@ -77,14 +77,14 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "软件开发/编程语言/ECMAScript/ChileProcess/Events/stdio.error.md",
+                "file": "软件开发/工具/FFmpeg/FFprobe.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
-                "backlinkCollapsed": true,
-                "unlinkedCollapsed": true
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
               }
             }
           },
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "软件开发/编程语言/ECMAScript/ChileProcess/Events/stdio.error.md",
+                "file": "软件开发/工具/FFmpeg/FFprobe.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -117,12 +117,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "软件开发/编程语言/ECMAScript/ChileProcess/Events/stdio.error.md"
+                "file": "软件开发/工具/FFmpeg/FFprobe.md"
               }
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -131,15 +131,15 @@
   },
   "active": "e6075c222b7ddfe4",
   "lastOpenFiles": [
-    "软件开发/编程语言/ECMAScript/ChileProcess/Events/stdio.end.md",
-    "软件开发/编程语言/ECMAScript/ChileProcess/Events/stdio.data.md",
-    "软件开发/编程语言/ECMAScript/ChileProcess/Events/stdio.close.md",
-    "软件开发/编程语言/ECMAScript/ChileProcess/Events/spawn.md",
-    "软件开发/编程语言/ECMAScript/ChileProcess/Events/message.md",
-    "软件开发/编程语言/ECMAScript/ChileProcess/Events/exit.md",
-    "软件开发/编程语言/ECMAScript/ChileProcess/Events/error.md",
-    "软件开发/编程语言/ECMAScript/ChileProcess/Events/disconnect.md",
-    "软件开发/编程语言/ECMAScript/ChileProcess/Events/close.md",
-    "软件开发/工具/FFmpeg/参数/-ss.md"
+    "软件开发/工具/FFmpeg/FFmpeg.md",
+    "软件开发/工具/FFmpeg/参数/-v.md",
+    "软件开发/工具/FFmpeg/参数/-intra.md",
+    "软件开发/工具/FFmpeg/参数/-g.md",
+    "软件开发/工具/FFmpeg/FFprobe.md",
+    "软件开发/工具/FFmpeg/NTSC制式帧率转换.md",
+    "软件开发/工具/FFmpeg/参数/-c_a.md",
+    "软件开发/工具/FFmpeg/参数/-y.md",
+    "软件开发/工具/FFmpeg/参数/-vn.md",
+    "软件开发/工具/FFmpeg/参数/-to.md"
   ]
 }

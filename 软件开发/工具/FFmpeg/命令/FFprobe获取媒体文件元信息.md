@@ -28,13 +28,16 @@ ffprobe \
 #### 参数说明
 |参数|必须参数|说明|值|默认值|
 |:-|:-|:-|:-|:-|
-|-v, -loglevel|N|设置输出信息的日志级别|TODO|info \| 32|
-|-of, -print_format|N|设置输出信息的格式|TODO|default|
-|-show_streams|N|设置输出流信息|TODO|false|
-|-show_format|N|设置输出格式信息|TODO|false|
-|-show_frames|N|设置输出帧信息|TODO|false|
-|-show_entries|N|设置输出信息的字段|TODO|无|
-|-show_packets|N|设置输出打包信息|TODO|false|
-|-i|Y|设置输入文件或流|值可以为文件路径或流的URL|无|
+|-v, -loglevel|false|设置输出信息的日志级别|参考: [[-v#日志输出级别]]|info \| 32|
+|-of, -print_format|false|设置输出信息的格式|参考: [[-of#format枚举]]|default|
+|-show_streams|false|设置输出流信息|参考: [[-show_frames]]|false|
+|-show_format|false|设置输出格式信息|参考: [[-show_format]]|false|
+|-show_frames|false|设置输出帧信息|参考: [[-show_frames]]|false|
+|-show_entries|false|设置输出信息的字段|参考: [[-show_entries]]|无|
+|-show_packets|false|设置输出打包信息|参考: [[-show_packets]]|false|
+|-i|true|设置输入文件或流|参考: [[-i]]|无|
+
+### 元信息解读
+- [[媒体文件元信息解读]]
 
 #FFprobe #FFprobe/命令 
