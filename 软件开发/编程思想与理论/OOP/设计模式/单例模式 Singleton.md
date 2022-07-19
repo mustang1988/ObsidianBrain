@@ -1,5 +1,5 @@
 ## 单例模式 Singleton
-
+TODO
 ### UML
 ```plantuml
 @startuml 单例模式 Singleton
@@ -49,6 +49,6 @@ Singleton <.. Client: Singleton.getInstance()
 ```
 
 ### 扩展
-- [[多例模式]]
+- [[多例模式-Multiton]]
 
 #设计模式 #设计模式/创建型设计模式

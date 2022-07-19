@@ -1,14 +1,14 @@
-## 策略模式 Strategy
+## 原型模式 Prototype
 TODO
 ### UML
 ```plantuml
-@startuml 策略模式 Strategy
+@startuml 原型模式 Prototype
 
 @enduml
 ```
 
 ### 介绍
-策略模式(Strategy Pattern)是行为型 [[设计模式]] 的一种
+原型模式是创建型 [[设计模式]] 的一种
 
 ### 使用场景
 
@@ -34,4 +34,4 @@ TODO
 ### 扩展
 
 
-#设计模式 #设计模式/行为型设计模式 
+#设计模式 #设计模式/创建型设计模式 

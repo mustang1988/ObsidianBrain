@@ -1,14 +1,14 @@
-## 策略模式 Strategy
+## 模板方法模式 TemplateMethod
 TODO
 ### UML
 ```plantuml
-@startuml 策略模式 Strategy
+@startuml 模板方法模式 TemplateMethod
 
 @enduml
 ```
 
 ### 介绍
-策略模式(Strategy Pattern)是行为型 [[设计模式]] 的一种
+模板方法模式是行为型 [[设计模式]] 的一种
 
 ### 使用场景
 

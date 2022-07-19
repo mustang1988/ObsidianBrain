@@ -1,14 +1,14 @@
-## 策略模式 Strategy
+## 组合模式 Composite
 TODO
 ### UML
 ```plantuml
-@startuml 策略模式 Strategy
+@startuml 组合模式 Composite
 
 @enduml
 ```
 
 ### 介绍
-策略模式(Strategy Pattern)是行为型 [[设计模式]] 的一种
+组合模式是结构型 [[设计模式]] 的一种
 
 ### 使用场景
 
@@ -34,4 +34,4 @@ TODO
 ### 扩展
 
 
-#设计模式 #设计模式/行为型设计模式 
+#设计模式 #设计模式/结构型设计模式 

@@ -1,14 +1,14 @@
-## 策略模式 Strategy
+## 命令模式 Command
 TODO
 ### UML
 ```plantuml
-@startuml 策略模式 Strategy
+@startuml 命令模式 Command
 
 @enduml
 ```
 
 ### 介绍
-策略模式(Strategy Pattern)是行为型 [[设计模式]] 的一种
+命令模式是行为型 [[设计模式]] 的一种
 
 ### 使用场景
 

@@ -1,3 +1,7 @@
+---
+aliases: ["JavaScript", "TypeScript", "ES"]
+---
+
 ## ECMAScript
 ### 内置模块
 ```dataviewjs

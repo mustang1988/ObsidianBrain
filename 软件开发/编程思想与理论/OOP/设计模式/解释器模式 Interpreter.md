@@ -1,14 +1,14 @@
-## 策略模式 Strategy
+## 解释器模式 Interpreter
 TODO
 ### UML
 ```plantuml
-@startuml 策略模式 Strategy
+@startuml 解释器模式 Interpreter
 
 @enduml
 ```
 
 ### 介绍
-策略模式(Strategy Pattern)是行为型 [[设计模式]] 的一种
+解释器模式是行为型 [[设计模式]] 的一种
 
 ### 使用场景
 

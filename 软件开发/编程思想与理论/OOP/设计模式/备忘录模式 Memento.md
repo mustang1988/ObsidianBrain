@@ -1,14 +1,14 @@
-## 策略模式 Strategy
+## 备忘录模式 Memento
 TODO
 ### UML
 ```plantuml
-@startuml 策略模式 Strategy
+@startuml 备忘录模式 Memento
 
 @enduml
 ```
 
 ### 介绍
-策略模式(Strategy Pattern)是行为型 [[设计模式]] 的一种
+备忘录模式是行为型 [[设计模式]] 的一种
 
 ### 使用场景
 

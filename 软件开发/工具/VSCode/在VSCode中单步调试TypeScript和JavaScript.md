@@ -1,4 +1,4 @@
-## 在[[VSCode]]中单步调试[[ECMAScript]]
+## 在[[VSCode]]中单步调试[[ECMAScript|TypeScript]]和[[ECMAScript|JavaScript]]
 
 ## 创建调试用入口文件
 在项目中新建一个调试用的调用入口文件, 编写代码调用需要进行单步调试的代码
