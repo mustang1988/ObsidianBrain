@@ -1,4 +1,6 @@
 ## execFile(file\[, args\]\[, options\]\[, callback\])
+### 所属模块
+[[ChildProcess模块]]
 
 ### 作用
 execFile() 函数与 [[exec()]] 函数类似, 不同点在于:
@@ -50,4 +52,4 @@ execFile(file, args, (error, stdout, stderr) => {
 });
 ```
 
-#ECMAScript/ChildProcess模块 #多进程  #创建子进程
+#ChildProcess/API 

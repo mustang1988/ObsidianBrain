@@ -1,5 +1,6 @@
 ---
 Language: "[[ECMAScript]]"
+Abstract: "简单, 灵活, 有趣的测试框架"
 ---
 
 ## Mocha

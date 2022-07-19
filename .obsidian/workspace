@@ -4,11 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "ded2c12f7682226c",
+        "id": "e6075c222b7ddfe4",
         "type": "leaf",
         "state": {
-          "type": "graph",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "软件开发/数据库/数据库.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -36,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#CPP",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -73,6 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "软件开发/数据库/数据库.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,6 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "软件开发/数据库/数据库.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -110,27 +116,29 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "软件开发/数据库/数据库.md"
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 436.5,
-    "collapsed": true
+    "width": 173.5
   },
-  "active": "ded2c12f7682226c",
+  "active": "e6075c222b7ddfe4",
   "lastOpenFiles": [
-    "repository/Tools/FFmpeg/docs/VideoStream/Common/-r.md",
-    "软件开发/工具/FFmpeg/命令/屏幕录制.md",
-    "软件开发/工具/FFmpeg/NTSC制式帧率转换.md",
-    "软件开发/编程思想与理论/编程思想与理论.md",
-    "软件开发/编程思想与理论/OOP/设计模式.md",
-    "软件开发/编程思想与理论/OOP/设计模式/多例模式.md",
-    "软件开发/编程思想与理论/OOP/设计模式/策略模式 Strategy.md",
-    "软件开发/编程思想与理论/OOP/设计模式/代理模式 Proxy.md",
-    "模板/DesignPattern-设计模式模板.md",
-    "软件开发/编程思想与理论/OOP/设计模式/单例模式 Singleton.md"
+    "软件开发/数据库/MySQL/MySQL.md",
+    "软件开发/数据库/数据库.md",
+    "软件开发/框架&库/框架&库.md",
+    "软件开发/框架&库/Prisma/Prisma.md",
+    "软件开发/框架&库/Prisma/Prisma使用入门.md",
+    "软件开发/框架&库/NestJS/NestJS.md",
+    "软件开发/框架&库/Mocha/Mocha.md",
+    "软件开发/框架&库/Lodash/Lodash.md",
+    "软件开发/框架&库/EggJS/EggJS.md",
+    "软件开发/框架&库/WebRTC/WebRTC.md"
   ]
 }

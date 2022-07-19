@@ -1,5 +1,6 @@
 ---
 Language: "[[ECMAScript]]"
+Abstract: "为企业级框架和应用而生"
 ---
 
 ## EggJS

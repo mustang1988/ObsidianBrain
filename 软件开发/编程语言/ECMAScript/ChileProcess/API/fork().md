@@ -1,4 +1,7 @@
 ## fork(modulePath\[, args\]\[, options\])
+### 所属模块
+[[ChildProcess模块]]
+
 ### 作用
 fork() 函数是 [[spawn()]] 函数的一个特例, 特殊之处在于返回的子进程将有一个额外的内置通信通道, 子进程允许通过该通信通道, 向父进程发送消息从而实现进程之间通信
 进程间通信方法参考: [[send()]]
@@ -53,4 +56,4 @@ process.on('message', (msg_from_parent_process) => {
 });
 ```
 
-#ECMAScript/ChildProcess模块 #多进程  #创建子进程
+#ChildProcess/API 

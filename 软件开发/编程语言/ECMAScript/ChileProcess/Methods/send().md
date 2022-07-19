@@ -1,4 +1,6 @@
 ## send(message\[, sendHandle\[, options\]\]\[, callback\])
+### 所属类
+[[ChildProcess]]
 
 ### 作用
 此方法用于在主进程和子进程的IPC通道间进行进程间通信, 如果主进程和子进程间没有IPC通道, 即 [[channel]] 属性值为 undefined时, 无法调用
@@ -29,4 +31,4 @@ const child_fork = fork('./child.js');
 console.log(child_fork.send({ str: 'hello world' })); // true
 ```
 
-#ECMAScript/ChildProcess模块/ChildProcess #Method 
+#ChildProcess/Method

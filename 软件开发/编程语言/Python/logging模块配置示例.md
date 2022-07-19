@@ -1,5 +1,5 @@
 ## logging模块配置示例
-Python中的logging模块是一个在项目中使用频率很高的模块, 用于日志文件的输出与控制台展示
+[[Python]] 的logging模块是一个在项目中使用频率很高的模块, 用于日志文件的输出与控制台展示
 
 logging模块是可以免配置直接使用的, 但默认提供的日志输出格式可能并不满足项目需要, 也无法根据项目的不同业务模块定制输出格式, 输出文件名等等
 
@@ -157,4 +157,4 @@ logger.info('xxx','yyy')
 - [logging官方文档参考(PY2, 简体中文)](https://docs.python.org/zh-cn/2.7/library/logging.config.html?highlight=logging)
 - [logging官方文档参考(PY3, 简体中文)](https://docs.python.org/zh-cn/3/library/logging.config.html?highlight=logging)
 
-#Python
+#Python #Python/内置模块 #Python/内置模块/logging

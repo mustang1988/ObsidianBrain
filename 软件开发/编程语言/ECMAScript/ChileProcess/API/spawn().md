@@ -1,4 +1,7 @@
 ## spawn(command\[, args\]\[, options\])
+### 所属模块
+[[ChildProcess模块]]
+
 ### 作用
 使用指定的command命令和args参数, 创建子进程, 如果未指定args, 其值默认为空数组
 
@@ -41,4 +44,4 @@ child_p.on('close', (code, signal) => {
 });
 ```
 
-#ECMAScript/ChildProcess模块 #多进程  #创建子进程
+#ChildProcess/API 

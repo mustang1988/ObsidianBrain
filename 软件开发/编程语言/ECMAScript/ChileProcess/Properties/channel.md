@@ -1,6 +1,6 @@
 ## channel
-
-[[ChildProcess模块#ChildProcess对象]] 属性
+### 所属类
+[[ChildProcess]]
 
 ### 说明
 该属性为子进程的IPC通道的引用, 如果没有IPC通道, 该属性值为undefined
@@ -11,4 +11,4 @@
 ### 示例
 
 
-#ECMAScript/ChildProcess模块/ChildProcess #Property
+#ChildProcess/Property 

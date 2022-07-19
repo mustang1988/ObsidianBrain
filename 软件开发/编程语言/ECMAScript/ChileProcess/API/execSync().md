@@ -1,4 +1,7 @@
 ## execSync(command\[, options\])
+### 所属模块
+[[ChildProcess模块]]
+
 ### 作用
 execSync 函数是 [[exec()]] 函数的同步版本, 执行时会阻塞进程, 直到命令执行结束(不论进程是正常/非正常退出), 若执行时长超过可选参数中设定的超时时长, 则会中断执行
 
@@ -19,4 +22,4 @@ const buffer = execSync(command);
 console.log('execSync Return: ', buffer.toString());
 ```
 
-#ECMAScript/ChildProcess模块 #多进程  #创建子进程
+#ChildProcess/API 

@@ -1,5 +1,6 @@
 ---
 Language: "[[ECMAScript]]"
+Abstract: "下一代数据库ORM"
 ---
 ## Prisma
 

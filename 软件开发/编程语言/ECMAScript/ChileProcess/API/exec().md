@@ -1,4 +1,7 @@
 ## exec(command\[, options\]\[, callback\])
+### 所属模块
+[[ChildProcess模块]]
+
 ### 作用
 开启一个Shell子进程, 然后在该Shell中执行命令, 传递给exec函数的命令字符串由Shell直接处理
 
@@ -46,4 +49,4 @@ exec(command, (error, stdout, stderr) => {
 });
 ```
 ---
-#ECMAScript/ChildProcess模块 #多进程 #创建子进程
+#ChildProcess/API 

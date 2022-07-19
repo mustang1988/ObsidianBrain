@@ -1,28 +1,34 @@
 ## Java
 ### 库
 ```dataviewjs
-dv.list(
+dv.table(
+	["名称","简介"],
 	dv.pages('#Java and -"软件开发/编程语言/Java" and #库')
 	.sort(page => page.file.name, 'asc')
-	.map(page => page.file.link)
+	.map(page => [page.file.link, page.Abstract])
 );
 ```
 
 ### 框架
 ```dataviewjs
-dv.list(
+dv.table(
+	["名称","简介"],
 	dv.pages('#Java and -"软件开发/编程语言/Java" and #框架')
 	.sort(page => page.file.name, 'asc')
-	.map(page => page.file.link)
+	.map(page => [page.file.link, page.Abstract])
 );
 ```
 
 ### 相关文章
 ```dataviewjs
-dv.list(
+dv.table(
+	["标题","标签"],
 	dv.pages('#Java and -"软件开发/编程语言/Java" and -#库 and -#框架')
 	.sort(page => page.file.name, 'asc')
-	.map(page => page.file.link)
+	.map(page => [
+		page.file.link,
+		Array.from(new Set(page.file.etags)).sort(tag => tag, 'asc')
+	])
 );
 ```
 #Java #编程语言/Java 

@@ -1,3 +1,5 @@
 ## spawn
+### 所属类
+[[ChildProcess]]
 
-#ECMAScript/ChildProcess模块/ChildProcess #Event
+#ChildProcess/Event 
