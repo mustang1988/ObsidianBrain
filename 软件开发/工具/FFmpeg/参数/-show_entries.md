@@ -19,4 +19,4 @@ ffprobe -show_entries streams=index,duration,codec:format=duration,name
 
 #FFmpeg #FFprobe #FFprobe/参数
 
-[^属性字段选择器]: 格式为: "<类型1>=<类型1字段名1>,<类型1字段名2>,...:<类型2>=<类型2字段名1>,<类型2字段名2>,..."
+[^属性字段选择器]: 格式为: "<类型1>=<类型1字段名1>,<类型1字段名2>,...**:**<类型2>=<类型2字段名1>,<类型2字段名2>,..."

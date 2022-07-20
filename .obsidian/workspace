@@ -57,7 +57,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 365.5
+    "width": 370.5
   },
   "right": {
     "id": "0cec90c71c16d73c",
@@ -79,7 +79,7 @@
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": false
+                "unlinkedCollapsed": true
               }
             }
           },
@@ -113,25 +113,24 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 911.5,
+    "width": 432.5,
     "collapsed": true
   },
   "active": "cd3db8d4b18cc1c6",
   "lastOpenFiles": [
-    "软件开发/数据库/Redis/Redis常用命令/LMOVE.md",
+    "软件开发/数据库/Redis/常用命令/STRLEN.md",
     "软件开发/数据库/Redis/Redis.md",
-    "软件开发/数据库/Redis/Redis常用命令/LPOP.md",
-    "软件开发/数据库/Redis/Redis常用命令/LINSERT.md",
-    "软件开发/数据库/Redis/Redis常用命令/LLEN.md",
-    "软件开发/数据库/Redis/Redis常用命令/LINDEX.md",
-    "软件开发/框架&库/Prisma/Prisma.md",
-    "软件开发/编程语言/ECMAScript/ECMAScript.md",
-    "模板/Redis命令模板.md",
-    "软件开发/数据库/Redis/Redis常用命令/SCAN.md"
+    "软件开发/数据库/Redis/常用命令/APPEND.md",
+    "软件开发/数据库/Redis/常用命令/SET.md",
+    "软件开发/数据库/Redis/常用命令/PSETEX.md",
+    "软件开发/数据库/Redis/常用命令/SETEX.md",
+    "软件开发/数据库/Redis/常用命令/MSETNX.md",
+    "软件开发/数据库/Redis/常用命令/MSET.md",
+    "软件开发/数据库/Redis/常用命令/MGET.md",
+    "软件开发/数据库/Redis/常用命令/INCRBY.md"
   ]
 }

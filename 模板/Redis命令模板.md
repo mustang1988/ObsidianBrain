@@ -9,7 +9,7 @@ O(1)
 ### 参数
 |参数名|参数类型|参数说明|备注|
 |:-|:-|:-|:-|
-|||||
+|key|String|||
 
 ### 返回值
 
@@ -23,9 +23,9 @@ title: 正常
 
 ```ad-danger
 title: 异常
-
+指定的键对应的值不是Set类型时, 返回异常
 ```bash
 
 ```
 
-#Redis #Redis/常用命令/List
+#Redis #Redis/常用命令/Set 
