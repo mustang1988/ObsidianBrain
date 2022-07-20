@@ -7,8 +7,12 @@
         "id": "ac64cb660b262374",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "生活/读书/书库/黑暗中的低语.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -36,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#ChildProcess/Event",
+                "query": "tag:#恐怖",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -53,7 +57,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -73,6 +78,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "生活/读书/书库/黑暗中的低语.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,6 +95,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "生活/读书/书库/黑暗中的低语.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -110,27 +117,29 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "生活/读书/书库/黑暗中的低语.md"
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 432.5,
-    "collapsed": true
+    "width": 730.5
   },
-  "active": "ac64cb660b262374",
+  "active": "2fad24a5ea5b58eb",
   "lastOpenFiles": [
     "生活/读书/读书笔记.md",
     "生活/读书/书库/地铁2033.md",
-    "图片/生活/读书/地铁2033.png",
-    "模板/生活/读书/图书模板.md",
-    "模板/软件开发/函数参数模板(Function arguments table).md",
-    "软件开发/工具/VSCode/VSCode.md",
-    "软件开发/工具/VSCode/插件/ProjectManager.md",
-    "软件开发/工具/VSCode/插件/CodeSnap.md",
-    "软件开发/数据库/Redis/Redis.md",
-    "软件开发/数据库/Redis/常用命令/ZCARD.md"
+    "生活/读书/书库/百年孤独.md",
+    "生活/读书/书库/1Q84 BOOK1.md",
+    "生活/读书/书库/梦寻秘境卡达斯.md",
+    "生活/读书/书库/行者无疆.md",
+    "生活/读书/书库/人间失格.md",
+    "生活/读书/书库/千年一叹.md",
+    "生活/读书/书库/雪崩.md",
+    "生活/读书/书库/克苏鲁的呼唤.md"
   ]
 }

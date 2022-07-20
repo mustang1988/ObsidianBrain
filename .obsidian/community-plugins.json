@@ -1,5 +1,9 @@
 [
   "dataview",
   "obsidian-plantuml",
-  "obsidian-admonition"
+  "obsidian-admonition",
+  "cm-editor-syntax-highlight-obsidian",
+  "tag-wrangler",
+  "templater-obsidian",
+  "obsidian-icon-folder"
 ]
