@@ -23,9 +23,9 @@ title: 正常
 
 ```ad-danger
 title: 异常
-指定的键对应的值不是Set类型时, 返回异常
+指定的键对应的值不是SortedSet类型时, 返回异常
 ```bash
 
 ```
 
-#Redis #Redis/常用命令/Set 
+#Redis #Redis/常用命令/SortedSet 

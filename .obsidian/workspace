@@ -4,10 +4,10 @@
     "type": "split",
     "children": [
       {
-        "id": "cd3db8d4b18cc1c6",
+        "id": "ac64cb660b262374",
         "type": "leaf",
         "state": {
-          "type": "graph",
+          "type": "empty",
           "state": {}
         }
       }
@@ -120,17 +120,17 @@
     "width": 432.5,
     "collapsed": true
   },
-  "active": "cd3db8d4b18cc1c6",
+  "active": "ac64cb660b262374",
   "lastOpenFiles": [
-    "软件开发/数据库/Redis/常用命令/STRLEN.md",
+    "生活/读书/读书笔记.md",
+    "生活/读书/书库/地铁2033.md",
+    "图片/生活/读书/地铁2033.png",
+    "模板/生活/读书/图书模板.md",
+    "模板/软件开发/函数参数模板(Function arguments table).md",
+    "软件开发/工具/VSCode/VSCode.md",
+    "软件开发/工具/VSCode/插件/ProjectManager.md",
+    "软件开发/工具/VSCode/插件/CodeSnap.md",
     "软件开发/数据库/Redis/Redis.md",
-    "软件开发/数据库/Redis/常用命令/APPEND.md",
-    "软件开发/数据库/Redis/常用命令/SET.md",
-    "软件开发/数据库/Redis/常用命令/PSETEX.md",
-    "软件开发/数据库/Redis/常用命令/SETEX.md",
-    "软件开发/数据库/Redis/常用命令/MSETNX.md",
-    "软件开发/数据库/Redis/常用命令/MSET.md",
-    "软件开发/数据库/Redis/常用命令/MGET.md",
-    "软件开发/数据库/Redis/常用命令/INCRBY.md"
+    "软件开发/数据库/Redis/常用命令/ZCARD.md"
   ]
 }
