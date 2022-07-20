@@ -1,5 +1,5 @@
 ---
-aliases: ["JavaScript", "TypeScript", "ES"]
+aliases: ["JavaScript", "TypeScript", "ES", "Node.js"]
 ---
 
 ## ECMAScript

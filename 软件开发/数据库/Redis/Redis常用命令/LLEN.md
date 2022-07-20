@@ -30,11 +30,12 @@ redis:6379> LLEN mylist
 
 ```ad-danger
 title: 异常
-当指定键对应值类型不是列表时, 返回异常
+当指定键对应值类型不是List时, 返回异常
 ```bash
 redis:6379> SET nolistkey "hello"
 "OK"
 redis:6379> LLEN nolistkey
 (error) WRONGTYPE Operation against a key holding the wrong kind of value
 ```
+
 #Redis #Redis/常用命令/List

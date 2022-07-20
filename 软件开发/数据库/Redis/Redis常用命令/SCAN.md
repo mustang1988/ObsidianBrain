@@ -1,10 +1,10 @@
-## {{title}}
+## SCAN cursor \[MATCH pattern\] \[COUNT count\] \[TYPE type\]
 
 ### 用途
-(Comment:: "")
+(Comment:: "迭代 [[Redis]] 库中的键")
 
 #### 时间复杂度
-O(1)
+O(n), n为迭代次数
 
 ### 参数
 |参数名|参数类型|参数说明|备注|
@@ -28,4 +28,4 @@ title: 异常
 
 ```
 
-#Redis #Redis/常用命令/List
+#Redis #Redis/常用命令/通用 

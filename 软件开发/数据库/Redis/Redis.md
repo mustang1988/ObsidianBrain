@@ -17,7 +17,7 @@ dv.table(
 ```dataviewjs
 dv.table(
 	["命令","说明"],
-	dv.pages('#Redis/常用命令/List')
+	dv.pages('#Redis/常用命令/List and -"模板"')
 	.sort(page => page.file.name, 'asc')
 	.map(page => [page.file.link, page.Comment])
 );
