@@ -1,5 +1,5 @@
 ---
-aliases: ["UE"]
+aliases: ["UE","UE4","UE5"]
 ---
 
 ## UnrealEngine

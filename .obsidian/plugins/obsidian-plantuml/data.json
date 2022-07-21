@@ -1,0 +1,8 @@
+{
+  "server_url": "",
+  "header": "",
+  "debounce": 3,
+  "localJar": ".obsidian/plantuml.jar",
+  "javaPath": "java",
+  "defaultProcessor": "png"
+}
