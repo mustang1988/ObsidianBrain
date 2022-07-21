@@ -1,5 +1,5 @@
 ---
-Language: "[[ECMAScript]]"
+Language: "[[ECMAScript|JavaScript]]"
 Abstract: "为企业级框架和应用而生"
 ---
 

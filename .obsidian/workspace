@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "285fd5c3863eed53",
+        "id": "e0f014205f9051bb",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "软件开发/数据库/Redis/常用命令/GETDEL.md",
+            "file": "生活/读书/书单.md",
             "mode": "source",
             "source": false
           }
@@ -40,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#Lodash",
+                "query": "tag:#诺贝尔文学奖",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -61,7 +61,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 370.5
+    "width": 288.5
   },
   "right": {
     "id": "0cec90c71c16d73c",
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "软件开发/数据库/Redis/常用命令/GETDEL.md",
+                "file": "生活/读书/书单.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "软件开发/数据库/Redis/常用命令/GETDEL.md",
+                "file": "生活/读书/书单.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "软件开发/数据库/Redis/常用命令/GETDEL.md"
+                "file": "生活/读书/书单.md"
               }
             }
           },
@@ -130,24 +130,24 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
     "width": 271.5,
     "collapsed": true
   },
-  "active": "285fd5c3863eed53",
+  "active": "e0f014205f9051bb",
   "lastOpenFiles": [
-    "软件开发/数据库/Redis/常用命令/GET.md",
-    "软件开发/数据库/Redis/常用命令/GETDEL.md",
-    "软件开发/数据库/Redis/常用命令/SISMEMBER.md",
-    "软件开发/数据库/Redis/常用命令/SMISMEMBER.md",
-    "软件开发/数据库/Redis/常用命令/SMEMBERS.md",
-    "软件开发/数据库/Redis/常用命令/SINTERSTORE.md",
-    "软件开发/框架&库/Lodash/Functions/differenceBy.md",
-    "_.pullAllBy().md",
-    "软件开发/框架&库/Lodash/Functions/difference.md",
-    "软件开发/工具/VSCode/插件/ProjectManager.md"
+    "生活/读书/书库/霍乱时期的爱情.md",
+    "生活/读书/书库/百年孤独.md",
+    "生活/读书/书单.md",
+    "生活/读书/书库/1Q84：10月~12月.md",
+    "生活/读书/书库/1Q84：7月~9月.md",
+    "生活/读书/书库/1Q84：4月~6月.md",
+    "生活/读书/书库/猎魔人：雨燕之塔.md",
+    "生活/读书/书库/地铁2033.md",
+    "生活/读书/书库/你一生的故事.md",
+    "生活/读书/书库/千年一叹.md"
   ]
 }
