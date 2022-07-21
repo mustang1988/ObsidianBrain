@@ -17,4 +17,4 @@ Category: ""
 ffprobe {{title}}
 ```
 
-#FFmpeg #FFprobe #FFprobe/参数
+#FFprobe #FFprobe/参数

@@ -7,5 +7,11 @@
   "spellcheck": true,
   "readableLineLength": false,
   "attachmentFolderPath": "图片",
-  "fileSortOrder": "alphabetical"
+  "fileSortOrder": "alphabetical",
+  "pdfExportSettings": {
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  }
 }

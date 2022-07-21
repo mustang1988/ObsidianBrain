@@ -3,7 +3,7 @@
 title: 此格式为 [[FFprobe]] 中 [[-of]] 参数输出的可选格式
 ```
 
-### 输出示例
+### 默认输出示例
 ```bash
 <?xml version="1.0" encoding="UTF-8"?>
 <ffprobe>
@@ -17,6 +17,8 @@ title: 此格式为 [[FFprobe]] 中 [[-of]] 参数输出的可选格式
 ```
 
 ### 可选参数
+xml 输出格式拥有以下专属可选参数
+
 #### fully_qualified, q
 TODO
 

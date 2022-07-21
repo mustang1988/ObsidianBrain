@@ -21,4 +21,4 @@ Category: "通用"
 ffmpeg -i input.mp4
 ```
 
-#FFmpeg #FFmpeg/参数 #FFprobe/参数 
+#FFmpeg #FFmpeg/参数 #FFprobe #FFprobe/参数 

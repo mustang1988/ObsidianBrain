@@ -15,4 +15,4 @@ Category: "通用"
 ffprobe -show_frames
 ```
 
-#FFmpeg #FFprobe #FFprobe/参数
+#FFprobe #FFprobe/参数

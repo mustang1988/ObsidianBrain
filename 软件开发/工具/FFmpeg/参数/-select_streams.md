@@ -17,6 +17,6 @@ Category: "通用"
 ffprobe -select_streams a
 ```
 
-#FFmpeg #FFprobe #FFprobe/参数
+#FFprobe #FFprobe/参数
 
 [^流选择器]: 常见值: "v", "a", "s","d", 分辨表示视频流, 音频流, 字幕流和数据流

@@ -3,7 +3,7 @@
 title: 此格式为 [[FFprobe]] 中 [[-of]] 参数输出的可选格式
 ```
 
-### 输出示例
+### 默认输出示例
 ```bash
 format.filename="output.mp4"
 format.nb_streams=1
@@ -22,6 +22,8 @@ format.tags.encoder="Lavf59.10.100"
 ```
 
 ### 可选参数
+flat 输出格式拥有以下专属可选参数
+
 #### sep_char, s
 TODO
 
