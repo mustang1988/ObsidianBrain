@@ -3,7 +3,7 @@
 [[ChildProcess]]
 
 ### 事件触发条件
-子进程派生成功时触发***一次***, 如果子进程派生失败, spawn事件是不会触发的, 取而代之, 一个 [[error]] 事件会被触发
+子进程派生成功时触发***一次***, 如果子进程派生失败, spawn事件是不会触发的, 取而代之, 一个 [[软件开发/编程语言/ECMAScript/ChileProcess/Events/error]] 事件会被触发
 
 ```ad-info
 title: spawn事件总是会在其他可触发事件前最先触发
