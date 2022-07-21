@@ -1,0 +1,136 @@
+{
+  "workspaces": {
+    "Default": {
+      "main": {
+        "id": "5bd00ef6e2d0bc50",
+        "type": "split",
+        "children": [
+          {
+            "id": "5780d98c6f71ab07",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "生活/读书/书单.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "360202511da2e264",
+        "type": "split",
+        "children": [
+          {
+            "id": "71cdebd987fa4efa",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "814d528fbb37bce8",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": true,
+                    "explainSearch": true,
+                    "collapseAll": true,
+                    "extraContext": true,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "632e8b37e9ff20fd",
+                "type": "leaf",
+                "state": {
+                  "type": "starred",
+                  "state": {}
+                }
+              },
+              {
+                "id": "c0c21fca630bdf6e",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 2
+          }
+        ],
+        "direction": "horizontal",
+        "width": 216
+      },
+      "right": {
+        "id": "0cec90c71c16d73c",
+        "type": "split",
+        "children": [
+          {
+            "id": "8de3f496b5d2933e",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "f8c39a2a9a7bdbfa",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "生活/读书/书单.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "d678d96a109b261d",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "生活/读书/书单.md",
+                    "linksCollapsed": true,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "2fad24a5ea5b58eb",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "c2effa4e379d89f7",
+                "type": "leaf",
+                "state": {
+                  "type": "advanced-tables-toolbar",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 2
+          }
+        ],
+        "direction": "horizontal",
+        "width": 148.5
+      },
+      "active": "5780d98c6f71ab07"
+    }
+  },
+  "active": "Default"
+}
