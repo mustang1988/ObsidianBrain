@@ -1,4 +1,7 @@
-## \_.{{title}}
+---
+Category: [""]
+---
+## [[Lodash|_]].<% tp.file.title+"()" %>
 ### 作用
 (Comment:: "")
 
@@ -8,6 +11,7 @@
 ||||||
 
 ### 返回值
+
 
 ### 示例
 ```javascript

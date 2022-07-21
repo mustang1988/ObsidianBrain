@@ -1,3 +1,6 @@
+---
+Category: ["Math"]
+---
 ## [[Lodash|_]].add(augend, addend)
 ### 作用
 (Comment:: "将两个数值相加, 作用等同于运算符\'+\'")
@@ -17,4 +20,4 @@ const _ = require('lodash');
 _.add(6, 4); // => 10
 ```
 
-#Lodash #Lodash/Math 
+#Lodash 

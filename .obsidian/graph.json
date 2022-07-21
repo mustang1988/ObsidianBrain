@@ -5,7 +5,7 @@
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
+  "collapse-color-groups": false,
   "colorGroups": [
     {
       "query": "path:软件开发/编程语言",
@@ -41,6 +41,27 @@
         "a": 1,
         "rgb": 5431473
       }
+    },
+    {
+      "query": "path:生活/读书",
+      "color": {
+        "a": 1,
+        "rgb": 5419488
+      }
+    },
+    {
+      "query": "path:生活/学习",
+      "color": {
+        "a": 1,
+        "rgb": 5395168
+      }
+    },
+    {
+      "query": "path:生活/娱乐",
+      "color": {
+        "a": 1,
+        "rgb": 11621088
+      }
     }
   ],
   "collapse-display": true,
@@ -53,6 +74,6 @@
   "repelStrength": 10.8426966292135,
   "linkStrength": 1,
   "linkDistance": 121,
-  "scale": 0.36288736930122545,
+  "scale": 0.713275462622471,
   "close": true
 }

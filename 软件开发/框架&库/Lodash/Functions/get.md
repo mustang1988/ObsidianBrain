@@ -1,3 +1,6 @@
+---
+Category: ["Object"]
+---
 ## [[Lodash|_]].get(object, path, \[defaultValue\])
 ### 作用
 (Comment:: "获取指定对象中, 指定属性路径下的属性值")
@@ -23,4 +26,4 @@ _.get(object, ['a', '0', 'b', 'c']); // => 3
 _.get(object, 'a.b.c', 'default'); // => 'default'
 ```
 
-#Lodash #Lodash/Object
+#Lodash 

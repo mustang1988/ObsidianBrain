@@ -1,12 +1,15 @@
-## [[Lodash|_]].find(collection, \[predicate=_.identity\], fromIndex=0\])
+---
+Category: ["Collection"]
+---
+## [[Lodash|_]].find(collection, \[predicate=[[identity]]\], \[fromIndex=0\])
 ### 作用
-(Comment:: "遍历集合中的元素, 返回**第一个**使得回调函数返回true的元素")
+(Comment:: "获取数组中 ***首个*** 符合指定条件的元素")
 
 ### 参数说明
 |参数名|参数类型|必填?|参数说明|默认值|
 |:-|:-|:-|:-|:-|
 |collection|Collection|true|需要进行遍历查找的集合||
-|predicate|Function|false|集合遍历回调函数|[[_.identity()]]|
+|predicate|Function|false|集合遍历回调函数|[[identity]]|
 |fromIndex|Number|false|遍历检索的起始索引|0|
 
 #### 集合遍历回调函数predicate
@@ -29,4 +32,4 @@ const _ = require('lodash');
 
 ```
 
-#Lodash #Lodash/Collection
+#Lodash

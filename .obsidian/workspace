@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "ac64cb660b262374",
+        "id": "285fd5c3863eed53",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "生活/娱乐/NAS/在群晖上使用Jellyfin搭建媒体库.md",
+            "file": "软件开发/数据库/Redis/常用命令/GETDEL.md",
             "mode": "source",
             "source": false
           }
@@ -40,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#Lodash",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -77,14 +77,14 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "生活/娱乐/NAS/在群晖上使用Jellyfin搭建媒体库.md",
+                "file": "软件开发/数据库/Redis/常用命令/GETDEL.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               }
             }
           },
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "生活/娱乐/NAS/在群晖上使用Jellyfin搭建媒体库.md",
+                "file": "软件开发/数据库/Redis/常用命令/GETDEL.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -117,29 +117,37 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "生活/娱乐/NAS/在群晖上使用Jellyfin搭建媒体库.md"
+                "file": "软件开发/数据库/Redis/常用命令/GETDEL.md"
               }
+            }
+          },
+          {
+            "id": "c2effa4e379d89f7",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
     "width": 271.5,
     "collapsed": true
   },
-  "active": "ac64cb660b262374",
+  "active": "285fd5c3863eed53",
   "lastOpenFiles": [
-    "生活/娱乐/NAS/群晖ZeroTier内网穿透.md",
-    "生活/学习/Obsidian/Obsidian使用基础.md",
-    "生活/娱乐/NAS/在群晖上使用Jellyfin搭建媒体库.md",
-    "生活/读书/书库/1Q84 BOOK1.md",
-    "生活/读书/读书笔记.md",
-    "生活/读书/书库/黑暗中的低语.md",
-    "生活/读书/书库/地铁2033.md",
-    "生活/读书/书库/百年孤独.md",
-    "生活/读书/书库/梦寻秘境卡达斯.md",
-    "生活/读书/书库/行者无疆.md"
+    "软件开发/数据库/Redis/常用命令/GET.md",
+    "软件开发/数据库/Redis/常用命令/GETDEL.md",
+    "软件开发/数据库/Redis/常用命令/SISMEMBER.md",
+    "软件开发/数据库/Redis/常用命令/SMISMEMBER.md",
+    "软件开发/数据库/Redis/常用命令/SMEMBERS.md",
+    "软件开发/数据库/Redis/常用命令/SINTERSTORE.md",
+    "软件开发/框架&库/Lodash/Functions/differenceBy.md",
+    "_.pullAllBy().md",
+    "软件开发/框架&库/Lodash/Functions/difference.md",
+    "软件开发/工具/VSCode/插件/ProjectManager.md"
   ]
 }

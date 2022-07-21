@@ -29,4 +29,14 @@ redis:6379> SISMEMBER myset "two"
 (integer) 0
 ```
 
+```ad-danger
+title: 异常
+指定的键对应的值不是Set类型时, 返回异常
+```bash
+redis:6379> SET key value
+"OK"
+redis:6379> SISMEMBER key value
+(error) WRONGTYPE Operation against a key holding the wrong kind of value
+```
+
 #Redis #Redis/常用命令/Set

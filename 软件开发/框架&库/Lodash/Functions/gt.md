@@ -1,3 +1,6 @@
+---
+Category: ["Lang"]
+---
 ## [[Lodash|_]].gt(value, \[, other\])
 ### 作用
 (Comment:: "检查指定值是否大于另一个值, 等同于运算符\'>\'")
@@ -19,4 +22,4 @@ _.gt(3, 3); // => false
 _.gt(1, 3); // => false
 ```
 
-#Lodash #Lodash/Lang 
+#Lodash 

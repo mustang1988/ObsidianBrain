@@ -1,3 +1,6 @@
+---
+Category: ["Date"]
+---
 ## [[Lodash|_]].now()
 ### 作用
 (Comment:: "获取当前时间的UTC毫秒时间戳")
@@ -14,4 +17,4 @@ const _ = require('lodash');
 console.log(_.now());
 ```
 
-#Lodash #Lodash/Date 
+#Lodash 

@@ -7,101 +7,14 @@ aliases: ["_"]
 ## Lodash
 一致性, 模块化, 高性能的 [[ECMAScript|JavaScript]]  / [[ECMAScript|TypeScript]] 实用工具 [[框架&库|库]]
 
-### Array
+### 常用函数
 ```dataviewjs
+const categoryOrder = ["Array", "Collection", "Date", "Function", "Lang", "Math", "Number", "Object", "Seq", "String", "Util", "Properties", "Methods"];
 dv.table(
-	["函数名","作用"],
-	dv.pages('#Lodash/Array')
-	.sort(page => page.file.name, 'asc')
-	.map(page => [page.file.link, page.Comment])
-);
-```
-
-### Collection
-```dataviewjs
-dv.table(
-	["函数名","作用"],
-	dv.pages('#Lodash/Collection')
-	.filter(page => page.file.path != dv.current().file.path)
-	.sort(page => page.file.name, 'asc')
-	.map(page => [page.file.link, page.Comment])
-);
-```
-
-### Date
-```dataviewjs
-dv.table(
-	["函数名","作用"],
-	dv.pages('#Lodash/Date')
-	.filter(page => page.file.path != dv.current().file.path)
-	.sort(page => page.file.name, 'asc')
-	.map(page => [page.file.link, page.Comment])
-);
-```
-
-### Function
-```dataviewjs
-dv.table(
-	["函数名","作用"],
-	dv.pages('#Lodash/Function')
-	.filter(page => page.file.path != dv.current().file.path)
-	.sort(page => page.file.name, 'asc')
-	.map(page => [page.file.link, page.Comment])
-);
-```
-
-### Lang
-```dataviewjs
-dv.table(
-	["函数名","作用"],
-	dv.pages('#Lodash/Lang')
-	.filter(page => page.file.path != dv.current().file.path)
-	.sort(page => page.file.name, 'asc')
-	.map(page => [page.file.link, page.Comment])
-);
-```
-
-### Math
-```dataviewjs
-dv.table(
-	["函数名","作用"],
-	dv.pages('#Lodash/Math')
-	.filter(page => page.file.path != dv.current().file.path)
-	.sort(page => page.file.name, 'asc')
-	.map(page => [page.file.link, page.Comment])
-);
-```
-
-### Number
-```dataviewjs
-dv.table(
-	["函数名","作用"],
-	dv.pages('#Lodash/Number')
-	.filter(page => page.file.path != dv.current().file.path)
-	.sort(page => page.file.name, 'asc')
-	.map(page => [page.file.link, page.Comment])
-);
-```
-
-### Object
-```dataviewjs
-dv.table(
-	["函数名","作用"],
-	dv.pages('#Lodash/Object')
-	.filter(page => page.file.path != dv.current().file.path)
-	.sort(page => page.file.name, 'asc')
-	.map(page => [page.file.link, page.Comment])
-);
-```
-
-### Util
-```dataviewjs
-dv.table(
-	["函数名","作用"],
-	dv.pages('#Lodash/Util')
-	.filter(page => page.file.path != dv.current().file.path)
-	.sort(page => page.file.name, 'asc')
-	.map(page => [page.file.link, page.Comment])
+	["函数", "作用", "分类"],
+	dv.pages('#Lodash and -"模板"')
+	.sort(page => [categoryOrder.indexOf(page.Category[0]), page.file.name], 'asc')
+	.map(page => [page.file.link, page.Comment, page.Category])
 );
 ```
 
