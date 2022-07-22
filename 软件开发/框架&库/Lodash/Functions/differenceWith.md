@@ -7,7 +7,7 @@ Category: ["Array"]
 
 此函数为 [[difference]] 的扩展, 添加自定义比对函数的支持, 可自定义值"相等"的定义
 
-不同于 [[pullAllWith]] 函数, \_.differenceWith() 函数会创建并返回建新的数组引用
+不同于 [[pullAllWith]] 函数, differenceWith 函数会创建并返回建新的数组引用, 不会影响原始数组的引用
 
 ### 参数说明
 | 参数名     | 参数类型 | 必填? | 参数说明             | 默认值    |

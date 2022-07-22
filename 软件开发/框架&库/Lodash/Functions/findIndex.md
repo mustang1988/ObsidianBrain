@@ -1,7 +1,7 @@
 ---
 Category: ["Array"]
 ---
-## [[Lodash|_]].findIndex(array, \[predicate=[[identity]]\], \[fromIndex=0\])
+## [[Lodash|_]].findIndex(array, \[predicate=[[Lodash|_]].[[identity]]\], \[fromIndex=0\])
 ### 作用
 (Comment:: " ***从前向后*** 检索指定数组, 获取数组中 ***首个*** 符合指定条件的元素在数组中的索引")
 

@@ -1,7 +1,7 @@
 ---
 Category: ["Array"]
 ---
-## [[Lodash|_]].dropWhile(array, \[predicate=[[identity]]\])
+## [[Lodash|_]].dropWhile(array, \[predicate=[[Lodash|_]]_.[[identity]]\])
 ### 作用
 (Comment:: "创建指定数组的片段, 片段中 ***不包含*** 原始数组中 ***前端*** 的部分元素")
 
@@ -10,6 +10,8 @@ Category: ["Array"]
 与 [[dropRightWhile]] 函数类似, 区别在于 [[dropRightWhile]] 函数会忽略原始数组 ***后端*** 部分元素, dropWhile() 函数则会忽略原始数组 ***前端*** 部分元素
 
 当迭代函数 predicate ***首次*** 返回 false 时, 终止 predicate 函数的迭代和元素的忽略
+
+dropWhile 函数返回的结果是新创建的数组引用, 不会影响原始数组的引用
 
 ### 参数说明
 | 参数名    | 参数类型 | 必填? | 参数说明               | 默认值           |

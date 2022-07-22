@@ -1,7 +1,7 @@
 ---
 Category: ["Array"]
 ---
-## [[Lodash|_]].differenceBy(array, \[values\], \[iteratee=[[identity]]\])
+## [[Lodash|_]].differenceBy(array, \[values\], \[iteratee=[[Lodash|_]].[[identity]]\])
 ### 作用
 (Comment:: "使用SameValueZero进行相等比较, 创建其他给定数组中不包含的数组值的数组")
 
@@ -9,7 +9,7 @@ Category: ["Array"]
 
 此函数为 [[difference]] 的扩展, 添加了可选参数 iteratee, 用于迭代给定的数组元素, 统一元素间 SameValueZero 相等比较的标准
 
-不同于 [[pullAllBy()]] 函数, \_.differenceBy() 函数会创建并返回新的数组引用
+不同于 [[pullAllBy]] 函数, differenceBy 函数会创建并返回新的数组引用, 不会影响原始数组的引用
 
 ### 参数说明
 | 参数名   | 参数类型     | 必填? | 参数说明             | 默认值           |
@@ -25,7 +25,7 @@ Category: ["Array"]
 ```javascript
 const _ = require('lodash');
 _.differenceBy([2.1, 1.2], [2.3, 3.4], Math.floor); // => [1.2]
-_.differenceBy([{ 'x': 2 }, { 'x': 1 }], [{ 'x': 1 }], 'x'); // => [{ 'x': 2 }], 此处的回调函数参数 'x' 为隐式调用了 [[_.property()]]
+_.differenceBy([{ 'x': 2 }, { 'x': 1 }], [{ 'x': 1 }], 'x'); // => [{ 'x': 2 }], 此处的回调函数参数 'x' 为隐式调用了 [[property]]
 _.differenceBy(
 	[{ x: 2 }, { x: 1, y: 2 }],
 	[{ x: 1 }, { x: 100 }],

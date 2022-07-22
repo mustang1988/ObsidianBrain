@@ -3,7 +3,7 @@ Category: ["Object"]
 ---
 ## [[Lodash|_]].get(object, path, \[defaultValue\])
 ### 作用
-(Comment:: "获取指定对象中, 指定属性路径下的属性值")
+(Comment:: "获取指定对象中指定属性路径下的属性值")
 
 ### 参数说明
 |参数名|参数类型|必填?|参数说明|默认值|

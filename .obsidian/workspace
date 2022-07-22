@@ -7,12 +7,8 @@
         "id": "5e039ebf62d867fa",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "软件开发/框架&库/Lodash/Functions/add.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "graph",
+          "state": {}
         }
       }
     ],
@@ -78,7 +74,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "软件开发/框架&库/Lodash/Functions/add.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -95,7 +90,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "软件开发/框架&库/Lodash/Functions/add.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -129,15 +123,15 @@
   },
   "active": "5e039ebf62d867fa",
   "lastOpenFiles": [
-    "模板/通用/Callout/warning.md",
-    "模板/通用/Callout/tip.md",
-    "模板/通用/Callout/success.md",
-    "模板/通用/Callout/quote.md",
-    "模板/通用/Callout/question.md",
-    "模板/通用/Callout/note.md",
-    "模板/通用/Callout/info.md",
-    "模板/通用/Callout/fail.md",
-    "模板/通用/Callout/example.md",
-    "模板/通用/Callout/error.md"
+    "软件开发/框架&库/Lodash/Lodash.md",
+    "软件开发/框架&库/Lodash/Functions/add.md",
+    "软件开发/框架&库/Lodash/Functions/gt.md",
+    "软件开发/框架&库/Lodash/Functions/take.md",
+    "软件开发/框架&库/Lodash/Functions/tail.md",
+    "软件开发/框架&库/Lodash/Functions/initial.md",
+    "软件开发/框架&库/Lodash/Functions/chunk.md",
+    "软件开发/框架&库/Lodash/Functions/clamp.md",
+    "软件开发/框架&库/Lodash/Functions/compact.md",
+    "软件开发/框架&库/Lodash/Functions/concat.md"
   ]
 }

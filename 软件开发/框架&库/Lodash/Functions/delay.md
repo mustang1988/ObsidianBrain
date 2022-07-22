@@ -3,7 +3,7 @@ Category: ["Function"]
 ---
 ## [[Lodash|_]].delay(func, wait, \[args\])
 ### 作用
-(Comment:: "延迟指定时间后调用指定函数")
+(Comment:: "在指定时间后调用指定函数")
 
 ### 参数说明
 |参数名|参数类型|必填?|参数说明|默认值|

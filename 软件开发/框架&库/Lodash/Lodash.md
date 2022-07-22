@@ -11,10 +11,14 @@ aliases: ["_"]
 ```dataviewjs
 const categoryOrder = ["Array", "Collection", "Date", "Function", "Lang", "Math", "Number", "Object", "Seq", "String", "Util", "Properties", "Methods"];
 dv.table(
-	["函数", "作用", "分类"],
+	["函数", "作用", "分类", "改变输入引用?"],
 	dv.pages('#Lodash and -"模板"')
 	.sort(page => [categoryOrder.indexOf(page.Category[0]), page.file.name], 'asc')
-	.map(page => [page.file.link, page.Comment, page.Category])
+	.map(page => [
+		page.file.link, page.Comment,
+		page.Category,
+		page.MutateReference ? '<font color="red">是</font>' : undefined
+	])
 );
 ```
 

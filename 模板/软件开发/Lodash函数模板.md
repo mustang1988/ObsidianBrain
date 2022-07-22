@@ -1,5 +1,6 @@
 ---
 Category: [""]
+MutateReference: false
 ---
 ## [[Lodash|_]].<% tp.file.title+"()" %>
 ### 作用
