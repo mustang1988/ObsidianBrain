@@ -4,11 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "5e039ebf62d867fa",
+        "id": "b4355978ba533196",
         "type": "leaf",
         "state": {
-          "type": "graph",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "软件开发/数据库/Redis/Redis.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -74,6 +78,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "软件开发/数据库/Redis/Redis.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -90,6 +95,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "软件开发/数据库/Redis/Redis.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -119,19 +125,19 @@
       }
     ],
     "direction": "horizontal",
-    "width": 148.5
+    "width": 281.5
   },
-  "active": "5e039ebf62d867fa",
+  "active": "b4355978ba533196",
   "lastOpenFiles": [
-    "软件开发/框架&库/Lodash/Lodash.md",
-    "软件开发/框架&库/Lodash/Functions/add.md",
-    "软件开发/框架&库/Lodash/Functions/gt.md",
-    "软件开发/框架&库/Lodash/Functions/take.md",
-    "软件开发/框架&库/Lodash/Functions/tail.md",
-    "软件开发/框架&库/Lodash/Functions/initial.md",
-    "软件开发/框架&库/Lodash/Functions/chunk.md",
-    "软件开发/框架&库/Lodash/Functions/clamp.md",
-    "软件开发/框架&库/Lodash/Functions/compact.md",
-    "软件开发/框架&库/Lodash/Functions/concat.md"
+    "软件开发/数据库/数据库.md",
+    "软件开发/框架&库/CUDA/WebRTC视频流CUDA硬件解码开发.md",
+    "软件开发/框架&库/CUDA/CUDA.md",
+    "生活/读书/书单.md",
+    "软件开发/框架&库/WebRTC/WebRTC.md",
+    "生活/读书/书库/雪崩.md",
+    "软件开发/框架&库/框架&库.md",
+    "软件开发/框架&库/Django/Django.md",
+    "软件开发/工具/UnrealEngine/未命名.md",
+    "软件开发/工具/UnrealEngine/UE4插件开发.md"
   ]
 }

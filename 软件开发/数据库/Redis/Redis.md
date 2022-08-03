@@ -1,9 +1,18 @@
 ## Redis
-### 简介
-Redis是一个使用ANSI C编写的开源, 支持网络, 基于内存, 分布式, 可选持久性的键值对存储 [[数据库]]
 
-### 常用命令
-#### 通用
+```ad-abstract
+title: Redis是一个使用ANSI C编写的开源, 支持网络, 基于内存, 分布式, 可选持久性的键值对存储 [[数据库]]
+```
+
+`````ad-tip
+title: 常用命令
+collapse: open
+
+
+````ad-quote
+title: 通用
+collapse: close
+
 ```dataviewjs
 dv.table(
 	["命令","说明"],
@@ -13,7 +22,12 @@ dv.table(
 );
 ```
 
-#### List
+````
+
+````ad-quote
+title: List
+collapse: close
+
 ```dataviewjs
 dv.table(
 	["命令","说明"],
@@ -23,7 +37,12 @@ dv.table(
 );
 ```
 
-#### Hash
+````
+
+````ad-quote
+title: Hash
+collapse: close
+
 ```dataviewjs
 dv.table(
 	["命令","说明"],
@@ -33,7 +52,12 @@ dv.table(
 );
 ```
 
-#### Set
+````
+
+````ad-quote
+title: Set
+collapse: close
+
 ```dataviewjs
 dv.table(
 	["命令","说明"],
@@ -43,7 +67,12 @@ dv.table(
 );
 ```
 
-#### Sorted Set
+````
+
+````ad-quote
+title: Sorted Set
+collapse: close
+
 ```dataviewjs
 dv.table(
 	["命令","说明"],
@@ -53,7 +82,12 @@ dv.table(
 );
 ```
 
-#### String
+````
+
+````ad-quote
+title: String
+collapse: close
+
 ```dataviewjs
 dv.table(
 	["命令","说明"],
@@ -63,7 +97,16 @@ dv.table(
 );
 ```
 
-### 常用业务场景
+````
+
+
+
+`````
+
+````ad-info
+title: 常用业务场景
+collapse: open
+
 ```dataviewjs
 dv.list(
 	dv.pages('#Redis/常用业务场景')
@@ -71,5 +114,7 @@ dv.list(
 	.map(page => page.file.link)
 );
 ```
+
+````
 
 #数据库 #数据库/非关系型数据库 #数据库/非关系型数据库/Redis
