@@ -4,10 +4,15 @@ Abstract: "一致性, 模块化, 高性能的实用工具库"
 aliases: ["_"]
 ---
 
-## Lodash
+# Lodash
+```ad-abstract
 一致性, 模块化, 高性能的 [[ECMAScript|JavaScript]]  / [[ECMAScript|TypeScript]] 实用工具 [[框架&库|库]]
+```
 
-### 常用函数
+````ad-quote
+title: 常用函数
+collapse: open
+
 ```dataviewjs
 const categoryOrder = ["Array", "Collection", "Date", "Function", "Lang", "Math", "Number", "Object", "Seq", "String", "Util", "Properties", "Methods"];
 dv.table(
@@ -21,5 +26,7 @@ dv.table(
 	])
 );
 ```
+
+````
 
 #库 #库/Lodash #ECMAScript 
