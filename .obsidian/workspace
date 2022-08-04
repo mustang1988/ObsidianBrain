@@ -9,8 +9,9 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "软件开发/框架&库/WebRTC/源码分析/PeerConnectionInterface.md",
+            "file": "生活/学习/Obsidian/插件/Admonition.md",
             "mode": "source",
+            "backlinks": true,
             "source": false
           }
         }
@@ -78,7 +79,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "软件开发/框架&库/WebRTC/源码分析/PeerConnectionInterface.md",
+                "file": "生活/学习/Obsidian/插件/Admonition.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -95,7 +96,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "软件开发/框架&库/WebRTC/源码分析/PeerConnectionInterface.md",
+                "file": "生活/学习/Obsidian/插件/Admonition.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -130,15 +131,15 @@
   },
   "active": "b4355978ba533196",
   "lastOpenFiles": [
-    "软件开发/框架&库/WebRTC/WebRTC源码分析.md",
+    "生活/学习/Obsidian/Obsidian使用基础.md",
+    "生活/学习/Obsidian/Obsidian.md",
+    "生活/学习/Obsidian/插件/Dataview.md",
+    "生活/学习/Obsidian/插件/Admonition.md",
+    "生活/学习/Obsidian/插件/Advanced Tables.md",
     "软件开发/框架&库/WebRTC/源码分析/PeerConnectionInterface.md",
-    "软件开发/框架&库/WebRTC/WebRTC.md",
     "软件开发/框架&库/CUDA/WebRTC视频流CUDA硬件解码开发.md",
-    "软件开发/编程思想与理论/OOP/设计模式.md",
-    "软件开发/编程思想与理论/编程思想与理论.md",
-    "软件开发/编程思想与理论/OOP/SOLID原则.md",
-    "软件开发/编程语言/C++/C++.md",
-    "软件开发/框架&库/SpringFramework/SpringFramework.md",
-    "软件开发/编程语言/Java/Java.md"
+    "test.md",
+    "软件开发/框架&库/WebRTC/WebRTC源码分析.md",
+    "软件开发/框架&库/WebRTC/WebRTC.md"
   ]
 }

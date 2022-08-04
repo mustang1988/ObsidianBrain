@@ -5,6 +5,7 @@ collapse: close
 icon: Quote
 
 ~~~cpp
+// webrtc\src\api\peer_connection_interface.h
 class RTC_EXPORT PeerConnectionInterface : public rtc::RefCountInterface {
  public:
   enum SignalingState {
@@ -107,7 +108,6 @@ class RTC_EXPORT PeerConnectionInterface : public rtc::RefCountInterface {
     void set_cpu_adaptation(bool enable) {
       media_config.video.enable_cpu_adaptation = enable;
     }
-
     bool suspend_below_min_bitrate() const {
       return media_config.video.suspend_below_min_bitrate;
     }
@@ -171,10 +171,10 @@ class RTC_EXPORT PeerConnectionInterface : public rtc::RefCountInterface {
     bool prune_turn_ports = false;
     PortPrunePolicy turn_port_prune_policy = NO_PRUNE;
     PortPrunePolicy GetTurnPortPrunePolicy() const {
-      return prune_turn_ports ? PRUNE_BASED_ON_PRIORITY
-                              : turn_port_prune_policy;
+      return prune_turn_ports 
+		     ? PRUNE_BASED_ON_PRIORITY
+             : turn_port_prune_policy;
     }
-
     bool presume_writable_when_fully_relayed = false;
     bool enable_ice_renomination = false;
     bool redetermine_role_on_ice_restart = true;
@@ -233,12 +233,9 @@ class RTC_EXPORT PeerConnectionInterface : public rtc::RefCountInterface {
   virtual rtc::scoped_refptr<StreamCollectionInterface> remote_streams() = 0;
   virtual bool AddStream(MediaStreamInterface* stream) = 0;
   virtual void RemoveStream(MediaStreamInterface* stream) = 0;
-  virtual RTCErrorOr<rtc::scoped_refptr<RtpSenderInterface>> AddTrack(
-      rtc::scoped_refptr<MediaStreamTrackInterface> track,
-      const std::vector<std::string>& stream_ids) = 0;
+  virtual RTCErrorOr<rtc::scoped_refptr<RtpSenderInterface>> AddTrack(rtc::scoped_refptr<MediaStreamTrackInterface> track, const std::vector<std::string>& stream_ids) = 0;
   virtual bool RemoveTrack(RtpSenderInterface* sender) = 0;
-  virtual RTCError RemoveTrackNew(
-      rtc::scoped_refptr<RtpSenderInterface> sender);
+  virtual RTCError RemoveTrackNew(rtc::scoped_refptr<RtpSenderInterface> sender);
   virtual RTCErrorOr<rtc::scoped_refptr<RtpTransceiverInterface>>
   AddTransceiver(rtc::scoped_refptr<MediaStreamTrackInterface> track) = 0;
   virtual RTCErrorOr<rtc::scoped_refptr<RtpTransceiverInterface>>
@@ -270,17 +267,12 @@ class RTC_EXPORT PeerConnectionInterface : public rtc::RefCountInterface {
   virtual void SetLocalDescription(SetSessionDescriptionObserver* observer, SessionDescriptionInterface* desc) = 0;
   virtual void SetLocalDescription(SetSessionDescriptionObserver* observer) {}
   virtual void SetRemoteDescription(SetSessionDescriptionObserver* observer, SessionDescriptionInterface* desc) {}
-  virtual void SetRemoteDescription(
-      std::unique_ptr<SessionDescriptionInterface> desc,
-      rtc::scoped_refptr<SetRemoteDescriptionObserverInterface> observer) = 0;
+  virtual void SetRemoteDescription(std::unique_ptr<SessionDescriptionInterface> desc, rtc::scoped_refptr<SetRemoteDescriptionObserverInterface> observer) = 0;
   virtual PeerConnectionInterface::RTCConfiguration GetConfiguration() = 0;
-  virtual RTCError SetConfiguration(
-      const PeerConnectionInterface::RTCConfiguration& config);
+  virtual RTCError SetConfiguration(const PeerConnectionInterface::RTCConfiguration& config);
   virtual bool AddIceCandidate(const IceCandidateInterface* candidate) = 0;
-  virtual void AddIceCandidate(std::unique_ptr<IceCandidateInterface> candidate,
-                               std::function<void(RTCError)> callback) {}
-  virtual bool RemoveIceCandidates(
-      const std::vector<cricket::Candidate>& candidates) = 0;
+  virtual void AddIceCandidate(std::unique_ptr<IceCandidateInterface> candidate, std::function<void(RTCError)> callback) {}
+  virtual bool RemoveIceCandidates(const std::vector<cricket::Candidate>& candidates) = 0;
   struct BitrateParameters {
     BitrateParameters();
     ~BitrateParameters();

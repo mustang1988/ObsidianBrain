@@ -1,5 +1,8 @@
-## Obsidian
-### 相关文章
+# Obsidian
+````ad-quote
+title: 相关文章
+collapse: open
+
 ```dataview
 LIST
 FROM
@@ -8,7 +11,12 @@ SORT
 	file.name ASC
 ```
 
-### 插件
+````
+
+````ad-quote
+title: Obsidian插件
+collapse: open
+
 ```dataview
 LIST
 FROM
@@ -16,3 +24,4 @@ FROM
 SORT
 	file.name ASC
 ```
+````
