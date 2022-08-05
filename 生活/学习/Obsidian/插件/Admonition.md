@@ -103,7 +103,6 @@ Admonition 插件支持上述 Obsidian 提供的所有的Callout格式, 同时�
 - 自定义图标
 - Callout嵌套
 - Callout折叠收起
-- Callout内容部分代码块支持
 
 上述这些是 Obsidian 内置的 Callout 所不支持的, 也因此, Admonition Callout的编写格式与 Obsidian 内置的有所不同, 大致格式如下:
 ````

@@ -1,48 +1,27 @@
 ---
-# 命令名称
 Command: "{{title}}"
-# 命令签名
 Signature: ""
-# 命令说明
 Comment: ""
-# 扩展命令说明
 ExtraComment: |-
   
-# 时间复杂度
 TimeComplexity: ""
-# 时间复杂度说明
 TimeComplexityComment: ""
-# 参数
 Arguments:
-    # 参数名
   - Name: ""
-    # 参数类型
     Type: ""
-    # 参数说明
     Comment: ""
-    # 参数备注
     Remark: ""
-# 返回值
 Returns:
-    # 返回值类型
   - Type: ""
-    # 返回值说明
     Comment: ""
-# 示例
 Samples:
-  # 正常示例
   Success:
-    # 示例内容
     Sample: |-
       ```bash
       
       ```
-      
-  # 异常示例
   Error:
-      # 异常原因
     - Reason: ""
-      # 示例内容
       Sample: |-
         ```bash
         
