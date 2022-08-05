@@ -3,7 +3,7 @@ Signature: ""
 Category:
   - ""
 Comment: ""
-ExtraComment: |-
+ExtraComment: |
   
 Arguments:
   - Name: ""

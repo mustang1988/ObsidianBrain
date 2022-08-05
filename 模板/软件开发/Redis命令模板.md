@@ -2,7 +2,7 @@
 Command: "{{title}}"
 Signature: ""
 Comment: ""
-ExtraComment: |-
+ExtraComment: |
   
 TimeComplexity: ""
 TimeComplexityComment: ""
@@ -16,13 +16,13 @@ Returns:
     Comment: ""
 Samples:
   Success:
-    Sample: |-
+    Sample: |
       ```bash
       
       ```
   Error:
     - Reason: ""
-      Sample: |-
+      Sample: |
         ```bash
         
         ```

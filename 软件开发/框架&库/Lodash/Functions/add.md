@@ -5,7 +5,7 @@ Signature: "add(augend, addend)"
 Category:
   - "Math"
 # 说明
-Comment: "将两个数值相加, 作用等同于运算符 +"
+Comment: "将两个数值相加, 作用等同于运算符 '+'"
 # 额外说明
 ExtraComment: |-
   
