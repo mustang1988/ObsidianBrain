@@ -4,13 +4,13 @@
     "type": "split",
     "children": [
       {
-        "id": "b4355978ba533196",
+        "id": "4d1f244607c73635",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "生活/学习/Obsidian/插件/Admonition.md",
-            "mode": "source",
+            "file": "软件开发/框架&库/Lodash/Functions/add.md",
+            "mode": "preview",
             "backlinks": true,
             "source": false
           }
@@ -79,7 +79,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "生活/学习/Obsidian/插件/Admonition.md",
+                "file": "软件开发/框架&库/Lodash/Functions/add.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -96,7 +96,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "生活/学习/Obsidian/插件/Admonition.md",
+                "file": "软件开发/框架&库/Lodash/Functions/add.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -129,17 +129,17 @@
     "width": 281.5,
     "collapsed": true
   },
-  "active": "b4355978ba533196",
+  "active": "4d1f244607c73635",
   "lastOpenFiles": [
-    "生活/学习/Obsidian/Obsidian使用基础.md",
-    "生活/学习/Obsidian/Obsidian.md",
-    "生活/学习/Obsidian/插件/Dataview.md",
+    "软件开发/数据库/Redis/常用命令/APPEND.md",
+    "模板/软件开发/Lodash函数模板.md",
+    "模板/软件开发/Redis命令模板.md",
+    "Redis命令测试.md",
+    "软件开发/数据库/Redis/常用命令/DEL.md",
+    "模板/软件开发/FFprobe参数模板.md",
+    "软件开发/框架&库/Lodash/Functions/add.md",
+    "软件开发/框架&库/Lodash/Lodash.md",
     "生活/学习/Obsidian/插件/Admonition.md",
-    "生活/学习/Obsidian/插件/Advanced Tables.md",
-    "软件开发/框架&库/WebRTC/源码分析/PeerConnectionInterface.md",
-    "软件开发/框架&库/CUDA/WebRTC视频流CUDA硬件解码开发.md",
-    "test.md",
-    "软件开发/框架&库/WebRTC/WebRTC源码分析.md",
-    "软件开发/框架&库/WebRTC/WebRTC.md"
+    "图片/生活/学习/Obsidian/插件/Admonition/Admonition设置.png"
   ]
 }
