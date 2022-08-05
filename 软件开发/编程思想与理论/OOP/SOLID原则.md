@@ -1,13 +1,16 @@
+---
+Abstract: "SOLID原则是面向对象程序设计中的5大指导性原则的简称"
+---
 ## SOLID原则
-(Abstract:: "SOLID原则是面向对象程序设计中的5大指导性原则的简称")
+`$=dv.current().Abstract`
 
 它们分别是
 ```dataviewjs
 const order = ["S","O","L","I","D"]
 dv.list(
 	dv.pages('#SOLID')
-	.sort(page => order.indexOf(page.file.name.substr(0,1)), 'asc')
-	.map(page => page.file.link)
+	.sort(page => order.indexOf(page.EnName.substr(0,1)), 'asc')
+	.map(page => dv.fileLink(page.file.path, false, `${page.Name} - ${page.EnName}`))
 );
 ``` 
 

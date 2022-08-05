@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "2a823095b559a293",
+        "id": "52db778d876099f2",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "软件开发/编程思想与理论/OOP/设计模式/单例模式.md",
+            "file": "软件开发/框架&库/CUDA/WebRTC视频流CUDA硬件解码开发.md",
             "mode": "source",
             "backlinks": true,
             "source": false
@@ -79,7 +79,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "软件开发/编程思想与理论/OOP/设计模式/单例模式.md",
+                "file": "软件开发/框架&库/CUDA/WebRTC视频流CUDA硬件解码开发.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -96,7 +96,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "软件开发/编程思想与理论/OOP/设计模式/单例模式.md",
+                "file": "软件开发/框架&库/CUDA/WebRTC视频流CUDA硬件解码开发.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               }
@@ -129,17 +129,17 @@
     "width": 281.5,
     "collapsed": true
   },
-  "active": "2a823095b559a293",
+  "active": "52db778d876099f2",
   "lastOpenFiles": [
-    "模板/软件开发/设计模式模板.md",
-    "软件开发/编程思想与理论/OOP/设计模式/单例模式.md",
-    "软件开发/编程思想与理论/OOP/设计模式.md",
-    "软件开发/编程思想与理论/OOP/设计模式/备忘录模式 Memento.md",
-    "生活/学习/Obsidian/插件/Admonition.md",
-    "软件开发/编程思想与理论/OOP/SOLID/SingleResponsibilityPrinciple - 单一职责原则.md",
-    "软件开发/编程思想与理论/OOP/SOLID/OpenClosedPrinciple - 开闭原则.md",
-    "软件开发/编程思想与理论/OOP/SOLID/LiskovSubstitutionPrinciple - 里氏代换原则.md",
-    "软件开发/编程思想与理论/OOP/SOLID/InterfaceSegregationPrinciple - 接口隔离原则.md",
-    "软件开发/编程思想与理论/OOP/SOLID/DependencyInversionPrinciple - 依赖倒置原则.md"
+    "软件开发/工具/VSCode/插件/ProjectManager.md",
+    "软件开发/工具/VSCode/插件/CodeSnap.md",
+    "软件开发/工具/UnrealEngine/UnrealEngine源码使用.md",
+    "软件开发/工具/UnrealEngine/UnrealEngine.md",
+    "软件开发/工具/UnrealEngine/UE4添加自定义资产类型.md",
+    "软件开发/工具/UnrealEngine/UE4插件开发.md",
+    "软件开发/工具/PyInstaller/PyInstaller打包Python项目.md",
+    "软件开发/工具/PyInstaller/PyInstaller.md",
+    "软件开发/工具/Git/GitFlow.md",
+    "软件开发/工具/Git/Git.md"
   ]
 }
