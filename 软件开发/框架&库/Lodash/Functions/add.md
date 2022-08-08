@@ -5,10 +5,9 @@ Signature: "add(augend, addend)"
 Category:
   - "Math"
 # 说明
-Comment: "将两个数值相加, 作用等同于运算符 '+'"
+Comment: "将两个数值相加, 作用等同于运算符 \"+\""
 # 额外说明
-ExtraComment: |-
-  
+ExtraComment: 
 # 参数列表
 Arguments:
     # 参数名
@@ -38,7 +37,11 @@ Return:
 
 `$=dv.current().Comment;`
 
-`$=dv.current().ExtraComment;`
+```dataviewjs
+if(dv.current().ExtraComment != null){
+  dv.list(dv.current().ExtraComment);
+}
+```
 
 ## 参数说明
 ```dataviewjs

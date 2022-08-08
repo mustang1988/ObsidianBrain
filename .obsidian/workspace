@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "5d7bca99bfd384d6",
+        "id": "133aaf08a69d5c99",
         "type": "leaf",
         "state": {
           "type": "markdown",
@@ -129,17 +129,17 @@
     "width": 281.5,
     "collapsed": true
   },
-  "active": "5d7bca99bfd384d6",
+  "active": "133aaf08a69d5c99",
   "lastOpenFiles": [
     "软件开发/框架&库/Lodash/Functions/chunk.md",
     "软件开发/框架&库/Lodash/Lodash.md",
-    "软件开发/框架&库/Lodash/differenceWith的comparator回调函数.md",
-    "软件开发/框架&库/Lodash/Functions/drop.md",
-    "软件开发/框架&库/Lodash/Functions/differenceWith.md",
-    "软件开发/框架&库/Lodash/Functions/differenceBy.md",
-    "软件开发/框架&库/Lodash/Functions/difference.md",
-    "软件开发/框架&库/Lodash/Functions/delay.md",
-    "软件开发/框架&库/Lodash/Functions/concat.md",
-    "软件开发/框架&库/Lodash/Functions/compact.md"
+    "软件开发/框架&库/Lodash/Functions/fill.md",
+    "软件开发/框架&库/Lodash/Functions/add.md",
+    "软件开发/框架&库/Lodash/Functions/chain.md",
+    "软件开发/框架&库/Lodash/Functions/head.md",
+    "软件开发/框架&库/Lodash/Functions/random.md",
+    "软件开发/框架&库/Lodash/Functions/inRange.md",
+    "软件开发/框架&库/Lodash/Functions/dropWhile.md",
+    "模板/软件开发/Redis命令模板.md"
   ]
 }

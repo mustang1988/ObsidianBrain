@@ -1,40 +1,36 @@
 ---
 # 函数签名
-Signature: "fill(array, value, [start=0], [end=array.length])"
+Signature: "inRange(number, [start=0], end)"
 # 函数分类
 Category:
-  - "Array"
+  - "Number"
 # 函数说明
-Comment: "使用指定元素在指定索引范围内填充数组"
+Comment: "检查指定的数值是否在指定的区间内"
 # 函数额外说明
 ExtraComment:
- - "```ad-warning\ntitle: 注意\n填充时, 填充起始位置会被填充, 但结束位置不会填充, 即实际填充范围为 [start, end), 原始数组中对应范围内的已存在元素会被填充元素覆盖\n```"
+ - "取值范围区间包含下限值但不包含上限值, 即区间为 [下限值, 上限值)]"
+ - "如果给定的下限值大于上限值, 则自动交换该上下限制值"
 # 函数参数列表
 Arguments:
-  - Name: "array"
-    Type: "Array"
+  - Name: "number"
+    Type: "Number"
     Required: true
-    Comment: "需要填充元素的数组"
-    Default: ""
-  - Name: "value"
-    Type: "any"
-    Required: true
-    Comment: "用于填充的元素"
+    Comment: "需要进行范围检查的数值"
     Default: ""
   - Name: "start"
-    Type: "Integer"
+    Type: "Number"
     Required: false
-    Comment: "填充起始索引"
-    Default: 0
+    Comment: "下限值(包含)"
+    Default: "0"
   - Name: "end"
-    Type: "Integer"
-    Required: false
-    Comment: "填充结束索引"
-    Default: "数组长度"
+    Type: "Number"
+    Required: true
+    Comment: "上限值(不包含)"
+    Default: ""
 # 函数返回值
 Return:
-  Type: ""
-  Comment: ""
+  Type: "Boolean"
+  Comment: "指定的值在给定范围内时返回true, 反之返回false"
 ---
 # [[Lodash|_]].`$=dv.current().Signature;`
 ## 作用
@@ -74,11 +70,13 @@ if(Array.isArray(Comment)){
 ## 示例
 ```javascript
 const _ = require('lodash');
-var array = [1, 2, 3];
-_.fill(array, 'a');
-console.log(array); // => ['a', 'a', 'a']
-_.fill(Array(3), 2); // => [2, 2, 2]
-_.fill([4, 6, 8, 10], '*', 1, 3); // => [4, '*', '*', 10]
+_.inRange(3, 2, 4);     // => true
+_.inRange(4, 8);        // => true
+_.inRange(4, 2);        // => false
+_.inRange(2, 2);        // => false
+_.inRange(1.2, 2);      // => true
+_.inRange(5.2, 4);      // => false
+_.inRange(-3, -2, -6);  // => true
 ```
 
 #Lodash 

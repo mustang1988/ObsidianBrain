@@ -7,12 +7,10 @@ Category:
 # 函数说明
 Comment: "使用SameValueZero进行相等比较, 创建其他给定数组中不包含的数组值的数组"
 # 函数额外说明
-ExtraComment: |
-  结果值的顺序和引用由第一个数组决定
-
-  此函数为 [[difference]] 的扩展, 添加了可选参数 iteratee, 用于迭代给定的数组元素, 统一元素间 SameValueZero 相等比较的标准
-
-  不同于 [[pullAllBy]] 函数, differenceBy 函数会创建并返回新的数组引用, 不会影响原始数组的引用
+ExtraComment: 
+  - "结果值的顺序和引用由第一个数组决定"
+  - "此函数为 [[difference]] 的扩展, 添加了可选参数 iteratee, 用于迭代给定的数组元素, 统一元素间 SameValueZero 相等比较的标准"
+  - "不同于 [[pullAllBy]] 函数, 本函数会创建并返回新的数组引用, 不会影响原始数组的引用"
 # 函数参数列表
 Arguments:
   - Name: "array"
@@ -40,7 +38,11 @@ Return:
 
 `$=dv.current().Comment;`
 
-`$=dv.current().ExtraComment;`
+```dataviewjs
+if(dv.current().ExtraComment != null){
+  dv.list(dv.current().ExtraComment);
+}
+```
 
 ## 参数说明
 ```dataviewjs

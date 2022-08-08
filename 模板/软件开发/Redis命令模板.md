@@ -6,8 +6,8 @@ Signature: ""
 # 命令说明
 Comment: ""
 # 命令额外说明
-ExtraComment: |
-  
+ExtraComment:
+  - 
 # 命令时间复杂度
 TimeComplexity: ""
 # 命令时间复杂度额外说明

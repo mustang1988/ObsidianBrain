@@ -7,8 +7,7 @@ Category:
 # 函数说明
 Comment: "在指定时间后调用指定函数"
 # 函数额外说明
-ExtraComment: |
-  
+ExtraComment: 
 # 函数参数列表
 Arguments:
   - Name: "func"
@@ -36,7 +35,11 @@ Return:
 
 `$=dv.current().Comment;`
 
-`$=dv.current().ExtraComment;`
+```dataviewjs
+if(dv.current().ExtraComment != null){
+  dv.list(dv.current().ExtraComment);
+}
+```
 
 ## 参数说明
 ```dataviewjs

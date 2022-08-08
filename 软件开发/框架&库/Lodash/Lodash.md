@@ -22,11 +22,14 @@ dv.table(
 	dv.pages('#Lodash and -"模板"')
 	.filter(page => page.Category.includes('Array'))
 	.sort(page => [page.file.name], 'asc')
-	.map(page => [
-		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
-		page.Comment,
-		page.ExtraComment
-	])
+	.map(page => {
+		const display = page.aliases == null ? `_.${page.Signature}` : `_.${page.Signature} / `+ page.aliases.join(' / ')
+		return [
+					dv.fileLink(page.file.path, false, display), 
+					page.Comment,
+					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+				]
+	})
 );
 ~~~
 ```
@@ -40,11 +43,14 @@ dv.table(
 	dv.pages('#Lodash and -"模板"')
 	.filter(page => page.Category.includes('Collection'))
 	.sort(page => [page.file.name], 'asc')
-	.map(page => [
-		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
-		page.Comment,
-		page.ExtraComment
-	])
+	.map(page => {
+		const display = page.aliases == null ? `_.${page.Signature}` : `_.${page.Signature} / `+ page.aliases.join(' / ')
+		return [
+					dv.fileLink(page.file.path, false, display), 
+					page.Comment,
+					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+				]
+	})
 );
 ~~~
 ```
@@ -58,11 +64,14 @@ dv.table(
 	dv.pages('#Lodash and -"模板"')
 	.filter(page => page.Category.includes('Date'))
 	.sort(page => [page.file.name], 'asc')
-	.map(page => [
-		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
-		page.Comment,
-		page.ExtraComment
-	])
+	.map(page => {
+		const display = page.aliases == null ? `_.${page.Signature}` : `_.${page.Signature} / `+ page.aliases.join(' / ')
+		return [
+					dv.fileLink(page.file.path, false, display), 
+					page.Comment,
+					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+				]
+	})
 );
 ~~~
 ```
@@ -76,11 +85,14 @@ dv.table(
 	dv.pages('#Lodash and -"模板"')
 	.filter(page => page.Category.includes('Function'))
 	.sort(page => [page.file.name], 'asc')
-	.map(page => [
-		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
-		page.Comment,
-		page.ExtraComment
-	])
+	.map(page => {
+		const display = page.aliases == null ? `_.${page.Signature}` : `_.${page.Signature} / `+ page.aliases.join(' / ')
+		return [
+					dv.fileLink(page.file.path, false, display), 
+					page.Comment,
+					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+				]
+	})
 );
 ~~~
 ```
@@ -94,11 +106,35 @@ dv.table(
 	dv.pages('#Lodash and -"模板"')
 	.filter(page => page.Category.includes('Lang'))
 	.sort(page => [page.file.name], 'asc')
-	.map(page => [
-		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
-		page.Comment,
-		page.ExtraComment
-	])
+	.map(page => {
+		const display = page.aliases == null ? `_.${page.Signature}` : `_.${page.Signature} / `+ page.aliases.join(' / ')
+		return [
+					dv.fileLink(page.file.path, false, display), 
+					page.Comment,
+					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+				]
+	})
+);
+~~~
+```
+
+```ad-quote
+title: Math
+collapse: close
+~~~dataviewjs
+dv.table(
+	[],
+	dv.pages('#Lodash and -"模板"')
+	.filter(page => page.Category.includes('Math'))
+	.sort(page => [page.file.name], 'asc')
+	.map(page => {
+		const display = page.aliases == null ? `_.${page.Signature}` : `_.${page.Signature} / `+ page.aliases.join(' / ')
+		return [
+					dv.fileLink(page.file.path, false, display), 
+					page.Comment,
+					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+				]
+	})
 );
 ~~~
 ```
@@ -112,11 +148,14 @@ dv.table(
 	dv.pages('#Lodash and -"模板"')
 	.filter(page => page.Category.includes('Number'))
 	.sort(page => [page.file.name], 'asc')
-	.map(page => [
-		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
-		page.Comment,
-		page.ExtraComment
-	])
+	.map(page => {
+		const display = page.aliases == null ? `_.${page.Signature}` : `_.${page.Signature} / `+ page.aliases.join(' / ')
+		return [
+					dv.fileLink(page.file.path, false, display), 
+					page.Comment,
+					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+				]
+	})
 );
 ~~~
 ```
@@ -130,11 +169,14 @@ dv.table(
 	dv.pages('#Lodash and -"模板"')
 	.filter(page => page.Category.includes('Object'))
 	.sort(page => [page.file.name], 'asc')
-	.map(page => [
-		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
-		page.Comment,
-		page.ExtraComment
-	])
+	.map(page => {
+		const display = page.aliases == null ? `_.${page.Signature}` : `_.${page.Signature} / `+ page.aliases.join(' / ')
+		return [
+					dv.fileLink(page.file.path, false, display), 
+					page.Comment,
+					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+				]
+	})
 );
 ~~~
 ```
@@ -148,11 +190,14 @@ dv.table(
 	dv.pages('#Lodash and -"模板"')
 	.filter(page => page.Category.includes('Seq'))
 	.sort(page => [page.file.name], 'asc')
-	.map(page => [
-		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
-		page.Comment,
-		page.ExtraComment
-	])
+	.map(page => {
+		const display = page.aliases == null ? `_.${page.Signature}` : `_.${page.Signature} / `+ page.aliases.join(' / ')
+		return [
+					dv.fileLink(page.file.path, false, display), 
+					page.Comment,
+					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+				]
+	})
 );
 ~~~
 ```
@@ -166,11 +211,14 @@ dv.table(
 	dv.pages('#Lodash and -"模板"')
 	.filter(page => page.Category.includes('String'))
 	.sort(page => [page.file.name], 'asc')
-	.map(page => [
-		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
-		page.Comment,
-		page.ExtraComment
-	])
+	.map(page => {
+		const display = page.aliases == null ? `_.${page.Signature}` : `_.${page.Signature} / `+ page.aliases.join(' / ')
+		return [
+					dv.fileLink(page.file.path, false, display), 
+					page.Comment,
+					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+				]
+	})
 );
 ~~~
 ```
@@ -184,47 +232,14 @@ dv.table(
 	dv.pages('#Lodash and -"模板"')
 	.filter(page => page.Category.includes('Util'))
 	.sort(page => [page.file.name], 'asc')
-	.map(page => [
-		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
-		page.Comment,
-		page.ExtraComment
-	])
-);
-~~~
-```
-
-```ad-quote
-title: Properties
-collapse: close
-~~~dataviewjs
-dv.table(
-	[],
-	dv.pages('#Lodash and -"模板"')
-	.filter(page => page.Category.includes('Properties'))
-	.sort(page => [page.file.name], 'asc')
-	.map(page => [
-		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
-		page.Comment,
-		page.ExtraComment
-	])
-);
-~~~
-```
-
-```ad-quote
-title: Methods
-collapse: close
-~~~dataviewjs
-dv.table(
-	[],
-	dv.pages('#Lodash and -"模板"')
-	.filter(page => page.Category.includes('Methods'))
-	.sort(page => [page.file.name], 'asc')
-	.map(page => [
-		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
-		page.Comment,
-		page.ExtraComment
-	])
+	.map(page => {
+		const display = page.aliases == null ? `_.${page.Signature}` : `_.${page.Signature} / `+ page.aliases.join(' / ')
+		return [
+					dv.fileLink(page.file.path, false, display), 
+					page.Comment,
+					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+				]
+	})
 );
 ~~~
 ```

@@ -1,19 +1,24 @@
 ---
 # 函数签名
-Signature: "now()"
+Signature: "camelCase([string=''])"
 # 函数分类
 Category:
-  - "Date"
+  - "String"
 # 函数说明
-Comment: "获取当前时间的UTC毫秒时间戳"
+Comment: "将指定字符串转换为\"驼峰\"格式"
 # 函数额外说明
 ExtraComment:
 # 函数参数列表
 Arguments:
+  - Name: "string"
+    Type: "String"
+    Required: false
+    Comment: "需要进行格式转换的原始字符串"
+    Default: ""
 # 函数返回值
 Return:
-  Type: "Integer"
-  Comment: "当前时间的UTC毫秒时间戳"
+  Type: "String"
+  Comment: "转换为驼峰格式后的字符串"
 ---
 # [[Lodash|_]].`$=dv.current().Signature;`
 ## 作用
@@ -28,15 +33,11 @@ if(dv.current().ExtraComment != null){
 
 ## 参数说明
 ```dataviewjs
-const { Arguments = [] } = dv.current();
-if(Arguments == null){
-	dv.paragraph("无参数");
-} else {
-	dv.table(
-		["参数名","参数类型","必填?","参数说明","默认值"],
-		Arguments.map(arg => [arg.Name, arg.Type, arg.Required, arg.Comment, arg.Default])
-	);
-}
+const data = dv.current().Arguments.map(arg => [arg.Name, arg.Type, arg.Required, arg.Comment, arg.Default])
+dv.table(
+	["参数名","参数类型","必填?","参数说明","默认值"],
+	data
+);
 ```
 
 ## 返回值
@@ -53,7 +54,9 @@ if(Array.isArray(Comment)){
 ## 示例
 ```javascript
 const _ = require('lodash');
-console.log(_.now());
+_.camelCase('Foo Bar');     // => 'fooBar'
+_.camelCase('--foo-bar--'); // => 'fooBar'
+_.camelCase('__FOO_BAR__'); // => 'fooBar'
 ```
 
 #Lodash 

@@ -5,10 +5,10 @@ Signature: "compact(array)"
 Category:
   - "Array"
 # 函数说明
-Comment: "从给定的数组中创建新数组, 移除原始数组中的所有 ***假*** 值"
+Comment: "从给定的数组中创建新数组, 移除原始数组中的所有 ***假值*** "
 # 函数额外说明
-ExtraComment: |
-  ***假*** 包括 false, null, 0, "", undefined 和 NaN
+ExtraComment:
+  - "***假值*** 包括 false, null, 0, \"\", undefined 和 NaN"
 # 函数参数列表
 Arguments:
   - Name: "array"
@@ -26,7 +26,11 @@ Return:
 
 `$=dv.current().Comment;`
 
-`$=dv.current().ExtraComment;`
+```dataviewjs
+if(dv.current().ExtraComment != null){
+  dv.list(dv.current().ExtraComment);
+}
+```
 
 ## 参数说明
 ```dataviewjs

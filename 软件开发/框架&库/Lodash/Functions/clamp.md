@@ -7,8 +7,7 @@ Category:
 # 函数说明
 Comment: "将给定的数值限制在指定的上下限范围内取值"
 # 函数额外说明
-ExtraComment: |
-  
+ExtraComment: 
 # 函数参数列表
 Arguments:
   - Name: "number"
@@ -39,7 +38,11 @@ Return:
 
 `$=dv.current().Comment;`
 
-`$=dv.current().ExtraComment;`
+```dataviewjs
+if(dv.current().ExtraComment != null){
+  dv.list(dv.current().ExtraComment);
+}
+```
 
 ## 参数说明
 ```dataviewjs

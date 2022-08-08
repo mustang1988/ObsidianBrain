@@ -29,7 +29,6 @@ dv.table(
 ## 返回值
 ```dataviewjs
 const { Return: { Type, Comment} } = dv.current();
-console.log(dv.current().Return)
 dv.paragraph(`返回${Type}类型结果:`)
 dv.list(Comment);
 ```

@@ -1,40 +1,36 @@
 ---
 # 函数签名
-Signature: "fill(array, value, [start=0], [end=array.length])"
+Signature: "random([lower=0], [upper=1], [floating])"
 # 函数分类
 Category:
-  - "Array"
+  - "Number"
 # 函数说明
-Comment: "使用指定元素在指定索引范围内填充数组"
+Comment: "在指定上下范围的区间内生成一个随机数"
 # 函数额外说明
 ExtraComment:
- - "```ad-warning\ntitle: 注意\n填充时, 填充起始位置会被填充, 但结束位置不会填充, 即实际填充范围为 [start, end), 原始数组中对应范围内的已存在元素会被填充元素覆盖\n```"
+  - "默认返回整数随机数"
+  - "当指定的上下限边界值中有浮点数, 或指定返回浮点数时, 才返回浮点型随机数"
 # 函数参数列表
 Arguments:
-  - Name: "array"
-    Type: "Array"
-    Required: true
-    Comment: "需要填充元素的数组"
-    Default: ""
-  - Name: "value"
-    Type: "any"
-    Required: true
-    Comment: "用于填充的元素"
-    Default: ""
-  - Name: "start"
-    Type: "Integer"
+  - Name: "lower"
+    Type: "Number"
     Required: false
-    Comment: "填充起始索引"
-    Default: 0
-  - Name: "end"
-    Type: "Integer"
+    Comment: "下限边界"
+    Default: "0"
+  - Name: "upper"
+    Type: "Number"
     Required: false
-    Comment: "填充结束索引"
-    Default: "数组长度"
+    Comment: "上限边界"
+    Default: "1"
+  - Name: "upper"
+    Type: "Boolean"
+    Required: false
+    Comment: "是否返回浮点随机数"
+    Default: false
 # 函数返回值
 Return:
-  Type: ""
-  Comment: ""
+  Type: "Number"
+  Comment: "生成的随机数"
 ---
 # [[Lodash|_]].`$=dv.current().Signature;`
 ## 作用
@@ -74,11 +70,10 @@ if(Array.isArray(Comment)){
 ## 示例
 ```javascript
 const _ = require('lodash');
-var array = [1, 2, 3];
-_.fill(array, 'a');
-console.log(array); // => ['a', 'a', 'a']
-_.fill(Array(3), 2); // => [2, 2, 2]
-_.fill([4, 6, 8, 10], '*', 1, 3); // => [4, '*', '*', 10]
+_.random(0, 5);     // => 0~5之间的整数随机数
+_.random(5);        // => 0~5之间的整数随机数
+_.random(5, true);  // => 0~5之间的浮点数随机数
+_.random(1.2, 5.2); // => 1.2~5.2之间的浮点随机数
 ```
 
 #Lodash 

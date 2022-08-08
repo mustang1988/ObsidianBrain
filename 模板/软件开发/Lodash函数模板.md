@@ -7,8 +7,8 @@ Category:
 # 函数说明
 Comment: ""
 # 函数额外说明
-ExtraComment: |
-  
+ExtraComment:
+ - ""
 # 函数参数列表
 Arguments:
   - Name: ""
@@ -18,7 +18,7 @@ Arguments:
     Default: ""
   - Name: ""
     Type: ""
-    Required: true
+    Required: false
     Comment: ""
     Default: ""
 # 函数返回值
@@ -31,15 +31,23 @@ Return:
 
 `$=dv.current().Comment;`
 
-`$=dv.current().ExtraComment;`
+```dataviewjs
+if(dv.current().ExtraComment != null){
+  dv.list(dv.current().ExtraComment);
+}
+```
 
 ## 参数说明
 ```dataviewjs
-const data = dv.current().Arguments.map(arg => [arg.Name, arg.Type, arg.Required, arg.Comment, arg.Default])
-dv.table(
-	["参数名","参数类型","必填?","参数说明","默认值"],
-	data
-);
+const { Arguments = null } = dv.current();
+if(Arguments == null){
+	dv.paragraph("无参数");
+} else {
+	dv.table(
+		["参数名","参数类型","必填?","参数说明","默认值"],
+		Arguments.map(arg => [arg.Name, arg.Type, arg.Required, arg.Comment, arg.Default])
+	);
+}
 ```
 
 ## 返回值

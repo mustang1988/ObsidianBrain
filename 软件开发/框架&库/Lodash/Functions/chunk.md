@@ -3,8 +3,8 @@ Signature: "chunk(array, [size=1])"
 Category:
   - "Array"
 Comment: "将指定数组中的元素按指定长度切分为子数组存入一个新数组中"
-ExtraComment: |
-  如果指定的数组不能被平均分割, 最后一个分组将包含剩余的元素
+ExtraComment:
+  - "如果指定的数组不能被平均分割, 最后一个分组将包含剩余的元素"
 Arguments:
   - Name: "array"
     Type: "any[]"
@@ -25,7 +25,11 @@ Return:
 
 `$=dv.current().Comment;`
 
-`$=dv.current().ExtraComment;`
+```dataviewjs
+if(dv.current().ExtraComment != null){
+  dv.list(dv.current().ExtraComment);
+}
+```
 
 ## 参数说明
 ```dataviewjs

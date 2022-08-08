@@ -7,10 +7,9 @@ Category:
 # 函数说明
 Comment: "使用SameValueZero进行相等比较, 创建其他给定数组中不包含的数组值的数组"
 # 函数额外说明
-ExtraComment: |
-  结果值的顺序和引用由第一个数组决定
-  
-  不同于 [[pullAll]] 函数, difference 函数会创建并返回新的数组引用, 不会影响原始数组的引用
+ExtraComment:
+  - "结果值的顺序和引用由第一个数组决定"
+  - "不同于 [[pullAll]] 函数, 本函数会创建并返回新的数组引用, 不会影响原始数组的引用"
 # 函数参数列表
 Arguments:
   - Name: "array"
@@ -33,7 +32,11 @@ Return:
 
 `$=dv.current().Comment;`
 
-`$=dv.current().ExtraComment;`
+```dataviewjs
+if(dv.current().ExtraComment != null){
+  dv.list(dv.current().ExtraComment);
+}
+```
 
 ## 参数说明
 ```dataviewjs
