@@ -8,7 +8,9 @@ Category:
 Comment: "使用指定元素在指定索引范围内填充数组"
 # 函数额外说明
 ExtraComment:
- - "```ad-warning\ntitle: 注意\n填充时, 填充起始位置会被填充, 但结束位置不会填充, 即实际填充范围为 [start, end), 原始数组中对应范围内的已存在元素会被填充元素覆盖\n```"
+  - Type: "warning"
+    Title: "注意"
+    Content: "填充时, 填充起始位置会被填充, 但结束位置不会填充, 即实际填充范围为 [start, end), 原始数组中对应范围内的已存在元素会被填充元素覆盖"
 # 函数参数列表
 Arguments:
   - Name: "array"
@@ -43,7 +45,16 @@ Return:
 
 ```dataviewjs
 if(dv.current().ExtraComment != null){
-  dv.list(dv.current().ExtraComment);
+  for(const ec of dv.current().ExtraComment){
+	  const { Type, Title, Content } = ec;
+	  const admonition = `
+\`\`\`ad-${Type}
+title: ${Title}
+${Content}
+\`\`\`
+`
+      dv.paragraph(admonition);
+  }
 }
 ```
 

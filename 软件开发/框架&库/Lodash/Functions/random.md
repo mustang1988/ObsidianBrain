@@ -8,8 +8,11 @@ Category:
 Comment: "在指定上下范围的区间内生成一个随机数"
 # 函数额外说明
 ExtraComment:
-  - "默认返回整数随机数"
-  - "当指定的上下限边界值中有浮点数, 或指定返回浮点数时, 才返回浮点型随机数"
+  - Type: "warning"
+    Title: "注意"
+    Content:
+      - "默认返回整数随机数" 
+      - "当指定的上下限边界值中有浮点数, 或指定返回浮点数时, 才返回浮点型随机数"
 # 函数参数列表
 Arguments:
   - Name: "lower"
@@ -39,7 +42,16 @@ Return:
 
 ```dataviewjs
 if(dv.current().ExtraComment != null){
-  dv.list(dv.current().ExtraComment);
+  for(const ec of dv.current().ExtraComment){
+	  const { Type, Title, Content } = ec;
+	  const admonition = `
+\`\`\`ad-${Type}
+title: ${Title}
+${Array.isArray(Content) ? dv.markdownList(Content) : Content}
+\`\`\`
+`
+      dv.paragraph(admonition);
+  }
 }
 ```
 

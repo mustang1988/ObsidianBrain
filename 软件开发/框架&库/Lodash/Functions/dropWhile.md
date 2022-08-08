@@ -8,9 +8,12 @@ Category:
 Comment: "创建指定数组的片段, 片段中 ***不包含*** 原始数组中 ***前端*** 的部分元素"
 # 函数额外说明
 ExtraComment:
-  - "此函数为 [[drop]] 的扩展, 添加自定义条件回调函数, 不再忽略固定数量的元素, 而是根据回调函数的返回结果决定忽略/终止忽略元素"
-  - "与 [[dropRightWhile]] 函数类似, 区别在于 [[dropRightWhile]] 函数会忽略原始数组 ***后端*** 部分元素, 本函数则会忽略原始数组 ***前端*** 部分元素"
-  - "当迭代函数 predicate ***首次*** 返回 false 时, 终止 predicate 函数的迭代和元素的忽略"
+  - Type: "quote"
+    Title: "关联"
+    Content: 
+      - "此函数为 [[drop]] 的扩展, 添加自定义条件回调函数, 不再忽略固定数量的元素, 而是根据回调函数的返回结果决定忽略/终止忽略元素"
+      - "与 [[dropRightWhile]] 函数类似, 区别在于 [[dropRightWhile]] 函数会忽略原始数组 ***后端*** 部分元素, 本函数则会忽略原始数组 ***前端*** 部分元素"
+      - "当迭代函数 predicate ***首次*** 返回 false 时, 终止 predicate 函数的迭代和元素的忽略"
 # 函数参数列表
 Arguments:
   - Name: "array"
@@ -35,7 +38,16 @@ Return:
 
 ```dataviewjs
 if(dv.current().ExtraComment != null){
-  dv.list(dv.current().ExtraComment);
+  for(const ec of dv.current().ExtraComment){
+	  const { Type, Title, Content } = ec;
+	  const admonition = `
+\`\`\`ad-${Type}
+title: ${Title}
+${Array.isArray(Content) ? dv.markdownList(Content) : Content}
+\`\`\`
+`
+      dv.paragraph(admonition);
+  }
 }
 ```
 

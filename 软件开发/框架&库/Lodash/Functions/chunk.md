@@ -4,7 +4,9 @@ Category:
   - "Array"
 Comment: "将指定数组中的元素按指定长度切分为子数组存入一个新数组中"
 ExtraComment:
-  - "如果指定的数组不能被平均分割, 最后一个分组将包含剩余的元素"
+  - Type: "warning"
+    Title: "如果指定的数组不能被平均分割, 最后一个分组将包含剩余的元素"
+    Content: ""
 Arguments:
   - Name: "array"
     Type: "any[]"
@@ -27,7 +29,16 @@ Return:
 
 ```dataviewjs
 if(dv.current().ExtraComment != null){
-  dv.list(dv.current().ExtraComment);
+  for(const ec of dv.current().ExtraComment){
+	  const { Type, Title, Content } = ec;
+	  const admonition = `
+\`\`\`ad-${Type}
+title: ${Title}
+${Content}
+\`\`\`
+`
+      dv.paragraph(admonition);
+  }
 }
 ```
 

@@ -11,7 +11,9 @@ Category:
 Comment: "使用指定的值创建Lodash包装器实例, 用于链式调用"
 # 函数额外说明
 ExtraComment:
-  - "包装器示例的结果需要使用 [[value]] 函数解包"
+  - Type: "info"
+    Title: "包装器示例的结果需要使用 [[value]] 函数解包"
+    Content: ""
 # 函数参数列表
 Arguments:
   - Name: "value"
@@ -31,7 +33,16 @@ Return:
 
 ```dataviewjs
 if(dv.current().ExtraComment != null){
-  dv.list(dv.current().ExtraComment);
+  for(const ec of dv.current().ExtraComment){
+	  const { Type, Title, Content } = ec;
+	  const admonition = `
+\`\`\`ad-${Type}
+title: ${Title}
+${Content}
+\`\`\`
+`
+      dv.paragraph(admonition);
+  }
 }
 ```
 

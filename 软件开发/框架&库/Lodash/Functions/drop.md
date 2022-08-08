@@ -8,7 +8,9 @@ Category:
 Comment: "创建指定数组的片段, 片段中 ***不包含*** 原始数组中 ***前端*** 的n个元素"
 # 函数额外说明
 ExtraComment:
-  - "与 [[dropRight]] 类似, 区别在于, [[dropRight]] 会忽略原始数组 ***后端*** 指定数量的元素, 本函数则会忽略原始数组 ***前端*** 指定数量的元素"
+  - Type: "quote"
+    Title: "关联"
+    Content: "与 [[dropRight]] 类似, 区别在于, [[dropRight]] 会忽略原始数组 ***后端*** 指定数量的元素, 本函数则会忽略原始数组 ***前端*** 指定数量的元素"
 # 函数参数列表
 Arguments:
   - Name: "array"
@@ -33,7 +35,16 @@ Return:
 
 ```dataviewjs
 if(dv.current().ExtraComment != null){
-  dv.list(dv.current().ExtraComment);
+  for(const ec of dv.current().ExtraComment){
+	  const { Type, Title, Content } = ec;
+	  const admonition = `
+\`\`\`ad-${Type}
+title: ${Title}
+${Content}
+\`\`\`
+`
+      dv.paragraph(admonition);
+  }
 }
 ```
 

@@ -15,7 +15,7 @@ title: 常用函数
 collapse: open
 ```ad-quote
 title: Array
-collapse: close
+collapse: open
 ~~~dataviewjs
 dv.table(
 	[],
@@ -27,7 +27,7 @@ dv.table(
 		return [
 					dv.fileLink(page.file.path, false, display), 
 					page.Comment,
-					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+					page.ExtraComment == null ? "无" : page.ExtraComment.map(ec => `\`\`\`ad-${ec.Type}\ntitle: ${ec.Title}\n${Array.isArray(ec.Content) ? dv.markdownList(ec.Content) : ec.Content}\n\`\`\``)
 				]
 	})
 );
@@ -48,7 +48,7 @@ dv.table(
 		return [
 					dv.fileLink(page.file.path, false, display), 
 					page.Comment,
-					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+					page.ExtraComment == null ? "无" : page.ExtraComment.map(ec => `\`\`\`ad-${ec.Type}\ntitle: ${ec.Title}\n${Array.isArray(ec.Content) ? dv.markdownList(ec.Content) : ec.Content}\n\`\`\``)
 				]
 	})
 );
@@ -69,7 +69,7 @@ dv.table(
 		return [
 					dv.fileLink(page.file.path, false, display), 
 					page.Comment,
-					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+					page.ExtraComment == null ? "无" : page.ExtraComment.map(ec => `\`\`\`ad-${ec.Type}\ntitle: ${ec.Title}\n${Array.isArray(ec.Content) ? dv.markdownList(ec.Content) : ec.Content}\n\`\`\``)
 				]
 	})
 );
@@ -90,7 +90,7 @@ dv.table(
 		return [
 					dv.fileLink(page.file.path, false, display), 
 					page.Comment,
-					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+					page.ExtraComment == null ? "无" : page.ExtraComment.map(ec => `\`\`\`ad-${ec.Type}\ntitle: ${ec.Title}\n${Array.isArray(ec.Content) ? dv.markdownList(ec.Content) : ec.Content}\n\`\`\``)
 				]
 	})
 );
@@ -111,7 +111,7 @@ dv.table(
 		return [
 					dv.fileLink(page.file.path, false, display), 
 					page.Comment,
-					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+					page.ExtraComment == null ? "无" : page.ExtraComment.map(ec => `\`\`\`ad-${ec.Type}\ntitle: ${ec.Title}\n${Array.isArray(ec.Content) ? dv.markdownList(ec.Content) : ec.Content}\n\`\`\``)
 				]
 	})
 );
@@ -132,7 +132,7 @@ dv.table(
 		return [
 					dv.fileLink(page.file.path, false, display), 
 					page.Comment,
-					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+					page.ExtraComment == null ? "无" : page.ExtraComment.map(ec => `\`\`\`ad-${ec.Type}\ntitle: ${ec.Title}\n${Array.isArray(ec.Content) ? dv.markdownList(ec.Content) : ec.Content}\n\`\`\``)
 				]
 	})
 );
@@ -150,10 +150,11 @@ dv.table(
 	.sort(page => [page.file.name], 'asc')
 	.map(page => {
 		const display = page.aliases == null ? `_.${page.Signature}` : `_.${page.Signature} / `+ page.aliases.join(' / ')
+		console.log('debug => ', page.ExtraComment);
 		return [
 					dv.fileLink(page.file.path, false, display), 
 					page.Comment,
-					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+					page.ExtraComment == null ? "无" : page.ExtraComment.map(ec => `\`\`\`ad-${ec.Type}\ntitle: ${ec.Title}\n${Array.isArray(ec.Content) ? dv.markdownList(ec.Content) : ec.Content}\n\`\`\``)
 				]
 	})
 );
@@ -174,7 +175,7 @@ dv.table(
 		return [
 					dv.fileLink(page.file.path, false, display), 
 					page.Comment,
-					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+					page.ExtraComment == null ? "无" : page.ExtraComment.map(ec => `\`\`\`ad-${ec.Type}\ntitle: ${ec.Title}\n${Array.isArray(ec.Content) ? dv.markdownList(ec.Content) : ec.Content}\n\`\`\``)
 				]
 	})
 );
@@ -195,7 +196,7 @@ dv.table(
 		return [
 					dv.fileLink(page.file.path, false, display), 
 					page.Comment,
-					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+					page.ExtraComment == null ? "无" : page.ExtraComment.map(ec => `\`\`\`ad-${ec.Type}\ntitle: ${ec.Title}\n${Array.isArray(ec.Content) ? dv.markdownList(ec.Content) : ec.Content}\n\`\`\``)
 				]
 	})
 );
@@ -216,7 +217,7 @@ dv.table(
 		return [
 					dv.fileLink(page.file.path, false, display), 
 					page.Comment,
-					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+					page.ExtraComment == null ? "无" : page.ExtraComment.map(ec => `\`\`\`ad-${ec.Type}\ntitle: ${ec.Title}\n${Array.isArray(ec.Content) ? dv.markdownList(ec.Content) : ec.Content}\n\`\`\``)
 				]
 	})
 );
@@ -237,7 +238,7 @@ dv.table(
 		return [
 					dv.fileLink(page.file.path, false, display), 
 					page.Comment,
-					page.ExtraComment == null ? "" : dv.markdownList(page.ExtraComment)
+					page.ExtraComment == null ? "无" : page.ExtraComment.map(ec => `\`\`\`ad-${ec.Type}\ntitle: ${ec.Title}\n${Array.isArray(ec.Content) ? dv.markdownList(ec.Content) : ec.Content}\n\`\`\``)
 				]
 	})
 );

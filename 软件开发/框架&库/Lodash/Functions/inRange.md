@@ -8,8 +8,12 @@ Category:
 Comment: "检查指定的数值是否在指定的区间内"
 # 函数额外说明
 ExtraComment:
- - "取值范围区间包含下限值但不包含上限值, 即区间为 [下限值, 上限值)]"
- - "如果给定的下限值大于上限值, 则自动交换该上下限制值"
+ - Type: "warning"
+   Title: "注意"
+   Content: "取值范围区间包含下限值但不包含上限值, 即区间为 [下限值, 上限值)"
+ - Type: "info"
+   Title: "如果给定的下限值大于上限值, 则自动交换该上下限制值"
+   Content: ""
 # 函数参数列表
 Arguments:
   - Name: "number"
@@ -39,7 +43,16 @@ Return:
 
 ```dataviewjs
 if(dv.current().ExtraComment != null){
-  dv.list(dv.current().ExtraComment);
+  for(const ec of dv.current().ExtraComment){
+	  const { Type, Title, Content } = ec;
+	  const admonition = `
+\`\`\`ad-${Type}
+title: ${Title}
+${Content}
+\`\`\`
+`
+      dv.paragraph(admonition);
+  }
 }
 ```
 

@@ -8,7 +8,9 @@ Category:
 Comment: ""
 # 函数额外说明
 ExtraComment:
- - ""
+ - Type: ""
+   Title: ""
+   Content: ""
 # 函数参数列表
 Arguments:
   - Name: ""
@@ -33,7 +35,16 @@ Return:
 
 ```dataviewjs
 if(dv.current().ExtraComment != null){
-  dv.list(dv.current().ExtraComment);
+  for(const ec of dv.current().ExtraComment){
+	  const { Type, Title, Content } = ec;
+	  const admonition = `
+\`\`\`ad-${Type}
+title: ${Title}
+${Array.isArray(Content) ? dv.markdownList(Content) : Content}
+\`\`\`
+`
+      dv.paragraph(admonition);
+  }
 }
 ```
 
