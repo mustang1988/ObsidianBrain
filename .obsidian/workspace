@@ -4,11 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "430a908fdfae2a55",
+        "id": "13e38a731a103600",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "软件开发/框架&库/Lodash/Lodash.md",
+            "mode": "source",
+            "backlinks": true,
+            "source": false
+          }
         }
       }
     ],
@@ -93,6 +98,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "软件开发/框架&库/Lodash/Lodash.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -104,6 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "软件开发/框架&库/Lodash/Lodash.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,17 +129,17 @@
     "width": 281.5,
     "collapsed": true
   },
-  "active": "430a908fdfae2a55",
+  "active": "13e38a731a103600",
   "lastOpenFiles": [
+    "软件开发/框架&库/Lodash/Functions/chunk.md",
     "软件开发/框架&库/Lodash/Lodash.md",
-    "软件开发/框架&库/Lodash/Functions/reverse.md",
-    "软件开发/框架&库/Lodash/Functions/slice.md",
-    "软件开发/框架&库/Lodash/Functions/tail.md",
-    "软件开发/框架&库/Lodash/Functions/take.md",
+    "软件开发/框架&库/Lodash/Functions/differenceBy.md",
+    "软件开发/框架&库/Lodash/Functions/difference.md",
+    "软件开发/框架&库/Lodash/Functions/concat.md",
+    "软件开发/框架&库/Lodash/Functions/remove.md",
     "软件开发/框架&库/Lodash/Functions/findIndex.md",
-    "软件开发/框架&库/Lodash/Functions/inRange.md",
-    "软件开发/框架&库/Lodash/Functions/random.md",
-    "软件开发/框架&库/Lodash/Functions/dropWhile.md",
-    "软件开发/框架&库/Lodash/Functions/dropRightWhile.md"
+    "软件开发/框架&库/Lodash/Functions/add.md",
+    "软件开发/框架&库/Lodash/Functions/reverse.md",
+    "软件开发/框架&库/Lodash/Functions/slice.md"
   ]
 }
