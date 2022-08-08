@@ -4,11 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "268f0bb04c80203a",
+        "id": "5d7bca99bfd384d6",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "软件开发/框架&库/Lodash/Lodash.md",
+            "mode": "preview",
+            "backlinks": true,
+            "source": false
+          }
         }
       }
     ],
@@ -93,6 +98,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "软件开发/框架&库/Lodash/Lodash.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -104,6 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "软件开发/框架&库/Lodash/Lodash.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,24 +121,25 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
     "width": 281.5,
     "collapsed": true
   },
-  "active": "268f0bb04c80203a",
+  "active": "5d7bca99bfd384d6",
   "lastOpenFiles": [
-    "软件开发/数据库/Redis/Redis.md",
-    "软件开发/数据库/Redis/SET可选参数.md",
-    "软件开发/数据库/Redis/常用命令/APPEND.md",
-    "软件开发/数据库/Redis/常用命令/COPY.md",
-    "模板/软件开发/Redis命令模板.md",
-    "软件开发/数据库/Redis/常用命令/INCRBY.md",
-    "软件开发/数据库/Redis/常用命令/INCR.md",
-    "软件开发/数据库/Redis/常用命令/HVALS.md",
-    "软件开发/数据库/Redis/常用命令/HSTRLEN.md",
-    "软件开发/数据库/Redis/常用命令/HSETNX.md"
+    "软件开发/框架&库/Lodash/Functions/chunk.md",
+    "软件开发/框架&库/Lodash/Lodash.md",
+    "软件开发/框架&库/Lodash/differenceWith的comparator回调函数.md",
+    "软件开发/框架&库/Lodash/Functions/drop.md",
+    "软件开发/框架&库/Lodash/Functions/differenceWith.md",
+    "软件开发/框架&库/Lodash/Functions/differenceBy.md",
+    "软件开发/框架&库/Lodash/Functions/difference.md",
+    "软件开发/框架&库/Lodash/Functions/delay.md",
+    "软件开发/框架&库/Lodash/Functions/concat.md",
+    "软件开发/框架&库/Lodash/Functions/compact.md"
   ]
 }

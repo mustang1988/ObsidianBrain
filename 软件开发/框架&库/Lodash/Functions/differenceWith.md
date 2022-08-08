@@ -1,36 +1,66 @@
 ---
-Category: ["Array"]
+# 函数签名
+Signature: "differenceWith(array, [values], [comparator])"
+# 函数分类
+Category:
+  - "Array"
+# 函数说明
+Comment: "使用指定函数进行相等比较, 创建其他给定数组中不包含的数组值的数组"
+# 函数额外说明
+ExtraComment: |
+  此函数为 [[difference]] 的扩展, 添加自定义比对函数的支持, 可自定义值"相等"的定义
+
+  不同于 [[pullAllWith]] 函数, 本函数会创建并返回建新的数组引用, 不会影响原始数组的引用
+# 函数参数列表
+Arguments:
+  - Name: "array"
+    Type: "Array"
+    Required: true
+    Comment: "需要进行检查的原数组"
+    Default: ""
+  - Name: "values"
+    Type: "Array"
+    Required: false
+    Comment: "需要被排除的数组"
+    Default: "undefined"
+  - Name: "comparator"
+    Type: "Function"
+    Required: false
+    Comment: "[[differenceWith的comparator回调函数]]"
+    Default: "undefined"
+# 函数返回值
+Return:
+  Type: "Array"
+  Comment: "内容为检查过滤后的原始数组中的元素"
 ---
-## [[Lodash|_]].differenceWith(array, \[values\], \[comparator\])
-### 作用
-(Comment:: "使用指定函数进行相等比较, 创建其他给定数组中不包含的数组值的数组")
+# [[Lodash|_]].`$=dv.current().Signature;`
+## 作用
 
-此函数为 [[difference]] 的扩展, 添加自定义比对函数的支持, 可自定义值"相等"的定义
+`$=dv.current().Comment;`
 
-不同于 [[pullAllWith]] 函数, differenceWith 函数会创建并返回建新的数组引用, 不会影响原始数组的引用
+`$=dv.current().ExtraComment;`
 
-### 参数说明
-| 参数名     | 参数类型 | 必填? | 参数说明             | 默认值    |
-|:---------- |:-------- |:----- |:-------------------- |:--------- |
-| array      | any[]    | true  | 需要进行检查的原数组 |           |
-| values     | any[]    | false | 需要被排除的数组     | undefined |
-| comparator | Function | false | [[differenceWith#comparator回调函数]]     | undefined | 
+## 参数说明
+```dataviewjs
+const data = dv.current().Arguments.map(arg => [arg.Name, arg.Type, arg.Required, arg.Comment, arg.Default])
+dv.table(
+	["参数名","参数类型","必填?","参数说明","默认值"],
+	data
+);
+```
 
-#### comparator回调函数
-##### 参数说明
-| 参数名 | 参数类型 | 参数说明                           |
-| :------ | :-------- | :---------------------------------- |
-| arrVal | any      | 遍历自原始数组array中的元素        |
-| othVal | any      | 遍历自需要排除的数组values中的元素 | 
-##### 返回值
-返回Boolean类型值
-- true, 认为arrVal与othVal相等时返回, 此时arrVal值被认为需要从原始数组array中排除, 不会出现在最终返回结果中
-- false, 认为arrVal与othVal不相等时返回, 此时arrVal值不会从原始数组array中排除, 会出现在最终返回结果中
+## 返回值
+```dataviewjs
+const { Return:{ Type, Comment } } = dv.current();
+if(Array.isArray(Comment)){
+  dv.paragraph(`返回${Type}类型的结果:`);
+  dv.list(Comment);
+} else {
+  dv.paragraph(`返回${Type}类型的结果: ${Comment}`);
+}
+```
 
-### 返回值
-返回 any[] 类型结果, 内容为检查过滤后的原始数组中的元素
-
-### 示例
+## 示例
 ```javascript
 const _ = require('lodash');
 var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
@@ -47,4 +77,4 @@ _.differenceWith(
 ); // => [ { x: 2, y: 1 } ]
 ```
 
-#Lodash  
+#Lodash 

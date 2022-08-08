@@ -25,8 +25,7 @@ dv.table(
 	.map(page => [
 		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
 		page.Comment,
-		page.ExtraComment,
-		page.Category,
+		page.ExtraComment
 	])
 );
 ~~~
@@ -44,8 +43,7 @@ dv.table(
 	.map(page => [
 		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
 		page.Comment,
-		page.ExtraComment,
-		page.Category,
+		page.ExtraComment
 	])
 );
 ~~~
@@ -63,8 +61,7 @@ dv.table(
 	.map(page => [
 		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
 		page.Comment,
-		page.ExtraComment,
-		page.Category,
+		page.ExtraComment
 	])
 );
 ~~~
@@ -82,8 +79,7 @@ dv.table(
 	.map(page => [
 		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
 		page.Comment,
-		page.ExtraComment,
-		page.Category,
+		page.ExtraComment
 	])
 );
 ~~~
@@ -101,8 +97,7 @@ dv.table(
 	.map(page => [
 		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
 		page.Comment,
-		page.ExtraComment,
-		page.Category,
+		page.ExtraComment
 	])
 );
 ~~~
@@ -120,8 +115,7 @@ dv.table(
 	.map(page => [
 		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
 		page.Comment,
-		page.ExtraComment,
-		page.Category,
+		page.ExtraComment
 	])
 );
 ~~~
@@ -139,8 +133,7 @@ dv.table(
 	.map(page => [
 		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
 		page.Comment,
-		page.ExtraComment,
-		page.Category,
+		page.ExtraComment
 	])
 );
 ~~~
@@ -158,8 +151,7 @@ dv.table(
 	.map(page => [
 		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
 		page.Comment,
-		page.ExtraComment,
-		page.Category,
+		page.ExtraComment
 	])
 );
 ~~~
@@ -177,8 +169,7 @@ dv.table(
 	.map(page => [
 		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
 		page.Comment,
-		page.ExtraComment,
-		page.Category,
+		page.ExtraComment
 	])
 );
 ~~~
@@ -196,8 +187,7 @@ dv.table(
 	.map(page => [
 		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
 		page.Comment,
-		page.ExtraComment,
-		page.Category,
+		page.ExtraComment
 	])
 );
 ~~~
@@ -215,8 +205,7 @@ dv.table(
 	.map(page => [
 		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
 		page.Comment,
-		page.ExtraComment,
-		page.Category,
+		page.ExtraComment
 	])
 );
 ~~~
@@ -234,8 +223,7 @@ dv.table(
 	.map(page => [
 		dv.fileLink(page.file.path, false, `_.${page.Signature}`), 
 		page.Comment,
-		page.ExtraComment,
-		page.Category,
+		page.ExtraComment
 	])
 );
 ~~~

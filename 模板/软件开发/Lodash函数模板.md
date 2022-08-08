@@ -45,7 +45,12 @@ dv.table(
 ## 返回值
 ```dataviewjs
 const { Return:{ Type, Comment } } = dv.current();
-dv.paragraph(`返回${Type}类型的结果: ${Comment}`);
+if(Array.isArray(Comment)){
+  dv.paragraph(`返回${Type}类型的结果:`);
+  dv.list(Comment);
+} else {
+  dv.paragraph(`返回${Type}类型的结果: ${Comment}`);
+}
 ```
 
 ## 示例

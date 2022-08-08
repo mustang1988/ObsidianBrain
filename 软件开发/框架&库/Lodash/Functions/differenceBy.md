@@ -1,27 +1,68 @@
 ---
-Category: ["Array"]
+# 函数签名
+Signature: "differenceBy(array, [values], [iteratee=identity])"
+# 函数分类
+Category:
+  - "Array"
+# 函数说明
+Comment: "使用SameValueZero进行相等比较, 创建其他给定数组中不包含的数组值的数组"
+# 函数额外说明
+ExtraComment: |
+  结果值的顺序和引用由第一个数组决定
+
+  此函数为 [[difference]] 的扩展, 添加了可选参数 iteratee, 用于迭代给定的数组元素, 统一元素间 SameValueZero 相等比较的标准
+
+  不同于 [[pullAllBy]] 函数, differenceBy 函数会创建并返回新的数组引用, 不会影响原始数组的引用
+# 函数参数列表
+Arguments:
+  - Name: "array"
+    Type: "Array"
+    Required: true
+    Comment: "需要进行检查的原数组"
+    Default: ""
+  - Name: "values"
+    Type: "Array"
+    Required: false
+    Comment: "需要被排除的数组"
+    Default: "undefined"
+  - Name: "Function"
+    Type: "Array"
+    Required: false
+    Comment: "比对值迭代函数, 其返回结果会用于 SameValueZero 相等比较"
+    Default: "[[identity|_.identity()]]"
+# 函数返回值
+Return:
+  Type: ""
+  Comment: ""
 ---
-## [[Lodash|_]].differenceBy(array, \[values\], \[iteratee=[[Lodash|_]].[[identity]]\])
-### 作用
-(Comment:: "使用SameValueZero进行相等比较, 创建其他给定数组中不包含的数组值的数组")
+# [[Lodash|_]].`$=dv.current().Signature;`
+## 作用
 
-结果值的顺序和引用由第一个数组决定
+`$=dv.current().Comment;`
 
-此函数为 [[difference]] 的扩展, 添加了可选参数 iteratee, 用于迭代给定的数组元素, 统一元素间 SameValueZero 相等比较的标准
+`$=dv.current().ExtraComment;`
 
-不同于 [[pullAllBy]] 函数, differenceBy 函数会创建并返回新的数组引用, 不会影响原始数组的引用
+## 参数说明
+```dataviewjs
+const data = dv.current().Arguments.map(arg => [arg.Name, arg.Type, arg.Required, arg.Comment, arg.Default])
+dv.table(
+	["参数名","参数类型","必填?","参数说明","默认值"],
+	data
+);
+```
 
-### 参数说明
-| 参数名   | 参数类型     | 必填? | 参数说明             | 默认值           |
-|:-------- |:------------ |:----- |:-------------------- |:---------------- |
-| array    | any[]        | true  | 需要进行检查的原数组 |                  |
-| values   | any[] | false | 需要被排除的数组 | undefined        |
-| iteratee | Function     | false | 比对值迭代函数, 其返回结果会用于 SameValueZero 相等比较     | [[identity]] | 
+## 返回值
+```dataviewjs
+const { Return:{ Type, Comment } } = dv.current();
+if(Array.isArray(Comment)){
+  dv.paragraph(`返回${Type}类型的结果:`);
+  dv.list(Comment);
+} else {
+  dv.paragraph(`返回${Type}类型的结果: ${Comment}`);
+}
+```
 
-### 返回值
-返回 any[] 类型结果, 内容为检查过滤后的原始数组中的元素
-
-### 示例
+## 示例
 ```javascript
 const _ = require('lodash');
 _.differenceBy([2.1, 1.2], [2.3, 3.4], Math.floor); // => [1.2]
