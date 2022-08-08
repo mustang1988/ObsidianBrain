@@ -1,16 +1,27 @@
 ---
+# 函数签名
 Signature: ""
+# 函数分类
 Category:
   - ""
+# 函数说明
 Comment: ""
+# 函数额外说明
 ExtraComment: |
   
+# 函数参数列表
 Arguments:
   - Name: ""
     Type: ""
     Required: true
     Comment: ""
     Default: ""
+  - Name: ""
+    Type: ""
+    Required: true
+    Comment: ""
+    Default: ""
+# 函数返回值
 Return:
   Type: ""
   Comment: ""

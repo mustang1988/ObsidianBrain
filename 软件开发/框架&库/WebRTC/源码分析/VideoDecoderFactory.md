@@ -17,16 +17,28 @@ class RTC_EXPORT VideoDecoderFactory {
 ```
 
 ## 核心方法
-### GetSupportedFormats
+```ad-quote
+title: std::vector<SdpVideoFormat> GetSupportedFormats()
+collapse: open
 用于获取解码器的解码能力, 返回支持解码的格式信息组成的vector
+```
 
-### CreateVideoDecoder
+```ad-quote
+title: std::unique_ptr<VideoDecoder> CreateVideoDecoder(const SdpVideoFormat& format)
+collapse: open
 用于创建解码器实例, 返回解码器实例的unique_ptr指针
+```
 
-### ~VideoDecoderFactory
+```ad-quote
+title: ~VideoDecoderFactory()
+collapse: open
 析构函数, 一般不需要重写此函数
+```
 
-### LegacyCreateVideoDecoder
+```ad-quote
+title: std::unique_ptr<VideoDecoder> LegacyCreateVideoDecoder(const SdpVideoFormat& format,const std::string& receive_stream_id)
+collapse: open
 旧版本遗留函数, ==官方不建议重写或调用此函数==
+```
 
 #WebRTC/Source/Core/Interface 

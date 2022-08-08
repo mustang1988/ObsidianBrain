@@ -6,7 +6,7 @@ Signature: "APPEND key value"
 # 命令说明
 Comment: "向 [[Redis]] 库中, 指定键对应的字符串类型值后追加指定的字符串内容"
 # 扩展命令说明
-ExtraComment: |-
+ExtraComment: |
   当指定的键不存在时, 会新建该键, 并设置其值为空字符串, 然后对其后追加内容
 # 时间复杂度
 TimeComplexity: "O(1)"
@@ -37,7 +37,7 @@ Samples:
   # 正常示例
   Success:
     # 示例内容
-    Sample: |-
+    Sample: |
       ```bash
       redis:6379> EXISTS mykey
       (integer) 0
@@ -54,7 +54,7 @@ Samples:
       # 异常原因
     - Reason: "指定的键对应的值不是String类型时, 返回异常"
       # 示例内容
-      Sample: |-
+      Sample: |
         ```bash
         redis:6379> LPUSH key value
         (integer) 1
@@ -119,4 +119,4 @@ for(const err of Error){
 
 ```
 
-#Redis #Redis/常用命令/SortedSet 
+#Redis #Redis/常用命令/String 
