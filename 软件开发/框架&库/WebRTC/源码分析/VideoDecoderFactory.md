@@ -7,11 +7,11 @@ collapse: open
 ~~~cpp
 // WebRTC\src\api\video_codecs\video_decoder_factory.h
 class RTC_EXPORT VideoDecoderFactory {
- public:
-  virtual std::vector<SdpVideoFormat> GetSupportedFormats() const = 0;
-  virtual std::unique_ptr<VideoDecoder> CreateVideoDecoder(const SdpVideoFormat& format) = 0;
-  virtual std::unique_ptr<VideoDecoder> LegacyCreateVideoDecoder(const SdpVideoFormat& format,const std::string& receive_stream_id);
-  virtual ~VideoDecoderFactory() {}
+  public:
+    virtual std::vector<SdpVideoFormat> GetSupportedFormats() const = 0;
+    virtual std::unique_ptr<VideoDecoder> CreateVideoDecoder(const SdpVideoFormat& format) = 0;
+    virtual std::unique_ptr<VideoDecoder> LegacyCreateVideoDecoder(const SdpVideoFormat& format,const std::string& receive_stream_id);
+    virtual ~VideoDecoderFactory() {}
 };
 ~~~
 ```

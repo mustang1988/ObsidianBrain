@@ -7,14 +7,14 @@ collapse: open
 ~~~cpp
 // WebRTC\src\api\video_codecs\video_decoder.h
 class RTC_EXPORT VideoDecoder {
- public:
-  virtual ~VideoDecoder() {}
-  virtual int32_t InitDecode(const VideoCodec* codec_settings, int32_t number_of_cores) = 0;
-  virtual int32_t Decode(const EncodedImage& input_image, bool missing_frames, int64_t render_time_ms) = 0;
-  virtual int32_t RegisterDecodeCompleteCallback(DecodedImageCallback* callback) = 0;
-  virtual int32_t Release() = 0;
-  virtual bool PrefersLateDecoding() const;
-  virtual const char* ImplementationName() const;
+  public:
+    virtual ~VideoDecoder() {}
+    virtual int32_t InitDecode(const VideoCodec* codec_settings, int32_t number_of_cores) = 0;
+    virtual int32_t Decode(const EncodedImage& input_image, bool missing_frames, int64_t render_time_ms) = 0;
+    virtual int32_t RegisterDecodeCompleteCallback(DecodedImageCallback* callback) = 0;
+    virtual int32_t Release() = 0;
+    virtual bool PrefersLateDecoding() const;
+    virtual const char* ImplementationName() const;
 };
 ~~~
 ```
