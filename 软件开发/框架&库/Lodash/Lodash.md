@@ -1,8 +1,8 @@
 ---
 Language: "[[ECMAScript]]"
 Abstract: "一致性, 模块化, 高性能的实用工具库"
-aliases: ["_"]
-Icon: "![[lodash.svg|50]]"
+aliases: 
+  - "_"
 ---
 # Lodash
 ```ad-abstract

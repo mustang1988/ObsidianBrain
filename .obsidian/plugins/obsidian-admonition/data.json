@@ -1,13 +1,13 @@
 {
   "userAdmonitions": {},
   "syntaxHighlight": false,
-  "copyButton": false,
+  "copyButton": true,
   "version": "9.0.3",
   "autoCollapse": false,
   "defaultCollapseType": "open",
   "injectColor": true,
-  "parseTitles": true,
-  "dropShadow": true,
+  "parseTitles": false,
+  "dropShadow": false,
   "hideEmpty": false,
   "open": {
     "admonitions": true,
@@ -15,7 +15,10 @@
     "other": true,
     "advanced": false
   },
-  "icons": [],
+  "icons": [
+    "rpg",
+    "octicons"
+  ],
   "useFontAwesome": true,
   "rpgDownloadedOnce": false,
   "msDocConverted": false,
