@@ -131,15 +131,15 @@
   },
   "active": "e17e878586c01ff1",
   "lastOpenFiles": [
-    "软件开发/数据库/Redis/常用命令/GETEX.md",
+    "软件开发/数据库/Redis/常用命令/HGET.md",
     "软件开发/数据库/Redis/Redis.md",
-    "软件开发/数据库/Redis/常用命令/GETDEL.md",
-    "软件开发/数据库/Redis/常用命令/GET.md",
-    "软件开发/数据库/Redis/常用命令/EXPIRETIME.md",
-    "软件开发/数据库/Redis/常用命令/EXPIREAT.md",
-    "软件开发/数据库/Redis/常用命令/EXPIRE.md",
+    "软件开发/数据库/Redis/常用命令/HEXISTS.md",
+    "软件开发/数据库/Redis/常用命令/HDEL.md",
+    "软件开发/数据库/Redis/常用命令/GETRANGE.md",
+    "软件开发/数据库/Redis/常用命令/GETEX.md",
+    "软件开发/数据库/Redis/可选参数/GETEX的可选参数options.md",
     "软件开发/数据库/Redis/可选参数/EXIPRE的可选参数options.md",
-    "软件开发/数据库/Redis/EXPIRE可选过期时间设置参数.md",
-    "软件开发/数据库/Redis/可选过期时间设置.md"
+    "软件开发/数据库/Redis/可选过期时间设置.md",
+    "软件开发/数据库/Redis/常用命令/GETDEL.md"
   ]
 }
