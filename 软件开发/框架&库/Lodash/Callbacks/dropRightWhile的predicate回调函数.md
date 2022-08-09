@@ -1,5 +1,5 @@
 ---
-Title: "dropWhile的predicate回调函数"
+Title: "dropRightWhile的predicate回调函数"
 Arguments:
   - Name: "value"
     Type: "any"

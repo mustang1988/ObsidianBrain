@@ -1,5 +1,5 @@
 ---
-Title: "pullAllWith的comparator回调函数"
+Title: "intersectionWith的comparator回调函数"
 Arguments:
   - Name: "arrVal"
     Type: "any"
@@ -12,9 +12,9 @@ Return:
   Comment: 
     - "true, 认为arrVal与othVal相等时返回"
     - "false, 认为arrVal与othVal不相等时返回"
-LinkTo: "[[pullAllWith]]"
+LinkTo: "[[intersectionWith]]"
 ---
-# pullAllWith的comparator回调函数
+# intersectionWith的comparator回调函数
 
 用于函数: `$=dv.current().LinkTo;`
 

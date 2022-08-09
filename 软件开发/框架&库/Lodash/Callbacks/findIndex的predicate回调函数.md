@@ -1,20 +1,17 @@
 ---
-Title: "pullAllWith的comparator回调函数"
+Title: "findIndex的predicate回调函数"
 Arguments:
-  - Name: "arrVal"
+  - Name: "value"
     Type: "any"
-    Comment: "遍历自原始数组array中的元素"
-  - Name: "othVal"
-    Type: "any"
-    Comment: "遍历自需要排除的数组values中的元素"
+    Comment: "当前迭代的原始数组中的元素"
 Return:
   Type: "Boolean"
   Comment: 
-    - "true, 认为arrVal与othVal相等时返回"
-    - "false, 认为arrVal与othVal不相等时返回"
-LinkTo: "[[pullAllWith]]"
+    - "true, 当前迭代到的元素符合检索条件时返回, 同时会结束对数组的检索和迭代"
+    - "false, 当前迭代到的元素不符合检索条件时返回"
+LinkTo: "[[findIndex]]"
 ---
-# pullAllWith的comparator回调函数
+findIndex的predicate回调函数
 
 用于函数: `$=dv.current().LinkTo;`
 
