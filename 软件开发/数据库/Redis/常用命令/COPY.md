@@ -1,39 +1,44 @@
 ---
 # 命令名称
 Command: "COPY"
+# 分类
+Category: "Common"
 # 命令签名
 Signature: "COPY source destination [DB destination-db] [REPLACE]"
 # 命令说明
 Comment: "复制 [[Redis]] 库中一个键的值到另一个键"
 # 命令额外说明
-ExtraComment: |
-  
+ExtraComment:
 # 命令时间复杂度
-TimeComplexity: "O(1)/O(n)"
-# 命令时间复杂度额外说明
-TimeComplexityComment: "当复制的值为集合类型时, 时间复杂度最差为 O(n), n为被复制集合的大小"
+TimeComplexity:
+  Value: "n"
+  Comment: "当复制的值为集合类型时, 时间复杂度最差为 O(n), n为被复制集合的大小, 当复制的值为非集合类型时, 复杂度为 O(1)"
 # 命令参数列表
 Arguments:
   - Name: "source"
     Type: "String"
+    Required: true
     Comment: "被复制的键"
-    Remark: ""
+    Default: ""
   - Name: "destination"
     Type: "String"
+    Required: true
     Comment: "复制后的键"
-    Remark: ""
+    Default: ""
   - Name: "DB destination-db"
     Type: "Integer"
+    Required: false
     Comment: "复制后存储的数据库索引号"
-    Remark: "可选参数, 默认为当前库"
+    Default: "当前库的索引号"
   - Name: "REPLACE"
-    Type: ""
+    Type: "Sign"
+    Required: false
     Comment: "当目复制后的键已经存在时, 是否先删除已存在的值, 再执行复制"
-    Remark: "可选参数, 默认不覆盖"
+    Default: "不覆盖"
 # 命令返回结果
 Returns:
   - Type: "Integer"
-    Comment: 
+    Comment:
       - "0, 复制不成功时返回"
       - "1, 成功复制时返回"
 # 命令示例
@@ -64,23 +69,26 @@ Samples:
 ## 用途
 `$=dv.current().Comment;`
 
-`$=dv.current().ExtraComment;`
+```dataviewjs
+const { ExtraComment=[] } = dv.current();
+Array.isArray(ExtraComment) ? dv.list(ExtraComment) : ExtraComment == null ? dv.paragraph('') : dv.paragraph(ExtraComment);
+```
 
 ## 时间复杂度
 ```dataviewjs
-const TimeComplexity = dv.current().TimeComplexity;
-let TimeComplexityString = TimeComplexity;
-TimeComplexityString += TimeComplexity.includes("n") 
-						? `: ${dv.current().TimeComplexityComment}`
-						: "";
-dv.paragraph(TimeComplexityString);
+const { Value, Comment } = dv.current().TimeComplexity;
+let display = `O(${Value})`
+if(Value != "1"){
+	display = `${display}: ${Comment}`
+}
+dv.paragraph(display);
 ```
 
-## 参数
+## 参数说明
 ```dataviewjs
-const data = dv.current().Arguments.map(arg => [arg.Name, arg.Type, arg.Comment, arg.Remark]);
+const data = dv.current().Arguments.map(arg => [arg.Name, arg.Type, arg.Required, arg.Comment, arg.Default]);
 dv.table(
-	["参数名","参数类型","参数说明","备注"],
+	["参数名","参数类型", "必填?", "参数说明","默认值"],
 	data
 );
 ```
@@ -122,4 +130,4 @@ if(Array.isArray(Error)){
 
 ```
 
-#Redis #Redis/常用命令/通用 
+#Redis 

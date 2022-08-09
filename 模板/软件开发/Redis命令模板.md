@@ -1,6 +1,8 @@
 ---
 # 命令名称
 Command: "{{title}}"
+# 分类
+Category: ""
 # 命令签名
 Signature: ""
 # 命令说明
@@ -9,19 +11,21 @@ Comment: ""
 ExtraComment:
   - 
 # 命令时间复杂度
-TimeComplexity: ""
-# 命令时间复杂度额外说明
-TimeComplexityComment: ""
+TimeComplexity:
+  Value: "1"
+  Comment: ""
 # 命令参数列表
 Arguments:
   - Name: ""
     Type: ""
+    Required: true
     Comment: ""
-    Remark: ""
+    Default: ""
   - Name: ""
     Type: ""
+    Required: false
     Comment: ""
-    Remark: ""
+    Default: ""
 # 命令返回结果
 Returns:
   - Type: ""
@@ -36,6 +40,11 @@ Samples:
       ```
   # 异常示例
   Error:
+    - Reason: ""
+      Sample: |
+        ```bash
+        
+        ``` 
 ---
 
 # `$=dv.current().Signature;`
@@ -43,23 +52,30 @@ Samples:
 ## 用途
 `$=dv.current().Comment;`
 
-`$=dv.current().ExtraComment;`
+```dataviewjs
+const { ExtraComment=[] } = dv.current();
+Array.isArray(ExtraComment) 
+	? dv.list(ExtraComment) 
+	: ExtraComment == null 
+		? dv.paragraph('') 
+		: dv.paragraph(ExtraComment);
+```
 
 ## 时间复杂度
 ```dataviewjs
-const TimeComplexity = dv.current().TimeComplexity;
-let TimeComplexityString = TimeComplexity;
-TimeComplexityString += TimeComplexity.includes("n") 
-						? `: ${dv.current().TimeComplexityComment}`
-						: "";
-dv.paragraph(TimeComplexityString);
+const { Value, Comment } = dv.current().TimeComplexity;
+let display = `O(${Value})`
+if(Value != "1"){
+	display = `${display}: ${Comment}`
+}
+dv.paragraph(display);
 ```
 
-## 参数
+## 参数说明
 ```dataviewjs
-const data = dv.current().Arguments.map(arg => [arg.Name, arg.Type, arg.Comment, arg.Remark]);
+const data = dv.current().Arguments.map(arg => [arg.Name, arg.Type, arg.Required, arg.Comment, arg.Default]);
 dv.table(
-	["参数名","参数类型","参数说明","备注"],
+	["参数名","参数类型", "必填?", "参数说明","默认值"],
 	data
 );
 ```

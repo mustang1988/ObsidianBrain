@@ -1,42 +1,39 @@
 ---
 # 命令名称
 Command: "APPEND"
+# 分类
+Category: "String"
 # 命令签名
 Signature: "APPEND key value"
 # 命令说明
 Comment: "向 [[Redis]] 库中, 指定键对应的字符串类型值后追加指定的字符串内容"
-# 扩展命令说明
-ExtraComment: |
-  当指定的键不存在时, 会新建该键, 并设置其值为空字符串, 然后对其后追加内容
-# 时间复杂度
-TimeComplexity: "O(1)"
-# 时间复杂度说明
-TimeComplexityComment: ""
-# 参数
+# 命令额外说明
+ExtraComment:
+  - "当指定的键不存在时, 会新建该键, 并设置其值为空字符串, 然后对其后追加内容"
+# 命令时间复杂度
+TimeComplexity:
+  Value: "1"
+  Comment: ""
+# 命令参数列表
 Arguments:
-    # 参数名
   - Name: "key"
-    # 参数类型
     Type: "String"
-    # 参数说明
+    Required: true
     Comment: "需要追加内容值对应的键"
-    # 参数备注
-    Remark: ""
+    Default: ""
   - Name: "value"
     Type: "String"
+    Required: true
     Comment: "需要追加的字符串内容"
-    Remark: ""
-# 返回值
+    Default: ""
+# 命令返回结果
 Returns:
-    # 返回值类型
-  - Type: "Int"
-    # 返回值说明
+  - Type: "Integer"
     Comment: "追加内容后字符串值的长度"
-# 示例
+# 命令示例
 Samples:
   # 正常示例
   Success:
-    # 示例内容
     Sample: |
       ```bash
       redis:6379> EXISTS mykey
@@ -48,12 +45,9 @@ Samples:
       redis:6379> GET mykey
       "Hello World"
       ```
-      
   # 异常示例
   Error:
-      # 异常原因
     - Reason: "指定的键对应的值不是String类型时, 返回异常"
-      # 示例内容
       Sample: |
         ```bash
         redis:6379> LPUSH key value
@@ -68,23 +62,26 @@ Samples:
 ## 用途
 `$=dv.current().Comment;`
 
-`$=dv.current().ExtraComment;`
+```dataviewjs
+const { ExtraComment=[] } = dv.current();
+Array.isArray(ExtraComment) ? dv.list(ExtraComment) : dv.paragraph(ExtraComment);
+```
 
 ## 时间复杂度
 ```dataviewjs
-const TimeComplexity = dv.current().TimeComplexity;
-let TimeComplexityString = TimeComplexity;
-TimeComplexityString += TimeComplexity.includes("n") 
-						? `: ${dv.current().TimeComplexityComment}`
-						: "";
-dv.paragraph(TimeComplexityString);
+const { Value, Comment } = dv.current().TimeComplexity;
+let display = `O(${Value})`
+if(Value != "1"){
+	display = `${display}: ${Comment}`
+}
+dv.paragraph(display);
 ```
 
-## 参数
+## 参数说明
 ```dataviewjs
-const data = dv.current().Arguments.map(arg => [arg.Name, arg.Type, arg.Comment, arg.Remark]);
+const data = dv.current().Arguments.map(arg => [arg.Name, arg.Type, arg.Required, arg.Comment, arg.Default]);
 dv.table(
-	["参数名","参数类型","参数说明","备注"],
+	["参数名","参数类型", "必填?", "参数说明","默认值"],
 	data
 );
 ```
@@ -94,8 +91,11 @@ dv.table(
 const {Returns = []} = dv.current();
 for(const ret of Returns){
 	const {Type, Comment} = ret;
-	let print = `返回${Type}类型结果: ${Comment}`
+	let print = !Array.isArray(Comment) 
+		? `返回${Type}类型结果: ${Comment}`
+		: `返回${Type}类型结果: `
 	dv.paragraph(print);
+	Array.isArray(Comment) && dv.list(Comment);
 }
 ```
 
@@ -110,13 +110,17 @@ title: 异常
 
 ~~~dataviewjs
 const {Error = []} = dv.current().Samples;
-for(const err of Error){
-	const { Reason, Sample } = err;
-	dv.paragraph(Reason);
-	dv.paragraph(Sample);
+if(Array.isArray(Error)){
+	for(const err of Error){
+		const { Reason, Sample } = err;
+		dv.paragraph(Reason);
+		dv.paragraph(Sample);
+	}
+} else {
+	dv.paragraph('无异常返回');
 }
 ~~~
 
 ```
 
-#Redis #Redis/常用命令/String 
+#Redis 
