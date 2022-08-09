@@ -17,7 +17,7 @@ TimeComplexity:
 # 命令参数列表
 Arguments:
   - Name: ""
-    Type: ""
+    Type: "String"
     Required: true
     Comment: ""
     Default: ""
@@ -117,4 +117,4 @@ if(Array.isArray(Error)){
 
 ```
 
-#Redis 
+#Redis/Command 

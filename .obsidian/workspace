@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "软件开发/数据库/Redis/常用命令/DECRBY.md",
+            "file": "软件开发/数据库/Redis/Redis.md",
             "mode": "source",
             "backlinks": true,
             "source": false
@@ -98,7 +98,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "软件开发/数据库/Redis/常用命令/DECRBY.md",
+                "file": "软件开发/数据库/Redis/Redis.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "软件开发/数据库/Redis/常用命令/DECRBY.md",
+                "file": "软件开发/数据库/Redis/Redis.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,15 +131,15 @@
   },
   "active": "e17e878586c01ff1",
   "lastOpenFiles": [
-    "软件开发/数据库/Redis/常用命令/DECR.md",
-    "软件开发/数据库/Redis/常用命令/COPY.md",
-    "模板/软件开发/Redis命令模板.md",
-    "软件开发/数据库/Redis/常用命令/APPEND.md",
-    "软件开发/框架&库/Lodash/Functions/camelCase.md",
-    "软件开发/框架&库/Lodash/Lodash.md",
-    "软件开发/框架&库/Lodash/Functions/get.md",
-    "软件开发/框架&库/CUDA/WebRTC视频流CUDA硬件解码开发.md",
-    "图片/软件开发/工具/UnrealEngine/色彩制式测试/1920x1080_color_range_test_chart_420_optHuff_prog_q100.jpg",
-    "图片/软件开发/工具/UnrealEngine/色彩制式测试/1920x1080_chroma_subsampling_test_chart.png"
+    "软件开发/数据库/Redis/常用命令/GETEX.md",
+    "软件开发/数据库/Redis/Redis.md",
+    "软件开发/数据库/Redis/常用命令/GETDEL.md",
+    "软件开发/数据库/Redis/常用命令/GET.md",
+    "软件开发/数据库/Redis/常用命令/EXPIRETIME.md",
+    "软件开发/数据库/Redis/常用命令/EXPIREAT.md",
+    "软件开发/数据库/Redis/常用命令/EXPIRE.md",
+    "软件开发/数据库/Redis/可选参数/EXIPRE的可选参数options.md",
+    "软件开发/数据库/Redis/EXPIRE可选过期时间设置参数.md",
+    "软件开发/数据库/Redis/可选过期时间设置.md"
   ]
 }

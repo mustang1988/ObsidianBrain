@@ -2,7 +2,7 @@
 # 命令名称
 Command: "COPY"
 # 分类
-Category: "Common"
+Category: "通用"
 # 命令签名
 Signature: "COPY source destination [DB destination-db] [REPLACE]"
 # 命令说明
@@ -130,4 +130,4 @@ if(Array.isArray(Error)){
 
 ```
 
-#Redis 
+#Redis/Command  

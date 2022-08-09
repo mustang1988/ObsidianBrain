@@ -8,102 +8,26 @@ title: Redis是一个使用ANSI C编写的开源, 支持网络, 基于内存, �
 title: 常用命令
 collapse: open
 
+~~~dataviewjs
+const groups = dv.pages('#Redis/Command or #Redis and -"模板"').groupBy(p => p.Category);
+for(const group of groups){
+	const groupName = group.key ? group.key : '未分类';
+	const datas = group.rows
+					.sort(page => page.file.name, 'asc')
+					.map(page => [page.file.link, page.Comment])
+	dv.header(2, groupName);
+	dv.table(
+		["命令","说明"],
+		datas
+	);
+}
 
-````ad-quote
-title: 通用
-collapse: close
-
-```dataviewjs
-dv.table(
-	["命令","说明"],
-	dv.pages('#Redis/常用命令/通用 and -"模板"')
-	.sort(page => page.file.name, 'asc')
-	.map(page => [page.file.link, page.Comment])
-);
-```
-
-````
-
-````ad-quote
-title: List
-collapse: close
-
-```dataviewjs
-dv.table(
-	["命令","说明"],
-	dv.pages('#Redis/常用命令/List and -"模板"')
-	.sort(page => page.file.name, 'asc')
-	.map(page => [page.file.link, page.Comment])
-);
-```
-
-````
-
-````ad-quote
-title: Hash
-collapse: close
-
-```dataviewjs
-dv.table(
-	["命令","说明"],
-	dv.pages('#Redis/常用命令/Hash and -"模板"')
-	.sort(page => page.file.name, 'asc')
-	.map(page => [page.file.link, page.Comment])
-);
-```
-
-````
-
-````ad-quote
-title: Set
-collapse: close
-
-```dataviewjs
-dv.table(
-	["命令","说明"],
-	dv.pages('#Redis/常用命令/Set and -"模板"')
-	.sort(page => page.file.name, 'asc')
-	.map(page => [page.file.link, page.Comment])
-);
-```
-
-````
-
-````ad-quote
-title: Sorted Set
-collapse: close
-
-```dataviewjs
-dv.table(
-	["命令","说明"],
-	dv.pages('#Redis/常用命令/SortedSet and -"模板"')
-	.sort(page => page.file.name, 'asc')
-	.map(page => [page.file.link, page.Comment])
-);
-```
-
-````
-
-````ad-quote
-title: String
-collapse: close
-
-```dataviewjs
-dv.table(
-	["命令","说明"],
-	dv.pages('#Redis/常用命令/String and -"模板"')
-	.sort(page => page.file.name, 'asc')
-	.map(page => [page.file.link, page.Comment])
-);
-```
-
-````
-
+~~~
 
 
 `````
 
-````ad-info
+````ad-quote
 title: 常用业务场景
 collapse: open
 
