@@ -11,8 +11,8 @@ Category:
 Comment: "使用指定的值创建Lodash包装器实例, 用于链式调用"
 # 函数额外说明
 ExtraComment:
-  - Type: "info"
-    Title: "包装器示例的结果需要使用 [[value]] 函数解包"
+  - Type: "warning"
+    Title: "链式调用总是返回包装器实例, 其结果需要使用 [[value]] 函数解包才可以获得"
     Content: ""
 # 函数参数列表
 Arguments:

@@ -9,7 +9,7 @@ Comment: "移除指定数组中指定索引位置的元素"
 # 函数额外说明
 ExtraComment:
  - Type: "warning"
-   Title: "pullAt 函数会修改原始数组的引用"
+   Title: "本函数会修改原始数组的引用"
    Content: ""
 # 函数参数列表
 Arguments:

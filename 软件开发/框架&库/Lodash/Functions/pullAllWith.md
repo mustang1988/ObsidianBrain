@@ -8,9 +8,9 @@ Category:
 Comment: "使用指定函数进行相等比较, 从指定数组中移除指定元素"
 # 函数额外说明
 ExtraComment:
- - Type: "info"
+ - Type: "quote"
    Title: "此函数为 [[pullAll]] 的扩展, 添加自定义比对函数的支持, 可自定义值\"相等\"的定义"
-   Content: ""
+   Content: "关联"
  - Type: "warning"
    Title: "本函数会修改原始数组的引用"
    Content: ""

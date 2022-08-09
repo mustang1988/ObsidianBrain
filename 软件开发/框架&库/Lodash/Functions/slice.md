@@ -9,8 +9,8 @@ Comment: "获取指定数组在指定索引范围内的片段"
 # 函数额外说明
 ExtraComment:
   - Type: "warning"
-    Title: "注意"
-    Content: "截取结果不包含指定索引的结尾索引处的元素"
+    Title: "截取结果不包含指定索引的结尾索引处的元素"
+    Content: ""
 # 函数参数列表
 Arguments:
   - Name: "array"

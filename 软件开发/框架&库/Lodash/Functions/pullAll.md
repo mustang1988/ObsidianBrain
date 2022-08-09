@@ -12,7 +12,7 @@ ExtraComment:
    Title: "关联"
    Content: "与 [[pull]] 类似, 区别在于 [[pull]] 接收需要移除的元素作为参数, 本函数接收需要移除元素的数组作为参数"
  - Type: "warning"
-   Title: "函数会修改原始数组的引用"
+   Title: "本函数会修改原始数组的引用"
    Content: ""
 # 函数参数列表
 Arguments:
