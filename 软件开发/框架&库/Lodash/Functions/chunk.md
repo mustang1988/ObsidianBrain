@@ -1,5 +1,7 @@
 ---
+# 函数签名
 Signature: "chunk(array, [size=1])"
+# 函数分类
 Category:
   - "Array"
 Comment: "将指定数组中的元素按指定长度切分为子数组存入一个新数组中"
@@ -34,7 +36,7 @@ if(dv.current().ExtraComment != null){
 	  const admonition = `
 \`\`\`ad-${Type}
 title: ${Title}
-${Content}
+${Array.isArray(Content) ? dv.markdownList(Content) : Content}
 \`\`\`
 `
       dv.paragraph(admonition);
@@ -44,17 +46,26 @@ ${Content}
 
 ## 参数说明
 ```dataviewjs
-const data = dv.current().Arguments.map(arg => [arg.Name, arg.Type, arg.Required, arg.Comment, arg.Default])
-dv.table(
-	["参数名","参数类型","必填?","参数说明","默认值"],
-	data
-);
+const { Arguments = null } = dv.current();
+if(Arguments == null){
+	dv.paragraph("无参数");
+} else {
+	dv.table(
+		["参数名","参数类型","必填?","参数说明","默认值"],
+		Arguments.map(arg => [arg.Name, arg.Type, arg.Required, arg.Comment, arg.Default])
+	);
+}
 ```
 
 ## 返回值
 ```dataviewjs
 const { Return:{ Type, Comment } } = dv.current();
-dv.paragraph(`返回${Type}类型的结果: ${Comment}`);
+if(Array.isArray(Comment)){
+  dv.paragraph(`返回${Type}类型的结果:`);
+  dv.list(Comment);
+} else {
+  dv.paragraph(`返回${Type}类型的结果: ${Comment}`);
+}
 ```
 
 ## 示例

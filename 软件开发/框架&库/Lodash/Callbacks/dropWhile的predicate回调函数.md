@@ -16,6 +16,8 @@ Return:
     - "true, 当前元素需要被忽略时返回"
     - "false, 当需要终止元素忽略时返回"
 LinkTo: "[[dropWhile]]"
+Category:
+  - "Callback"
 ---
 # differenceWith的comparator回调函数
 
@@ -39,3 +41,5 @@ const { Return: { Type, Comment} } = dv.current();
 dv.paragraph(`返回${Type}类型结果:`)
 dv.list(Comment);
 ```
+
+#Lodash/Callback  

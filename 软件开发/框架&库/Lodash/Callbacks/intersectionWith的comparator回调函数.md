@@ -13,6 +13,8 @@ Return:
     - "true, 认为arrVal与othVal相等时返回"
     - "false, 认为arrVal与othVal不相等时返回"
 LinkTo: "[[intersectionWith]]"
+Category:
+  - "Callback"
 ---
 # intersectionWith的comparator回调函数
 
@@ -36,3 +38,5 @@ const { Return: { Type, Comment} } = dv.current();
 dv.paragraph(`返回${Type}类型结果:`)
 dv.list(Comment);
 ```
+
+#Lodash/Callback  

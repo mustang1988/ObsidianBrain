@@ -7,8 +7,13 @@
         "id": "8332aaf799729562",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "软件开发/框架&库/Lodash/Lodash.md",
+            "mode": "source",
+            "backlinks": true,
+            "source": false
+          }
         }
       }
     ],
@@ -93,6 +98,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "软件开发/框架&库/Lodash/Lodash.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -104,6 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "软件开发/框架&库/Lodash/Lodash.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -124,15 +131,15 @@
   },
   "active": "8332aaf799729562",
   "lastOpenFiles": [
-    "软件开发/框架&库/Lodash/Functions/chain.md",
+    "软件开发/框架&库/Lodash/Functions/chunk.md",
     "软件开发/框架&库/Lodash/Lodash.md",
-    "软件开发/框架&库/Lodash/Functions/slice.md",
-    "软件开发/框架&库/Lodash/Functions/pullAll.md",
-    "软件开发/框架&库/Lodash/Functions/pullAt.md",
-    "软件开发/框架&库/Lodash/Functions/difference.md",
-    "软件开发/框架&库/Lodash/Functions/compact.md",
-    "软件开发/框架&库/Lodash/Functions/inRange.md",
-    "软件开发/框架&库/Lodash/Functions/pullAllBy.md",
-    "软件开发/框架&库/Lodash/Functions/pullAllWith.md"
+    "软件开发/框架&库/Lodash/Callbacks/pullAllWith的comparator回调函数.md",
+    "软件开发/框架&库/Lodash/Callbacks/intersectionWith的comparator回调函数.md",
+    "软件开发/框架&库/Lodash/Callbacks/findLastIndex的predicate回调函数.md",
+    "软件开发/框架&库/Lodash/Callbacks/findIndex的predicate回调函数.md",
+    "软件开发/框架&库/Lodash/Callbacks/dropWhile的predicate回调函数.md",
+    "软件开发/框架&库/Lodash/Callbacks/dropRightWhile的predicate回调函数.md",
+    "软件开发/框架&库/Lodash/Callbacks/differenceWith的comparator回调函数.md",
+    "软件开发/框架&库/Lodash/Functions/compact.md"
   ]
 }

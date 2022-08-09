@@ -3,5 +3,9 @@
   "baseFontSize": 16,
   "enabledCssSnippets": [
     "supercharged-links-gen"
-  ]
+  ],
+  "textFontFamily": "微软雅黑",
+  "interfaceFontFamily": "微软雅黑",
+  "baseFontSizeAction": false,
+  "translucency": false
 }

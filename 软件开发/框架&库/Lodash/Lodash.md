@@ -15,10 +15,10 @@ title: 常用函数
 collapse: open
 ~~~dataviewjs
 const categoryOrder = ["Array","Collection","Date","Function","Lang","Math","Number","Object","Seq","String","Util"];
-const groups = dv.pages('#Lodash and -"模板"').groupBy(p => p.Category);
+const groups = dv.pages('#Lodash and -#Lodash/Callback and -"模板"').groupBy(p => p.Category);
 
 for(const group of groups){
-	const groupName = group.key[0];
+	const groupName = Array.isArray(group.key) ? group.key[0] : group.key;
 	dv.header(2, groupName);
 	dv.table(
 		["函数","说明"],

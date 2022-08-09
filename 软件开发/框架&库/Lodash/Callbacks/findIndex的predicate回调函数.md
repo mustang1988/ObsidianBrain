@@ -10,6 +10,8 @@ Return:
     - "true, 当前迭代到的元素符合检索条件时返回, 同时会结束对数组的检索和迭代"
     - "false, 当前迭代到的元素不符合检索条件时返回"
 LinkTo: "[[findIndex]]"
+Category:
+  - "Callback"
 ---
 findIndex的predicate回调函数
 
@@ -33,3 +35,5 @@ const { Return: { Type, Comment} } = dv.current();
 dv.paragraph(`返回${Type}类型结果:`)
 dv.list(Comment);
 ```
+
+#Lodash/Callback  
