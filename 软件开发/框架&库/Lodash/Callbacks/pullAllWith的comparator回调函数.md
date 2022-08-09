@@ -1,5 +1,5 @@
 ---
-Title: "differenceWith的comparator回调函数"
+Title: "pullAllWith的comparator回调函数"
 Arguments:
   - Name: "arrVal"
     Type: "any"
@@ -10,9 +10,9 @@ Arguments:
 Return:
   Type: "Boolean"
   Comment: 
-    - "true, 认为arrVal与othVal相等时返回, 此时arrVal值被认为需要从原始数组array中排除, 不会出现在最终返回结果中"
-    - "false, 认为arrVal与othVal不相等时返回, 此时arrVal值不会从原始数组array中排除, 会出现在最终返回结果中"
-LinkTo: "[[differenceWith]]"
+    - "true, 认为arrVal与othVal相等时返回"
+    - "false, 认为arrVal与othVal不相等时返回"
+LinkTo: "[[pullAllWith]]"
 ---
 # differenceWith的comparator回调函数
 

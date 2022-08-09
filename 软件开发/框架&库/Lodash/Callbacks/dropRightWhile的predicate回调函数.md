@@ -15,8 +15,12 @@ Return:
   Comment: 
     - "true, 当前元素需要被忽略时返回"
     - "false, 当需要终止元素忽略时返回"
+LinkTo: "[[dropRightWhile]]"
 ---
 # differenceWith的comparator回调函数
+
+用于函数: `$=dv.current().LinkTo;`
+
 ## 参数说明
 ```dataviewjs
 dv.table(
