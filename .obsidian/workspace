@@ -131,15 +131,15 @@
   },
   "active": "b482cfc02cd559c5",
   "lastOpenFiles": [
-    "软件开发/数据库/Redis/常用命令/RPOP.md",
+    "软件开发/数据库/Redis/常用命令/SUNIONSTORE.md",
     "软件开发/数据库/Redis/Redis.md",
-    "软件开发/数据库/Redis/常用命令/RENAMENX.md",
-    "软件开发/数据库/Redis/常用命令/RENAME.md",
-    "软件开发/数据库/Redis/常用命令/PSETEX.md",
-    "软件开发/数据库/Redis/常用命令/PEXPIRETIME.md",
-    "软件开发/数据库/Redis/常用命令/PEXPIREAT.md",
-    "软件开发/数据库/Redis/可选参数/EXPIRE的可选参数options.md",
-    "软件开发/数据库/Redis/常用命令/PERSIST.md",
-    "软件开发/数据库/Redis/常用命令/MSETNX.md"
+    "软件开发/数据库/Redis/常用命令/SUNION.md",
+    "软件开发/数据库/Redis/常用命令/STRLEN.md",
+    "软件开发/数据库/Redis/常用命令/SREM.md",
+    "软件开发/数据库/Redis/常用命令/SPOP.md",
+    "软件开发/数据库/Redis/常用命令/SMOVE.md",
+    "软件开发/数据库/Redis/常用命令/SMISMEMBER.md",
+    "软件开发/数据库/Redis/常用命令/SMEMBERS.md",
+    "软件开发/数据库/Redis/常用命令/SISMEMBER.md"
   ]
 }

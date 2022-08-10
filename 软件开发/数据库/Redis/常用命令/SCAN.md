@@ -1,31 +1,119 @@
-## SCAN cursor \[MATCH pattern\] \[COUNT count\] \[TYPE type\]
+---
+# 命令名称
+Command: "SCAN"
+# 分类
+Category: "通用"
+# 命令签名
+Signature: "SCAN cursor [MATCH pattern] [COUNT count] [TYPE type]"
+# 命令说明
+Comment: "迭代 [[Redis]] 库中的键"
+# 命令额外说明
+ExtraComment:
+# 命令时间复杂度
+TimeComplexity:
+  Value: "n"
+  Comment: "n为迭代次数"
+# 命令参数列表
+Arguments:
+  - Name: "cursor"
+    Type: "String"
+    Required: true
+    Comment: ""
+    Default: ""
+  - Name: ""
+    Type: ""
+    Required: false
+    Comment: ""
+    Default: ""
+# 命令返回结果
+Returns:
+  - Type: ""
+    Comment: ""
+# 命令示例
+Samples:
+  # 正常示例
+  Success:
+    Sample: |
+      ```bash
+      
+      ```
+  # 异常示例
+  Error:
+    - Reason: ""
+      Sample: |
+        ```bash
+        
+        ``` 
+---
 
-### 用途
-(Comment:: "迭代 [[Redis]] 库中的键")
+# `$=dv.current().Signature;`
 
-#### 时间复杂度
-O(n), n为迭代次数
+## 用途
+`$=dv.current().Comment;`
 
-### 参数
-|参数名|参数类型|参数说明|备注|
-|:-|:-|:-|:-|
-|||||
+```dataviewjs
+const { ExtraComment=[] } = dv.current();
+Array.isArray(ExtraComment) 
+	? dv.list(ExtraComment) 
+	: ExtraComment == null 
+		? dv.paragraph('') 
+		: dv.paragraph(ExtraComment);
+```
 
-### 返回值
+## 时间复杂度
+```dataviewjs
+const { Value, Comment } = dv.current().TimeComplexity;
+let display = `O(${Value})`
+if(Value != "1"){
+	display = `${display}: ${Comment}`
+}
+dv.paragraph(display);
+```
 
+## 参数说明
+```dataviewjs
+const data = dv.current().Arguments.map(arg => [arg.Name, arg.Type, arg.Required, arg.Comment, arg.Default]);
+dv.table(
+	["参数名","参数类型", "必填?", "参数说明","默认值"],
+	data
+);
+```
 
-### 示例
-```ad-info
+## 返回值
+```dataviewjs
+const {Returns = []} = dv.current();
+for(const ret of Returns){
+	const {Type, Comment} = ret;
+	let print = !Array.isArray(Comment) 
+		? `返回${Type}类型结果: ${Comment}`
+		: `返回${Type}类型结果: `
+	dv.paragraph(print);
+	Array.isArray(Comment) && dv.list(Comment);
+}
+```
+
+## 示例
+```ad-success
 title: 正常
-```bash
-
+`$=dv.current().Samples.Success.Sample;`
 ```
 
 ```ad-danger
 title: 异常
 
-```bash
+~~~dataviewjs
+const {Error = []} = dv.current().Samples;
+if(Array.isArray(Error)){
+	for(const err of Error){
+		const { Reason, Sample } = err;
+		dv.paragraph(Reason);
+		dv.paragraph(Sample);
+	}
+} else {
+	dv.paragraph('无异常返回');
+}
+~~~
 
 ```
 
-#Redis #Redis/常用命令/通用 
+#Redis/Command 
