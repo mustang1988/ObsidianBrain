@@ -131,15 +131,15 @@
   },
   "active": "b482cfc02cd559c5",
   "lastOpenFiles": [
-    "软件开发/数据库/Redis/常用命令/PTTL.md",
+    "软件开发/数据库/Redis/常用命令/LSET.md",
     "软件开发/数据库/Redis/Redis.md",
+    "软件开发/数据库/Redis/常用命令/LREM.md",
+    "软件开发/数据库/Redis/常用命令/LRANGE.md",
+    "软件开发/数据库/Redis/常用命令/LPUSHX.md",
+    "软件开发/数据库/Redis/常用命令/LPUSH.md",
+    "软件开发/数据库/Redis/常用命令/PTTL.md",
     "软件开发/数据库/Redis/常用命令/TTL.md",
     "软件开发/数据库/Redis/常用命令/TYPE.md",
-    "软件开发/数据库/Redis/常用命令/UNLINK.md",
-    "软件开发/数据库/Redis/常用命令/LPUSH.md",
-    "软件开发/数据库/Redis/常用命令/LPOP.md",
-    "软件开发/数据库/Redis/常用命令/LMOVE.md",
-    "软件开发/数据库/Redis/常用命令/LINSERT.md",
-    "软件开发/数据库/Redis/常用命令/LINDEX.md"
+    "软件开发/数据库/Redis/常用命令/UNLINK.md"
   ]
 }

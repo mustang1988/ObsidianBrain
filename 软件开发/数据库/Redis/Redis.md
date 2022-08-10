@@ -27,7 +27,7 @@ for(const group of groups){
 									renderAd("quote", "扩展&关联", page.ExtraComment),//dv.markdownList(page.ExtraComment),
 									dv.markdownList(page.Samples 
 														? page.Samples.Error 
-															? renderAd("error", "异常返回", page.Samples.Error.map(e => e.Reason))
+															? renderAd("error", "异常返回原因", page.Samples.Error.map(e => e.Reason))
 															: []
 														: [])
 							   ];
