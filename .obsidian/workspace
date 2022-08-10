@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "软件开发/数据库/Redis/常用命令/LLEN.md",
+            "file": "软件开发/数据库/Redis/Redis.md",
             "mode": "source",
             "backlinks": true,
             "source": false
@@ -98,7 +98,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "软件开发/数据库/Redis/常用命令/LLEN.md",
+                "file": "软件开发/数据库/Redis/Redis.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "软件开发/数据库/Redis/常用命令/LLEN.md",
+                "file": "软件开发/数据库/Redis/Redis.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,15 +131,15 @@
   },
   "active": "b482cfc02cd559c5",
   "lastOpenFiles": [
+    "软件开发/数据库/Redis/常用命令/PTTL.md",
     "软件开发/数据库/Redis/Redis.md",
-    "软件开发/数据库/Redis/常用命令/INCR.md",
-    "软件开发/数据库/Redis/常用命令/GETRANGE.md",
-    "软件开发/数据库/Redis/常用命令/GETEX.md",
-    "软件开发/数据库/Redis/常用命令/GETDEL.md",
-    "软件开发/数据库/Redis/常用命令/GET.md",
-    "软件开发/数据库/Redis/常用命令/DECRBY.md",
-    "软件开发/数据库/Redis/常用命令/DECR.md",
-    "软件开发/数据库/Redis/常用命令/LLEN.md",
-    "软件开发/数据库/Redis/常用命令/HINCRBY.md"
+    "软件开发/数据库/Redis/常用命令/TTL.md",
+    "软件开发/数据库/Redis/常用命令/TYPE.md",
+    "软件开发/数据库/Redis/常用命令/UNLINK.md",
+    "软件开发/数据库/Redis/常用命令/LPUSH.md",
+    "软件开发/数据库/Redis/常用命令/LPOP.md",
+    "软件开发/数据库/Redis/常用命令/LMOVE.md",
+    "软件开发/数据库/Redis/常用命令/LINSERT.md",
+    "软件开发/数据库/Redis/常用命令/LINDEX.md"
   ]
 }
