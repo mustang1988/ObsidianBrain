@@ -7,8 +7,13 @@
         "id": "90329bd9cf387ad9",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "软件开发/数据库/Redis/Redis.md",
+            "mode": "source",
+            "backlinks": true,
+            "source": false
+          }
         }
       }
     ],
@@ -93,6 +98,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "软件开发/数据库/Redis/Redis.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -104,6 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "软件开发/数据库/Redis/Redis.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -124,15 +131,15 @@
   },
   "active": "90329bd9cf387ad9",
   "lastOpenFiles": [
-    "软件开发/数据库/Redis/常用命令/COPY.md",
+    "软件开发/数据库/Redis/SET可选参数.md",
     "软件开发/数据库/Redis/Redis.md",
+    "软件开发/数据库/Redis/常用命令/COPY.md",
     "软件开发/数据库/Redis/常用命令/SCAN.md",
     "软件开发/数据库/Redis/常用命令/SUNIONSTORE.md",
     "软件开发/数据库/Redis/常用命令/SUNION.md",
     "软件开发/数据库/Redis/常用命令/STRLEN.md",
     "软件开发/数据库/Redis/常用命令/SREM.md",
     "软件开发/数据库/Redis/常用命令/SPOP.md",
-    "软件开发/数据库/Redis/常用命令/SMOVE.md",
-    "软件开发/数据库/Redis/常用命令/SMISMEMBER.md"
+    "软件开发/数据库/Redis/常用命令/SMOVE.md"
   ]
 }
