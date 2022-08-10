@@ -1,6 +1,7 @@
 ---
 LinkTo:
   - "[[EXPIRE]]"
+  - "[[PEXPIREAT]]"
 Options:
   - Name: "NX"
     Comment: "当键当前未设置过期时间, 才为其设置过期时间"
@@ -11,7 +12,7 @@ Options:
   - Name: "LT"
     Comment: "当新设置的过期时间小于当前已经设置的过期时间, 才为其设置新的过期时间"
 ---
-# EXIPRE的可选参数options
+# EXPIRE的可选参数options
 
 关联命令: `$=dv.list(dv.current().LinkTo);`
 

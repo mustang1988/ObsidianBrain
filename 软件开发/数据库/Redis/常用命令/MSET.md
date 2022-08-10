@@ -1,39 +1,121 @@
-## MSET key value \[ key value ...\]
+---
+# 命令名称
+Command: "MSET"
+# 分类
+Category: "String"
+# 命令签名
+Signature: "MSET key value [ key value ...]"
+# 命令说明
+Comment: "向 [[Redis]] 库中存入键值对"
+# 命令额外说明
+ExtraComment:
+  - "原子操作, 所有给定的键值对是一起存入的"
+  - "当指定的键存在时, 会 ***覆盖*** 其原有值, 不论原值类型是否是String"
+# 命令时间复杂度
+TimeComplexity:
+  Value: "n"
+  Comment: "n为指定键值对的数量"
+# 命令参数列表
+Arguments:
+  - Name: "key"
+    Type: "String"
+    Required: true
+    Comment: "需要存入值的键, 可以同时提交多个"
+    Default: ""
+  - Name: "value"
+    Type: "String"
+    Required: true
+    Comment: "需要存入的值, 可以同时提交多个"
+    Default: ""
+# 命令返回结果
+Returns:
+  - Type: "String"
+    Comment: "总是返回 \"OK\""
+# 命令示例
+Samples:
+  # 正常示例
+  Success:
+    Sample: |
+      ```bash
+      redis:6379> MSET key1 "Hello" key2 "World"
+      "OK"
+      redis:6379> GET key1
+      "Hello"
+      redis:6379> GET key2
+      "World"
+      ```
+  # 异常示例
+  Error:
+---
 
-### 用途
-(Comment:: "向 [[Redis]] 库中存入键值对")
+# `$=dv.current().Signature;`
 
-```ad-info
-title: MSET是原子操作, 所有给定的键值对是一起存入的
+## 用途
+`$=dv.current().Comment;`
+
+```dataviewjs
+const { ExtraComment=[] } = dv.current();
+Array.isArray(ExtraComment) 
+	? dv.list(ExtraComment) 
+	: ExtraComment == null 
+		? dv.paragraph('') 
+		: dv.paragraph(ExtraComment);
 ```
 
-```ad-warning
-title: 注意
-当指定的键存在时, 会 ***覆盖*** 其原有值, 不论原值类型是否是String
+## 时间复杂度
+```dataviewjs
+const { Value, Comment } = dv.current().TimeComplexity;
+let display = `O(${Value})`
+if(Value != "1"){
+	display = `${display}: ${Comment}`
+}
+dv.paragraph(display);
 ```
 
-#### 时间复杂度
-O(n), n为指定键值对的数量
+## 参数说明
+```dataviewjs
+const data = dv.current().Arguments.map(arg => [arg.Name, arg.Type, arg.Required, arg.Comment, arg.Default]);
+dv.table(
+	["参数名","参数类型", "必填?", "参数说明","默认值"],
+	data
+);
+```
 
-### 参数
-|参数名|参数类型|参数说明|备注|
-|:-|:-|:-|:-|
-|key|String|需要存入值的键|可以同时提交多个|
-|value|String|需要存入的值|可以同时提交多个|
+## 返回值
+```dataviewjs
+const {Returns = []} = dv.current();
+for(const ret of Returns){
+	const {Type, Comment} = ret;
+	let print = !Array.isArray(Comment) 
+		? `返回${Type}类型结果: ${Comment}`
+		: `返回${Type}类型结果: `
+	dv.paragraph(print);
+	Array.isArray(Comment) && dv.list(Comment);
+}
+```
 
-### 返回值
-***总是*** 返回String类型结果: "OK"
-
-### 示例
-```ad-info
+## 示例
+```ad-success
 title: 正常
-```bash
-redis:6379> MSET key1 "Hello" key2 "World"
-"OK"
-redis:6379> GET key1
-"Hello"
-redis:6379> GET key2
-"World"
+`$=dv.current().Samples.Success.Sample;`
 ```
 
-#Redis #Redis/常用命令/String 
+```ad-danger
+title: 异常
+
+~~~dataviewjs
+const {Error = []} = dv.current().Samples;
+if(Array.isArray(Error)){
+	for(const err of Error){
+		const { Reason, Sample } = err;
+		dv.paragraph(Reason);
+		dv.paragraph(Sample);
+	}
+} else {
+	dv.paragraph('无异常返回');
+}
+~~~
+
+```
+
+#Redis/Command 

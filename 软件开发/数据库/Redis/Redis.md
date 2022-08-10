@@ -1,7 +1,7 @@
-## Redis
-
+---
+---
 ```ad-abstract
-title: 
+title: Redis
 Redis是一个使用ANSI C编写的开源, 支持网络, 基于内存, 分布式, 可选持久性的键值对存储 [[数据库]]
 ```
 
