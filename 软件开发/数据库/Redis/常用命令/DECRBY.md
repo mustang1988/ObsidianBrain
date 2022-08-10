@@ -44,7 +44,7 @@ Samples:
       ```
   # 异常示例
   Error:
-    - Reason: "如果指定键的值存在, 但其值不是String类型, 会返回异常"
+    - Reason: "指定键对应的值不是String类型, 返回异常"
       Sample: |
         ```bash
         redis:6379> LPUSH listkey 1
@@ -52,7 +52,7 @@ Samples:
         redis:6379> DECRBY listkey 10
         (error) WRONGTYPE Operation against a key holding the wrong kind of value
         ``` 
-    - Reason: "如果指定键对应的值是字符串类型, 但值无法表示为一个 ***整数*** 时, 会返回异常"
+    - Reason: "指定键对应的值无法表示为一个 ***整数*** 时, 返回异常"
       Sample: |
         ```bash
         redis:6379> SET notnumberkey helloworld
@@ -60,7 +60,7 @@ Samples:
         redis:6379> DECRBY notnumberkey 10
         (error) value is not an integer or out of range
         ``` 
-    - Reason: "该操作对数值的范围有限制, 限制为64位带符号整数(-2^63, 2^63-1), 当被操作的值超出此范围时, 会返回异常"
+    - Reason: "此操作对数值的范围有限制, 限制为64位带符号整数(-2^63, 2^63-1), 当被操作的值超出此范围时, 返回异常"
       Sample: |
         ```bash
         redis:6379> SET mykey "234293482390480948029348230948"

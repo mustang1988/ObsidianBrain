@@ -10,22 +10,50 @@ title: 常用命令
 collapse: open
 
 ~~~dataviewjs
-const groups = dv.pages('#Redis/Command or #Redis and -"模板"').groupBy(p => p.Category);
+const order = ["", "通用", "String", "List", "Hash", "Set", "SortedSet"];
+const groups = dv.pages('#Redis/Command or #Redis and -"模板" and -#Redis/常用业务场景')
+				.groupBy(p => p.Category)
+				.sort(g => [order.indexOf(g.key)], 'asc');
 for(const group of groups){
 	const groupName = group.key ? group.key : '未分类';
 	const datas = group.rows
 					.sort(page => page.file.name, 'asc')
-					.map(page => [page.file.link, page.Comment])
+					.map(page => {
+						const displayName = page.Command;
+						const link = dv.fileLink(page.file.path, false, displayName);
+						return [
+									link,
+									page.Comment,
+									renderAd("quote", "扩展&关联", page.ExtraComment),//dv.markdownList(page.ExtraComment),
+									dv.markdownList(page.Samples 
+														? page.Samples.Error 
+															? renderAd("error", "异常返回", page.Samples.Error.map(e => e.Reason))
+															: []
+														: [])
+							   ];
+					});
+	// group name output
 	dv.header(2, groupName);
+	// group data output
 	dv.table(
-		["命令","说明"],
+		["","说明","",""],
 		datas
 	);
 }
 
+function renderAd(type, title, content){
+	const ad =  `
+\`\`\`ad-${type}
+title: ${title}
+collapse: close
+${Array.isArray(content) ? content.map(c => `- ${c}`).join('\n') : content}
+\`\`\`
+    `;
+	console.log('debug => ', content ? ad: '');
+	return content ? ad: ''
+}
+
 ~~~
-
-
 `````
 
 ````ad-quote

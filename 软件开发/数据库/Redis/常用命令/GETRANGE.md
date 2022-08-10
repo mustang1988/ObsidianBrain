@@ -55,7 +55,7 @@ Samples:
       ```
   # 异常示例
   Error:
-    - Reason: "指定的键对应的值不是String类型的, 则返回异常"
+    - Reason: "指定的键对应的值不是String类型时, 返回异常"
       Sample: |
         ```bash
         redis:6379> LPUSH notstringkey "Hello"
