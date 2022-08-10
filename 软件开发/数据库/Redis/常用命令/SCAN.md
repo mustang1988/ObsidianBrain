@@ -39,11 +39,6 @@ Samples:
       ```
   # 异常示例
   Error:
-    - Reason: ""
-      Sample: |
-        ```bash
-        
-        ``` 
 ---
 
 # `$=dv.current().Signature;`

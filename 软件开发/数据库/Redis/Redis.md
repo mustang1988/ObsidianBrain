@@ -24,32 +24,31 @@ for(const group of groups){
 						return [
 									link,
 									page.Comment,
-									renderAd("quote", "扩展&关联", page.ExtraComment),//dv.markdownList(page.ExtraComment),
-									dv.markdownList(page.Samples 
-														? page.Samples.Error 
-															? renderAd("error", "异常返回原因", page.Samples.Error.map(e => e.Reason))
-															: []
-														: [])
+									// renderAd("quote", "扩展&关联", page.ExtraComment),//dv.markdownList(page.ExtraComment),
+									// dv.markdownList(page.Samples 
+									//					? page.Samples.Error 
+									//						? renderAd("error", "异常返回原因", page.Samples.Error.map(e => e.Reason))
+									//						: []
+									//					: [])
 							   ];
 					});
 	// group name output
 	dv.header(2, groupName);
 	// group data output
 	dv.table(
-		["","说明","",""],
+		[],
 		datas
 	);
 }
 
-function renderAd(type, title, content){
+function renderAd(type, title, content, collapse='close'){
 	const ad =  `
 \`\`\`ad-${type}
 title: ${title}
-collapse: close
+collapse: ${collapse}
 ${Array.isArray(content) ? content.map(c => `- ${c}`).join('\n') : content}
 \`\`\`
     `;
-	console.log('debug => ', content ? ad: '');
 	return content ? ad: ''
 }
 
