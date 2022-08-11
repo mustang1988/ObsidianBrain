@@ -16,12 +16,12 @@ Arguments:
 
 # `$=dv.current().Format;`
 
-### 作用
+## 作用
 `$=dv.current().Comment;`
 
 `$=dv.list(dv.current().ExtraComment);`
 
-### 参数说明
+## 参数说明
 ```dataviewjs
 const { Arguments = null } = dv.current();
 if(Arguments == null){
@@ -42,7 +42,7 @@ if(Arguments == null){
 
 ```
 
-### 示例
+## 示例
 ```bash
 ffmpeg {{title}}
 ```

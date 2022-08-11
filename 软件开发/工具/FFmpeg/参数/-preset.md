@@ -1,26 +1,60 @@
 ---
-Category: "视频流处理"
+Name: "-preset"
+Format: "-preset preset"
+Category:
+  - "视频流处理"
+  - "libx264"
+Comment: "设置 [[FFmpeg]] 使用H.264/H.265编码视频流时的编码预设"
+ExtraComment:
+  - "此参数仅在使用 H.264, H.265 编码器时生效"
+Arguments:
+  - Name: "preset"
+    Type: "Enum"
+    Comment: "H.264/H.265编码器编码预设"
+    Range: |
+      "ultrafast"
+      "superfast"
+      "veryfast"
+      "faster"
+      "medium"
+      "slow"
+      "slower"
+      "veryslow"
+      "placebo"
+    Default: "\"medium\""
 ---
 
-## -preset preset
+# `$=dv.current().Format;`
 
-### 作用
-(Comment:: "设置 [[FFmpeg]] 使用H.264/H.265编码视频流时的编码预设")
+## 作用
+`$=dv.current().Comment;`
 
-```ad-info
-title: -preset 参数仅在 H.264, H.265 编码器下生效
+`$=dv.list(dv.current().ExtraComment);`
+
+## 参数说明
+```dataviewjs
+const { Arguments = null } = dv.current();
+if(Arguments == null){
+	dv.paragraph("标记型参数, 无参数值");
+} else {
+	dv.table(
+		["参数名","参数类型","参数说明","取值范围","默认值"],
+		Arguments
+		.map(arg => [
+			arg.Name,
+			arg.Type,
+			arg.Comment,
+			arg.Range,
+			arg.Default
+		])
+	);
+}
+
 ```
 
-### 参数说明
-|参数名|参数类型|参数说明|取值范围|默认值|
-|:-|:-|:-|:-|:-|
-|preset|String|H.264/H.265编码器编码预设|Preset枚举[^Preset枚举]|"medium"|
-
-### 示例
+## 示例
 ```bash
-ffmpeg -preset ultrafast
+ffmpeg -i input.avi -c:v libx264 -preset faster
 ```
 
 #FFmpeg #FFmpeg/参数
-
-[^Preset枚举]: 可选值: "ultrafast", "superfast", "veryfast", "faster", "medium", "slow", "slower", "veryslow", "placebo", 编码速度依次递减, 编码质量依次提高, 采用相同编码参数的情况下, 最终编码得到的文件体积依次减小

@@ -1,20 +1,50 @@
 ---
-Category: "分片"
+Name: "-hls_segment_type"
+Format: "-hls_segment_type type"
+Category:
+  - "分片"
+  - "HLS"
+Comment: "设置 [[FFmpeg]] 进行HLS分片时的的片段格式"
+ExtraComment:
+Arguments:
+  - Name: "type"
+    Type: "Enum"
+    Comment: "HLS分片片段类型"
+    Range: "\"mpegts\", \"fmp4\""
+    Default: "\"mpegts\""
 ---
 
-## -hls_segment_type type
+# `$=dv.current().Format;`
 
-### 作用
-(Comment:: "设置 [[FFmpeg]] 进行HLS分片时的的片段格式")
+## 作用
+`$=dv.current().Comment;`
 
-### 参数说明
-|参数名|参数类型|参数说明|取值范围|默认值|
-|:-|:-|:-|:-|:-|
-|type|String|HLS分片片段类型|"fmp4" \| "mpegts"|"mpegts"|
+`$=dv.list(dv.current().ExtraComment);`
 
-### 示例
+## 参数说明
+```dataviewjs
+const { Arguments = null } = dv.current();
+if(Arguments == null){
+	dv.paragraph("标记型参数, 无参数值");
+} else {
+	dv.table(
+		["参数名","参数类型","参数说明","取值范围","默认值"],
+		Arguments
+		.map(arg => [
+			arg.Name,
+			arg.Type,
+			arg.Comment,
+			arg.Range,
+			arg.Default
+		])
+	);
+}
+
+```
+
+## 示例
 ```bash
-ffmpeg -hls_segment_type fmp4
+ffmpeg -i input.mp4 -f hls -hls_segment_type fmp4
 ```
 
 #FFmpeg #FFmpeg/参数
