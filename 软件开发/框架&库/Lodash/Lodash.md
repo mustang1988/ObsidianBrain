@@ -10,7 +10,7 @@ title:
 一致性, 模块化, 高性能的 [[ECMAScript|JavaScript]]  / [[ECMAScript|TypeScript]] 实用工具 [[框架&库|库]]
 ```
 
-````ad-quote
+````ad-tip
 title: 常用函数
 collapse: open
 ~~~dataviewjs
@@ -33,24 +33,6 @@ for(const group of groups){
 		})
 	);
 }
-
-/*
-dv.table(
-	["函数","说明","分类"],
-	dv.pages('#Lodash and -"模板"')
-	//.filter(page => page.Category.includes('Array'))
-	.sort(page => [categoryOrder.indexOf(page.Category[0]), page.file.name], 'asc')
-	.map(page => {
-		const display = page.aliases == null ? `_.${page.Signature}` : `_.${page.Signature} / `+ page.aliases.join(' / ')
-		return [
-					dv.fileLink(page.file.path, false, display), 
-					page.Comment,
-					page.category
-				]
-	})
-);
-*/
-~~~
 ````
 
 #库 #库/Lodash #ECMAScript 

@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "90329bd9cf387ad9",
+        "id": "a10d2f5ef854c34c",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "软件开发/数据库/Redis/Redis.md",
+            "file": "模板/软件开发/FFmpeg参数模板.md",
             "mode": "source",
             "backlinks": true,
             "source": false
@@ -98,7 +98,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "软件开发/数据库/Redis/Redis.md",
+                "file": "模板/软件开发/FFmpeg参数模板.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "软件开发/数据库/Redis/Redis.md",
+                "file": "模板/软件开发/FFmpeg参数模板.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -129,17 +129,17 @@
     "width": 281.5,
     "collapsed": true
   },
-  "active": "90329bd9cf387ad9",
+  "active": "a10d2f5ef854c34c",
   "lastOpenFiles": [
-    "软件开发/数据库/Redis/SET可选参数.md",
+    "模板/软件开发/Redis命令模板.md",
+    "模板/软件开发/Lodash函数模板.md",
+    "模板/软件开发/FFprobe参数模板.md",
+    "模板/软件开发/FFmpeg参数模板.md",
+    "软件开发/工具/FFmpeg/参数/-an.md",
+    "软件开发/框架&库/Lodash/Lodash.md",
     "软件开发/数据库/Redis/Redis.md",
-    "软件开发/数据库/Redis/常用命令/COPY.md",
-    "软件开发/数据库/Redis/常用命令/SCAN.md",
-    "软件开发/数据库/Redis/常用命令/SUNIONSTORE.md",
-    "软件开发/数据库/Redis/常用命令/SUNION.md",
-    "软件开发/数据库/Redis/常用命令/STRLEN.md",
-    "软件开发/数据库/Redis/常用命令/SREM.md",
-    "软件开发/数据库/Redis/常用命令/SPOP.md",
-    "软件开发/数据库/Redis/常用命令/SMOVE.md"
+    "模板/软件开发/设计模式模板.md",
+    "模板/软件开发/通用参数模板.md",
+    "软件开发/数据库/Redis/常用命令/UNLINK.md"
   ]
 }

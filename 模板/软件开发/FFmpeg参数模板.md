@@ -1,9 +1,11 @@
 ---
-Name: {{title}}
+Name: "{{title}}"
+Format: "{{title}} "
+Category:
+  - ""
 Comment: ""
-Category: ""
-ExtraComment: |-
-  
+ExtraComment:
+  - ""
 Arguments:
   - Name: ""
     Type: ""
@@ -12,20 +14,32 @@ Arguments:
     Default: ""
 ---
 
-# `$=dv.current().Name;`
+# `$=dv.current().Format;`
 
 ### 作用
 `$=dv.current().Comment;`
 
-`$=dv.current().ExtraComment;`
+`$=dv.list(dv.current().ExtraComment);`
 
 ### 参数说明
 ```dataviewjs
-const data = dv.current().Arguments.map(arg => [arg.Name, arg.Type, arg.Comment, arg.Range, arg.Default])
-dv.table(
-	["参数名","参数类型","参数说明","取值范围","默认值"],
-	data
-);
+const { Arguments = null } = dv.current();
+if(Arguments == null){
+	dv.paragraph("标记型参数, 无参数值");
+} else {
+	dv.table(
+		["参数名","参数类型","参数说明","取值范围","默认值"],
+		Arguments
+		.map(arg => [
+			arg.Name,
+			arg.Type,
+			arg.Comment,
+			arg.Range,
+			arg.Default
+		])
+	);
+}
+
 ```
 
 ### 示例

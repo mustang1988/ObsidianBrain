@@ -1,9 +1,11 @@
 ---
-Name: {{title}}
+Name: "{{title}}"
+Format: "{{title}} "
+Category:
+  - ""
 Comment: ""
-Category: ""
-ExtraComment: |-
-  
+ExtraComment:
+  - ""
 Arguments:
   - Name: ""
     Type: ""
@@ -12,12 +14,12 @@ Arguments:
     Default: ""
 ---
 
-# `$=dv.current().Name;`
+# `$=dv.current().Format;`
 
 ## 作用
 `$=dv.current().Comment;`
 
-`$=dv.current().ExtraComment;`
+`$=dv.list(dv.current().ExtraComment);`
 
 ## 参数说明
 ```dataviewjs
