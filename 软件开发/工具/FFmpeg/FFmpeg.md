@@ -1,6 +1,4 @@
 # FFmpeg
-### FFmpeg常用参数
-
 ```ad-tip
 title: FFmpeg常用命令参数
 collapse: open
