@@ -6,5 +6,6 @@
   "tag-wrangler",
   "templater-obsidian",
   "markdown-prettifier",
-  "obsidian-pandoc"
+  "obsidian-pandoc",
+  "customjs"
 ]
