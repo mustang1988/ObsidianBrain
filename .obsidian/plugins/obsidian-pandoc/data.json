@@ -1,0 +1,15 @@
+{
+  "showCLICommands": true,
+  "addExtensionsToInternalLinks": "html",
+  "injectAppCSS": "current",
+  "injectThemeCSS": false,
+  "customCSSFile": null,
+  "displayYAMLFrontmatter": false,
+  "linkStrippingBehaviour": "text",
+  "highDPIDiagrams": true,
+  "pandoc": "C:\\Program Files\\Pandoc\\pandoc.exe",
+  "pdflatex": null,
+  "outputFolder": "C:\\Users\\pgu.LANDHIGHTECH101\\Desktop",
+  "extraArguments": "",
+  "exportFrom": "html"
+}
