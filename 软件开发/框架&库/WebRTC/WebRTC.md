@@ -1,4 +1,6 @@
 ---
+banner: "![[Cover.jpg]]"
+banner_y: 0.3755
 Language: "[[C++]]"
 Abstract: "网页即时通信库, 支持网页浏览器进行实时语音对话或视频对话"
 ---

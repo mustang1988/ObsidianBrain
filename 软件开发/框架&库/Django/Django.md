@@ -1,4 +1,5 @@
 ---
+banner: "![[图片/软件开发/框架&库/Django/Cover.jpg]]"
 Language: "[[Python]]"
 Abstract: "MTV的软件设计模式的Web应用框架"
 ---

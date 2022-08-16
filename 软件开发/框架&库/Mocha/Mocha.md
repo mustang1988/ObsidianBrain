@@ -1,4 +1,5 @@
 ---
+banner: "![[图片/软件开发/框架&库/Mocha/Cover.png]]"
 Language: "[[ECMAScript]]"
 Abstract: "简单, 灵活, 有趣的测试框架"
 ---

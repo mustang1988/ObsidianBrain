@@ -1,4 +1,5 @@
 ---
+banner: "![[图片/软件开发/框架&库/Spring Framework/Cover.png]]"
 Language: "[[Java]]"
 Abstract: "全栈应用程序框架和控制反转容器实现"
 ---

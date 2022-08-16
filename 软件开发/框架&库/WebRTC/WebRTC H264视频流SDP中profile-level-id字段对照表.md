@@ -55,8 +55,8 @@ let datas = [];
 let map = new Map();
 let { Profiles, Levels } = dv.current();
 // Andoird 仅支持 Constrained Profile 和 Level 3.1
-Profiles = Profiles.filter(profile => profile.Name.includes('Const'))
-Levels = Levels.filter(level => level.Value == 31)
+// Profiles = Profiles.filter(profile => profile.Name.includes('Const'))
+Levels = Levels.filter(level => level.Value == 31 || level.Value == 0)
 // End Android 过滤数据
 const rows = [];
 for(const profile of Profiles){
@@ -67,13 +67,28 @@ for(const profile of Profiles){
 		rows.push({profile, level});
 	}
 }
+
 dv.table(
 	["profile-level-id", "profile", "level"],
 	rows.map(row => {
 		const { profile, level } = row;
 		const lv_str = level.Value.toString(16);
+		let id = `${profile.Value}${lv_str.length == 1 ? '0'+lv_str:lv_str}`;
+		if(level.Value == 0){
+			switch(profile.Name){
+				case 'ConstrainedBaseline':
+					id = "42f00b";
+					break;
+				case 'Baseline':
+					id = "42100b";
+					break;
+				case 'Main':
+					id = "4d100b"
+					break;
+			}
+		}
 		return [
-			`${profile.Value}${lv_str.length == 1 ? '0'+lv_str:lv_str}`,
+			id,
 			profile.Name,
 			level.Name
 		];
@@ -112,8 +127,22 @@ for(const key of map.keys()){
 		map.get(key).map(row => {
 			const { profile, level } = row;
 			const lv_str = level.Value.toString(16);
+			let id = `${profile.Value}${lv_str.length == 1 ? '0'+lv_str:lv_str}`;
+			if(level.Value == 0){
+				switch(profile.Name){
+					case 'ConstrainedBaseline':
+						id = "42f00b";
+						break;
+					case 'Baseline':
+						id = "42100b";
+						break;
+					case 'Main':
+						id = "4d100b"
+						break;
+				}
+			}
 			return [
-				`${profile.Value}${lv_str.length == 1 ? '0'+lv_str:lv_str}`,
+				id,
 				level.Name
 			];
 		})

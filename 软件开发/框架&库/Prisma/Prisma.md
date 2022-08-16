@@ -1,4 +1,5 @@
 ---
+banner: "![[图片/软件开发/框架&库/Prisma/Cover.png]]"
 Language: "[[ECMAScript|TypeScript]]"
 Abstract: "下一代数据库ORM"
 ---

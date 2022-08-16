@@ -1,4 +1,5 @@
 ---
+banner: "![[图片/软件开发/框架&库/Lodash/Cover.jpg]]"
 Language: "[[ECMAScript]]"
 Abstract: "一致性, 模块化, 高性能的实用工具库"
 aliases: 

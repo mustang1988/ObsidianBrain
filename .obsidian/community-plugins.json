@@ -7,5 +7,6 @@
   "templater-obsidian",
   "markdown-prettifier",
   "obsidian-pandoc",
-  "customjs"
+  "customjs",
+  "obsidian-banners"
 ]
