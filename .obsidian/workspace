@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "软件开发/框架&库/WebRTC/编译/Linux 系统下 WebRTC Android SDK 编译.md",
+            "file": "软件开发/首页.md",
             "mode": "source",
             "backlinks": true,
             "source": false
@@ -98,7 +98,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "软件开发/框架&库/WebRTC/编译/Linux 系统下 WebRTC Android SDK 编译.md",
+                "file": "软件开发/首页.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "软件开发/框架&库/WebRTC/编译/Linux 系统下 WebRTC Android SDK 编译.md",
+                "file": "软件开发/首页.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,15 +130,15 @@
   },
   "active": "a8b1344cda09af6b",
   "lastOpenFiles": [
-    "软件开发/框架&库/Prisma/Prisma.md",
-    "软件开发/框架&库/Prisma/Prisma使用入门.md",
-    "软件开发/框架&库/NestJS/NestJS.md",
+    "软件开发/编程思想与理论/编程思想与理论.md",
+    "软件开发/编程思想与理论/OOP/SOLID原则.md",
+    "软件开发/编程思想与理论/OOP/设计模式.md",
+    "软件开发/首页.md",
+    "软件开发/工具/Docker/Docker.md",
+    "软件开发/工具/Docker/Docker安装与使用入门.md",
     "软件开发/框架&库/框架&库.md",
-    "软件开发/框架&库/CUDA/CUDA.md",
-    "软件开发/框架&库/Django/Django.md",
-    "软件开发/框架&库/EggJS/EggJS.md",
-    "软件开发/框架&库/Lodash/Lodash.md",
-    "软件开发/框架&库/Mocha/Mocha.md",
-    "软件开发/框架&库/SpringFramework/SpringFramework.md"
+    "软件开发/数据库/Redis/Redis.md",
+    "软件开发/数据库/数据库.md",
+    "软件开发/工具/FFmpeg/参数/-level.md"
   ]
 }
