@@ -28,7 +28,7 @@ npm install prisma typescript ts-node @types/node --save-dev
 npx prisma init
 ```
 
-初始化完成后, 项目目录下回新增prisma目录, 其中包含文件*schema.prisma*, 初始内容如下
+初始化完成后, 项目目录下会新增prisma目录, 其中包含文件*schema.prisma*, 初始内容如下
 ```prisma
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema

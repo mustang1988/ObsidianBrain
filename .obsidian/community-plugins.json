@@ -6,7 +6,7 @@
   "tag-wrangler",
   "templater-obsidian",
   "markdown-prettifier",
-  "obsidian-pandoc",
   "customjs",
-  "obsidian-banners"
+  "obsidian-banners",
+  "cmenu-plugin"
 ]

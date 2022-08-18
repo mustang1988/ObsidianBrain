@@ -1,7 +1,7 @@
 {
   "promptDelete": false,
   "alwaysUpdateLinks": true,
-  "showUnsupportedFiles": false,
+  "showUnsupportedFiles": true,
   "strictLineBreaks": true,
   "showLineNumber": true,
   "spellcheck": true,
@@ -13,5 +13,8 @@
     "landscape": false,
     "margin": "0",
     "downscalePercent": 100
-  }
+  },
+  "tabSize": 2,
+  "newLinkFormat": "shortest",
+  "useMarkdownLinks": false
 }
