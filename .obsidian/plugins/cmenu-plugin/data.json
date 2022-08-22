@@ -12,16 +12,6 @@
       "icon": "italic-glyph"
     },
     {
-      "id": "cmenu-plugin:editor:toggle-strikethrough",
-      "name": "cMenu: Toggle strikethrough",
-      "icon": "strikethrough-glyph"
-    },
-    {
-      "id": "cmenu-plugin:underline",
-      "name": "cMenu: Toggle underline",
-      "icon": "underline-glyph"
-    },
-    {
       "id": "cmenu-plugin:codeblock",
       "name": "cMenu: Toggle codeblock",
       "icon": "codeblock-glyph"

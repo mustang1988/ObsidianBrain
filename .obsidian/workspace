@@ -4,12 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "35c6c7b8fc66a7c7",
+        "id": "6d9ae85b5b3fa01b",
         "type": "leaf",
         "state": {
-          "type": "pdf-annotator",
+          "type": "markdown",
           "state": {
-            "file": "软件开发/框架&库/WebRTC/标准制定/RTP Payload Format for H.264 Video.md"
+            "file": "生活/学习/Obsidian/插件/Dataview.md",
+            "mode": "source",
+            "backlinks": true,
+            "source": false
           }
         }
       }
@@ -52,8 +55,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 273,
-    "collapsed": true
+    "width": 273
   },
   "right": {
     "id": "0cec90c71c16d73c",
@@ -88,7 +90,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "软件开发/框架&库/WebRTC/标准制定/RTP Payload Format for H.264 Video.md",
+                "file": "生活/学习/Obsidian/插件/Dataview.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -100,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "软件开发/框架&库/WebRTC/标准制定/RTP Payload Format for H.264 Video.md",
+                "file": "生活/学习/Obsidian/插件/Dataview.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,17 +121,17 @@
     "width": 281.5,
     "collapsed": true
   },
-  "active": "35c6c7b8fc66a7c7",
+  "active": "6d9ae85b5b3fa01b",
   "lastOpenFiles": [
+    "生活/学习/Obsidian/插件/Templater.md",
+    "生活/学习/Obsidian/Obsidian.md",
+    "生活/学习/Obsidian/插件/Dataview.md",
+    "生活/学习/Obsidian/插件/Admonition.md",
+    "生活/娱乐/NAS/群晖上使用Jellyfin搭建媒体库.md",
+    "软件开发/框架&库/WebRTC/源码分析/VideoDecoder.md",
     "软件开发/框架&库/WebRTC/源码分析/PeerConnectionInterface.md",
     "软件开发/框架&库/WebRTC/标准制定/RTP Payload Format for H.264 Video.md",
-    "软件开发/框架&库/WebRTC/标准制定/Usage with the SDP Offer, Answer Model.md",
-    "软件开发/工具/FFmpeg/命令/屏幕录制.md",
-    "软件开发/工具/FFmpeg/FFmpeg.md",
-    "软件开发/框架&库/Prisma/Prisma使用入门.md",
-    "软件开发/框架&库/Mocha/Mocha.md",
-    "软件开发/框架&库/WebRTC/编译/Linux 系统下 WebRTC Android SDK 编译.md",
-    "软件开发/框架&库/Lodash/Lodash.md",
-    "软件开发/工具/FFmpeg/参数/-ar.md"
+    "软件开发/框架&库/WebRTC/WebRTC源码分析.md",
+    "软件开发/框架&库/WebRTC/WebRTC H264视频流SDP中profile-level-id字段对照表.md"
   ]
 }

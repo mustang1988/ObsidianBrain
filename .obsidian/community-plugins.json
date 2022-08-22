@@ -5,9 +5,7 @@
   "cm-editor-syntax-highlight-obsidian",
   "tag-wrangler",
   "templater-obsidian",
-  "markdown-prettifier",
-  "customjs",
   "obsidian-banners",
-  "cmenu-plugin",
-  "obsidian-annotator"
+  "obsidian-annotator",
+  "highlightr-plugin"
 ]

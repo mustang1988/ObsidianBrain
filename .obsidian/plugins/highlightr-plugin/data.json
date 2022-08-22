@@ -1,0 +1,26 @@
+{
+  "highlighterStyle": "realistic",
+  "highlighterMethods": "css-classes",
+  "highlighters": {
+    "粉": "#FFB8EBA6",
+    "红": "#FF5582A6",
+    "橙": "#FFB86CA6",
+    "黄": "#FFF3A3A6",
+    "绿": "#BBFABBA6",
+    "青": "#ABF7F7A6",
+    "蓝": "#ADCCFFA6",
+    "紫": "#D2B3FFA6",
+    "灰": "#CACFD9A6"
+  },
+  "highlighterOrder": [
+    "红",
+    "橙",
+    "黄",
+    "绿",
+    "青",
+    "蓝",
+    "紫",
+    "灰",
+    "粉"
+  ]
+}
