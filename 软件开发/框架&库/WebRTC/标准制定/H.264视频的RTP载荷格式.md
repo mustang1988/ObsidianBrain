@@ -5,7 +5,7 @@ annotation-target: "[[rfc6184.txt.pdf]]"
 
 >%%
 >```annotation-json
->{"created":"2022-08-22T01:14:04.787Z","text":"profile-level-id 参数:\n16进制字符串, 包含以下3个部分\n- profile_idc\n- profile-iop\n- level_idc","updated":"2022-08-22T01:14:04.787Z","document":{"title":"Enscript Output","link":[{"href":"urn:x-pdf:9fe515e82966956357a6533c80ddeda6"},{"href":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc6184.txt.pdf"}],"documentFingerprint":"9fe515e82966956357a6533c80ddeda6"},"uri":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc6184.txt.pdf","target":[{"source":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc6184.txt.pdf","selector":[{"type":"TextPositionSelector","start":93301,"end":93317},{"type":"TextQuoteSelector","exact":"profile-level-id","prefix":"one   OPTIONAL parameters:      ","suffix":":         A base16 [7] (hexadeci"}]}]}
+>{"text":"profile-level-id 参数:\n16进制字符串, 包含以下3个部分\n- profile_idc\n- profile-iop\n- level_idc\n\n例如\n\nprofile-level-id值 42e01f\n- profile_idc -> 42, 表示该流是Baseline Profile 的子集\n- profile-iop -> e0, 转换为二进制: 1110 0000, 表示该流是Baseline Profile 下的 Constrainted Baseline 子集\n- level_idc -> if, 转换为十进制: 31, 表示该流使用 Level 3.1\n\n又例如\n\nprofile-level-id 值 4d001f\n- profile_idc -> 4d, 对应 Main Profile\n- profile-iop -> 00, 转换为二进制为: 00000000, 对应Main Profile\n- level_idc -> 1f, 转换为十进制为: 31, 表示 Level 3.1","target":[{"source":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc6184.txt.pdf","selector":[{"type":"TextPositionSelector","start":93301,"end":93317},{"type":"TextQuoteSelector","exact":"profile-level-id","prefix":"one   OPTIONAL parameters:","suffix":":         A base16 [7] (hexadeci"}]}],"created":"2022-08-22T01:14:04.787Z","updated":"2022-08-22T01:14:04.787Z","document":{"title":"Enscript Output","link":[{"href":"urn:x-pdf:9fe515e82966956357a6533c80ddeda6"},{"href":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc6184.txt.pdf"}],"documentFingerprint":"9fe515e82966956357a6533c80ddeda6"},"uri":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc6184.txt.pdf"}
 >```
 >%%
 >*%%PREFIX%%one   OPTIONAL parameters:%%HIGHLIGHT%% ==profile-level-id== %%POSTFIX%%:         A base16 [7] (hexadeci*
@@ -16,6 +16,20 @@ annotation-target: "[[rfc6184.txt.pdf]]"
 >- profile_idc
 >- profile-iop
 >- level_idc
+>
+>例如
+>
+>profile-level-id值 42e01f
+>- profile_idc -> 42, 表示该流是Baseline Profile 的子集
+>- profile-iop -> e0, 转换为二进制: 1110 0000, 表示该流是Baseline Profile 下的 Constrainted Baseline 子集
+>- level_idc -> if, 转换为十进制: 31, 表示该流使用 Level 3.1
+>
+>又例如
+>
+>profile-level-id 值 4d001f
+>- profile_idc -> 4d, 对应 Main Profile
+>- profile-iop -> 00, 转换为二进制为: 00000000, 对应Main Profile
+>- level_idc -> 1f, 转换为十进制为: 31, 表示 Level 3.1
 >%%TAGS%%
 >#profile-level-id
 ^51wv6z303om
@@ -419,3 +433,35 @@ annotation-target: "[[rfc6184.txt.pdf]]"
 >%%TAGS%%
 >
 ^zu94z8958q
+
+
+>%%
+>```annotation-json
+>{"created":"2022-08-22T09:53:14.052Z","text":"sprop-level-parameter-sets\n","updated":"2022-08-22T09:53:14.052Z","document":{"title":"Enscript Output","link":[{"href":"urn:x-pdf:9fe515e82966956357a6533c80ddeda6"},{"href":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc6184.txt.pdf"}],"documentFingerprint":"9fe515e82966956357a6533c80ddeda6"},"uri":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc6184.txt.pdf","target":[{"source":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc6184.txt.pdf","selector":[{"type":"TextPositionSelector","start":119524,"end":119550},{"type":"TextQuoteSelector","exact":"sprop-level-parameter-sets","prefix":"the         default level.      ","suffix":":         This parameter MAY be "}]}]}
+>```
+>%%
+>*%%PREFIX%%the         default level.%%HIGHLIGHT%% ==sprop-level-parameter-sets== %%POSTFIX%%:         This parameter MAY be*
+>%%LINK%%[[#^1cov6ipf751|show annotation]]
+>%%COMMENT%%
+>sprop-level-parameter-sets
+>
+>%%TAGS%%
+>#sprop-level-parameter-sets
+^1cov6ipf751
+
+
+
+>%%
+>```annotation-json
+>{"created":"2022-08-23T02:32:48.405Z","text":"当 answer->offer 方向上的 level 等于默认level时\n\n如果在 anwser 的 a=fmtp 行有定义 sprop-parameter-sets 参数, 那么 offer 方**必须**对sprop-parameter-set 中定义的出参数进行准备, 以解码接收到的从anwser 方向送入的NAL流","updated":"2022-08-23T02:32:48.405Z","document":{"title":"Enscript Output","link":[{"href":"urn:x-pdf:9fe515e82966956357a6533c80ddeda6"},{"href":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc6184.txt.pdf"}],"documentFingerprint":"9fe515e82966956357a6533c80ddeda6"},"uri":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc6184.txt.pdf","target":[{"source":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc6184.txt.pdf","selector":[{"type":"TextPositionSelector","start":155181,"end":155477},{"type":"TextQuoteSelector","exact":"When there is a sprop-parameter-sets included in                     the \"a=fmtp\" line in the answer, the offerer MUST                     be prepared to use the parameter sets included in                     the sprop-parameter-sets for decoding the incoming                     NAL unit stream.","prefix":"ng applies.                     ","suffix":"                     When there "}]}]}
+>```
+>%%
+>*%%PREFIX%%ng applies.%%HIGHLIGHT%% ==When there is a sprop-parameter-sets included in                     the "a=fmtp" line in the answer, the offerer MUST                     be prepared to use the parameter sets included in                     the sprop-parameter-sets for decoding the incoming                     NAL unit stream.== %%POSTFIX%%When there*
+>%%LINK%%[[#^0bkdom0h6g5d|show annotation]]
+>%%COMMENT%%
+>当 answer->offer 方向上的 level 等于默认level时
+>
+>如果在 anwser 的 a=fmtp 行有定义 sprop-parameter-sets 参数, 那么 offer 方**必须**对sprop-parameter-set 中定义的出参数进行准备, 以解码接收到的从anwser 方向送入的NAL流
+>%%TAGS%%
+>#sprop-parameter-sets
+^0bkdom0h6g5d
