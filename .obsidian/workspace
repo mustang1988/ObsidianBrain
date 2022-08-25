@@ -4,12 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "6d9ae85b5b3fa01b",
+        "id": "86f85766b75f1e27",
         "type": "leaf",
         "state": {
-          "type": "pdf-annotator",
+          "type": "markdown",
           "state": {
-            "file": "软件开发/框架&库/WebRTC/标准制定/H.264视频的RTP载荷格式.md"
+            "file": "软件开发/工具/UnrealEngine/开发相关/PixelStreaming参数.md",
+            "mode": "source",
+            "backlinks": true,
+            "source": false
           }
         }
       }
@@ -87,7 +90,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "软件开发/框架&库/WebRTC/标准制定/H.264视频的RTP载荷格式.md",
+                "file": "软件开发/工具/UnrealEngine/开发相关/PixelStreaming参数.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -99,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "软件开发/框架&库/WebRTC/标准制定/H.264视频的RTP载荷格式.md",
+                "file": "软件开发/工具/UnrealEngine/开发相关/PixelStreaming参数.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,17 +121,17 @@
     "width": 281.5,
     "collapsed": true
   },
-  "active": "c0c21fca630bdf6e",
+  "active": "86f85766b75f1e27",
   "lastOpenFiles": [
+    "软件开发/框架&库/WebRTC/标准制定/H.264视频的RTP载荷格式.md",
+    "软件开发/工具/UnrealEngine/开发相关/PixelStreaming参数.md",
     "软件开发/工具/UnrealEngine/开发相关/GENERATED_BODY()和GENERATED_UCLASS_BODY().md",
     "软件开发/工具/UnrealEngine/未命名.md",
-    "软件开发/框架&库/WebRTC/标准制定/H.264视频的RTP载荷格式.md",
     "软件开发/框架&库/WebRTC/WebRTC H264视频流SDP中profile-level-id字段对照表.md",
     "软件开发/框架&库/WebRTC/WebRTC.md",
     "生活/学习/Obsidian/插件/Dataview.md",
     "生活/学习/Obsidian/插件/Templater.md",
     "生活/学习/Obsidian/Obsidian.md",
-    "生活/学习/Obsidian/插件/Admonition.md",
-    "生活/娱乐/NAS/群晖上使用Jellyfin搭建媒体库.md"
+    "生活/学习/Obsidian/插件/Admonition.md"
   ]
 }
