@@ -9,9 +9,9 @@
   "attachmentFolderPath": "图片",
   "fileSortOrder": "alphabetical",
   "pdfExportSettings": {
-    "pageSize": "A4",
+    "pageSize": "A3",
     "landscape": true,
-    "margin": "2",
+    "margin": "1",
     "downscalePercent": 100
   },
   "tabSize": 2,
