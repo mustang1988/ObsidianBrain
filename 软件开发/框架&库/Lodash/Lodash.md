@@ -6,10 +6,7 @@ aliases:
   - "_"
 ---
 # Lodash
-```ad-abstract
-title:
 一致性, 模块化, 高性能的 [[ECMAScript|JavaScript]]  / [[ECMAScript|TypeScript]] 实用工具 [[框架&库|库]]
-```
 
 ````ad-tip
 title: 常用函数

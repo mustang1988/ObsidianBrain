@@ -28,9 +28,12 @@ Args:
       ```
   - Name: "-PixelStreamingEncoderTargetBitrate=value"
     ValueType: "Integer"
-    DefaultValue: -1
+    DefaultValue: |
+      ```ad-important
+      title: 8000000 (8Mbps)
+      ```
     Comment: |
-      ```ad-info
+      ```ad-important
       title: 输出视频流的编码**==目标码率==**
       - 单位: bps
       - 如果此值**==不为==**-1, 则会按照该参数值作为目标码率对输出流进行编码
@@ -38,9 +41,12 @@ Args:
       ```
   - Name: "-PixelStreamingEncoderKeyframeInterval=value"
     ValueType: "Integer"
-    DefaultValue: 300
+    DefaultValue: |
+      ```ad-important
+      title: 15
+      ```
     Comment: |
-      ```ad-info
+      ```ad-important
       title: 输出视频的GOP
       - GOP: Group Of Picture, 两个相邻I帧之间的帧数
       - 此值越大, 对画面复杂度的适应能力越低; 画面变化越频繁, 内容复杂度越高的画面, 出现模糊的概率越高, 编码输出结果的码率也越低
@@ -48,18 +54,24 @@ Args:
       ```
   - Name: "-PixelStreamingEncoderMaxBitrate=value"
     ValueType: "Integer"
-    DefaultValue: "20000000 (20Mbps)"
+    DefaultValue: |
+      ```ad-important
+      title: 12000000 (12Mbps)
+      ```
     Comment: |
-      ```ad-info
+      ```ad-important
       title: VBR模式下输出视频流的最大码率
       单位: bps
       - **==仅在VBR模式生效==**
       ```
   - Name: "-PixelStreamingEncoderMinQP=value"
     ValueType: "Integer"
-    DefaultValue: 15
+    DefaultValue: |
+      ```ad-important
+      title: 20
+      ```
     Comment: |
-      ```ad-info
+      ```ad-important
       title: **==最低==**质量量化参数
       - 取值范围[ -1, 51 ]
       - 值越低意味着质量越高, 需要的码率也越高
@@ -88,9 +100,12 @@ Args:
       ```
   - Name: "-PixelStreamingH264Profile=value"
     ValueType: "String"
-    DefaultValue: "Baseline"
+    DefaultValue: |
+      ```ad-important
+      title: HIGH
+      ```
     Comment: |
-      ```ad-info
+      ```ad-important
       title: H.264 编码的 Profile
       可选值
       - AUTO: 由WebRTC自动选择
@@ -114,9 +129,12 @@ Args:
       ```
   - Name: "-PixelStreamingEncoderRateControl=value"
     ValueType: "String"
-    DefaultValue: "CBR"
+    DefaultValue: |
+      ```ad-important
+      title: ConstQP
+      ```
     Comment: |
-      ````ad-info
+      ````ad-important
       title: 码率控制模式
       可选值
       - CBR: 固定码率模式
@@ -152,33 +170,45 @@ Args:
       ```
   - Name: "-PixelStreamingWebRTCMaxFps=value"
     ValueType: "Integer"
-    DefaultValue: 60
+    DefaultValue: |
+      ```ad-important
+      title: 30
+      ```
     Comment: |
-      ```ad-info
+      ```ad-important
       title: WebRTC画面最大帧率限制
       此参数值同时会作用于UE场景的最大渲染帧率
       ```
   - Name: "-PixelStreamingWebRTCStartBitrate=value"
     ValueType: "Integer"
-    DefaultValue: "10000000 (10Mbps)"
+    DefaultValue: |
+      ```ad-important
+      title: 8000000 (8Mbps)
+      ```
     Comment: |
-      ```ad-info
+      ```ad-important
       title: 
       WebRTC**==初始==**码率, 单位: bps
       ```
   - Name: "-PixelStreamingWebRTCMinBitrate=value"
     ValueType: "Integer"
-    DefaultValue: "100000 (100kbps)"
+    DefaultValue: |
+      ```ad-important
+      title: 500000 (500kbps)
+      ```
     Comment: |
-      ```ad-info
+      ```ad-important
       title: 
       WebRTC**==最低==**码率限制, 单位: bps
       ```
   - Name: "-PixelStreamingWebRTCMaxBitrate=value"
     ValueType: "Integer"
-    DefaultValue: "20000000 (20Mbps)"
+    DefaultValue: |
+      ```ad-important
+      title: 12000000 (12Mbps)
+      ```
     Comment: |
-      ```ad-info
+      ```ad-important
       title: 
       WebRTC**==最高==**码率限制, 单位: bps
       ```
@@ -186,9 +216,12 @@ Args:
       - -PixelStreamingDegradationPreference=value
       - -PixelStreamingWebRTCDegradationPreference=value
     ValueType: "String"
-    DefaultValue: "BALANCED"
+    DefaultValue: |
+      ```ad-important
+      title: MAINTAIN_RESOLUTION
+      ```
     Comment: |
-      ```ad-info
+      ```ad-important
       title: 设置WebRTC的画面偏好, 可选值
       - BALANCED: 由WebRTC在有限带宽下自动进行帧率和分辨率的动态调节
       - MAINTAIN_FRAMERATE: **==帧率优先==**, 在带宽允许的前提下, 优先保证帧率不变, 动态调节分辨率
@@ -224,6 +257,45 @@ Args:
       title: 冻结画面的压缩质量
       取值范围: [ 1, 100 ], 越小的值对应的压缩率越高, 最终输出的数据量越少
       ```
+  - Name: "-LHTPixelStreamingMaxLatency=value"
+    ValueType: "Integer"
+    DefaultValue: |
+      ```ad-important
+      title: 100
+      - FPS30, 对应渲染帧队列长度上限为:3
+      - FPS60, 对应渲染帧队列长度上限为: 6
+      ```
+    Comment: |
+      ```ad-important
+      title: 允许的最大延迟
+      - **==LHTPixelStreaming插件新增参数==**
+      - 单位: 毫秒
+      - 此参数值用计算渲染帧队列的长度上限, 当解码速度与渲染速度不一致时, 用于缓冲解码后的帧
+      - 渲染帧队列长度上限计算公式:
+        - 每帧时长 = (double)1000 / -PixelStreamingWebRTCMaxFps参数值
+        - 渲染队列长度上限 = 此参数值 / 每帧时长, 向上取整
+      ```
+  - Name: "-LHTPixelStreamingVideoDecoder=value"
+    ValueType: "String"
+    DefaultValue: |
+      ```ad-important
+      title: H264
+      ```
+    Comment: |
+      ```ad-important
+      title: 收流支持的解码器名称
+      **==LHTPixelStreaming插件新增参数==**, 可选值(不区分大小写):
+      - H264: **==仅支持H264==**编码的视频推流, 以下配置的H264格式的推流被支持
+        - High Profile + Level 5.2 及以下
+        - ConstraintedHigh Profile + Level 5.2 及以下
+        - Main Profile + Level 5.2 及以下
+        - Baseline Profile + Level 5.2 及以下
+        - ConstraintedBaseline Profile + Level 5.2 及以下
+      - VP8: **==仅支持VP8==**编码的视频推流
+      - VP9: **==仅支持VP9==**编码的视频推流
+      - AV1: **==仅支持AV1==**编码的视频推流
+      - ALL: 同时支持H264, VP8, VP9 和 AV1 编码的视频推流, 具体使用何种编码取决于客户机提交的SDP信息交换的结果
+      ```
   - Name: "-PixelStreamingKeyFilter=value"
     ValueType: "String"
     DefaultValue: ""
@@ -244,9 +316,12 @@ Args:
       ```
   - Name: "-PixelStreamingLogStats=value"
     ValueType: "Boolean"
-    DefaultValue: false
+    DefaultValue: |
+      ```ad-important
+      title: true
+      ```
     Comment: |
-      ```ad-info
+      ```ad-important
       title: 是否在UE日志文件中输出信息
       输出的信息中包含PixelStreaming的输出画面编码实时信息, **==调试用==**
       ```
@@ -268,7 +343,7 @@ Args:
       ```
   - Name: "-PixelStreamingUseBackBufferSize=value"
     ValueType: "Boolean"
-    DefaultValue: true
+    DefaultValue: false
     Comment: |
       ```ad-info
       title: 
@@ -390,7 +465,7 @@ dv.table(
 	[ "参数", "默认值", "说明" ],
 	dv.current().Args
 	.map(arg => [
-		arg.Name.replace("=value", `=${arg.ValueType}`),
+		arg.Name.replace(/=value/g, `=${arg.ValueType}`),
 		arg.DefaultValue,
 		arg.Comment
 	])
