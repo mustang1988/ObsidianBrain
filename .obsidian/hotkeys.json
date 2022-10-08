@@ -6,21 +6,5 @@
       ],
       "key": "T"
     }
-  ],
-  "templater-obsidian:模板/软件开发/Lodash函数模板.md": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "L"
-    }
-  ],
-  "highlightr-plugin:highlighter-plugin-menu": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "E"
-    }
   ]
 }

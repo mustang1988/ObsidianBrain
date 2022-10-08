@@ -442,7 +442,7 @@ annotation-target: "[[rfc5766.txt.pdf]]"
 
 >%%
 >```annotation-json
->{"created":"2022-09-19T11:12:25.932Z","text":"发送指令\n\n","updated":"2022-09-19T11:12:25.932Z","document":{"title":"Enscript Output","link":[{"href":"urn:x-pdf:d29d45070413fdaa0ee018260aa891b4"},{"href":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc5766.txt.pdf"}],"documentFingerprint":"d29d45070413fdaa0ee018260aa891b4"},"uri":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc5766.txt.pdf","target":[{"source":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc5766.txt.pdf","selector":[{"type":"TextPositionSelector","start":90649,"end":90674},{"type":"TextQuoteSelector","exact":"Forming a Send Indication","prefix":" the Channel   mechanism.10.1.  ","suffix":"   The client can use a Send ind"}]}]}
+>{"created":"2022-09-19T11:12:25.932Z","text":"发送指令\n\n客户端可以使用 发送指令 的方式, 通过服务端向对端传递数据\n\n但, 需要客户端必须确保已经为指定的ip设置了权限, 以防止第三方通过TURN服务向任意地址发送指令\n","updated":"2022-09-19T11:12:25.932Z","document":{"title":"Enscript Output","link":[{"href":"urn:x-pdf:d29d45070413fdaa0ee018260aa891b4"},{"href":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc5766.txt.pdf"}],"documentFingerprint":"d29d45070413fdaa0ee018260aa891b4"},"uri":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc5766.txt.pdf","target":[{"source":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc5766.txt.pdf","selector":[{"type":"TextPositionSelector","start":90649,"end":90674},{"type":"TextQuoteSelector","exact":"Forming a Send Indication","prefix":" the Channel   mechanism.10.1.  ","suffix":"   The client can use a Send ind"}]}]}
 >```
 >%%
 >*%%PREFIX%%the Channel   mechanism.10.1.%%HIGHLIGHT%% ==Forming a Send Indication== %%POSTFIX%%The client can use a Send ind*
@@ -450,7 +450,48 @@ annotation-target: "[[rfc5766.txt.pdf]]"
 >%%COMMENT%%
 >发送指令
 >
+>客户端可以使用 发送指令 的方式, 通过服务端向对端传递数据
+>
+>但, 需要客户端必须确保已经为指定的ip设置了权限, 以防止第三方通过TURN服务向任意地址发送指令
 >
 >%%TAGS%%
 >
 ^xw1zyah5jrd
+
+
+>%%
+>```annotation-json
+>{"created":"2022-09-20T01:58:16.104Z","text":"客户端发送指令时, 必须包含以下2个属性\n\n- XOR-PEER-ADDRESS\n\n其中包含了接收端的传输地址\n\n- DATA\n\n其中包含需要传输的数据","updated":"2022-09-20T01:58:16.104Z","document":{"title":"Enscript Output","link":[{"href":"urn:x-pdf:d29d45070413fdaa0ee018260aa891b4"},{"href":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc5766.txt.pdf"}],"documentFingerprint":"d29d45070413fdaa0ee018260aa891b4"},"uri":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc5766.txt.pdf","target":[{"source":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc5766.txt.pdf","selector":[{"type":"TextPositionSelector","start":91092,"end":91400},{"type":"TextQuoteSelector","exact":"When forming a Send indication, the client MUST include an XOR-PEER-   ADDRESS attribute and a DATA attribute.  The XOR-PEER-ADDRESS   attribute contains the transport address of the peer to which the   data is to be sent, and the DATA attribute contains the actual   application data to be sent to the peer.","prefix":"ta to arbitrary destinations.   ","suffix":"   The client MAY include a DONT"}]}]}
+>```
+>%%
+>*%%PREFIX%%ta to arbitrary destinations.%%HIGHLIGHT%% ==When forming a Send indication, the client MUST include an XOR-PEER-   ADDRESS attribute and a DATA attribute.  The XOR-PEER-ADDRESS   attribute contains the transport address of the peer to which the   data is to be sent, and the DATA attribute contains the actual   application data to be sent to the peer.== %%POSTFIX%%The client MAY include a DONT*
+>%%LINK%%[[#^pye55m85fsq|show annotation]]
+>%%COMMENT%%
+>客户端发送指令时, 必须包含以下2个属性
+>
+>- XOR-PEER-ADDRESS
+>
+>其中包含了接收端的传输地址
+>
+>- DATA
+>
+>其中包含需要传输的数据
+>%%TAGS%%
+>
+^pye55m85fsq
+
+
+>%%
+>```annotation-json
+>{"created":"2022-09-20T05:26:51.271Z","text":"Channels\n\nChannels 提供了客户端和服务端通过ChannelData消息发送应用数据的功能, 这种方式传输数据的开销会比使用数据指令的方式要小","updated":"2022-09-20T05:26:51.271Z","document":{"title":"Enscript Output","link":[{"href":"urn:x-pdf:d29d45070413fdaa0ee018260aa891b4"},{"href":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc5766.txt.pdf"}],"documentFingerprint":"d29d45070413fdaa0ee018260aa891b4"},"uri":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc5766.txt.pdf","target":[{"source":"vault:/%E5%9B%BE%E7%89%87/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6&%E5%BA%93/WebRTC/PDF/rfc5766.txt.pdf","selector":[{"type":"TextPositionSelector","start":95700,"end":95861},{"type":"TextQuoteSelector","exact":"Channels provide a way for the client and server to send application   data using ChannelData messages, which have less overhead than Send   and Data indications","prefix":"DRESS attribute.11.  Channels   ","suffix":".   The ChannelData message (see"}]}]}
+>```
+>%%
+>*%%PREFIX%%DRESS attribute.11.  Channels%%HIGHLIGHT%% ==Channels provide a way for the client and server to send application   data using ChannelData messages, which have less overhead than Send   and Data indications== %%POSTFIX%%.   The ChannelData message (see*
+>%%LINK%%[[#^xgfrmh8eb9|show annotation]]
+>%%COMMENT%%
+>Channels
+>
+>Channels 提供了客户端和服务端通过ChannelData消息发送应用数据的功能, 这种方式传输数据的开销会比使用数据指令的方式要小
+>%%TAGS%%
+>
+^xgfrmh8eb9

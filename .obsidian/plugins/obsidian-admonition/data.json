@@ -6,14 +6,14 @@
   "autoCollapse": false,
   "defaultCollapseType": "open",
   "injectColor": true,
-  "parseTitles": false,
+  "parseTitles": true,
   "dropShadow": false,
   "hideEmpty": false,
   "open": {
-    "admonitions": true,
-    "icons": true,
-    "other": true,
-    "advanced": true
+    "admonitions": false,
+    "icons": false,
+    "other": false,
+    "advanced": false
   },
   "icons": [
     "rpg",

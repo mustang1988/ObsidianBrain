@@ -7,5 +7,6 @@
   "textFontFamily": "微软雅黑",
   "interfaceFontFamily": "微软雅黑",
   "baseFontSizeAction": false,
-  "translucency": false
+  "translucency": false,
+  "monospaceFontFamily": "微软雅黑"
 }
