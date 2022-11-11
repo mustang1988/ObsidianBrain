@@ -8,5 +8,6 @@
   "interfaceFontFamily": "微软雅黑",
   "baseFontSizeAction": false,
   "translucency": false,
-  "monospaceFontFamily": "微软雅黑"
+  "monospaceFontFamily": "微软雅黑",
+  "accentColor": ""
 }
