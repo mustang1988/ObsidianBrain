@@ -4,7 +4,7 @@
 const categories = [];
 dv.table(
 	["名称","作用","分类"],
-	dv.pages('#FFprobe/参数 and "软件开发/工具/FFmpeg"')
+	dv.pages('#FFprobe/参数')
 	.sort(page => categories.indexOf(page.Category), 'asc')
 	.map(page => [page.file.link, page.Comment, page.Category])
 );
