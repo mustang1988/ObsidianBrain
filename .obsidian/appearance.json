@@ -9,5 +9,6 @@
   "baseFontSizeAction": false,
   "translucency": false,
   "monospaceFontFamily": "微软雅黑",
-  "accentColor": ""
+  "accentColor": "",
+  "theme": "obsidian"
 }

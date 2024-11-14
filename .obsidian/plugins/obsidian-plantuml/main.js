@@ -28,9 +28,6 @@ var __spreadValues = (a, b) => {
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
-var __esm = (fn, res) => function __init() {
-  return fn && (res = (0, fn[Object.keys(fn)[0]])(fn = 0)), res;
-};
 var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
@@ -4599,186 +4596,2140 @@ var require_browser_index = __commonJS({
   }
 });
 
-// src/PumlView.ts
-var PumlView_exports = {};
-__export(PumlView_exports, {
-  PumlView: () => PumlView,
-  VIEW_TYPE: () => VIEW_TYPE
-});
-function syncDispatch(from) {
-  return (tr) => {
-    views[from].update([tr]);
-    if (tr.changes && tr.annotation && !tr.changes.empty && !tr.annotation(syncAnnotation)) {
-      for (let i = 0; i < views.length; i++) {
-        if (i !== from) {
-          views[i].dispatch({
-            changes: tr.changes,
-            annotations: syncAnnotation.of(true)
-          });
-        }
-      }
-    }
-  };
-}
-var import_obsidian4, import_view, import_state, import_search, import_commands, VIEW_TYPE, views, syncAnnotation, PumlView;
-var init_PumlView = __esm({
-  "src/PumlView.ts"() {
-    import_obsidian4 = __toModule(require("obsidian"));
-    import_view = __toModule(require("@codemirror/view"));
-    import_state = __toModule(require("@codemirror/state"));
-    import_search = __toModule(require("@codemirror/search"));
-    import_commands = __toModule(require("@codemirror/commands"));
-    VIEW_TYPE = "plantuml";
-    views = [];
-    syncAnnotation = import_state.Annotation.define();
-    PumlView = class extends import_obsidian4.TextFileView {
-      constructor(leaf, plugin) {
-        super(leaf);
-        this.dispatchId = -1;
-        this.extensions = [
-          (0, import_view.highlightActiveLine)(),
-          (0, import_view.highlightActiveLineGutter)(),
-          (0, import_search.highlightSelectionMatches)(),
-          (0, import_view.drawSelection)(),
-          import_view.keymap.of([...import_commands.defaultKeymap, import_commands.indentWithTab]),
-          (0, import_commands.history)(),
-          (0, import_search.search)(),
-          import_view.EditorView.updateListener.of((v) => __async(this, null, function* () {
-            if (v.docChanged) {
-              this.requestSave();
-              yield this.renderPreview();
-            }
-          }))
-        ];
-        this.plugin = plugin;
-        this.debounced = (0, import_obsidian4.debounce)(this.plugin.getProcessor().png, this.plugin.settings.debounce * 1e3, true);
-        this.sourceEl = this.contentEl.createDiv({ cls: "plantuml-source-view", attr: { "style": "display: block" } });
-        this.previewEl = this.contentEl.createDiv({ cls: "plantuml-preview-view", attr: { "style": "display: none" } });
-        const vault = this.app.vault;
-        if (vault.getConfig("showLineNumber")) {
-          this.extensions.push((0, import_view.lineNumbers)());
-        }
-        if (vault.getConfig("lineWrap")) {
-          this.extensions.push(import_view.EditorView.lineWrapping);
-        }
-        this.editor = new import_view.EditorView({
-          state: import_state.EditorState.create({
-            extensions: this.extensions,
-            doc: this.data
-          }),
-          parent: this.sourceEl,
-          dispatch: syncDispatch(views.length)
-        });
-        this.dispatchId = views.push(this.editor) - 1;
-      }
-      getViewType() {
-        return VIEW_TYPE;
-      }
-      getState() {
-        return super.getState();
-      }
-      setState(state, result) {
-        if (state.mode === "preview") {
-          this.currentView = "preview";
-          (0, import_obsidian4.setIcon)(this.changeModeButton, "pencil");
-          this.changeModeButton.setAttribute("aria-label", "Edit (Ctrl+Click to edit in new pane)");
-          this.previewEl.style.setProperty("display", "block");
-          this.sourceEl.style.setProperty("display", "none");
-          this.renderPreview();
+// node_modules/localforage/dist/localforage.js
+var require_localforage = __commonJS({
+  "node_modules/localforage/dist/localforage.js"(exports, module2) {
+    (function(f) {
+      if (typeof exports === "object" && typeof module2 !== "undefined") {
+        module2.exports = f();
+      } else if (typeof define === "function" && define.amd) {
+        define([], f);
+      } else {
+        var g;
+        if (typeof window !== "undefined") {
+          g = window;
+        } else if (typeof global !== "undefined") {
+          g = global;
+        } else if (typeof self !== "undefined") {
+          g = self;
         } else {
-          this.currentView = "source";
-          (0, import_obsidian4.setIcon)(this.changeModeButton, "lines-of-text");
-          this.changeModeButton.setAttribute("aria-label", "Preview (Ctrl+Click to open in new pane)");
-          this.previewEl.style.setProperty("display", "none");
-          this.sourceEl.style.setProperty("display", "block");
+          g = this;
         }
-        return super.setState(state, result);
+        g.localforage = f();
       }
-      onload() {
-        return __async(this, null, function* () {
-          this.changeModeButton = this.addAction("lines-of-text", "Preview (Ctrl+Click to open in new pane)", (evt) => this.switchMode(evt), 17);
-          const defaultViewMode = this.app.vault.getConfig("defaultViewMode");
-          this.currentView = defaultViewMode;
-          yield this.setState(__spreadProps(__spreadValues({}, this.getState()), { mode: defaultViewMode }), {});
-        });
-      }
-      onunload() {
-        views.remove(views[this.dispatchId]);
-        this.editor.destroy();
-      }
-      switchMode(arg) {
-        return __async(this, null, function* () {
-          let mode = arg;
-          if (!mode || mode instanceof MouseEvent)
-            mode = this.currentView === "source" ? "preview" : "source";
-          if (arg instanceof MouseEvent) {
-            if (import_obsidian4.Keymap.isModEvent(arg)) {
-              this.app.workspace.duplicateLeaf(this.leaf).then(() => __async(this, null, function* () {
-                var _a, _b;
-                const viewState = (_a = this.app.workspace.activeLeaf) == null ? void 0 : _a.getViewState();
-                if (viewState) {
-                  viewState.state = __spreadProps(__spreadValues({}, viewState.state), { mode });
-                  yield (_b = this.app.workspace.activeLeaf) == null ? void 0 : _b.setViewState(viewState);
-                }
-              }));
+    })(function() {
+      var define2, module3, exports2;
+      return function e(t, n, r) {
+        function s(o2, u) {
+          if (!n[o2]) {
+            if (!t[o2]) {
+              var a = typeof require == "function" && require;
+              if (!u && a)
+                return a(o2, true);
+              if (i)
+                return i(o2, true);
+              var f = new Error("Cannot find module '" + o2 + "'");
+              throw f.code = "MODULE_NOT_FOUND", f;
+            }
+            var l = n[o2] = { exports: {} };
+            t[o2][0].call(l.exports, function(e2) {
+              var n2 = t[o2][1][e2];
+              return s(n2 ? n2 : e2);
+            }, l, l.exports, e, t, n, r);
+          }
+          return n[o2].exports;
+        }
+        var i = typeof require == "function" && require;
+        for (var o = 0; o < r.length; o++)
+          s(r[o]);
+        return s;
+      }({ 1: [function(_dereq_, module4, exports3) {
+        (function(global2) {
+          "use strict";
+          var Mutation = global2.MutationObserver || global2.WebKitMutationObserver;
+          var scheduleDrain;
+          {
+            if (Mutation) {
+              var called = 0;
+              var observer = new Mutation(nextTick);
+              var element = global2.document.createTextNode("");
+              observer.observe(element, {
+                characterData: true
+              });
+              scheduleDrain = function() {
+                element.data = called = ++called % 2;
+              };
+            } else if (!global2.setImmediate && typeof global2.MessageChannel !== "undefined") {
+              var channel = new global2.MessageChannel();
+              channel.port1.onmessage = nextTick;
+              scheduleDrain = function() {
+                channel.port2.postMessage(0);
+              };
+            } else if ("document" in global2 && "onreadystatechange" in global2.document.createElement("script")) {
+              scheduleDrain = function() {
+                var scriptEl = global2.document.createElement("script");
+                scriptEl.onreadystatechange = function() {
+                  nextTick();
+                  scriptEl.onreadystatechange = null;
+                  scriptEl.parentNode.removeChild(scriptEl);
+                  scriptEl = null;
+                };
+                global2.document.documentElement.appendChild(scriptEl);
+              };
             } else {
-              yield this.setState(__spreadProps(__spreadValues({}, this.getState()), { mode }), {});
+              scheduleDrain = function() {
+                setTimeout(nextTick, 0);
+              };
             }
           }
-        });
-      }
-      getViewData() {
-        return this.editor.state.sliceDoc();
-      }
-      setViewData(data, clear) {
-        return __async(this, null, function* () {
-          this.data = data;
-          if (clear) {
-            this.editor.setState(import_state.EditorState.create({
-              doc: data,
-              extensions: this.extensions
-            }));
+          var draining;
+          var queue = [];
+          function nextTick() {
+            draining = true;
+            var i, oldQueue;
+            var len = queue.length;
+            while (len) {
+              oldQueue = queue;
+              queue = [];
+              i = -1;
+              while (++i < len) {
+                oldQueue[i]();
+              }
+              len = queue.length;
+            }
+            draining = false;
+          }
+          module4.exports = immediate;
+          function immediate(task) {
+            if (queue.push(task) === 1 && !draining) {
+              scheduleDrain();
+            }
+          }
+        }).call(this, typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {});
+      }, {}], 2: [function(_dereq_, module4, exports3) {
+        "use strict";
+        var immediate = _dereq_(1);
+        function INTERNAL() {
+        }
+        var handlers = {};
+        var REJECTED = ["REJECTED"];
+        var FULFILLED = ["FULFILLED"];
+        var PENDING = ["PENDING"];
+        module4.exports = Promise2;
+        function Promise2(resolver) {
+          if (typeof resolver !== "function") {
+            throw new TypeError("resolver must be a function");
+          }
+          this.state = PENDING;
+          this.queue = [];
+          this.outcome = void 0;
+          if (resolver !== INTERNAL) {
+            safelyResolveThenable(this, resolver);
+          }
+        }
+        Promise2.prototype["catch"] = function(onRejected) {
+          return this.then(null, onRejected);
+        };
+        Promise2.prototype.then = function(onFulfilled, onRejected) {
+          if (typeof onFulfilled !== "function" && this.state === FULFILLED || typeof onRejected !== "function" && this.state === REJECTED) {
+            return this;
+          }
+          var promise = new this.constructor(INTERNAL);
+          if (this.state !== PENDING) {
+            var resolver = this.state === FULFILLED ? onFulfilled : onRejected;
+            unwrap(promise, resolver, this.outcome);
           } else {
-            this.editor.dispatch({
-              changes: {
-                from: 0,
-                to: this.editor.state.doc.length,
-                insert: data
+            this.queue.push(new QueueItem(promise, onFulfilled, onRejected));
+          }
+          return promise;
+        };
+        function QueueItem(promise, onFulfilled, onRejected) {
+          this.promise = promise;
+          if (typeof onFulfilled === "function") {
+            this.onFulfilled = onFulfilled;
+            this.callFulfilled = this.otherCallFulfilled;
+          }
+          if (typeof onRejected === "function") {
+            this.onRejected = onRejected;
+            this.callRejected = this.otherCallRejected;
+          }
+        }
+        QueueItem.prototype.callFulfilled = function(value) {
+          handlers.resolve(this.promise, value);
+        };
+        QueueItem.prototype.otherCallFulfilled = function(value) {
+          unwrap(this.promise, this.onFulfilled, value);
+        };
+        QueueItem.prototype.callRejected = function(value) {
+          handlers.reject(this.promise, value);
+        };
+        QueueItem.prototype.otherCallRejected = function(value) {
+          unwrap(this.promise, this.onRejected, value);
+        };
+        function unwrap(promise, func, value) {
+          immediate(function() {
+            var returnValue;
+            try {
+              returnValue = func(value);
+            } catch (e) {
+              return handlers.reject(promise, e);
+            }
+            if (returnValue === promise) {
+              handlers.reject(promise, new TypeError("Cannot resolve promise with itself"));
+            } else {
+              handlers.resolve(promise, returnValue);
+            }
+          });
+        }
+        handlers.resolve = function(self2, value) {
+          var result = tryCatch(getThen, value);
+          if (result.status === "error") {
+            return handlers.reject(self2, result.value);
+          }
+          var thenable = result.value;
+          if (thenable) {
+            safelyResolveThenable(self2, thenable);
+          } else {
+            self2.state = FULFILLED;
+            self2.outcome = value;
+            var i = -1;
+            var len = self2.queue.length;
+            while (++i < len) {
+              self2.queue[i].callFulfilled(value);
+            }
+          }
+          return self2;
+        };
+        handlers.reject = function(self2, error) {
+          self2.state = REJECTED;
+          self2.outcome = error;
+          var i = -1;
+          var len = self2.queue.length;
+          while (++i < len) {
+            self2.queue[i].callRejected(error);
+          }
+          return self2;
+        };
+        function getThen(obj) {
+          var then = obj && obj.then;
+          if (obj && (typeof obj === "object" || typeof obj === "function") && typeof then === "function") {
+            return function appyThen() {
+              then.apply(obj, arguments);
+            };
+          }
+        }
+        function safelyResolveThenable(self2, thenable) {
+          var called = false;
+          function onError(value) {
+            if (called) {
+              return;
+            }
+            called = true;
+            handlers.reject(self2, value);
+          }
+          function onSuccess(value) {
+            if (called) {
+              return;
+            }
+            called = true;
+            handlers.resolve(self2, value);
+          }
+          function tryToUnwrap() {
+            thenable(onSuccess, onError);
+          }
+          var result = tryCatch(tryToUnwrap);
+          if (result.status === "error") {
+            onError(result.value);
+          }
+        }
+        function tryCatch(func, value) {
+          var out = {};
+          try {
+            out.value = func(value);
+            out.status = "success";
+          } catch (e) {
+            out.status = "error";
+            out.value = e;
+          }
+          return out;
+        }
+        Promise2.resolve = resolve;
+        function resolve(value) {
+          if (value instanceof this) {
+            return value;
+          }
+          return handlers.resolve(new this(INTERNAL), value);
+        }
+        Promise2.reject = reject;
+        function reject(reason) {
+          var promise = new this(INTERNAL);
+          return handlers.reject(promise, reason);
+        }
+        Promise2.all = all;
+        function all(iterable) {
+          var self2 = this;
+          if (Object.prototype.toString.call(iterable) !== "[object Array]") {
+            return this.reject(new TypeError("must be an array"));
+          }
+          var len = iterable.length;
+          var called = false;
+          if (!len) {
+            return this.resolve([]);
+          }
+          var values = new Array(len);
+          var resolved = 0;
+          var i = -1;
+          var promise = new this(INTERNAL);
+          while (++i < len) {
+            allResolver(iterable[i], i);
+          }
+          return promise;
+          function allResolver(value, i2) {
+            self2.resolve(value).then(resolveFromAll, function(error) {
+              if (!called) {
+                called = true;
+                handlers.reject(promise, error);
+              }
+            });
+            function resolveFromAll(outValue) {
+              values[i2] = outValue;
+              if (++resolved === len && !called) {
+                called = true;
+                handlers.resolve(promise, values);
+              }
+            }
+          }
+        }
+        Promise2.race = race;
+        function race(iterable) {
+          var self2 = this;
+          if (Object.prototype.toString.call(iterable) !== "[object Array]") {
+            return this.reject(new TypeError("must be an array"));
+          }
+          var len = iterable.length;
+          var called = false;
+          if (!len) {
+            return this.resolve([]);
+          }
+          var i = -1;
+          var promise = new this(INTERNAL);
+          while (++i < len) {
+            resolver(iterable[i]);
+          }
+          return promise;
+          function resolver(value) {
+            self2.resolve(value).then(function(response) {
+              if (!called) {
+                called = true;
+                handlers.resolve(promise, response);
+              }
+            }, function(error) {
+              if (!called) {
+                called = true;
+                handlers.reject(promise, error);
               }
             });
           }
-          if (this.currentView === "preview")
-            this.renderPreview();
-        });
-      }
-      clear() {
-        this.previewEl.empty();
-        this.data = null;
-      }
-      getDisplayText() {
-        if (this.file)
-          return this.file.basename;
-        else
-          return "PlantUML (no file)";
-      }
-      canAcceptExtension(extension) {
-        return extension == "puml";
-      }
-      getIcon() {
-        return "document-plantuml";
-      }
-      renderPreview() {
-        return __async(this, null, function* () {
-          if (this.currentView !== "preview")
+        }
+      }, { "1": 1 }], 3: [function(_dereq_, module4, exports3) {
+        (function(global2) {
+          "use strict";
+          if (typeof global2.Promise !== "function") {
+            global2.Promise = _dereq_(2);
+          }
+        }).call(this, typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {});
+      }, { "2": 2 }], 4: [function(_dereq_, module4, exports3) {
+        "use strict";
+        var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function(obj) {
+          return typeof obj;
+        } : function(obj) {
+          return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+        };
+        function _classCallCheck(instance, Constructor) {
+          if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+          }
+        }
+        function getIDB() {
+          try {
+            if (typeof indexedDB !== "undefined") {
+              return indexedDB;
+            }
+            if (typeof webkitIndexedDB !== "undefined") {
+              return webkitIndexedDB;
+            }
+            if (typeof mozIndexedDB !== "undefined") {
+              return mozIndexedDB;
+            }
+            if (typeof OIndexedDB !== "undefined") {
+              return OIndexedDB;
+            }
+            if (typeof msIndexedDB !== "undefined") {
+              return msIndexedDB;
+            }
+          } catch (e) {
             return;
-          this.previewEl.empty();
-          const loadingHeader = this.previewEl.createEl("h1", { text: "Loading" });
-          const previewDiv = this.previewEl.createDiv();
-          this.debounced(this.getViewData(), previewDiv, null);
-          loadingHeader.remove();
-        });
-      }
-    };
+          }
+        }
+        var idb = getIDB();
+        function isIndexedDBValid() {
+          try {
+            if (!idb || !idb.open) {
+              return false;
+            }
+            var isSafari = typeof openDatabase !== "undefined" && /(Safari|iPhone|iPad|iPod)/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent) && !/BlackBerry/.test(navigator.platform);
+            var hasFetch = typeof fetch === "function" && fetch.toString().indexOf("[native code") !== -1;
+            return (!isSafari || hasFetch) && typeof indexedDB !== "undefined" && typeof IDBKeyRange !== "undefined";
+          } catch (e) {
+            return false;
+          }
+        }
+        function createBlob(parts, properties) {
+          parts = parts || [];
+          properties = properties || {};
+          try {
+            return new Blob(parts, properties);
+          } catch (e) {
+            if (e.name !== "TypeError") {
+              throw e;
+            }
+            var Builder = typeof BlobBuilder !== "undefined" ? BlobBuilder : typeof MSBlobBuilder !== "undefined" ? MSBlobBuilder : typeof MozBlobBuilder !== "undefined" ? MozBlobBuilder : WebKitBlobBuilder;
+            var builder = new Builder();
+            for (var i = 0; i < parts.length; i += 1) {
+              builder.append(parts[i]);
+            }
+            return builder.getBlob(properties.type);
+          }
+        }
+        if (typeof Promise === "undefined") {
+          _dereq_(3);
+        }
+        var Promise$1 = Promise;
+        function executeCallback(promise, callback) {
+          if (callback) {
+            promise.then(function(result) {
+              callback(null, result);
+            }, function(error) {
+              callback(error);
+            });
+          }
+        }
+        function executeTwoCallbacks(promise, callback, errorCallback) {
+          if (typeof callback === "function") {
+            promise.then(callback);
+          }
+          if (typeof errorCallback === "function") {
+            promise["catch"](errorCallback);
+          }
+        }
+        function normalizeKey(key2) {
+          if (typeof key2 !== "string") {
+            console.warn(key2 + " used as a key, but it is not a string.");
+            key2 = String(key2);
+          }
+          return key2;
+        }
+        function getCallback() {
+          if (arguments.length && typeof arguments[arguments.length - 1] === "function") {
+            return arguments[arguments.length - 1];
+          }
+        }
+        var DETECT_BLOB_SUPPORT_STORE = "local-forage-detect-blob-support";
+        var supportsBlobs = void 0;
+        var dbContexts = {};
+        var toString = Object.prototype.toString;
+        var READ_ONLY = "readonly";
+        var READ_WRITE = "readwrite";
+        function _binStringToArrayBuffer(bin) {
+          var length2 = bin.length;
+          var buf = new ArrayBuffer(length2);
+          var arr = new Uint8Array(buf);
+          for (var i = 0; i < length2; i++) {
+            arr[i] = bin.charCodeAt(i);
+          }
+          return buf;
+        }
+        function _checkBlobSupportWithoutCaching(idb2) {
+          return new Promise$1(function(resolve) {
+            var txn = idb2.transaction(DETECT_BLOB_SUPPORT_STORE, READ_WRITE);
+            var blob = createBlob([""]);
+            txn.objectStore(DETECT_BLOB_SUPPORT_STORE).put(blob, "key");
+            txn.onabort = function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              resolve(false);
+            };
+            txn.oncomplete = function() {
+              var matchedChrome = navigator.userAgent.match(/Chrome\/(\d+)/);
+              var matchedEdge = navigator.userAgent.match(/Edge\//);
+              resolve(matchedEdge || !matchedChrome || parseInt(matchedChrome[1], 10) >= 43);
+            };
+          })["catch"](function() {
+            return false;
+          });
+        }
+        function _checkBlobSupport(idb2) {
+          if (typeof supportsBlobs === "boolean") {
+            return Promise$1.resolve(supportsBlobs);
+          }
+          return _checkBlobSupportWithoutCaching(idb2).then(function(value) {
+            supportsBlobs = value;
+            return supportsBlobs;
+          });
+        }
+        function _deferReadiness(dbInfo) {
+          var dbContext = dbContexts[dbInfo.name];
+          var deferredOperation = {};
+          deferredOperation.promise = new Promise$1(function(resolve, reject) {
+            deferredOperation.resolve = resolve;
+            deferredOperation.reject = reject;
+          });
+          dbContext.deferredOperations.push(deferredOperation);
+          if (!dbContext.dbReady) {
+            dbContext.dbReady = deferredOperation.promise;
+          } else {
+            dbContext.dbReady = dbContext.dbReady.then(function() {
+              return deferredOperation.promise;
+            });
+          }
+        }
+        function _advanceReadiness(dbInfo) {
+          var dbContext = dbContexts[dbInfo.name];
+          var deferredOperation = dbContext.deferredOperations.pop();
+          if (deferredOperation) {
+            deferredOperation.resolve();
+            return deferredOperation.promise;
+          }
+        }
+        function _rejectReadiness(dbInfo, err) {
+          var dbContext = dbContexts[dbInfo.name];
+          var deferredOperation = dbContext.deferredOperations.pop();
+          if (deferredOperation) {
+            deferredOperation.reject(err);
+            return deferredOperation.promise;
+          }
+        }
+        function _getConnection(dbInfo, upgradeNeeded) {
+          return new Promise$1(function(resolve, reject) {
+            dbContexts[dbInfo.name] = dbContexts[dbInfo.name] || createDbContext();
+            if (dbInfo.db) {
+              if (upgradeNeeded) {
+                _deferReadiness(dbInfo);
+                dbInfo.db.close();
+              } else {
+                return resolve(dbInfo.db);
+              }
+            }
+            var dbArgs = [dbInfo.name];
+            if (upgradeNeeded) {
+              dbArgs.push(dbInfo.version);
+            }
+            var openreq = idb.open.apply(idb, dbArgs);
+            if (upgradeNeeded) {
+              openreq.onupgradeneeded = function(e) {
+                var db = openreq.result;
+                try {
+                  db.createObjectStore(dbInfo.storeName);
+                  if (e.oldVersion <= 1) {
+                    db.createObjectStore(DETECT_BLOB_SUPPORT_STORE);
+                  }
+                } catch (ex) {
+                  if (ex.name === "ConstraintError") {
+                    console.warn('The database "' + dbInfo.name + '" has been upgraded from version ' + e.oldVersion + " to version " + e.newVersion + ', but the storage "' + dbInfo.storeName + '" already exists.');
+                  } else {
+                    throw ex;
+                  }
+                }
+              };
+            }
+            openreq.onerror = function(e) {
+              e.preventDefault();
+              reject(openreq.error);
+            };
+            openreq.onsuccess = function() {
+              var db = openreq.result;
+              db.onversionchange = function(e) {
+                e.target.close();
+              };
+              resolve(db);
+              _advanceReadiness(dbInfo);
+            };
+          });
+        }
+        function _getOriginalConnection(dbInfo) {
+          return _getConnection(dbInfo, false);
+        }
+        function _getUpgradedConnection(dbInfo) {
+          return _getConnection(dbInfo, true);
+        }
+        function _isUpgradeNeeded(dbInfo, defaultVersion) {
+          if (!dbInfo.db) {
+            return true;
+          }
+          var isNewStore = !dbInfo.db.objectStoreNames.contains(dbInfo.storeName);
+          var isDowngrade = dbInfo.version < dbInfo.db.version;
+          var isUpgrade = dbInfo.version > dbInfo.db.version;
+          if (isDowngrade) {
+            if (dbInfo.version !== defaultVersion) {
+              console.warn('The database "' + dbInfo.name + `" can't be downgraded from version ` + dbInfo.db.version + " to version " + dbInfo.version + ".");
+            }
+            dbInfo.version = dbInfo.db.version;
+          }
+          if (isUpgrade || isNewStore) {
+            if (isNewStore) {
+              var incVersion = dbInfo.db.version + 1;
+              if (incVersion > dbInfo.version) {
+                dbInfo.version = incVersion;
+              }
+            }
+            return true;
+          }
+          return false;
+        }
+        function _encodeBlob(blob) {
+          return new Promise$1(function(resolve, reject) {
+            var reader = new FileReader();
+            reader.onerror = reject;
+            reader.onloadend = function(e) {
+              var base64 = btoa(e.target.result || "");
+              resolve({
+                __local_forage_encoded_blob: true,
+                data: base64,
+                type: blob.type
+              });
+            };
+            reader.readAsBinaryString(blob);
+          });
+        }
+        function _decodeBlob(encodedBlob) {
+          var arrayBuff = _binStringToArrayBuffer(atob(encodedBlob.data));
+          return createBlob([arrayBuff], { type: encodedBlob.type });
+        }
+        function _isEncodedBlob(value) {
+          return value && value.__local_forage_encoded_blob;
+        }
+        function _fullyReady(callback) {
+          var self2 = this;
+          var promise = self2._initReady().then(function() {
+            var dbContext = dbContexts[self2._dbInfo.name];
+            if (dbContext && dbContext.dbReady) {
+              return dbContext.dbReady;
+            }
+          });
+          executeTwoCallbacks(promise, callback, callback);
+          return promise;
+        }
+        function _tryReconnect(dbInfo) {
+          _deferReadiness(dbInfo);
+          var dbContext = dbContexts[dbInfo.name];
+          var forages = dbContext.forages;
+          for (var i = 0; i < forages.length; i++) {
+            var forage = forages[i];
+            if (forage._dbInfo.db) {
+              forage._dbInfo.db.close();
+              forage._dbInfo.db = null;
+            }
+          }
+          dbInfo.db = null;
+          return _getOriginalConnection(dbInfo).then(function(db) {
+            dbInfo.db = db;
+            if (_isUpgradeNeeded(dbInfo)) {
+              return _getUpgradedConnection(dbInfo);
+            }
+            return db;
+          }).then(function(db) {
+            dbInfo.db = dbContext.db = db;
+            for (var i2 = 0; i2 < forages.length; i2++) {
+              forages[i2]._dbInfo.db = db;
+            }
+          })["catch"](function(err) {
+            _rejectReadiness(dbInfo, err);
+            throw err;
+          });
+        }
+        function createTransaction(dbInfo, mode, callback, retries) {
+          if (retries === void 0) {
+            retries = 1;
+          }
+          try {
+            var tx = dbInfo.db.transaction(dbInfo.storeName, mode);
+            callback(null, tx);
+          } catch (err) {
+            if (retries > 0 && (!dbInfo.db || err.name === "InvalidStateError" || err.name === "NotFoundError")) {
+              return Promise$1.resolve().then(function() {
+                if (!dbInfo.db || err.name === "NotFoundError" && !dbInfo.db.objectStoreNames.contains(dbInfo.storeName) && dbInfo.version <= dbInfo.db.version) {
+                  if (dbInfo.db) {
+                    dbInfo.version = dbInfo.db.version + 1;
+                  }
+                  return _getUpgradedConnection(dbInfo);
+                }
+              }).then(function() {
+                return _tryReconnect(dbInfo).then(function() {
+                  createTransaction(dbInfo, mode, callback, retries - 1);
+                });
+              })["catch"](callback);
+            }
+            callback(err);
+          }
+        }
+        function createDbContext() {
+          return {
+            forages: [],
+            db: null,
+            dbReady: null,
+            deferredOperations: []
+          };
+        }
+        function _initStorage(options) {
+          var self2 = this;
+          var dbInfo = {
+            db: null
+          };
+          if (options) {
+            for (var i in options) {
+              dbInfo[i] = options[i];
+            }
+          }
+          var dbContext = dbContexts[dbInfo.name];
+          if (!dbContext) {
+            dbContext = createDbContext();
+            dbContexts[dbInfo.name] = dbContext;
+          }
+          dbContext.forages.push(self2);
+          if (!self2._initReady) {
+            self2._initReady = self2.ready;
+            self2.ready = _fullyReady;
+          }
+          var initPromises = [];
+          function ignoreErrors() {
+            return Promise$1.resolve();
+          }
+          for (var j = 0; j < dbContext.forages.length; j++) {
+            var forage = dbContext.forages[j];
+            if (forage !== self2) {
+              initPromises.push(forage._initReady()["catch"](ignoreErrors));
+            }
+          }
+          var forages = dbContext.forages.slice(0);
+          return Promise$1.all(initPromises).then(function() {
+            dbInfo.db = dbContext.db;
+            return _getOriginalConnection(dbInfo);
+          }).then(function(db) {
+            dbInfo.db = db;
+            if (_isUpgradeNeeded(dbInfo, self2._defaultConfig.version)) {
+              return _getUpgradedConnection(dbInfo);
+            }
+            return db;
+          }).then(function(db) {
+            dbInfo.db = dbContext.db = db;
+            self2._dbInfo = dbInfo;
+            for (var k = 0; k < forages.length; k++) {
+              var forage2 = forages[k];
+              if (forage2 !== self2) {
+                forage2._dbInfo.db = dbInfo.db;
+                forage2._dbInfo.version = dbInfo.version;
+              }
+            }
+          });
+        }
+        function getItem2(key2, callback) {
+          var self2 = this;
+          key2 = normalizeKey(key2);
+          var promise = new Promise$1(function(resolve, reject) {
+            self2.ready().then(function() {
+              createTransaction(self2._dbInfo, READ_ONLY, function(err, transaction) {
+                if (err) {
+                  return reject(err);
+                }
+                try {
+                  var store = transaction.objectStore(self2._dbInfo.storeName);
+                  var req = store.get(key2);
+                  req.onsuccess = function() {
+                    var value = req.result;
+                    if (value === void 0) {
+                      value = null;
+                    }
+                    if (_isEncodedBlob(value)) {
+                      value = _decodeBlob(value);
+                    }
+                    resolve(value);
+                  };
+                  req.onerror = function() {
+                    reject(req.error);
+                  };
+                } catch (e) {
+                  reject(e);
+                }
+              });
+            })["catch"](reject);
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function iterate(iterator, callback) {
+          var self2 = this;
+          var promise = new Promise$1(function(resolve, reject) {
+            self2.ready().then(function() {
+              createTransaction(self2._dbInfo, READ_ONLY, function(err, transaction) {
+                if (err) {
+                  return reject(err);
+                }
+                try {
+                  var store = transaction.objectStore(self2._dbInfo.storeName);
+                  var req = store.openCursor();
+                  var iterationNumber = 1;
+                  req.onsuccess = function() {
+                    var cursor = req.result;
+                    if (cursor) {
+                      var value = cursor.value;
+                      if (_isEncodedBlob(value)) {
+                        value = _decodeBlob(value);
+                      }
+                      var result = iterator(value, cursor.key, iterationNumber++);
+                      if (result !== void 0) {
+                        resolve(result);
+                      } else {
+                        cursor["continue"]();
+                      }
+                    } else {
+                      resolve();
+                    }
+                  };
+                  req.onerror = function() {
+                    reject(req.error);
+                  };
+                } catch (e) {
+                  reject(e);
+                }
+              });
+            })["catch"](reject);
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function setItem2(key2, value, callback) {
+          var self2 = this;
+          key2 = normalizeKey(key2);
+          var promise = new Promise$1(function(resolve, reject) {
+            var dbInfo;
+            self2.ready().then(function() {
+              dbInfo = self2._dbInfo;
+              if (toString.call(value) === "[object Blob]") {
+                return _checkBlobSupport(dbInfo.db).then(function(blobSupport) {
+                  if (blobSupport) {
+                    return value;
+                  }
+                  return _encodeBlob(value);
+                });
+              }
+              return value;
+            }).then(function(value2) {
+              createTransaction(self2._dbInfo, READ_WRITE, function(err, transaction) {
+                if (err) {
+                  return reject(err);
+                }
+                try {
+                  var store = transaction.objectStore(self2._dbInfo.storeName);
+                  if (value2 === null) {
+                    value2 = void 0;
+                  }
+                  var req = store.put(value2, key2);
+                  transaction.oncomplete = function() {
+                    if (value2 === void 0) {
+                      value2 = null;
+                    }
+                    resolve(value2);
+                  };
+                  transaction.onabort = transaction.onerror = function() {
+                    var err2 = req.error ? req.error : req.transaction.error;
+                    reject(err2);
+                  };
+                } catch (e) {
+                  reject(e);
+                }
+              });
+            })["catch"](reject);
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function removeItem(key2, callback) {
+          var self2 = this;
+          key2 = normalizeKey(key2);
+          var promise = new Promise$1(function(resolve, reject) {
+            self2.ready().then(function() {
+              createTransaction(self2._dbInfo, READ_WRITE, function(err, transaction) {
+                if (err) {
+                  return reject(err);
+                }
+                try {
+                  var store = transaction.objectStore(self2._dbInfo.storeName);
+                  var req = store["delete"](key2);
+                  transaction.oncomplete = function() {
+                    resolve();
+                  };
+                  transaction.onerror = function() {
+                    reject(req.error);
+                  };
+                  transaction.onabort = function() {
+                    var err2 = req.error ? req.error : req.transaction.error;
+                    reject(err2);
+                  };
+                } catch (e) {
+                  reject(e);
+                }
+              });
+            })["catch"](reject);
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function clear(callback) {
+          var self2 = this;
+          var promise = new Promise$1(function(resolve, reject) {
+            self2.ready().then(function() {
+              createTransaction(self2._dbInfo, READ_WRITE, function(err, transaction) {
+                if (err) {
+                  return reject(err);
+                }
+                try {
+                  var store = transaction.objectStore(self2._dbInfo.storeName);
+                  var req = store.clear();
+                  transaction.oncomplete = function() {
+                    resolve();
+                  };
+                  transaction.onabort = transaction.onerror = function() {
+                    var err2 = req.error ? req.error : req.transaction.error;
+                    reject(err2);
+                  };
+                } catch (e) {
+                  reject(e);
+                }
+              });
+            })["catch"](reject);
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function length(callback) {
+          var self2 = this;
+          var promise = new Promise$1(function(resolve, reject) {
+            self2.ready().then(function() {
+              createTransaction(self2._dbInfo, READ_ONLY, function(err, transaction) {
+                if (err) {
+                  return reject(err);
+                }
+                try {
+                  var store = transaction.objectStore(self2._dbInfo.storeName);
+                  var req = store.count();
+                  req.onsuccess = function() {
+                    resolve(req.result);
+                  };
+                  req.onerror = function() {
+                    reject(req.error);
+                  };
+                } catch (e) {
+                  reject(e);
+                }
+              });
+            })["catch"](reject);
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function key(n, callback) {
+          var self2 = this;
+          var promise = new Promise$1(function(resolve, reject) {
+            if (n < 0) {
+              resolve(null);
+              return;
+            }
+            self2.ready().then(function() {
+              createTransaction(self2._dbInfo, READ_ONLY, function(err, transaction) {
+                if (err) {
+                  return reject(err);
+                }
+                try {
+                  var store = transaction.objectStore(self2._dbInfo.storeName);
+                  var advanced = false;
+                  var req = store.openKeyCursor();
+                  req.onsuccess = function() {
+                    var cursor = req.result;
+                    if (!cursor) {
+                      resolve(null);
+                      return;
+                    }
+                    if (n === 0) {
+                      resolve(cursor.key);
+                    } else {
+                      if (!advanced) {
+                        advanced = true;
+                        cursor.advance(n);
+                      } else {
+                        resolve(cursor.key);
+                      }
+                    }
+                  };
+                  req.onerror = function() {
+                    reject(req.error);
+                  };
+                } catch (e) {
+                  reject(e);
+                }
+              });
+            })["catch"](reject);
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function keys(callback) {
+          var self2 = this;
+          var promise = new Promise$1(function(resolve, reject) {
+            self2.ready().then(function() {
+              createTransaction(self2._dbInfo, READ_ONLY, function(err, transaction) {
+                if (err) {
+                  return reject(err);
+                }
+                try {
+                  var store = transaction.objectStore(self2._dbInfo.storeName);
+                  var req = store.openKeyCursor();
+                  var keys2 = [];
+                  req.onsuccess = function() {
+                    var cursor = req.result;
+                    if (!cursor) {
+                      resolve(keys2);
+                      return;
+                    }
+                    keys2.push(cursor.key);
+                    cursor["continue"]();
+                  };
+                  req.onerror = function() {
+                    reject(req.error);
+                  };
+                } catch (e) {
+                  reject(e);
+                }
+              });
+            })["catch"](reject);
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function dropInstance(options, callback) {
+          callback = getCallback.apply(this, arguments);
+          var currentConfig = this.config();
+          options = typeof options !== "function" && options || {};
+          if (!options.name) {
+            options.name = options.name || currentConfig.name;
+            options.storeName = options.storeName || currentConfig.storeName;
+          }
+          var self2 = this;
+          var promise;
+          if (!options.name) {
+            promise = Promise$1.reject("Invalid arguments");
+          } else {
+            var isCurrentDb = options.name === currentConfig.name && self2._dbInfo.db;
+            var dbPromise = isCurrentDb ? Promise$1.resolve(self2._dbInfo.db) : _getOriginalConnection(options).then(function(db) {
+              var dbContext = dbContexts[options.name];
+              var forages = dbContext.forages;
+              dbContext.db = db;
+              for (var i = 0; i < forages.length; i++) {
+                forages[i]._dbInfo.db = db;
+              }
+              return db;
+            });
+            if (!options.storeName) {
+              promise = dbPromise.then(function(db) {
+                _deferReadiness(options);
+                var dbContext = dbContexts[options.name];
+                var forages = dbContext.forages;
+                db.close();
+                for (var i = 0; i < forages.length; i++) {
+                  var forage = forages[i];
+                  forage._dbInfo.db = null;
+                }
+                var dropDBPromise = new Promise$1(function(resolve, reject) {
+                  var req = idb.deleteDatabase(options.name);
+                  req.onerror = function() {
+                    var db2 = req.result;
+                    if (db2) {
+                      db2.close();
+                    }
+                    reject(req.error);
+                  };
+                  req.onblocked = function() {
+                    console.warn('dropInstance blocked for database "' + options.name + '" until all open connections are closed');
+                  };
+                  req.onsuccess = function() {
+                    var db2 = req.result;
+                    if (db2) {
+                      db2.close();
+                    }
+                    resolve(db2);
+                  };
+                });
+                return dropDBPromise.then(function(db2) {
+                  dbContext.db = db2;
+                  for (var i2 = 0; i2 < forages.length; i2++) {
+                    var _forage = forages[i2];
+                    _advanceReadiness(_forage._dbInfo);
+                  }
+                })["catch"](function(err) {
+                  (_rejectReadiness(options, err) || Promise$1.resolve())["catch"](function() {
+                  });
+                  throw err;
+                });
+              });
+            } else {
+              promise = dbPromise.then(function(db) {
+                if (!db.objectStoreNames.contains(options.storeName)) {
+                  return;
+                }
+                var newVersion = db.version + 1;
+                _deferReadiness(options);
+                var dbContext = dbContexts[options.name];
+                var forages = dbContext.forages;
+                db.close();
+                for (var i = 0; i < forages.length; i++) {
+                  var forage = forages[i];
+                  forage._dbInfo.db = null;
+                  forage._dbInfo.version = newVersion;
+                }
+                var dropObjectPromise = new Promise$1(function(resolve, reject) {
+                  var req = idb.open(options.name, newVersion);
+                  req.onerror = function(err) {
+                    var db2 = req.result;
+                    db2.close();
+                    reject(err);
+                  };
+                  req.onupgradeneeded = function() {
+                    var db2 = req.result;
+                    db2.deleteObjectStore(options.storeName);
+                  };
+                  req.onsuccess = function() {
+                    var db2 = req.result;
+                    db2.close();
+                    resolve(db2);
+                  };
+                });
+                return dropObjectPromise.then(function(db2) {
+                  dbContext.db = db2;
+                  for (var j = 0; j < forages.length; j++) {
+                    var _forage2 = forages[j];
+                    _forage2._dbInfo.db = db2;
+                    _advanceReadiness(_forage2._dbInfo);
+                  }
+                })["catch"](function(err) {
+                  (_rejectReadiness(options, err) || Promise$1.resolve())["catch"](function() {
+                  });
+                  throw err;
+                });
+              });
+            }
+          }
+          executeCallback(promise, callback);
+          return promise;
+        }
+        var asyncStorage = {
+          _driver: "asyncStorage",
+          _initStorage,
+          _support: isIndexedDBValid(),
+          iterate,
+          getItem: getItem2,
+          setItem: setItem2,
+          removeItem,
+          clear,
+          length,
+          key,
+          keys,
+          dropInstance
+        };
+        function isWebSQLValid() {
+          return typeof openDatabase === "function";
+        }
+        var BASE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+        var BLOB_TYPE_PREFIX = "~~local_forage_type~";
+        var BLOB_TYPE_PREFIX_REGEX = /^~~local_forage_type~([^~]+)~/;
+        var SERIALIZED_MARKER = "__lfsc__:";
+        var SERIALIZED_MARKER_LENGTH = SERIALIZED_MARKER.length;
+        var TYPE_ARRAYBUFFER = "arbf";
+        var TYPE_BLOB = "blob";
+        var TYPE_INT8ARRAY = "si08";
+        var TYPE_UINT8ARRAY = "ui08";
+        var TYPE_UINT8CLAMPEDARRAY = "uic8";
+        var TYPE_INT16ARRAY = "si16";
+        var TYPE_INT32ARRAY = "si32";
+        var TYPE_UINT16ARRAY = "ur16";
+        var TYPE_UINT32ARRAY = "ui32";
+        var TYPE_FLOAT32ARRAY = "fl32";
+        var TYPE_FLOAT64ARRAY = "fl64";
+        var TYPE_SERIALIZED_MARKER_LENGTH = SERIALIZED_MARKER_LENGTH + TYPE_ARRAYBUFFER.length;
+        var toString$1 = Object.prototype.toString;
+        function stringToBuffer(serializedString) {
+          var bufferLength = serializedString.length * 0.75;
+          var len = serializedString.length;
+          var i;
+          var p = 0;
+          var encoded1, encoded2, encoded3, encoded4;
+          if (serializedString[serializedString.length - 1] === "=") {
+            bufferLength--;
+            if (serializedString[serializedString.length - 2] === "=") {
+              bufferLength--;
+            }
+          }
+          var buffer = new ArrayBuffer(bufferLength);
+          var bytes = new Uint8Array(buffer);
+          for (i = 0; i < len; i += 4) {
+            encoded1 = BASE_CHARS.indexOf(serializedString[i]);
+            encoded2 = BASE_CHARS.indexOf(serializedString[i + 1]);
+            encoded3 = BASE_CHARS.indexOf(serializedString[i + 2]);
+            encoded4 = BASE_CHARS.indexOf(serializedString[i + 3]);
+            bytes[p++] = encoded1 << 2 | encoded2 >> 4;
+            bytes[p++] = (encoded2 & 15) << 4 | encoded3 >> 2;
+            bytes[p++] = (encoded3 & 3) << 6 | encoded4 & 63;
+          }
+          return buffer;
+        }
+        function bufferToString(buffer) {
+          var bytes = new Uint8Array(buffer);
+          var base64String = "";
+          var i;
+          for (i = 0; i < bytes.length; i += 3) {
+            base64String += BASE_CHARS[bytes[i] >> 2];
+            base64String += BASE_CHARS[(bytes[i] & 3) << 4 | bytes[i + 1] >> 4];
+            base64String += BASE_CHARS[(bytes[i + 1] & 15) << 2 | bytes[i + 2] >> 6];
+            base64String += BASE_CHARS[bytes[i + 2] & 63];
+          }
+          if (bytes.length % 3 === 2) {
+            base64String = base64String.substring(0, base64String.length - 1) + "=";
+          } else if (bytes.length % 3 === 1) {
+            base64String = base64String.substring(0, base64String.length - 2) + "==";
+          }
+          return base64String;
+        }
+        function serialize(value, callback) {
+          var valueType = "";
+          if (value) {
+            valueType = toString$1.call(value);
+          }
+          if (value && (valueType === "[object ArrayBuffer]" || value.buffer && toString$1.call(value.buffer) === "[object ArrayBuffer]")) {
+            var buffer;
+            var marker = SERIALIZED_MARKER;
+            if (value instanceof ArrayBuffer) {
+              buffer = value;
+              marker += TYPE_ARRAYBUFFER;
+            } else {
+              buffer = value.buffer;
+              if (valueType === "[object Int8Array]") {
+                marker += TYPE_INT8ARRAY;
+              } else if (valueType === "[object Uint8Array]") {
+                marker += TYPE_UINT8ARRAY;
+              } else if (valueType === "[object Uint8ClampedArray]") {
+                marker += TYPE_UINT8CLAMPEDARRAY;
+              } else if (valueType === "[object Int16Array]") {
+                marker += TYPE_INT16ARRAY;
+              } else if (valueType === "[object Uint16Array]") {
+                marker += TYPE_UINT16ARRAY;
+              } else if (valueType === "[object Int32Array]") {
+                marker += TYPE_INT32ARRAY;
+              } else if (valueType === "[object Uint32Array]") {
+                marker += TYPE_UINT32ARRAY;
+              } else if (valueType === "[object Float32Array]") {
+                marker += TYPE_FLOAT32ARRAY;
+              } else if (valueType === "[object Float64Array]") {
+                marker += TYPE_FLOAT64ARRAY;
+              } else {
+                callback(new Error("Failed to get type for BinaryArray"));
+              }
+            }
+            callback(marker + bufferToString(buffer));
+          } else if (valueType === "[object Blob]") {
+            var fileReader = new FileReader();
+            fileReader.onload = function() {
+              var str = BLOB_TYPE_PREFIX + value.type + "~" + bufferToString(this.result);
+              callback(SERIALIZED_MARKER + TYPE_BLOB + str);
+            };
+            fileReader.readAsArrayBuffer(value);
+          } else {
+            try {
+              callback(JSON.stringify(value));
+            } catch (e) {
+              console.error("Couldn't convert value into a JSON string: ", value);
+              callback(null, e);
+            }
+          }
+        }
+        function deserialize(value) {
+          if (value.substring(0, SERIALIZED_MARKER_LENGTH) !== SERIALIZED_MARKER) {
+            return JSON.parse(value);
+          }
+          var serializedString = value.substring(TYPE_SERIALIZED_MARKER_LENGTH);
+          var type = value.substring(SERIALIZED_MARKER_LENGTH, TYPE_SERIALIZED_MARKER_LENGTH);
+          var blobType;
+          if (type === TYPE_BLOB && BLOB_TYPE_PREFIX_REGEX.test(serializedString)) {
+            var matcher = serializedString.match(BLOB_TYPE_PREFIX_REGEX);
+            blobType = matcher[1];
+            serializedString = serializedString.substring(matcher[0].length);
+          }
+          var buffer = stringToBuffer(serializedString);
+          switch (type) {
+            case TYPE_ARRAYBUFFER:
+              return buffer;
+            case TYPE_BLOB:
+              return createBlob([buffer], { type: blobType });
+            case TYPE_INT8ARRAY:
+              return new Int8Array(buffer);
+            case TYPE_UINT8ARRAY:
+              return new Uint8Array(buffer);
+            case TYPE_UINT8CLAMPEDARRAY:
+              return new Uint8ClampedArray(buffer);
+            case TYPE_INT16ARRAY:
+              return new Int16Array(buffer);
+            case TYPE_UINT16ARRAY:
+              return new Uint16Array(buffer);
+            case TYPE_INT32ARRAY:
+              return new Int32Array(buffer);
+            case TYPE_UINT32ARRAY:
+              return new Uint32Array(buffer);
+            case TYPE_FLOAT32ARRAY:
+              return new Float32Array(buffer);
+            case TYPE_FLOAT64ARRAY:
+              return new Float64Array(buffer);
+            default:
+              throw new Error("Unkown type: " + type);
+          }
+        }
+        var localforageSerializer = {
+          serialize,
+          deserialize,
+          stringToBuffer,
+          bufferToString
+        };
+        function createDbTable(t, dbInfo, callback, errorCallback) {
+          t.executeSql("CREATE TABLE IF NOT EXISTS " + dbInfo.storeName + " (id INTEGER PRIMARY KEY, key unique, value)", [], callback, errorCallback);
+        }
+        function _initStorage$1(options) {
+          var self2 = this;
+          var dbInfo = {
+            db: null
+          };
+          if (options) {
+            for (var i in options) {
+              dbInfo[i] = typeof options[i] !== "string" ? options[i].toString() : options[i];
+            }
+          }
+          var dbInfoPromise = new Promise$1(function(resolve, reject) {
+            try {
+              dbInfo.db = openDatabase(dbInfo.name, String(dbInfo.version), dbInfo.description, dbInfo.size);
+            } catch (e) {
+              return reject(e);
+            }
+            dbInfo.db.transaction(function(t) {
+              createDbTable(t, dbInfo, function() {
+                self2._dbInfo = dbInfo;
+                resolve();
+              }, function(t2, error) {
+                reject(error);
+              });
+            }, reject);
+          });
+          dbInfo.serializer = localforageSerializer;
+          return dbInfoPromise;
+        }
+        function tryExecuteSql(t, dbInfo, sqlStatement, args, callback, errorCallback) {
+          t.executeSql(sqlStatement, args, callback, function(t2, error) {
+            if (error.code === error.SYNTAX_ERR) {
+              t2.executeSql("SELECT name FROM sqlite_master WHERE type='table' AND name = ?", [dbInfo.storeName], function(t3, results) {
+                if (!results.rows.length) {
+                  createDbTable(t3, dbInfo, function() {
+                    t3.executeSql(sqlStatement, args, callback, errorCallback);
+                  }, errorCallback);
+                } else {
+                  errorCallback(t3, error);
+                }
+              }, errorCallback);
+            } else {
+              errorCallback(t2, error);
+            }
+          }, errorCallback);
+        }
+        function getItem$1(key2, callback) {
+          var self2 = this;
+          key2 = normalizeKey(key2);
+          var promise = new Promise$1(function(resolve, reject) {
+            self2.ready().then(function() {
+              var dbInfo = self2._dbInfo;
+              dbInfo.db.transaction(function(t) {
+                tryExecuteSql(t, dbInfo, "SELECT * FROM " + dbInfo.storeName + " WHERE key = ? LIMIT 1", [key2], function(t2, results) {
+                  var result = results.rows.length ? results.rows.item(0).value : null;
+                  if (result) {
+                    result = dbInfo.serializer.deserialize(result);
+                  }
+                  resolve(result);
+                }, function(t2, error) {
+                  reject(error);
+                });
+              });
+            })["catch"](reject);
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function iterate$1(iterator, callback) {
+          var self2 = this;
+          var promise = new Promise$1(function(resolve, reject) {
+            self2.ready().then(function() {
+              var dbInfo = self2._dbInfo;
+              dbInfo.db.transaction(function(t) {
+                tryExecuteSql(t, dbInfo, "SELECT * FROM " + dbInfo.storeName, [], function(t2, results) {
+                  var rows = results.rows;
+                  var length2 = rows.length;
+                  for (var i = 0; i < length2; i++) {
+                    var item = rows.item(i);
+                    var result = item.value;
+                    if (result) {
+                      result = dbInfo.serializer.deserialize(result);
+                    }
+                    result = iterator(result, item.key, i + 1);
+                    if (result !== void 0) {
+                      resolve(result);
+                      return;
+                    }
+                  }
+                  resolve();
+                }, function(t2, error) {
+                  reject(error);
+                });
+              });
+            })["catch"](reject);
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function _setItem(key2, value, callback, retriesLeft) {
+          var self2 = this;
+          key2 = normalizeKey(key2);
+          var promise = new Promise$1(function(resolve, reject) {
+            self2.ready().then(function() {
+              if (value === void 0) {
+                value = null;
+              }
+              var originalValue = value;
+              var dbInfo = self2._dbInfo;
+              dbInfo.serializer.serialize(value, function(value2, error) {
+                if (error) {
+                  reject(error);
+                } else {
+                  dbInfo.db.transaction(function(t) {
+                    tryExecuteSql(t, dbInfo, "INSERT OR REPLACE INTO " + dbInfo.storeName + " (key, value) VALUES (?, ?)", [key2, value2], function() {
+                      resolve(originalValue);
+                    }, function(t2, error2) {
+                      reject(error2);
+                    });
+                  }, function(sqlError) {
+                    if (sqlError.code === sqlError.QUOTA_ERR) {
+                      if (retriesLeft > 0) {
+                        resolve(_setItem.apply(self2, [key2, originalValue, callback, retriesLeft - 1]));
+                        return;
+                      }
+                      reject(sqlError);
+                    }
+                  });
+                }
+              });
+            })["catch"](reject);
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function setItem$1(key2, value, callback) {
+          return _setItem.apply(this, [key2, value, callback, 1]);
+        }
+        function removeItem$1(key2, callback) {
+          var self2 = this;
+          key2 = normalizeKey(key2);
+          var promise = new Promise$1(function(resolve, reject) {
+            self2.ready().then(function() {
+              var dbInfo = self2._dbInfo;
+              dbInfo.db.transaction(function(t) {
+                tryExecuteSql(t, dbInfo, "DELETE FROM " + dbInfo.storeName + " WHERE key = ?", [key2], function() {
+                  resolve();
+                }, function(t2, error) {
+                  reject(error);
+                });
+              });
+            })["catch"](reject);
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function clear$1(callback) {
+          var self2 = this;
+          var promise = new Promise$1(function(resolve, reject) {
+            self2.ready().then(function() {
+              var dbInfo = self2._dbInfo;
+              dbInfo.db.transaction(function(t) {
+                tryExecuteSql(t, dbInfo, "DELETE FROM " + dbInfo.storeName, [], function() {
+                  resolve();
+                }, function(t2, error) {
+                  reject(error);
+                });
+              });
+            })["catch"](reject);
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function length$1(callback) {
+          var self2 = this;
+          var promise = new Promise$1(function(resolve, reject) {
+            self2.ready().then(function() {
+              var dbInfo = self2._dbInfo;
+              dbInfo.db.transaction(function(t) {
+                tryExecuteSql(t, dbInfo, "SELECT COUNT(key) as c FROM " + dbInfo.storeName, [], function(t2, results) {
+                  var result = results.rows.item(0).c;
+                  resolve(result);
+                }, function(t2, error) {
+                  reject(error);
+                });
+              });
+            })["catch"](reject);
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function key$1(n, callback) {
+          var self2 = this;
+          var promise = new Promise$1(function(resolve, reject) {
+            self2.ready().then(function() {
+              var dbInfo = self2._dbInfo;
+              dbInfo.db.transaction(function(t) {
+                tryExecuteSql(t, dbInfo, "SELECT key FROM " + dbInfo.storeName + " WHERE id = ? LIMIT 1", [n + 1], function(t2, results) {
+                  var result = results.rows.length ? results.rows.item(0).key : null;
+                  resolve(result);
+                }, function(t2, error) {
+                  reject(error);
+                });
+              });
+            })["catch"](reject);
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function keys$1(callback) {
+          var self2 = this;
+          var promise = new Promise$1(function(resolve, reject) {
+            self2.ready().then(function() {
+              var dbInfo = self2._dbInfo;
+              dbInfo.db.transaction(function(t) {
+                tryExecuteSql(t, dbInfo, "SELECT key FROM " + dbInfo.storeName, [], function(t2, results) {
+                  var keys2 = [];
+                  for (var i = 0; i < results.rows.length; i++) {
+                    keys2.push(results.rows.item(i).key);
+                  }
+                  resolve(keys2);
+                }, function(t2, error) {
+                  reject(error);
+                });
+              });
+            })["catch"](reject);
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function getAllStoreNames(db) {
+          return new Promise$1(function(resolve, reject) {
+            db.transaction(function(t) {
+              t.executeSql("SELECT name FROM sqlite_master WHERE type='table' AND name <> '__WebKitDatabaseInfoTable__'", [], function(t2, results) {
+                var storeNames = [];
+                for (var i = 0; i < results.rows.length; i++) {
+                  storeNames.push(results.rows.item(i).name);
+                }
+                resolve({
+                  db,
+                  storeNames
+                });
+              }, function(t2, error) {
+                reject(error);
+              });
+            }, function(sqlError) {
+              reject(sqlError);
+            });
+          });
+        }
+        function dropInstance$1(options, callback) {
+          callback = getCallback.apply(this, arguments);
+          var currentConfig = this.config();
+          options = typeof options !== "function" && options || {};
+          if (!options.name) {
+            options.name = options.name || currentConfig.name;
+            options.storeName = options.storeName || currentConfig.storeName;
+          }
+          var self2 = this;
+          var promise;
+          if (!options.name) {
+            promise = Promise$1.reject("Invalid arguments");
+          } else {
+            promise = new Promise$1(function(resolve) {
+              var db;
+              if (options.name === currentConfig.name) {
+                db = self2._dbInfo.db;
+              } else {
+                db = openDatabase(options.name, "", "", 0);
+              }
+              if (!options.storeName) {
+                resolve(getAllStoreNames(db));
+              } else {
+                resolve({
+                  db,
+                  storeNames: [options.storeName]
+                });
+              }
+            }).then(function(operationInfo) {
+              return new Promise$1(function(resolve, reject) {
+                operationInfo.db.transaction(function(t) {
+                  function dropTable(storeName) {
+                    return new Promise$1(function(resolve2, reject2) {
+                      t.executeSql("DROP TABLE IF EXISTS " + storeName, [], function() {
+                        resolve2();
+                      }, function(t2, error) {
+                        reject2(error);
+                      });
+                    });
+                  }
+                  var operations = [];
+                  for (var i = 0, len = operationInfo.storeNames.length; i < len; i++) {
+                    operations.push(dropTable(operationInfo.storeNames[i]));
+                  }
+                  Promise$1.all(operations).then(function() {
+                    resolve();
+                  })["catch"](function(e) {
+                    reject(e);
+                  });
+                }, function(sqlError) {
+                  reject(sqlError);
+                });
+              });
+            });
+          }
+          executeCallback(promise, callback);
+          return promise;
+        }
+        var webSQLStorage = {
+          _driver: "webSQLStorage",
+          _initStorage: _initStorage$1,
+          _support: isWebSQLValid(),
+          iterate: iterate$1,
+          getItem: getItem$1,
+          setItem: setItem$1,
+          removeItem: removeItem$1,
+          clear: clear$1,
+          length: length$1,
+          key: key$1,
+          keys: keys$1,
+          dropInstance: dropInstance$1
+        };
+        function isLocalStorageValid() {
+          try {
+            return typeof localStorage !== "undefined" && "setItem" in localStorage && !!localStorage.setItem;
+          } catch (e) {
+            return false;
+          }
+        }
+        function _getKeyPrefix(options, defaultConfig) {
+          var keyPrefix = options.name + "/";
+          if (options.storeName !== defaultConfig.storeName) {
+            keyPrefix += options.storeName + "/";
+          }
+          return keyPrefix;
+        }
+        function checkIfLocalStorageThrows() {
+          var localStorageTestKey = "_localforage_support_test";
+          try {
+            localStorage.setItem(localStorageTestKey, true);
+            localStorage.removeItem(localStorageTestKey);
+            return false;
+          } catch (e) {
+            return true;
+          }
+        }
+        function _isLocalStorageUsable() {
+          return !checkIfLocalStorageThrows() || localStorage.length > 0;
+        }
+        function _initStorage$2(options) {
+          var self2 = this;
+          var dbInfo = {};
+          if (options) {
+            for (var i in options) {
+              dbInfo[i] = options[i];
+            }
+          }
+          dbInfo.keyPrefix = _getKeyPrefix(options, self2._defaultConfig);
+          if (!_isLocalStorageUsable()) {
+            return Promise$1.reject();
+          }
+          self2._dbInfo = dbInfo;
+          dbInfo.serializer = localforageSerializer;
+          return Promise$1.resolve();
+        }
+        function clear$2(callback) {
+          var self2 = this;
+          var promise = self2.ready().then(function() {
+            var keyPrefix = self2._dbInfo.keyPrefix;
+            for (var i = localStorage.length - 1; i >= 0; i--) {
+              var key2 = localStorage.key(i);
+              if (key2.indexOf(keyPrefix) === 0) {
+                localStorage.removeItem(key2);
+              }
+            }
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function getItem$2(key2, callback) {
+          var self2 = this;
+          key2 = normalizeKey(key2);
+          var promise = self2.ready().then(function() {
+            var dbInfo = self2._dbInfo;
+            var result = localStorage.getItem(dbInfo.keyPrefix + key2);
+            if (result) {
+              result = dbInfo.serializer.deserialize(result);
+            }
+            return result;
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function iterate$2(iterator, callback) {
+          var self2 = this;
+          var promise = self2.ready().then(function() {
+            var dbInfo = self2._dbInfo;
+            var keyPrefix = dbInfo.keyPrefix;
+            var keyPrefixLength = keyPrefix.length;
+            var length2 = localStorage.length;
+            var iterationNumber = 1;
+            for (var i = 0; i < length2; i++) {
+              var key2 = localStorage.key(i);
+              if (key2.indexOf(keyPrefix) !== 0) {
+                continue;
+              }
+              var value = localStorage.getItem(key2);
+              if (value) {
+                value = dbInfo.serializer.deserialize(value);
+              }
+              value = iterator(value, key2.substring(keyPrefixLength), iterationNumber++);
+              if (value !== void 0) {
+                return value;
+              }
+            }
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function key$2(n, callback) {
+          var self2 = this;
+          var promise = self2.ready().then(function() {
+            var dbInfo = self2._dbInfo;
+            var result;
+            try {
+              result = localStorage.key(n);
+            } catch (error) {
+              result = null;
+            }
+            if (result) {
+              result = result.substring(dbInfo.keyPrefix.length);
+            }
+            return result;
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function keys$2(callback) {
+          var self2 = this;
+          var promise = self2.ready().then(function() {
+            var dbInfo = self2._dbInfo;
+            var length2 = localStorage.length;
+            var keys2 = [];
+            for (var i = 0; i < length2; i++) {
+              var itemKey = localStorage.key(i);
+              if (itemKey.indexOf(dbInfo.keyPrefix) === 0) {
+                keys2.push(itemKey.substring(dbInfo.keyPrefix.length));
+              }
+            }
+            return keys2;
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function length$2(callback) {
+          var self2 = this;
+          var promise = self2.keys().then(function(keys2) {
+            return keys2.length;
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function removeItem$2(key2, callback) {
+          var self2 = this;
+          key2 = normalizeKey(key2);
+          var promise = self2.ready().then(function() {
+            var dbInfo = self2._dbInfo;
+            localStorage.removeItem(dbInfo.keyPrefix + key2);
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function setItem$2(key2, value, callback) {
+          var self2 = this;
+          key2 = normalizeKey(key2);
+          var promise = self2.ready().then(function() {
+            if (value === void 0) {
+              value = null;
+            }
+            var originalValue = value;
+            return new Promise$1(function(resolve, reject) {
+              var dbInfo = self2._dbInfo;
+              dbInfo.serializer.serialize(value, function(value2, error) {
+                if (error) {
+                  reject(error);
+                } else {
+                  try {
+                    localStorage.setItem(dbInfo.keyPrefix + key2, value2);
+                    resolve(originalValue);
+                  } catch (e) {
+                    if (e.name === "QuotaExceededError" || e.name === "NS_ERROR_DOM_QUOTA_REACHED") {
+                      reject(e);
+                    }
+                    reject(e);
+                  }
+                }
+              });
+            });
+          });
+          executeCallback(promise, callback);
+          return promise;
+        }
+        function dropInstance$2(options, callback) {
+          callback = getCallback.apply(this, arguments);
+          options = typeof options !== "function" && options || {};
+          if (!options.name) {
+            var currentConfig = this.config();
+            options.name = options.name || currentConfig.name;
+            options.storeName = options.storeName || currentConfig.storeName;
+          }
+          var self2 = this;
+          var promise;
+          if (!options.name) {
+            promise = Promise$1.reject("Invalid arguments");
+          } else {
+            promise = new Promise$1(function(resolve) {
+              if (!options.storeName) {
+                resolve(options.name + "/");
+              } else {
+                resolve(_getKeyPrefix(options, self2._defaultConfig));
+              }
+            }).then(function(keyPrefix) {
+              for (var i = localStorage.length - 1; i >= 0; i--) {
+                var key2 = localStorage.key(i);
+                if (key2.indexOf(keyPrefix) === 0) {
+                  localStorage.removeItem(key2);
+                }
+              }
+            });
+          }
+          executeCallback(promise, callback);
+          return promise;
+        }
+        var localStorageWrapper = {
+          _driver: "localStorageWrapper",
+          _initStorage: _initStorage$2,
+          _support: isLocalStorageValid(),
+          iterate: iterate$2,
+          getItem: getItem$2,
+          setItem: setItem$2,
+          removeItem: removeItem$2,
+          clear: clear$2,
+          length: length$2,
+          key: key$2,
+          keys: keys$2,
+          dropInstance: dropInstance$2
+        };
+        var sameValue = function sameValue2(x, y) {
+          return x === y || typeof x === "number" && typeof y === "number" && isNaN(x) && isNaN(y);
+        };
+        var includes = function includes2(array, searchElement) {
+          var len = array.length;
+          var i = 0;
+          while (i < len) {
+            if (sameValue(array[i], searchElement)) {
+              return true;
+            }
+            i++;
+          }
+          return false;
+        };
+        var isArray = Array.isArray || function(arg) {
+          return Object.prototype.toString.call(arg) === "[object Array]";
+        };
+        var DefinedDrivers = {};
+        var DriverSupport = {};
+        var DefaultDrivers = {
+          INDEXEDDB: asyncStorage,
+          WEBSQL: webSQLStorage,
+          LOCALSTORAGE: localStorageWrapper
+        };
+        var DefaultDriverOrder = [DefaultDrivers.INDEXEDDB._driver, DefaultDrivers.WEBSQL._driver, DefaultDrivers.LOCALSTORAGE._driver];
+        var OptionalDriverMethods = ["dropInstance"];
+        var LibraryMethods = ["clear", "getItem", "iterate", "key", "keys", "length", "removeItem", "setItem"].concat(OptionalDriverMethods);
+        var DefaultConfig = {
+          description: "",
+          driver: DefaultDriverOrder.slice(),
+          name: "localforage",
+          size: 4980736,
+          storeName: "keyvaluepairs",
+          version: 1
+        };
+        function callWhenReady(localForageInstance, libraryMethod) {
+          localForageInstance[libraryMethod] = function() {
+            var _args = arguments;
+            return localForageInstance.ready().then(function() {
+              return localForageInstance[libraryMethod].apply(localForageInstance, _args);
+            });
+          };
+        }
+        function extend() {
+          for (var i = 1; i < arguments.length; i++) {
+            var arg = arguments[i];
+            if (arg) {
+              for (var _key in arg) {
+                if (arg.hasOwnProperty(_key)) {
+                  if (isArray(arg[_key])) {
+                    arguments[0][_key] = arg[_key].slice();
+                  } else {
+                    arguments[0][_key] = arg[_key];
+                  }
+                }
+              }
+            }
+          }
+          return arguments[0];
+        }
+        var LocalForage = function() {
+          function LocalForage2(options) {
+            _classCallCheck(this, LocalForage2);
+            for (var driverTypeKey in DefaultDrivers) {
+              if (DefaultDrivers.hasOwnProperty(driverTypeKey)) {
+                var driver = DefaultDrivers[driverTypeKey];
+                var driverName = driver._driver;
+                this[driverTypeKey] = driverName;
+                if (!DefinedDrivers[driverName]) {
+                  this.defineDriver(driver);
+                }
+              }
+            }
+            this._defaultConfig = extend({}, DefaultConfig);
+            this._config = extend({}, this._defaultConfig, options);
+            this._driverSet = null;
+            this._initDriver = null;
+            this._ready = false;
+            this._dbInfo = null;
+            this._wrapLibraryMethodsWithReady();
+            this.setDriver(this._config.driver)["catch"](function() {
+            });
+          }
+          LocalForage2.prototype.config = function config(options) {
+            if ((typeof options === "undefined" ? "undefined" : _typeof(options)) === "object") {
+              if (this._ready) {
+                return new Error("Can't call config() after localforage has been used.");
+              }
+              for (var i in options) {
+                if (i === "storeName") {
+                  options[i] = options[i].replace(/\W/g, "_");
+                }
+                if (i === "version" && typeof options[i] !== "number") {
+                  return new Error("Database version must be a number.");
+                }
+                this._config[i] = options[i];
+              }
+              if ("driver" in options && options.driver) {
+                return this.setDriver(this._config.driver);
+              }
+              return true;
+            } else if (typeof options === "string") {
+              return this._config[options];
+            } else {
+              return this._config;
+            }
+          };
+          LocalForage2.prototype.defineDriver = function defineDriver(driverObject, callback, errorCallback) {
+            var promise = new Promise$1(function(resolve, reject) {
+              try {
+                var driverName = driverObject._driver;
+                var complianceError = new Error("Custom driver not compliant; see https://mozilla.github.io/localForage/#definedriver");
+                if (!driverObject._driver) {
+                  reject(complianceError);
+                  return;
+                }
+                var driverMethods = LibraryMethods.concat("_initStorage");
+                for (var i = 0, len = driverMethods.length; i < len; i++) {
+                  var driverMethodName = driverMethods[i];
+                  var isRequired = !includes(OptionalDriverMethods, driverMethodName);
+                  if ((isRequired || driverObject[driverMethodName]) && typeof driverObject[driverMethodName] !== "function") {
+                    reject(complianceError);
+                    return;
+                  }
+                }
+                var configureMissingMethods = function configureMissingMethods2() {
+                  var methodNotImplementedFactory = function methodNotImplementedFactory2(methodName) {
+                    return function() {
+                      var error = new Error("Method " + methodName + " is not implemented by the current driver");
+                      var promise2 = Promise$1.reject(error);
+                      executeCallback(promise2, arguments[arguments.length - 1]);
+                      return promise2;
+                    };
+                  };
+                  for (var _i = 0, _len = OptionalDriverMethods.length; _i < _len; _i++) {
+                    var optionalDriverMethod = OptionalDriverMethods[_i];
+                    if (!driverObject[optionalDriverMethod]) {
+                      driverObject[optionalDriverMethod] = methodNotImplementedFactory(optionalDriverMethod);
+                    }
+                  }
+                };
+                configureMissingMethods();
+                var setDriverSupport = function setDriverSupport2(support) {
+                  if (DefinedDrivers[driverName]) {
+                    console.info("Redefining LocalForage driver: " + driverName);
+                  }
+                  DefinedDrivers[driverName] = driverObject;
+                  DriverSupport[driverName] = support;
+                  resolve();
+                };
+                if ("_support" in driverObject) {
+                  if (driverObject._support && typeof driverObject._support === "function") {
+                    driverObject._support().then(setDriverSupport, reject);
+                  } else {
+                    setDriverSupport(!!driverObject._support);
+                  }
+                } else {
+                  setDriverSupport(true);
+                }
+              } catch (e) {
+                reject(e);
+              }
+            });
+            executeTwoCallbacks(promise, callback, errorCallback);
+            return promise;
+          };
+          LocalForage2.prototype.driver = function driver() {
+            return this._driver || null;
+          };
+          LocalForage2.prototype.getDriver = function getDriver(driverName, callback, errorCallback) {
+            var getDriverPromise = DefinedDrivers[driverName] ? Promise$1.resolve(DefinedDrivers[driverName]) : Promise$1.reject(new Error("Driver not found."));
+            executeTwoCallbacks(getDriverPromise, callback, errorCallback);
+            return getDriverPromise;
+          };
+          LocalForage2.prototype.getSerializer = function getSerializer(callback) {
+            var serializerPromise = Promise$1.resolve(localforageSerializer);
+            executeTwoCallbacks(serializerPromise, callback);
+            return serializerPromise;
+          };
+          LocalForage2.prototype.ready = function ready(callback) {
+            var self2 = this;
+            var promise = self2._driverSet.then(function() {
+              if (self2._ready === null) {
+                self2._ready = self2._initDriver();
+              }
+              return self2._ready;
+            });
+            executeTwoCallbacks(promise, callback, callback);
+            return promise;
+          };
+          LocalForage2.prototype.setDriver = function setDriver(drivers, callback, errorCallback) {
+            var self2 = this;
+            if (!isArray(drivers)) {
+              drivers = [drivers];
+            }
+            var supportedDrivers = this._getSupportedDrivers(drivers);
+            function setDriverToConfig() {
+              self2._config.driver = self2.driver();
+            }
+            function extendSelfWithDriver(driver) {
+              self2._extend(driver);
+              setDriverToConfig();
+              self2._ready = self2._initStorage(self2._config);
+              return self2._ready;
+            }
+            function initDriver(supportedDrivers2) {
+              return function() {
+                var currentDriverIndex = 0;
+                function driverPromiseLoop() {
+                  while (currentDriverIndex < supportedDrivers2.length) {
+                    var driverName = supportedDrivers2[currentDriverIndex];
+                    currentDriverIndex++;
+                    self2._dbInfo = null;
+                    self2._ready = null;
+                    return self2.getDriver(driverName).then(extendSelfWithDriver)["catch"](driverPromiseLoop);
+                  }
+                  setDriverToConfig();
+                  var error = new Error("No available storage method found.");
+                  self2._driverSet = Promise$1.reject(error);
+                  return self2._driverSet;
+                }
+                return driverPromiseLoop();
+              };
+            }
+            var oldDriverSetDone = this._driverSet !== null ? this._driverSet["catch"](function() {
+              return Promise$1.resolve();
+            }) : Promise$1.resolve();
+            this._driverSet = oldDriverSetDone.then(function() {
+              var driverName = supportedDrivers[0];
+              self2._dbInfo = null;
+              self2._ready = null;
+              return self2.getDriver(driverName).then(function(driver) {
+                self2._driver = driver._driver;
+                setDriverToConfig();
+                self2._wrapLibraryMethodsWithReady();
+                self2._initDriver = initDriver(supportedDrivers);
+              });
+            })["catch"](function() {
+              setDriverToConfig();
+              var error = new Error("No available storage method found.");
+              self2._driverSet = Promise$1.reject(error);
+              return self2._driverSet;
+            });
+            executeTwoCallbacks(this._driverSet, callback, errorCallback);
+            return this._driverSet;
+          };
+          LocalForage2.prototype.supports = function supports(driverName) {
+            return !!DriverSupport[driverName];
+          };
+          LocalForage2.prototype._extend = function _extend(libraryMethodsAndProperties) {
+            extend(this, libraryMethodsAndProperties);
+          };
+          LocalForage2.prototype._getSupportedDrivers = function _getSupportedDrivers(drivers) {
+            var supportedDrivers = [];
+            for (var i = 0, len = drivers.length; i < len; i++) {
+              var driverName = drivers[i];
+              if (this.supports(driverName)) {
+                supportedDrivers.push(driverName);
+              }
+            }
+            return supportedDrivers;
+          };
+          LocalForage2.prototype._wrapLibraryMethodsWithReady = function _wrapLibraryMethodsWithReady() {
+            for (var i = 0, len = LibraryMethods.length; i < len; i++) {
+              callWhenReady(this, LibraryMethods[i]);
+            }
+          };
+          LocalForage2.prototype.createInstance = function createInstance(options) {
+            return new LocalForage2(options);
+          };
+          return LocalForage2;
+        }();
+        var localforage_js = new LocalForage();
+        module4.exports = localforage_js;
+      }, { "3": 3 }] }, {}, [4])(4);
+    });
   }
 });
 
@@ -4796,7 +6747,10 @@ var DEFAULT_SETTINGS = {
   debounce: 3,
   localJar: "",
   javaPath: "java",
-  defaultProcessor: "png"
+  dotPath: "dot",
+  defaultProcessor: "png",
+  cache: 60,
+  exportPath: ""
 };
 var PlantUMLSettingsTab = class extends import_obsidian.PluginSettingTab {
   constructor(plugin) {
@@ -4817,8 +6771,16 @@ var PlantUMLSettingsTab = class extends import_obsidian.PluginSettingTab {
         this.plugin.settings.localJar = value;
         yield this.plugin.saveSettings();
       })));
-      new import_obsidian.Setting(containerEl).setName("Java Path").setDesc("Path to Java executable").addText((text) => text.setPlaceholder(DEFAULT_SETTINGS.javaPath).setValue(this.plugin.settings.javaPath).onChange((value) => __async(this, null, function* () {
+      new import_obsidian.Setting(containerEl).setName("Java path").setDesc("Path to Java executable").addText((text) => text.setPlaceholder(DEFAULT_SETTINGS.javaPath).setValue(this.plugin.settings.javaPath).onChange((value) => __async(this, null, function* () {
         this.plugin.settings.javaPath = value;
+        yield this.plugin.saveSettings();
+      })));
+      new import_obsidian.Setting(containerEl).setName("Dot path").setDesc("Path to dot executable").addText((text) => text.setPlaceholder(DEFAULT_SETTINGS.dotPath).setValue(this.plugin.settings.dotPath).onChange((value) => __async(this, null, function* () {
+        this.plugin.settings.dotPath = value;
+        yield this.plugin.saveSettings();
+      })));
+      new import_obsidian.Setting(containerEl).setName("Diagram export path").setDesc("Path where exported diagrams will be saved relative to the vault root. Leave blank to save along side the note.").addText((text) => text.setPlaceholder(DEFAULT_SETTINGS.exportPath).setValue(this.plugin.settings.exportPath).onChange((value) => __async(this, null, function* () {
+        this.plugin.settings.exportPath = value;
         yield this.plugin.saveSettings();
       })));
     }
@@ -4836,6 +6798,12 @@ var PlantUMLSettingsTab = class extends import_obsidian.PluginSettingTab {
       text.inputEl.setAttr("rows", 4);
       text.inputEl.addClass("puml-settings-area");
     });
+    new import_obsidian.Setting(containerEl).setName("Cache").setDesc("in days. Only applicable when generating diagrams locally").addSlider((slider) => {
+      slider.setLimits(10, 360, 10).setValue(this.plugin.settings.cache).setDynamicTooltip().onChange((value) => __async(this, null, function* () {
+        this.plugin.settings.cache = value;
+        yield this.plugin.saveSettings();
+      }));
+    });
     new import_obsidian.Setting(containerEl).setName("Debounce").setDesc("How often should the diagram refresh in seconds").addText((text) => text.setPlaceholder(String(DEFAULT_SETTINGS.debounce)).setValue(String(this.plugin.settings.debounce)).onChange((value) => __async(this, null, function* () {
       if (!isNaN(Number(value)) || value === void 0) {
         this.plugin.settings.debounce = Number(value || DEFAULT_SETTINGS.debounce);
@@ -4847,7 +6815,7 @@ var PlantUMLSettingsTab = class extends import_obsidian.PluginSettingTab {
   }
 };
 
-// src/localProcessors.ts
+// src/processors/localProcessors.ts
 var plantuml = __toModule(require_browser_index());
 
 // src/functions.ts
@@ -4936,100 +6904,6 @@ function insertSvgImage(el, image) {
   el.insertAdjacentHTML("beforeend", svg.documentElement.outerHTML);
 }
 
-// node_modules/compare-versions/index.mjs
-function compareVersions(v1, v2) {
-  const n1 = validateAndParse(v1);
-  const n2 = validateAndParse(v2);
-  const p1 = n1.pop();
-  const p2 = n2.pop();
-  const r = compareSegments(n1, n2);
-  if (r !== 0)
-    return r;
-  if (p1 && p2) {
-    return compareSegments(p1.split("."), p2.split("."));
-  } else if (p1 || p2) {
-    return p1 ? -1 : 1;
-  }
-  return 0;
-}
-var validate = (v) => typeof v === "string" && /^[v\d]/.test(v) && semver.test(v);
-var compare = (v1, v2, operator) => {
-  assertValidOperator(operator);
-  const res = compareVersions(v1, v2);
-  return operatorResMap[operator].includes(res);
-};
-var satisfies = (v, r) => {
-  const m = r.match(/^([<>=~^]+)/);
-  const op = m ? m[1] : "=";
-  if (op !== "^" && op !== "~")
-    return compare(v, r, op);
-  const [v1, v2, v3] = validateAndParse(v);
-  const [r1, r2, r3] = validateAndParse(r);
-  if (compareStrings(v1, r1) !== 0)
-    return false;
-  if (op === "^") {
-    return compareSegments([v2, v3], [r2, r3]) >= 0;
-  }
-  if (compareStrings(v2, r2) !== 0)
-    return false;
-  return compareStrings(v3, r3) >= 0;
-};
-compareVersions.validate = validate;
-compareVersions.compare = compare;
-compareVersions.sastisfies = satisfies;
-var semver = /^[v^~<>=]*?(\d+)(?:\.([x*]|\d+)(?:\.([x*]|\d+)(?:\.([x*]|\d+))?(?:-([\da-z\-]+(?:\.[\da-z\-]+)*))?(?:\+[\da-z\-]+(?:\.[\da-z\-]+)*)?)?)?$/i;
-var validateAndParse = (v) => {
-  if (typeof v !== "string") {
-    throw new TypeError("Invalid argument expected string");
-  }
-  const match = v.match(semver);
-  if (!match) {
-    throw new Error(`Invalid argument not valid semver ('${v}' received)`);
-  }
-  match.shift();
-  return match;
-};
-var isWildcard = (s) => s === "*" || s === "x" || s === "X";
-var tryParse = (v) => {
-  const n = parseInt(v, 10);
-  return isNaN(n) ? v : n;
-};
-var forceType = (a, b) => typeof a !== typeof b ? [String(a), String(b)] : [a, b];
-var compareStrings = (a, b) => {
-  if (isWildcard(a) || isWildcard(b))
-    return 0;
-  const [ap, bp] = forceType(tryParse(a), tryParse(b));
-  if (ap > bp)
-    return 1;
-  if (ap < bp)
-    return -1;
-  return 0;
-};
-var compareSegments = (a, b) => {
-  for (let i = 0; i < Math.max(a.length, b.length); i++) {
-    const r = compareStrings(a[i] || 0, b[i] || 0);
-    if (r !== 0)
-      return r;
-  }
-  return 0;
-};
-var operatorResMap = {
-  ">": [1],
-  ">=": [0, 1],
-  "=": [0],
-  "<=": [-1, 0],
-  "<": [-1]
-};
-var allowedOperators = Object.keys(operatorResMap);
-var assertValidOperator = (op) => {
-  if (typeof op !== "string") {
-    throw new TypeError(`Invalid operator type, expected string but got ${typeof op}`);
-  }
-  if (allowedOperators.indexOf(op) === -1) {
-    throw new Error(`Invalid operator, expected one of ${allowedOperators.join("|")}`);
-  }
-};
-
 // src/const.ts
 var LOGO_SVG = '<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="100" height="100" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><defs><linearGradient id="svgIDc" x1="-33.423" x2="-33.353" y1="-250.911" y2="-250.858" gradientTransform="matrix(37.134 26.001 13.575 -19.387 4673.473 -3982.019)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#767676"/><stop offset="1"/></linearGradient><linearGradient id="svgIDa" x1="-32.107" x2="-32.028" y1="-242.563" y2="-242.586" gradientTransform="matrix(81.081 56.774 17.306 -24.715 6804.021 -4149.644)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0079b9"/><stop offset="1"/></linearGradient><linearGradient id="svgIDd" x1="-33.282" x2="-33.224" y1="-243.423" y2="-243.455" gradientTransform="matrix(60.003 42.015 34.184 -48.82 10343.005 -10469.084)" href="#svgIDa"/><linearGradient id="svgIDb" x1="12.356" x2="14.011" y1="26.268" y2="26.268" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#595959"/><stop offset=".087" stop-color="#6e6e6e"/><stop offset=".242" stop-color="#8c8c8c"/><stop offset=".405" stop-color="#a4a4a4"/><stop offset=".577" stop-color="#b5b5b5"/><stop offset=".765" stop-color="#bfbfbf"/><stop offset="1" stop-color="#c2c2c2"/></linearGradient><linearGradient id="svgIDe" x1="18.291" x2="19.946" y1="26.171" y2="26.171" href="#svgIDb"/><linearGradient id="svgIDf" x1="24.44" x2="26.096" y1="26.171" y2="26.171" href="#svgIDb"/></defs><path fill="#1c0a42" d="m20.305 17.872l6.855 4.546l-5.44 3.075l-6.859-4.494l5.444-3.127z"/><path d="m21.716 25.619l-.055-.036l-7.005-4.59l5.653-3.247l7.056 4.68Zm-6.65-4.613l6.658 4.362l5.231-2.957L20.3 18Z"/><path fill="url(#svgIDc)" d="m26.401 11.909l3.017 1.683l-2.348 1.496l-2.857-1.841l2.188-1.338z"/><path d="m27.069 15.215l-3.058-1.97l2.387-1.46l3.228 1.8Zm-2.654-1.966l2.655 1.711l2.138-1.36l-2.8-1.565Z"/><path fill="#ffbd3f" d="m14.498 17.807l6.856 4.547l-5.44 3.075l-6.859-4.494l5.443-3.128z"/><path d="m15.91 25.554l-.055-.036l-7.005-4.589l5.65-3.248l7.056 4.68Zm-6.65-4.613l6.658 4.359l5.231-2.957l-6.654-4.413Z"/><path fill="#a11f40" d="m7.99 17.966l6.964 4.4l-5.377 3.138l-7.359-4.655l5.772-2.883z"/><path d="M9.575 25.629L2 20.838l6-3l7.164 4.527ZM2.436 20.86l7.144 4.518l5.168-3.016l-6.764-4.273Z"/><path fill="url(#svgIDa)" d="m2.111 21.021l7.332 4.494v3.548l-7.332-4.731v-3.311z"/><path d="M9.55 29.26L2 24.391v-3.562l7.55 4.626Zm-7.332-4.986l7.118 4.592v-3.291l-7.118-4.362Z"/><path fill="url(#svgIDd)" d="m24.071 13.343l2.938 1.879v6.909l-2.938-1.884v-6.904z"/><path d="m27.063 22.229l-3.045-1.953v-7.031l3.045 1.947Zm-2.938-2.012l2.831 1.815v-6.781l-2.831-1.81Z"/><path fill="#fff" d="M27.149 22.526v-7.332l2.365-1.419v15.374H9.646v-3.548l5.44-3.075l.699 3.075h.011l5.676-3.075l.419 3.075h.054l5.204-3.075z"/><path d="M29.621 29.256H9.539v-3.718l5.62-3.177l.7 3.083l5.7-3.087l.422 3.1l5.061-2.991v-7.333l2.58-1.548Zm-19.868-.215h19.654V13.964l-2.151 1.29v7.332l-.053.031l-5.229 3.09H21.8l-.411-3.014l-5.564 3.014H15.7l-.686-3.018l-5.26 2.973Z"/><rect width="1.656" height="1.656" x="12.356" y="25.44" fill="url(#svgIDb)" rx=".215" ry=".215"/><path d="M13.8 27.2h-1.23a.322.322 0 0 1-.322-.322v-1.223a.322.322 0 0 1 .322-.322h1.23a.322.322 0 0 1 .322.322v1.226a.322.322 0 0 1-.322.319Zm-1.23-1.653a.108.108 0 0 0-.107.107v1.226a.108.108 0 0 0 .107.107h1.23a.108.108 0 0 0 .107-.107v-1.225a.108.108 0 0 0-.107-.107Z"/><rect width="1.656" height="1.656" x="18.291" y="25.343" fill="url(#svgIDe)" rx=".215" ry=".215"/><path d="M19.732 27.106h-1.227a.322.322 0 0 1-.322-.322v-1.226a.322.322 0 0 1 .322-.322h1.226a.322.322 0 0 1 .322.322v1.226a.322.322 0 0 1-.321.322Zm-1.226-1.656a.108.108 0 0 0-.107.107v1.226a.108.108 0 0 0 .107.107h1.226a.108.108 0 0 0 .107-.107v-1.225a.108.108 0 0 0-.107-.107Z"/><rect width="1.656" height="1.656" x="24.44" y="25.343" fill="url(#svgIDf)" rx=".215" ry=".215"/><path d="M25.881 27.106h-1.226a.322.322 0 0 1-.322-.322v-1.226a.322.322 0 0 1 .322-.322h1.226a.322.322 0 0 1 .322.322v1.226a.322.322 0 0 1-.322.322Zm-1.226-1.656a.108.108 0 0 0-.107.107v1.226a.108.108 0 0 0 .107.107h1.226a.108.108 0 0 0 .107-.107v-1.225a.108.108 0 0 0-.107-.107Z"/><path fill="#ea2d2e" d="M27.215 11.23c-.052.069-.417-.262-.653-.526a4.408 4.408 0 0 1-.516-.73A2.6 2.6 0 0 1 25.7 9.2a2.358 2.358 0 0 1-.052-.682a2.959 2.959 0 0 1 .129-.749a3.142 3.142 0 0 1 .787-1.207a15.532 15.532 0 0 0 1.283-1.4a3.062 3.062 0 0 0 .479-.927a3.979 3.979 0 0 0 .151-.855c.019-.364-.025-.593.023-.613s.215.274.287.564a3.167 3.167 0 0 1-.458 2.1a6.9 6.9 0 0 1-1.094 1.448a2.8 2.8 0 0 0-.849 1.234a2.466 2.466 0 0 0-.086.687a3.465 3.465 0 0 0 .476 1.542c.288.572.48.833.439.888Z"/><path d="M27.193 11.266c-.124 0-.492-.365-.651-.544a4.478 4.478 0 0 1-.52-.734a2.628 2.628 0 0 1-.346-.781a2.375 2.375 0 0 1-.053-.69a2.978 2.978 0 0 1 .13-.756a3.208 3.208 0 0 1 .793-1.216c.294-.331.5-.528.659-.686a4.393 4.393 0 0 0 .622-.711a3.052 3.052 0 0 0 .476-.919a3.951 3.951 0 0 0 .15-.849c.008-.159 0-.294 0-.393c0-.159-.006-.225.038-.243a.05.05 0 0 1 .043 0a1.226 1.226 0 0 1 .28.579a3.167 3.167 0 0 1-.46 2.121a6.928 6.928 0 0 1-1.1 1.453c-.055.06-.109.116-.162.171a2.3 2.3 0 0 0-.681 1.052a2.47 2.47 0 0 0-.082.673a3.458 3.458 0 0 0 .473 1.53c.114.231.215.415.289.549c.129.235.178.323.142.369a.051.051 0 0 1-.04.02ZM28.512 2.8a.863.863 0 0 0 0 .19c0 .1.007.236 0 .4a4.021 4.021 0 0 1-.152.861a3.106 3.106 0 0 1-.483.934a4.437 4.437 0 0 1-.629.719c-.162.158-.364.354-.657.683a3.168 3.168 0 0 0-.782 1.2a2.933 2.933 0 0 0-.128.743a2.325 2.325 0 0 0 .052.675a2.59 2.59 0 0 0 .341.767a4.422 4.422 0 0 0 .513.725a2.035 2.035 0 0 0 .611.526a1.183 1.183 0 0 0-.147-.31a12.935 12.935 0 0 1-.29-.551a3.5 3.5 0 0 1-.483-1.562a2.53 2.53 0 0 1 .084-.688a2.375 2.375 0 0 1 .694-1.075c.052-.055.106-.111.161-.171a6.879 6.879 0 0 0 1.09-1.442a3.119 3.119 0 0 0 .456-2.083a1.281 1.281 0 0 0-.251-.541Z"/><path fill="#ea2d2e" d="M29.972 6.087c-.019-.088-.432-.04-.766.073a2.6 2.6 0 0 0-1.059.722a2.8 2.8 0 0 0-.916 1.855a2.972 2.972 0 0 0 .258 1.06c.221.572.455.773.444 1.225c-.007.3-.114.484-.048.549s.314-.1.462-.313a1.8 1.8 0 0 0 .259-1.022c-.046-.815-.6-1.015-.608-1.8a1.858 1.858 0 0 1 .129-.676c.443-1.251 1.881-1.508 1.845-1.673Z"/><path d="M27.934 11.617a.094.094 0 0 1-.069-.026c-.046-.046-.03-.122-.005-.237a1.718 1.718 0 0 0 .045-.331a1.374 1.374 0 0 0-.214-.72a5 5 0 0 1-.228-.495a2.98 2.98 0 0 1-.259-1.07a2.81 2.81 0 0 1 .923-1.874a2.64 2.64 0 0 1 1.07-.729a1.482 1.482 0 0 1 .766-.1a.065.065 0 0 1 .037.046c.015.07-.092.121-.306.224a2.73 2.73 0 0 0-1.542 1.463a1.827 1.827 0 0 0-.127.667a1.645 1.645 0 0 0 .291.885a1.889 1.889 0 0 1 .317.914a1.814 1.814 0 0 1-.264 1.039a.809.809 0 0 1-.421.342Zm1.889-5.549a2.117 2.117 0 0 0-.608.117a2.588 2.588 0 0 0-1.048.715a2.764 2.764 0 0 0-.909 1.837a2.935 2.935 0 0 0 .256 1.05a4.955 4.955 0 0 0 .225.49a1.433 1.433 0 0 1 .22.745a1.765 1.765 0 0 1-.047.341c-.019.091-.035.163-.009.188a.046.046 0 0 0 .038.01a.769.769 0 0 0 .382-.32a1.793 1.793 0 0 0 .254-1.005a1.844 1.844 0 0 0-.31-.89a1.711 1.711 0 0 1-.3-.911a1.877 1.877 0 0 1 .13-.686a2.776 2.776 0 0 1 1.573-1.492c.126-.061.283-.136.277-.164l-.008-.007a.264.264 0 0 0-.116-.018Z"/></svg>';
 var OutputType = /* @__PURE__ */ ((OutputType2) => {
@@ -5038,49 +6912,52 @@ var OutputType = /* @__PURE__ */ ((OutputType2) => {
   OutputType2["ASCII"] = "txt";
   return OutputType2;
 })(OutputType || {});
-function isUsingLivePreviewEnabledEditor() {
-  const config = this.app.vault.config;
-  if (config.legacyEditor === void 0)
-    return false;
-  if (config.legacyEditor)
-    return false;
-  const userAgent = navigator.userAgent.match(/obsidian([^ ]+)/);
-  if (userAgent === null) {
-    return true;
-  }
-  const version = userAgent.first().split("/")[1];
-  return compareVersions.compare(version, "0.13.0", ">=");
-}
 
-// src/localProcessors.ts
+// src/processors/localProcessors.ts
+var localforage = __toModule(require_localforage());
 var LocalProcessors = class {
   constructor(plugin) {
     this.ascii = (source, el, ctx) => __async(this, null, function* () {
+      const encodedDiagram = plantuml.encode(source);
+      const item = yield localforage.getItem("ascii-" + encodedDiagram);
+      if (item) {
+        insertAsciiImage(el, item);
+        yield localforage.setItem("ts-" + encodedDiagram, Date.now());
+        return;
+      }
       const image = yield this.generateLocalImage(source, OutputType.ASCII, this.plugin.replacer.getPath(ctx));
       insertAsciiImage(el, image);
+      yield localforage.setItem("ascii-" + encodedDiagram, image);
+      yield localforage.setItem("ts-" + encodedDiagram, Date.now());
     });
     this.png = (source, el, ctx) => __async(this, null, function* () {
       const encodedDiagram = plantuml.encode(source);
-      if (localStorage.getItem(encodedDiagram + "-png")) {
-        const image2 = localStorage.getItem(encodedDiagram + "-png");
-        const map2 = localStorage.getItem(encodedDiagram + "-map");
-        insertImageWithMap(el, image2, map2, encodedDiagram);
+      const item = yield localforage.getItem("png-" + encodedDiagram);
+      if (item) {
+        const map2 = yield localforage.getItem("map-" + encodedDiagram);
+        insertImageWithMap(el, item, map2, encodedDiagram);
+        yield localforage.setItem("ts-" + encodedDiagram, Date.now());
         return;
       }
       const path = this.plugin.replacer.getPath(ctx);
       const image = yield this.generateLocalImage(source, OutputType.PNG, path);
       const map = yield this.generateLocalMap(source, path);
-      localStorage.setItem(encodedDiagram + "-png", image);
-      localStorage.setItem(encodedDiagram + "-map", map);
+      yield localforage.setItem("png-" + encodedDiagram, image);
+      yield localforage.setItem("map-" + encodedDiagram, map);
+      yield localforage.setItem("ts-" + encodedDiagram, Date.now());
       insertImageWithMap(el, image, map, encodedDiagram);
     });
     this.svg = (source, el, ctx) => __async(this, null, function* () {
       const encodedDiagram = plantuml.encode(source);
-      if (localStorage.getItem(encodedDiagram + "-svg")) {
-        insertSvgImage(el, localStorage.getItem(encodedDiagram + "-svg"));
+      const item = yield localforage.getItem("svg-" + encodedDiagram);
+      if (item) {
+        insertSvgImage(el, item);
+        yield localforage.setItem("ts-" + encodedDiagram, Date.now());
         return;
       }
       const image = yield this.generateLocalImage(source, OutputType.SVG, this.plugin.replacer.getPath(ctx));
+      yield localforage.setItem("svg-" + encodedDiagram, image);
+      yield localforage.setItem("ts-" + encodedDiagram, Date.now());
       insertSvgImage(el, image);
     });
     this.plugin = plugin;
@@ -5192,18 +7069,30 @@ var LocalProcessors = class {
     if (jarFullPath.length == 0) {
       throw Error("Invalid local jar file");
     }
+    if (jarFullPath.endsWith(".jar")) {
+      return [
+        this.plugin.settings.javaPath,
+        "-jar",
+        '"' + jarFullPath + '"',
+        "-Djava.awt.headless=true",
+        "-charset",
+        "utf-8",
+        "-graphvizdot",
+        '"' + this.plugin.settings.dotPath + '"'
+      ];
+    }
     return [
-      this.plugin.settings.javaPath,
-      "-jar",
+      jarFullPath,
       "-Djava.awt.headless=true",
-      '"' + jarFullPath + '"',
       "-charset",
-      "utf-8"
+      "utf-8",
+      "-graphvizdot",
+      '"' + this.plugin.settings.dotPath + '"'
     ];
   }
 };
 
-// src/debouncedProcessors.ts
+// src/processors/debouncedProcessors.ts
 var import_obsidian2 = __toModule(require("obsidian"));
 
 // node_modules/uuid/dist/esm-browser/rng.js
@@ -5223,10 +7112,10 @@ function rng() {
 var regex_default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
 
 // node_modules/uuid/dist/esm-browser/validate.js
-function validate2(uuid) {
+function validate(uuid) {
   return typeof uuid === "string" && regex_default.test(uuid);
 }
-var validate_default = validate2;
+var validate_default = validate;
 
 // node_modules/uuid/dist/esm-browser/stringify.js
 var byteToHex = [];
@@ -5261,11 +7150,14 @@ function v4(options, buf, offset) {
 }
 var v4_default = v4;
 
-// src/debouncedProcessors.ts
+// src/processors/debouncedProcessors.ts
 var DebouncedProcessors = class {
   constructor(plugin) {
     this.SECONDS_TO_MS_FACTOR = 1e3;
     this.debounceMap = /* @__PURE__ */ new Map();
+    this.default = (source, el, ctx) => __async(this, null, function* () {
+      yield this.png(source, el, ctx);
+    });
     this.png = (source, el, ctx) => __async(this, null, function* () {
       yield this.processor(source, el, ctx, "png", this.plugin.getProcessor().png);
     });
@@ -5276,11 +7168,13 @@ var DebouncedProcessors = class {
       yield this.processor(source, el, ctx, "svg", this.plugin.getProcessor().svg);
     });
     this.processor = (source, el, ctx, filetype, processor) => __async(this, null, function* () {
+      const originalSource = source;
+      el.dataset.filetype = filetype;
       el.createEl("h6", { text: "Generating PlantUML diagram", cls: "puml-loading" });
       if (el.dataset.plantumlDebounce) {
         const debounceId = el.dataset.plantumlDebounce;
         if (this.debounceMap.has(debounceId)) {
-          yield this.debounceMap.get(debounceId)(source, el, ctx);
+          this.debounceMap.get(debounceId)(source, el, ctx);
         }
       } else {
         const func = (0, import_obsidian2.debounce)(processor, this.debounceTime, true);
@@ -5291,6 +7185,143 @@ var DebouncedProcessors = class {
         source = this.plugin.replacer.replaceLinks(source, this.plugin.replacer.getPath(ctx), filetype);
         source = this.plugin.settings.header + "\r\n" + source;
         yield processor(source, el, ctx);
+        el.addEventListener("contextmenu", (event) => {
+          const menu = new import_obsidian2.Menu().addItem((item) => {
+            item.setTitle("Copy diagram source").setIcon("clipboard-copy").onClick(() => __async(this, null, function* () {
+              yield navigator.clipboard.writeText(originalSource);
+            }));
+          }).addItem((item) => {
+            item.setTitle("Copy diagram").setIcon("image").onClick(() => __async(this, null, function* () {
+              console.log(el);
+              const img = el.querySelector("img");
+              if (img) {
+                this.renderToBlob(img, "An error occurred while copying image to clipboard", (blob) => __async(this, null, function* () {
+                  yield navigator.clipboard.write([
+                    new ClipboardItem({
+                      "image/png": blob
+                    })
+                  ]);
+                  new import_obsidian2.Notice("Diagram copied to clipboard");
+                }));
+              }
+              const svg = el.querySelector("svg");
+              if (svg) {
+                yield navigator.clipboard.writeText(svg.outerHTML);
+                new import_obsidian2.Notice("Diagram copied to clipboard");
+              }
+              const code = el.querySelector("code");
+              if (code) {
+                yield navigator.clipboard.writeText(code.innerText);
+                new import_obsidian2.Notice("Diagram copied to clipboard");
+              }
+            }));
+          }).addItem((item) => {
+            item.setTitle("Export diagram").setIcon("image-file").onClick(() => __async(this, null, function* () {
+              const img = el.querySelector("img");
+              if (img) {
+                this.renderToBlob(img, "An error occurred while exporting the diagram", (blob) => __async(this, null, function* () {
+                  const filename = yield this.getFilePath(source, ctx, "png");
+                  const buffer = yield blob.arrayBuffer();
+                  const file = this.getFile(filename);
+                  if (file) {
+                    yield this.plugin.app.vault.modifyBinary(file, buffer);
+                  } else {
+                    yield this.plugin.app.vault.createBinary(filename, buffer);
+                  }
+                  new import_obsidian2.Notice(`Diagram exported to '${filename}'`);
+                }));
+              }
+              const svg = el.querySelector("svg");
+              if (svg) {
+                yield this.saveTextFile(source, ctx, "svg", svg.outerHTML);
+              }
+              const code = el.querySelector("code");
+              if (code) {
+                yield this.saveTextFile(source, ctx, "txt", code.innerText);
+              }
+            }));
+          });
+          menu.showAtMouseEvent(event);
+        });
+      }
+    });
+    this.renderToBlob = (img, errorMessage, handleBlob) => {
+      const image = new Image();
+      image.crossOrigin = "anonymous";
+      image.src = img.src;
+      image.addEventListener("load", () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = image.width;
+        canvas.height = image.height;
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#fff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(image, 0, 0);
+        try {
+          canvas.toBlob((blob) => __async(this, null, function* () {
+            try {
+              yield handleBlob(blob);
+            } catch (error) {
+              new import_obsidian2.Notice(errorMessage);
+              console.error(error);
+            }
+          }));
+        } catch (error) {
+          new import_obsidian2.Notice(errorMessage);
+          console.error(error);
+        }
+      });
+    };
+    this.getFilename = (source, ctx) => {
+      const startuml = source.match(/@startuml (.+)/i);
+      if ((startuml == null ? void 0 : startuml.length) >= 2) {
+        return `${startuml[1].trim()}`;
+      }
+      const now = new Date().toISOString().replace(/[:T]+/g, "-");
+      const filename = this.plugin.app.vault.getAbstractFileByPath(ctx.sourcePath).name;
+      return `${filename.substring(0, filename.lastIndexOf("."))}-${now.substring(0, now.lastIndexOf("."))}`;
+    };
+    this.getFolder = (ctx) => __async(this, null, function* () {
+      let exportPath = this.plugin.settings.exportPath;
+      if (!exportPath.startsWith("/")) {
+        const documentPath = this.plugin.app.vault.getAbstractFileByPath(ctx.sourcePath).parent;
+        exportPath = `${documentPath.path}/${exportPath}`;
+      }
+      const exists = yield this.plugin.app.vault.adapter.exists(exportPath);
+      if (!exists) {
+        this.plugin.app.vault.createFolder(exportPath);
+      }
+      return exportPath;
+    });
+    this.getFilePath = (source, ctx, type) => __async(this, null, function* () {
+      const filename = this.getFilename(source, ctx);
+      const path = yield this.getFolder(ctx);
+      return `${path}${filename}.${type}`;
+    });
+    this.getFile = (fileName) => {
+      let fName = fileName;
+      if (fName.startsWith("/")) {
+        fName = fName.substring(1);
+      }
+      const folderOrFile = this.plugin.app.vault.getAbstractFileByPath(fName);
+      if (folderOrFile instanceof import_obsidian2.TFile) {
+        return folderOrFile;
+      }
+      return void 0;
+    };
+    this.saveTextFile = (source, ctx, type, data) => __async(this, null, function* () {
+      try {
+        const filename = yield this.getFilePath(source, ctx, type);
+        const file = this.getFile(filename);
+        if (file) {
+          yield this.plugin.app.vault.modify(file, data);
+        } else {
+          yield this.plugin.app.vault.create(filename, data);
+        }
+        new import_obsidian2.Notice(`Diagram exported to '${filename}'`);
+      } catch (error) {
+        new import_obsidian2.Notice("An error occurred while while exporting the diagram");
+        console.error(error);
       }
     });
     this.plugin = plugin;
@@ -5299,7 +7330,7 @@ var DebouncedProcessors = class {
   }
 };
 
-// src/serverProcessor.ts
+// src/processors/serverProcessor.ts
 var import_obsidian3 = __toModule(require("obsidian"));
 var plantuml2 = __toModule(require_browser_index());
 var ServerProcessor = class {
@@ -5351,121 +7382,196 @@ var ServerProcessor = class {
   }
 };
 
-// src/main.ts
-init_PumlView();
-var import_state3 = __toModule(require("@codemirror/state"));
-
-// src/decorations/EmbedDecoration.ts
-var import_obsidian5 = __toModule(require("obsidian"));
-var import_view2 = __toModule(require("@codemirror/view"));
-var import_state2 = __toModule(require("@codemirror/state"));
-var import_language = __toModule(require("@codemirror/language"));
-var statefulDecorations = defineStatefulDecoration();
-var StatefulDecorationSet = class {
-  constructor(editor, plugin) {
-    this.decoCache = Object.create(null);
-    this.debouncedUpdate = (0, import_obsidian5.debounce)(this.updateAsyncDecorations, 100, true);
-    this.editor = editor;
-    this.plugin = plugin;
-  }
-  computeAsyncDecorations(tokens) {
-    return __async(this, null, function* () {
-      const decorations = [];
-      for (const token of tokens) {
-        let deco = this.decoCache[token.value];
-        if (!deco) {
-          const file = this.plugin.app.metadataCache.getFirstLinkpathDest(token.value, "");
-          if (!file)
-            return;
-          const fileContent = yield this.plugin.app.vault.read(file);
-          const div = createDiv();
-          if (this.plugin.settings.defaultProcessor === "png") {
-            yield this.plugin.getProcessor().png(fileContent, div, null);
-          } else {
-            yield this.plugin.getProcessor().svg(fileContent, div, null);
-          }
-          deco = this.decoCache[token.value] = import_view2.Decoration.replace({ widget: new EmojiWidget(div), block: true });
+// src/PumlView.ts
+var import_obsidian4 = __toModule(require("obsidian"));
+var import_view = __toModule(require("@codemirror/view"));
+var import_state = __toModule(require("@codemirror/state"));
+var import_search = __toModule(require("@codemirror/search"));
+var import_commands = __toModule(require("@codemirror/commands"));
+var VIEW_TYPE = "plantuml";
+var views = [];
+var syncAnnotation = import_state.Annotation.define();
+function syncDispatch(from) {
+  return (tr) => {
+    views[from].update([tr]);
+    if (tr.changes && tr.annotation && !tr.changes.empty && !tr.annotation(syncAnnotation)) {
+      for (let i = 0; i < views.length; i++) {
+        if (i !== from) {
+          views[i].dispatch({
+            changes: tr.changes,
+            annotations: syncAnnotation.of(true)
+          });
         }
-        decorations.push(deco.range(token.from, token.from));
       }
-      return import_view2.Decoration.set(decorations, true);
+    }
+  };
+}
+var PumlView = class extends import_obsidian4.TextFileView {
+  constructor(leaf, plugin) {
+    super(leaf);
+    this.dispatchId = -1;
+    this.extensions = [
+      (0, import_view.highlightActiveLine)(),
+      (0, import_view.highlightActiveLineGutter)(),
+      (0, import_search.highlightSelectionMatches)(),
+      (0, import_view.drawSelection)(),
+      import_view.keymap.of([...import_commands.defaultKeymap, import_commands.indentWithTab]),
+      (0, import_commands.history)(),
+      (0, import_search.search)(),
+      import_view.EditorView.updateListener.of((v) => __async(this, null, function* () {
+        if (v.docChanged) {
+          this.requestSave();
+          yield this.renderPreview();
+        }
+      }))
+    ];
+    this.plugin = plugin;
+    this.debounced = (0, import_obsidian4.debounce)(this.plugin.getProcessor().png, this.plugin.settings.debounce * 1e3, true);
+    this.sourceEl = this.contentEl.createDiv({ cls: "plantuml-source-view", attr: { "style": "display: block" } });
+    this.previewEl = this.contentEl.createDiv({ cls: "plantuml-preview-view", attr: { "style": "display: none" } });
+    const vault = this.app.vault;
+    if (vault.getConfig("showLineNumber")) {
+      this.extensions.push((0, import_view.lineNumbers)());
+    }
+    if (vault.getConfig("lineWrap")) {
+      this.extensions.push(import_view.EditorView.lineWrapping);
+    }
+    this.editor = new import_view.EditorView({
+      state: import_state.EditorState.create({
+        extensions: this.extensions,
+        doc: this.data
+      }),
+      parent: this.sourceEl,
+      dispatch: syncDispatch(views.length)
     });
+    this.dispatchId = views.push(this.editor) - 1;
   }
-  updateAsyncDecorations(tokens) {
+  getViewType() {
+    return VIEW_TYPE;
+  }
+  getState() {
+    return super.getState();
+  }
+  setState(state, result) {
+    if (state.mode === "preview") {
+      this.currentView = "preview";
+      (0, import_obsidian4.setIcon)(this.changeModeButton, "pencil");
+      this.changeModeButton.setAttribute("aria-label", "Edit (Ctrl+Click to edit in new pane)");
+      this.previewEl.style.setProperty("display", "block");
+      this.sourceEl.style.setProperty("display", "none");
+      this.renderPreview();
+    } else {
+      this.currentView = "source";
+      (0, import_obsidian4.setIcon)(this.changeModeButton, "lines-of-text");
+      this.changeModeButton.setAttribute("aria-label", "Preview (Ctrl+Click to open in new pane)");
+      this.previewEl.style.setProperty("display", "none");
+      this.sourceEl.style.setProperty("display", "block");
+    }
+    return super.setState(state, result);
+  }
+  onload() {
     return __async(this, null, function* () {
-      const decorations = yield this.computeAsyncDecorations(tokens);
-      if (decorations || this.editor.state.field(statefulDecorations.field).size) {
-        this.editor.dispatch({ effects: statefulDecorations.update.of(decorations || import_view2.Decoration.none) });
+      this.changeModeButton = this.addAction("lines-of-text", "Preview (Ctrl+Click to open in new pane)", (evt) => this.switchMode(evt), 17);
+      const defaultViewMode = this.app.vault.getConfig("defaultViewMode");
+      this.currentView = defaultViewMode;
+      yield this.setState(__spreadProps(__spreadValues({}, this.getState()), { mode: defaultViewMode }), {});
+    });
+  }
+  onunload() {
+    views.remove(views[this.dispatchId]);
+    this.editor.destroy();
+  }
+  switchMode(arg) {
+    return __async(this, null, function* () {
+      let mode = arg;
+      if (!mode || mode instanceof MouseEvent)
+        mode = this.currentView === "source" ? "preview" : "source";
+      if (arg instanceof MouseEvent) {
+        if (import_obsidian4.Keymap.isModEvent(arg)) {
+          this.app.workspace.duplicateLeaf(this.leaf).then(() => __async(this, null, function* () {
+            var _a, _b;
+            const viewState = (_a = this.app.workspace.activeLeaf) == null ? void 0 : _a.getViewState();
+            if (viewState) {
+              viewState.state = __spreadProps(__spreadValues({}, viewState.state), { mode });
+              yield (_b = this.app.workspace.activeLeaf) == null ? void 0 : _b.setViewState(viewState);
+            }
+          }));
+        } else {
+          yield this.setState(__spreadProps(__spreadValues({}, this.getState()), { mode }), {});
+        }
       }
     });
   }
-};
-function buildViewPlugin(plugin) {
-  return import_view2.ViewPlugin.fromClass(class {
-    constructor(view) {
-      this.decoManager = new StatefulDecorationSet(view, plugin);
-      this.buildAsyncDecorations(view);
-    }
-    update(update) {
-      if (update.docChanged || update.viewportChanged) {
-        this.buildAsyncDecorations(update.view);
-      }
-    }
-    buildAsyncDecorations(view) {
-      const targetElements = [];
-      for (const { from } of view.visibleRanges) {
-        const tree = (0, import_language.syntaxTree)(view.state);
-        tree.iterate({
-          enter: (node) => {
-            const tokenProps = node.type.prop(import_language.tokenClassNodeProp);
-            if (tokenProps) {
-              const props = new Set(tokenProps.split(" "));
-              const isEmbed = props.has("formatting-embed");
-              if (isEmbed) {
-                const content = view.state.doc.sliceString(from);
-                const index = content.indexOf("]]");
-                const filename = content.slice(3, index).split("|")[0];
-                if (filename.endsWith(".puml") || filename.endsWith(".pu")) {
-                  targetElements.push({ from, to: index, value: filename });
-                }
-              }
-            }
+  getViewData() {
+    return this.editor.state.sliceDoc();
+  }
+  setViewData(data, clear) {
+    return __async(this, null, function* () {
+      this.data = data;
+      if (clear) {
+        this.editor.setState(import_state.EditorState.create({
+          doc: data,
+          extensions: this.extensions
+        }));
+      } else {
+        this.editor.dispatch({
+          changes: {
+            from: 0,
+            to: this.editor.state.doc.length,
+            insert: data
           }
         });
       }
-      this.decoManager.debouncedUpdate(targetElements);
-    }
-  });
-}
-function asyncDecoBuilderExt(plugin) {
-  return [statefulDecorations.field, buildViewPlugin(plugin)];
-}
-function defineStatefulDecoration() {
-  const update = import_state2.StateEffect.define();
-  const field = import_state2.StateField.define({
-    create() {
-      return import_view2.Decoration.none;
-    },
-    update(deco, tr) {
-      return tr.effects.reduce((deco2, effect) => effect.is(update) ? effect.value : deco2, deco.map(tr.changes));
-    },
-    provide: (field2) => import_view2.EditorView.decorations.from(field2)
-  });
-  return { update, field };
-}
-var EmojiWidget = class extends import_view2.WidgetType {
-  constructor(source) {
+      if (this.currentView === "preview")
+        this.renderPreview();
+    });
+  }
+  clear() {
+    this.previewEl.empty();
+    this.data = null;
+  }
+  getDisplayText() {
+    if (this.file)
+      return this.file.basename;
+    else
+      return "PlantUML (no file)";
+  }
+  canAcceptExtension(extension) {
+    return extension == "puml";
+  }
+  getIcon() {
+    return "document-plantuml";
+  }
+  renderPreview() {
+    return __async(this, null, function* () {
+      if (this.currentView !== "preview")
+        return;
+      this.previewEl.empty();
+      const loadingHeader = this.previewEl.createEl("h1", { text: "Loading" });
+      const previewDiv = this.previewEl.createDiv();
+      this.debounced(this.getViewData(), previewDiv, null);
+      loadingHeader.remove();
+    });
+  }
+};
+
+// src/main.ts
+var import_localforage = __toModule(require_localforage());
+
+// src/embed.ts
+var import_obsidian5 = __toModule(require("obsidian"));
+var PumlEmbed = class extends import_obsidian5.Component {
+  constructor(plugin, file, ctx) {
     super();
-    this.source = source;
+    this.plugin = plugin;
+    this.file = file;
+    this.ctx = ctx;
   }
-  eq(other) {
-    return other == this;
-  }
-  toDOM() {
-    return this.source;
-  }
-  ignoreEvent() {
-    return false;
+  loadFile() {
+    return __async(this, null, function* () {
+      const data = yield this.plugin.app.vault.cachedRead(this.file);
+      yield this.plugin.getProcessor().png(data, this.ctx.containerEl, null);
+    });
   }
 };
 
@@ -5498,22 +7604,27 @@ var PlantumlPlugin = class extends import_obsidian6.Plugin {
         this.localProcessor = new LocalProcessors(this);
       }
       const processor = new DebouncedProcessors(this);
-      if (isUsingLivePreviewEnabledEditor()) {
-        const view = (init_PumlView(), PumlView_exports);
-        (0, import_obsidian6.addIcon)("document-" + view.VIEW_TYPE, LOGO_SVG);
-        this.registerView(view.VIEW_TYPE, (leaf) => {
-          return new view.PumlView(leaf, this);
-        });
-        this.registerExtensions(["puml", "pu"], view.VIEW_TYPE);
-        this.registerEditorExtension(import_state3.Prec.lowest(asyncDecoBuilderExt(this)));
-      }
-      this.registerMarkdownCodeBlockProcessor("plantuml", processor.png);
+      (0, import_obsidian6.addIcon)("document-" + VIEW_TYPE, LOGO_SVG);
+      this.registerView(VIEW_TYPE, (leaf) => {
+        return new PumlView(leaf, this);
+      });
+      this.registerExtensions(["puml", "pu"], VIEW_TYPE);
+      this.registerMarkdownCodeBlockProcessor("plantuml", processor.default);
+      this.registerMarkdownCodeBlockProcessor("plantuml-png", processor.png);
       this.registerMarkdownCodeBlockProcessor("plantuml-ascii", processor.ascii);
       this.registerMarkdownCodeBlockProcessor("plantuml-svg", processor.svg);
-      this.registerMarkdownCodeBlockProcessor("puml", processor.png);
+      this.registerMarkdownCodeBlockProcessor("puml", processor.default);
+      this.registerMarkdownCodeBlockProcessor("puml-png", processor.png);
       this.registerMarkdownCodeBlockProcessor("puml-svg", processor.svg);
       this.registerMarkdownCodeBlockProcessor("puml-ascii", processor.ascii);
       this.registerMarkdownCodeBlockProcessor("plantuml-map", processor.png);
+      this.app.embedRegistry.registerExtensions(["puml", "pu"], (ctx, file, subpath) => new PumlEmbed(this, file, ctx));
+      this.cleanupLocalStorage();
+      import_localforage.default.config({
+        name: "puml",
+        description: "PlantUML plugin"
+      });
+      yield this.cleanupCache();
       this.observer = new MutationObserver((mutation) => __async(this, null, function* () {
         if (mutation.length !== 1)
           return;
@@ -5563,35 +7674,35 @@ var PlantumlPlugin = class extends import_obsidian6.Plugin {
         this.hover.sourcePath = sourcePath;
       })));
       this.observer.observe(document, { childList: true, subtree: true });
-      this.registerMarkdownPostProcessor((element, context) => __async(this, null, function* () {
-        const embeddedItems = element.querySelectorAll(".internal-embed");
-        if (embeddedItems.length === 0) {
-          return;
-        }
-        for (const key in embeddedItems) {
-          const item = embeddedItems[key];
-          if (typeof item.getAttribute !== "function")
-            return;
-          const filename = item.getAttribute("src");
-          const file = this.app.metadataCache.getFirstLinkpathDest(filename.split("#")[0], context.sourcePath);
-          if (file && file instanceof import_obsidian6.TFile && (file.extension === "puml" || file.extension === "pu")) {
-            const fileContent = yield this.app.vault.read(file);
-            const div = createDiv();
-            if (this.settings.defaultProcessor === "png") {
-              yield this.getProcessor().png(fileContent, div, context);
-            } else {
-              yield this.getProcessor().svg(fileContent, div, context);
-            }
-            item.parentElement.replaceChild(div, item);
+    });
+  }
+  cleanupCache() {
+    return __async(this, null, function* () {
+      yield import_localforage.default.iterate((value, key) => {
+        if (key.startsWith("ts-")) {
+          const encoded = key.split("-")[1];
+          if (value < new Date().getTime() - this.settings.cache * 24 * 60 * 60 * 1e3) {
+            import_localforage.default.removeItem("png-" + encoded);
+            import_localforage.default.removeItem("svg-" + encoded);
+            import_localforage.default.removeItem("map-" + encoded);
+            import_localforage.default.removeItem("ascii-" + encoded);
           }
         }
-      }));
+      });
     });
+  }
+  cleanupLocalStorage() {
+    for (const key of Object.keys(localStorage)) {
+      if (key.endsWith("-map") || key.endsWith("-png") || key.endsWith("-svg") || key.endsWith("ascii")) {
+        localStorage.removeItem(key);
+      }
+    }
   }
   onunload() {
     return __async(this, null, function* () {
       console.log("unloading plugin plantuml");
       this.observer.disconnect();
+      this.app.embedRegistry.unregisterExtensions(["puml", "pu"]);
     });
   }
   loadSettings() {
@@ -5604,4 +7715,18 @@ var PlantumlPlugin = class extends import_obsidian6.Plugin {
       yield this.saveData(this.settings);
     });
   }
+  onExternalSettingsChange() {
+    return __async(this, null, function* () {
+      yield this.loadSettings();
+    });
+  }
 };
+/*!
+    localForage -- Offline Storage, Improved
+    Version 1.10.0
+    https://localforage.github.io/localForage
+    (c) 2013-2017 Mozilla, Apache License 2.0
+*/
+
+
+/* nosourcemap */

@@ -1,7 +1,5 @@
 ---
 banner: "![[Cover.jpg]]"
----
----
 banner: "![[Cover.jpg]]"
 banner_y: 0.3755
 Language: "[[C++]]"

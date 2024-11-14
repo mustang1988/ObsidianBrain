@@ -4,20 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "eddfef415fd5507e",
+        "id": "c43a6b784c41fa3a",
         "type": "tabs",
         "children": [
           {
-            "id": "d87dc6e635cf0970",
+            "id": "d36131c52f3c00d5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "生活/食谱/葱油.md",
+                "file": "软件开发/框架&库/EggJS/EggJS中使用WorkerThread线程池分担CPU密集型和IO密集型操作.md",
                 "mode": "source",
                 "backlinks": false,
-                "source": false
-              }
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "EggJS中使用WorkerThread线程池分担CPU密集型和IO密集型操作"
             }
           }
         ]
@@ -39,13 +41,15 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "pyinstall",
+                "query": "",
                 "matchingCase": true,
                 "explainSearch": true,
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
             }
           },
           {
@@ -55,7 +59,19 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "6e3dd7135fca81d6",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
             }
           }
         ],
@@ -81,7 +97,9 @@
               "state": {
                 "sortOrder": "alphabetical",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
             }
           },
           {
@@ -89,7 +107,9 @@
             "type": "leaf",
             "state": {
               "type": "advanced-tables-toolbar",
-              "state": {}
+              "state": {},
+              "icon": "lucide-file",
+              "title": "插件不再活动"
             }
           },
           {
@@ -98,10 +118,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "生活/食谱/葱油.md",
+                "file": "软件开发/框架&库/EggJS/EggJS中使用WorkerThread线程池分担CPU密集型和IO密集型操作.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "EggJS中使用WorkerThread线程池分担CPU密集型和IO密集型操作 的出链列表"
             }
           },
           {
@@ -110,7 +132,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "生活/食谱/葱油.md",
+                "file": "软件开发/框架&库/EggJS/EggJS中使用WorkerThread线程池分担CPU密集型和IO密集型操作.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +140,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "EggJS中使用WorkerThread线程池分担CPU密集型和IO密集型操作 的反向链接列表"
             }
           }
         ]
@@ -130,26 +154,44 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "templater-obsidian:Templater": false,
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "workspaces:Manage workspace layouts": false
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "workspaces:管理工作区布局": false,
+      "templater-obsidian:Templater": false
     }
   },
-  "active": "d87dc6e635cf0970",
+  "active": "d36131c52f3c00d5",
   "lastOpenFiles": [
-    "软件开发/编程语言/C++/C++.md",
-    "生活/学习/Obsidian/Obsidian.md",
-    "生活/学习/Obsidian/Obsidian使用基础.md",
-    "软件开发/工具/FFmpeg/命令/为无音频流的视频文件添加空白音频流.md",
-    "软件开发/工具/FFmpeg/FFprobe.md",
-    "软件开发/工具/FFmpeg/参数/-intra.md",
-    "软件开发/工具/FFmpeg/FFmpeg.md",
-    "软件开发/工具/FFmpeg/NTSC制式帧率转换.md",
+    "软件开发/框架&库/EggJS/EggJS.md",
+    "软件开发/框架&库/EggJS/EggJS中使用WorkerThread线程池分担CPU密集型和IO密集型操作.md",
+    "软件开发/框架&库/框架&库.md",
+    "生活/食谱/万能油酥.md",
+    "生活/读书/书库/1Q84：4月~6月.md",
+    "软件开发/工具/VSCode/在VSCode中单步调试TypeScript和JavaScript.md",
+    "软件开发/工具/VSCode/VSCode.md",
+    "软件开发/工具/VSCode/插件/ProjectManager.md",
+    "软件开发/工具/VSCode/插件/CodeSnap.md",
+    "软件开发/工具/JMeter/JMeter基础使用.md",
     "软件开发/工具/Git/约定式提交.md",
-    "软件开发/工具/Git/Git.md"
+    "软件开发/工具/Git/GitFlow.md",
+    "软件开发/数据库/数据库.md",
+    "软件开发/数据库/MySQL/MySQL.md",
+    "软件开发/数据库/MongoDB/MongoDB数据备份&恢复.md",
+    "软件开发/数据库/MongoDB/MongoDB.md",
+    "软件开发/框架&库/NestJS/NestJS.md",
+    "软件开发/框架&库/Mocha/Mocha.md",
+    "软件开发/框架&库/Prisma/Prisma.md",
+    "软件开发/框架&库/WebRTC/WebRTC源码分析.md",
+    "软件开发/框架&库/WebRTC/WebRTC H264视频流SDP中profile-level-id字段对照表.md",
+    "软件开发/框架&库/WebRTC/WebRTC.md",
+    "软件开发/首页.md",
+    "软件开发/框架&库/Prisma/Prisma使用入门.md",
+    "软件开发/框架&库/SpringFramework/SpringFramework.md",
+    "软件开发/工具/Docker/Docker Capabilities.md",
+    "软件开发/工具/JMeter",
+    "软件开发/框架&库/WebRTC/WHIP与WHEP"
   ]
 }
